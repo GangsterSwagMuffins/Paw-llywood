@@ -25,6 +25,7 @@
 		33AB426E1ECBB015007B7BB4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB426D1ECBB015007B7BB4 /* PostTableViewCell.swift */; };
 		33AB42701ECBB031007B7BB4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB426F1ECBB031007B7BB4 /* Post.swift */; };
 		5E0CF80F1EBE68E70088427A /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0CF80E1EBE68E70088427A /* PostsViewController.swift */; };
+		5E1D58441ED91B970055C09D /* ProfilePictureEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D58431ED91B970055C09D /* ProfilePictureEditorViewController.swift */; };
 		5EC637411ED413B7003D67F3 /* PetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC637401ED413B7003D67F3 /* PetsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		33AB426F1ECBB031007B7BB4 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		57FC94EB9F2EA35A528B412B /* Pods-PetWorld.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetWorld.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetWorld/Pods-PetWorld.debug.xcconfig"; sourceTree = "<group>"; };
 		5E0CF80E1EBE68E70088427A /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsViewController.swift; path = ../PostsViewController.swift; sourceTree = "<group>"; };
+		5E1D58431ED91B970055C09D /* ProfilePictureEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePictureEditorViewController.swift; sourceTree = "<group>"; };
 		5EC637401ED413B7003D67F3 /* PetsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetsTableViewCell.swift; sourceTree = "<group>"; };
 		6BA0A4BE051DCD8953020CDD /* Pods-PetWorld.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetWorld.release.xcconfig"; path = "Pods/Target Support Files/Pods-PetWorld/Pods-PetWorld.release.xcconfig"; sourceTree = "<group>"; };
 		D9B6E87101CC204FDD0CCA3F /* Pods_PetWorld.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetWorld.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +179,7 @@
 				1F15C5371E9C98F0005B828B /* SettingsViewController.swift */,
 				1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */,
 				1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */,
+				5E1D58431ED91B970055C09D /* ProfilePictureEditorViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */,
 				33AB426E1ECBB015007B7BB4 /* PostTableViewCell.swift in Sources */,
 				1F15C5361E9C9813005B828B /* HomeViewController.swift in Sources */,
+				5E1D58441ED91B970055C09D /* ProfilePictureEditorViewController.swift in Sources */,
 				1F15C5381E9C98F0005B828B /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
