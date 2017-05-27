@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animatee3d: Bool) {
         if(user == nil) {
             if(User.current() == nil) {
                 return; // logged out
@@ -51,8 +51,10 @@ class ProfileViewController: UIViewController {
             user = User.current();
         }
         user = User.current();
-        if user.petsArray.first != nil {
-            pet = user.petsArray.first
+        if user.petsArray.first != nil && user.petsArray.count > 1 {
+            self.pet = user.petsArray.first
+        }else{
+            self.pet = Pet()
         }
     }
 
@@ -100,7 +102,7 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func onTapAddPet(_ sender: Any) {
-        pet.name = nameLabel.text
+      //  pet.name = nameLabel.text
         pet.breed = breedLabel.text
         pet.age = Int(ageLabel.text!)
         pet.gender = genderLabel.text
