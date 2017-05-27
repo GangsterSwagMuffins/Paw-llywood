@@ -40,7 +40,7 @@ class ProfileViewController: UIViewController {
         
         refreshAlert.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { (action: UIAlertAction!) in
 
-            User.logOutInBackground;
+          //  User.logOutInBackground;
             //change view controller to login view controller
             let viewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
             self.present(viewController!, animated: true, completion: nil)
