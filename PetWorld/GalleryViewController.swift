@@ -175,7 +175,7 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         let destVc: VerifyPhotoViewController = segue.destination as! VerifyPhotoViewController
         
         // Pass the selected object to the new view controller.
-        destVc.chosenPicture.image = self.chosenPicture.image
+        destVc.picture = self.chosenPicture.image
         
         
     }
