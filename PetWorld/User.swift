@@ -9,6 +9,6 @@
 import UIKit
 import Parse
 
-class User {
-   // var petsArray = [Pet]()
+class User: PFUser {
+   //var petsArray = [Pet]()!
 }
