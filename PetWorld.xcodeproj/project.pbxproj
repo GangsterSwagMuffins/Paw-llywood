@@ -28,6 +28,8 @@
 		33751ECB1ED937AC00E60E34 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33751ECA1ED937AC00E60E34 /* FriendsViewController.swift */; };
 		33751ECE1ED95BAB00E60E34 /* MyFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33751ECD1ED95BAB00E60E34 /* MyFriendsViewController.swift */; };
 		33751ED01ED95BB800E60E34 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33751ECF1ED95BB800E60E34 /* AddFriendViewController.swift */; };
+		33751ED21ED9688B00E60E34 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33751ED11ED9688B00E60E34 /* Friend.swift */; };
+		33751ED41ED96B3A00E60E34 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33751ED31ED96B3A00E60E34 /* FriendTableViewCell.swift */; };
 		33AB426E1ECBB015007B7BB4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB426D1ECBB015007B7BB4 /* PostTableViewCell.swift */; };
 		33AB42701ECBB031007B7BB4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB426F1ECBB031007B7BB4 /* Post.swift */; };
 		5E0CF80F1EBE68E70088427A /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0CF80E1EBE68E70088427A /* PostsViewController.swift */; };
@@ -80,6 +82,8 @@
 		33751ECA1ED937AC00E60E34 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		33751ECD1ED95BAB00E60E34 /* MyFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFriendsViewController.swift; sourceTree = "<group>"; };
 		33751ECF1ED95BB800E60E34 /* AddFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
+		33751ED11ED9688B00E60E34 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		33751ED31ED96B3A00E60E34 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		33AB426D1ECBB015007B7BB4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		33AB426F1ECBB031007B7BB4 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		57FC94EB9F2EA35A528B412B /* Pods-PetWorld.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetWorld.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetWorld/Pods-PetWorld.debug.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 				1F9FEF9F1ECA02D80009CC06 /* Pet.swift */,
 				33AB426F1ECBB031007B7BB4 /* Post.swift */,
 				5E127DDC1ED92EA000BC5C9D /* User.swift */,
+				33751ED11ED9688B00E60E34 /* Friend.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 			children = (
 				33751ECA1ED937AC00E60E34 /* FriendsViewController.swift */,
 				33751ECD1ED95BAB00E60E34 /* MyFriendsViewController.swift */,
+				33751ED31ED96B3A00E60E34 /* FriendTableViewCell.swift */,
 				33751ECF1ED95BB800E60E34 /* AddFriendViewController.swift */,
 			);
 			name = "Friends View Controllers";
@@ -440,6 +446,8 @@
 				33751ED01ED95BB800E60E34 /* AddFriendViewController.swift in Sources */,
 				1F15C53A1E9EFFC3005B828B /* ProfileView.swift in Sources */,
 				1F7D42591ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift in Sources */,
+				33751ED41ED96B3A00E60E34 /* FriendTableViewCell.swift in Sources */,
+				33751ED21ED9688B00E60E34 /* Friend.swift in Sources */,
 				1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */,
 				33AB426E1ECBB015007B7BB4 /* PostTableViewCell.swift in Sources */,
 				1F15C5361E9C9813005B828B /* HomeViewController.swift in Sources */,

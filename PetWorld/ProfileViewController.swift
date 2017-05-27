@@ -21,11 +21,15 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var followingLabel: UILabel!
+    var pet: Pet!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if pet.image == nil {
+            pet.image = #imageLiteral(resourceName: "Default Profile Image")
+        }
     }
 
     override func didReceiveMemoryWarning() {
