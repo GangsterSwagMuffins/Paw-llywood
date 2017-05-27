@@ -28,6 +28,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onCancel(_ sender: Any) {
+        self.performSegue(withIdentifier: "cancelSignUp", sender: nil)
+
+    }
     @IBAction func onCreateAccTap(_ sender: Any) {
         
         let user = PFUser()
