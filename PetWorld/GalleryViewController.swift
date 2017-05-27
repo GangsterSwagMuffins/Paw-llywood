@@ -71,8 +71,11 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        
+        if (photosAsset != nil){
       return photosAsset.count
+        }
+        
+        return 0
         
         
     }
