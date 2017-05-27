@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class AddFriendViewController: UIViewController {
+class AddFriendViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var numberTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
@@ -17,6 +17,8 @@ class AddFriendViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.nameTextField.delegate = self
+        self.numberTextField.delegate = self
     }
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
@@ -27,13 +29,15 @@ class AddFriendViewController: UIViewController {
     
     @IBAction func onSave(_ sender: Any) {
         let post = PFObject(className: "Friend")
-        post["name"] = numberTextField.text
+        post["name"] = nameTextField.text
         post["number"] = numberTextField.text
         
         // Save object (following function will save the object in Parse asynchronously)
         post.saveInBackground { (True, error) in
             
         }
+        
+        self.performSegue(withIdentifier: "showFriends", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +48,11 @@ class AddFriendViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("Add Friend will disappear")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
     }
 
     override func didReceiveMemoryWarning() {

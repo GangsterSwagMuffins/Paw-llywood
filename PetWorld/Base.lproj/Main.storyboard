@@ -724,7 +724,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mhq-9F-Pga" id="7h2-77-tX2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayV-h6-JLp">
@@ -832,6 +832,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onSave:" destination="hpt-f0-fv0" eventType="touchUpInside" id="UPo-P1-p4U"/>
+                                    <segue destination="RNM-cD-UUI" kind="show" identifier="showFriends" id="dIV-iu-6nk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -870,6 +871,9 @@
                                     <segment title="My Friends"/>
                                     <segment title="Add Friend"/>
                                 </segments>
+                                <connections>
+                                    <segue destination="hpt-f0-fv0" kind="show" identifier="addFriend" id="TEV-l4-5xd"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1133,6 +1137,7 @@
         <image name="stats" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="dIV-iu-6nk"/>
         <segue reference="tKs-kK-mOb"/>
         <segue reference="L5Y-6f-aSj"/>
     </inferredMetricsTieBreakers>
