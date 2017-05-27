@@ -22,9 +22,18 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var followingLabel: UILabel!
     var pet: Pet!
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if(user == nil) {
+            if(User.current() == nil) {
+                return; // logged out
+            }
+            user = User.current();
+        }
+        user = User.current();
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,11 +88,23 @@ class ProfileViewController: UIViewController {
         genderLabel.becomeFirstResponder()
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+    @IBAction func onTapNameEdit(_ sender: Any) {
+        nameLabel.isUserInteractionEnabled = true
+        nameLabel.becomeFirstResponder()
+    }
+    
+    @IBAction func onTapAddPet(_ sender: Any) {
+        pet.name = nameLabel.text
         pet.breed = breedLabel.text
         pet.age = Int(ageLabel.text!)
         pet.gender = genderLabel.text
+        pet.following = Int(followingLabel.text!)
+        pet.followers = Int(followersLabel.text!)
+        user.petsArray.append(pet)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        textField.isUserInteractionEnabled = false
         return true;
     }
     
