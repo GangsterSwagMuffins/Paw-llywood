@@ -22,6 +22,9 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
     
     
     
+    
+    
+    
     //Member vars/consts
     var assetCollection: PHAssetCollection! //Specific folder (Camera Roll)
     var photosAsset: PHFetchResult<PHAsset>!// Actual photos in the folder
@@ -126,7 +129,7 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         }*/
         
         //Update the new last cell
-     //   lastCellIndex = indexPath
+        lastCellIndex = indexPath
       
    
         let cell : GalleryItemCellCollectionViewCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryItemCell", for: indexPath) as! GalleryItemCellCollectionViewCell

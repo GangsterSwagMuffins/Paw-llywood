@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import Photos
 
 class PostsViewController: UIViewController {
 
@@ -123,7 +125,16 @@ class PostsViewController: UIViewController {
         
         let destVc : VerifyPhotoViewController = segue.destination as! VerifyPhotoViewController
         
-        destVc.chosenPicture.image = gallery.chosenPicture.image
+        
+        
+        
+        let asset = gallery.photosAsset[gallery.indexPath.item] as! PHAsset
+
+        
+     
+            PHImageManager.default().requestImage(for: asset, targetSize: destVc.chosenPicture.frame.size, contentMode: .aspectFill, options: nil) { (result:UIImage?, info: [AnyHashable : Any]?) in
+                destVc.chosenPicture.image = result
+        }
 
         
         
