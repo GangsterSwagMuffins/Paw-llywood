@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -540,7 +540,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="430"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LaN-Ks-siV" id="hzA-mf-zlK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="429.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="429"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zQ3-hm-o3F">
@@ -618,10 +618,10 @@
             </objects>
             <point key="canvasLocation" x="1940" y="-96.7016491754123"/>
         </scene>
-        <!--View Controller-->
+        <!--My Friends View Controller-->
         <scene sceneID="6X8-vA-KyV">
             <objects>
-                <viewController id="7sF-LW-M2q" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstViewControllerId" id="7sF-LW-M2q" customClass="MyFriendsViewController" customModule="PetWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JrF-NG-4i6"/>
                         <viewControllerLayoutGuide type="bottom" id="4cz-5Z-0wR"/>
@@ -634,9 +634,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfv-kB-fFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="-829"/>
+            <point key="canvasLocation" x="617" y="-1130"/>
         </scene>
-        <!--Friends View Controller-->
+        <!--Add Friend View Controller-->
+        <scene sceneID="DVg-7Y-nts">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewControllerId" id="hpt-f0-fv0" customClass="AddFriendViewController" customModule="PetWorld" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aeX-nl-iAA"/>
+                        <viewControllerLayoutGuide type="bottom" id="BYM-Q4-bS5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RgM-GV-xTu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Okh-si-MPQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1439" y="-1130"/>
+        </scene>
+        <!--Friends-->
         <scene sceneID="qhw-6Y-3MZ">
             <objects>
                 <viewController id="RNM-cD-UUI" customClass="FriendsViewController" customModule="PetWorld" customModuleProvider="target" sceneMemberID="viewController">
@@ -648,6 +666,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1OM-gY-rPh">
+                                <rect key="frame" x="0.0" y="57" width="375" height="561"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uOX-ho-xQh">
                                 <rect key="frame" x="16" y="28" width="343" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -660,13 +683,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.020439891549999999" green="0.19774402569999999" blue="0.53207131409999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Friends" image="pawprint" id="JDi-AY-Aef"/>
                     <connections>
+                        <outlet property="contentView" destination="1OM-gY-rPh" id="wwq-ou-Nbz"/>
                         <outlet property="segmentedControl" destination="uOX-ho-xQh" id="BIG-sf-6gc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dln-wr-70U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1930.4000000000001" y="-828.03598200899557"/>
+            <point key="canvasLocation" x="1013.6" y="-464.6176911544228"/>
         </scene>
         <!--Gallery View Controller-->
         <scene sceneID="13n-ZN-VxG">
@@ -793,6 +818,7 @@
                     <connections>
                         <segue destination="QHn-we-XxN" kind="relationship" relationship="viewControllers" id="L5Y-6f-aSj"/>
                         <segue destination="udb-9Q-avP" kind="relationship" relationship="viewControllers" id="tKs-kK-mOb"/>
+                        <segue destination="RNM-cD-UUI" kind="relationship" relationship="viewControllers" id="64s-04-dY4"/>
                         <segue destination="k5T-TP-CS1" kind="relationship" relationship="viewControllers" id="gCM-ov-1Ua"/>
                     </connections>
                 </tabBarController>
@@ -837,7 +863,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LeM-sX-XVo" id="6cQ-TQ-tJG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RWp-gi-nzZ">
