@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fe6-sd-Mq5">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fe6-sd-Mq5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -210,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZUo-tP-YHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973.60000000000002" y="754.27286356821594"/>
+            <point key="canvasLocation" x="98" y="789"/>
         </scene>
         <!--Profile-->
         <scene sceneID="eS1-V4-ea5">
@@ -397,7 +397,7 @@
                         <outlet property="nameLabel" destination="Ut0-9j-Mki" id="bpC-pt-rms"/>
                         <outlet property="statusLabel" destination="YMb-yU-UE4" id="655-7X-vOh"/>
                         <outlet property="weightLabel" destination="wXR-ez-C7c" id="Y2g-GG-lWJ"/>
-                        <segue destination="VXC-MX-S4r" kind="show" id="7lf-v8-Yvn"/>
+                        <segue destination="VXC-MX-S4r" kind="show" identifier="ProfilePicEditSegue" id="7lf-v8-Yvn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fk3-43-80M" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -449,7 +449,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2684" y="793.8530734632684"/>
+            <point key="canvasLocation" x="2686" y="754"/>
         </scene>
         <!--Home-->
         <scene sceneID="bp3-gV-DPB">
@@ -464,7 +464,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="430" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gog-EF-MdP">
-                                <rect key="frame" x="0.0" y="62" width="375" height="605"/>
+                                <rect key="frame" x="0.0" y="62" width="375" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="430" id="LaN-Ks-siV" customClass="PostTableViewCell" customModule="PetWorld" customModuleProvider="target">
@@ -656,7 +656,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZj-wG-Eae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1122" y="-96"/>
+            <point key="canvasLocation" x="1015" y="337"/>
         </scene>
         <!--Settings-->
         <scene sceneID="kip-EC-Yk7">
@@ -768,7 +768,7 @@
         <image name="stats" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yzy-01-iTE"/>
+        <segue reference="L5Y-6f-aSj"/>
         <segue reference="tKs-kK-mOb"/>
     </inferredMetricsTieBreakers>
 </document>
