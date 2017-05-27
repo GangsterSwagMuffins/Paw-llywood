@@ -19,6 +19,7 @@
 		1F73AAC51E9C937D00A5C1AD /* PetWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73AAC41E9C937D00A5C1AD /* PetWorldTests.swift */; };
 		1F73AAD01E9C937D00A5C1AD /* PetWorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73AACF1E9C937D00A5C1AD /* PetWorldUITests.swift */; };
 		1F7D42551ED93B9E00E4B278 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */; };
+		1F7D42571ED93C3400E4B278 /* PhotoCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */; };
 		1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FEF9F1ECA02D80009CC06 /* Pet.swift */; };
 		1FB386E11EA5BED400FBEB8E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1FB386E01EA5BED400FBEB8E /* Podfile */; };
 		1FB386E31EA5C44000FBEB8E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */; };
@@ -67,6 +68,7 @@
 		1F73AACF1E9C937D00A5C1AD /* PetWorldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetWorldUITests.swift; sourceTree = "<group>"; };
 		1F73AAD11E9C937D00A5C1AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureViewController.swift; sourceTree = "<group>"; };
 		1F9FEF9F1ECA02D80009CC06 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		1FB386E01EA5BED400FBEB8E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				1F15C5351E9C9813005B828B /* HomeViewController.swift */,
 				33AB426D1ECBB015007B7BB4 /* PostTableViewCell.swift */,
 				5E0CF80E1EBE68E70088427A /* PostsViewController.swift */,
+				1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */,
 				1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */,
 				1F15C5331E9C97EC005B828B /* ProfileViewController.swift */,
 				1F15C5371E9C98F0005B828B /* SettingsViewController.swift */,
@@ -422,6 +425,7 @@
 				5EC637411ED413B7003D67F3 /* PetsTableViewCell.swift in Sources */,
 				5E127DDD1ED92EA000BC5C9D /* User.swift in Sources */,
 				5E0CF80F1EBE68E70088427A /* PostsViewController.swift in Sources */,
+				1F7D42571ED93C3400E4B278 /* PhotoCaptureViewController.swift in Sources */,
 				1F15C53A1E9EFFC3005B828B /* ProfileView.swift in Sources */,
 				1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */,
 				33AB426E1ECBB015007B7BB4 /* PostTableViewCell.swift in Sources */,
