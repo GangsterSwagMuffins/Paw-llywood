@@ -46,11 +46,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         let pet = user.petsArray[indexPath.row]
     
-        cell.nameLabel = pet.name
+        cell.nameLabel.text = pet.name
         if (pet.image == nil) {
             pet.image = #imageLiteral(resourceName: "Default Profile Image")
         }
-        cell.otherPetsImageView = pet.image
+        cell.otherPetsImageView.image = pet.image
         return cell
     }
 

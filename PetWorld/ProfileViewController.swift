@@ -25,10 +25,20 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        if pet.image == nil {
-            pet.image = #imageLiteral(resourceName: "Default Profile Image")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if (pet != nil) {
+            breedLabel.text = pet.breed
+            imageView.image = pet.image
+            genderLabel.text = pet.gender
+            followersLabel.text = String(describing: pet.followers)
+            followingLabel.text = String(describing: pet.following)
+            if pet.image == nil {
+                pet.image = #imageLiteral(resourceName: "Default Profile Image")
+            }
+            imageView.image = pet.image
+            
         }
     }
 
@@ -54,7 +64,32 @@ class ProfileViewController: UIViewController {
         
         present(refreshAlert, animated: true, completion: nil);
     }
+    
+    @IBAction func onTapBreedEdit(_ sender: Any) {
+        breedLabel.isUserInteractionEnabled = true;
+        breedLabel.becomeFirstResponder()
+    }
 
+    @IBAction func onTapAgeEdit(_ sender: Any) {
+        ageLabel.isUserInteractionEnabled = true
+        ageLabel.becomeFirstResponder()
+    }
+    @IBAction func onTapGenderEdit(_ sender: Any) {
+        genderLabel.isUserInteractionEnabled = true
+        genderLabel.becomeFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        pet.breed = breedLabel.text
+        pet.age = Int(ageLabel.text!)
+        pet.gender = genderLabel.text
+        return true;
+    }
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 
