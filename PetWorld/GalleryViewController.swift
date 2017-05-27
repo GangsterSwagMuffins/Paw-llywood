@@ -134,6 +134,7 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         
         
         //Extract the gallery image and present it to the user
+        
         let asset = self.photosAsset[indexPath.item] as! PHAsset
         
         
