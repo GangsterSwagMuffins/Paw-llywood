@@ -22,6 +22,7 @@
 		1FB386E11EA5BED400FBEB8E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1FB386E01EA5BED400FBEB8E /* Podfile */; };
 		1FB386E31EA5C44000FBEB8E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */; };
 		1FB386E51EA5CEEE00FBEB8E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */; };
+		33751ECB1ED937AC00E60E34 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33751ECA1ED937AC00E60E34 /* FriendsViewController.swift */; };
 		33AB426E1ECBB015007B7BB4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB426D1ECBB015007B7BB4 /* PostTableViewCell.swift */; };
 		33AB42701ECBB031007B7BB4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB426F1ECBB031007B7BB4 /* Post.swift */; };
 		5E0CF80F1EBE68E70088427A /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0CF80E1EBE68E70088427A /* PostsViewController.swift */; };
@@ -68,6 +69,7 @@
 		1FB386E01EA5BED400FBEB8E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		33751ECA1ED937AC00E60E34 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		33AB426D1ECBB015007B7BB4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		33AB426F1ECBB031007B7BB4 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		57FC94EB9F2EA35A528B412B /* Pods-PetWorld.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetWorld.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetWorld/Pods-PetWorld.debug.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */,
 				1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */,
 				5E1D58431ED91B970055C09D /* ProfilePictureEditorViewController.swift */,
+				33751ECC1ED93A4B00E60E34 /* Friends View Controllers */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -202,6 +205,14 @@
 				5E127DDC1ED92EA000BC5C9D /* User.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		33751ECC1ED93A4B00E60E34 /* Friends View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				33751ECA1ED937AC00E60E34 /* FriendsViewController.swift */,
+			);
+			name = "Friends View Controllers";
 			sourceTree = "<group>";
 		};
 		BEA0489666F0373EAB2C17FB /* Frameworks */ = {
@@ -399,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FB386E31EA5C44000FBEB8E /* LoginViewController.swift in Sources */,
+				33751ECB1ED937AC00E60E34 /* FriendsViewController.swift in Sources */,
 				33AB42701ECBB031007B7BB4 /* Post.swift in Sources */,
 				1FB386E51EA5CEEE00FBEB8E /* SignUpViewController.swift in Sources */,
 				1F15C5341E9C97EC005B828B /* ProfileViewController.swift in Sources */,
