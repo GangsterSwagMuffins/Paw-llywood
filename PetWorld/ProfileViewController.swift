@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     override func viewDidLoad() {
         super.viewDidLoad()
         if pet == nil {
-            imageView.image = #imageLiteral(resourceName: "Default Profile Image")
+            imageView.image = #imageLiteral(resourceName: "dog.jpg")
         }
         breedLabel.delegate = self
         nameLabel.delegate = self
@@ -47,7 +47,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             followersLabel.text = String(describing: pet.followers)
             followingLabel.text = String(describing: pet.following)
             if pet.image == nil {
-                pet.image = #imageLiteral(resourceName: "Default Profile Image")
+                pet.image = #imageLiteral(resourceName: "dog.jpg")
             }
             imageView.image = pet.image
             

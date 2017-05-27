@@ -28,6 +28,8 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict/>
+	<key></key>
+	<string></string>
 	<key>NSCameraUsageDescription</key>
 	<string>Permission to use camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>

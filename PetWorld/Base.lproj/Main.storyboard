@@ -636,7 +636,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onPost:" destination="CXy-Ck-19v" eventType="touchUpInside" id="SX6-pX-a99"/>
-                                    <segue destination="QHn-we-XxN" kind="show" identifier="PostSegue" id="hlg-OE-uXJ"/>
+                                    <segue destination="baz-EG-3hH" kind="showDetail" id="uMF-ZG-7Sy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -664,7 +664,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="430" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gog-EF-MdP">
-                                <rect key="frame" x="0.0" y="62" width="375" height="605"/>
+                                <rect key="frame" x="0.0" y="62" width="375" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="430" id="LaN-Ks-siV" customClass="PostTableViewCell" customModule="PetWorld" customModuleProvider="target">
@@ -1193,9 +1193,10 @@
         <image name="stats" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tKs-kK-mOb"/>
+        <segue reference="8Wb-AZ-G8D"/>
+        <segue reference="L5Y-6f-aSj"/>
+        <segue reference="uMF-ZG-7Sy"/>
+        <segue reference="x5q-jG-s3i"/>
         <segue reference="64s-04-dY4"/>
-        <segue reference="3tw-TB-Lwy"/>
-        <segue reference="hlg-OE-uXJ"/>
     </inferredMetricsTieBreakers>
 </document>

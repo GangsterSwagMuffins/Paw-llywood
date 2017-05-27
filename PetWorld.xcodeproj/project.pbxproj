@@ -36,6 +36,7 @@
 		5E0CF80F1EBE68E70088427A /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0CF80E1EBE68E70088427A /* PostsViewController.swift */; };
 		5E127DDD1ED92EA000BC5C9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E127DDC1ED92EA000BC5C9D /* User.swift */; };
 		5E1D58441ED91B970055C09D /* ProfilePictureEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D58431ED91B970055C09D /* ProfilePictureEditorViewController.swift */; };
+		5E81BC0A1EDA333A002F8915 /* dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5E81BC091EDA333A002F8915 /* dog.jpg */; };
 		5EC637411ED413B7003D67F3 /* PetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC637401ED413B7003D67F3 /* PetsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		5E0CF80E1EBE68E70088427A /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsViewController.swift; path = ../PostsViewController.swift; sourceTree = "<group>"; };
 		5E127DDC1ED92EA000BC5C9D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5E1D58431ED91B970055C09D /* ProfilePictureEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePictureEditorViewController.swift; sourceTree = "<group>"; };
+		5E81BC091EDA333A002F8915 /* dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dog.jpg; sourceTree = SOURCE_ROOT; };
 		5EC637401ED413B7003D67F3 /* PetsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetsTableViewCell.swift; sourceTree = "<group>"; };
 		6BA0A4BE051DCD8953020CDD /* Pods-PetWorld.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetWorld.release.xcconfig"; path = "Pods/Target Support Files/Pods-PetWorld/Pods-PetWorld.release.xcconfig"; sourceTree = "<group>"; };
 		D9B6E87101CC204FDD0CCA3F /* Pods_PetWorld.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetWorld.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,7 @@
 				1FB386E01EA5BED400FBEB8E /* Podfile */,
 				1F73AAB31E9C937C00A5C1AD /* Main.storyboard */,
 				1F73AAB61E9C937C00A5C1AD /* Assets.xcassets */,
+				5E81BC091EDA333A002F8915 /* dog.jpg */,
 				1F73AAB81E9C937C00A5C1AD /* LaunchScreen.storyboard */,
 				1F73AABB1E9C937C00A5C1AD /* Info.plist */,
 			);
@@ -383,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F73AABA1E9C937C00A5C1AD /* LaunchScreen.storyboard in Resources */,
+				5E81BC0A1EDA333A002F8915 /* dog.jpg in Resources */,
 				1F73AAB71E9C937C00A5C1AD /* Assets.xcassets in Resources */,
 				1FB386E11EA5BED400FBEB8E /* Podfile in Resources */,
 				1F73AAB51E9C937C00A5C1AD /* Main.storyboard in Resources */,
