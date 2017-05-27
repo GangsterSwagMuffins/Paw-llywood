@@ -19,13 +19,8 @@ class Pet: NSObject {
     var followers: Int?
     var following: Int?
     
-    init(name: String, image: UIImage, breed: String, age: Int, gender: String ) {
-        self.name = name
-        self.image = image
-        self.breed = breed
-        self.age = age
-        self.gender = gender
-    }
+    
+    
     
     class func addPet(photo: UIImage, name: String, image: UIImage, breed: String, age: Int, gender: String, success: PFBooleanResultBlock?) {
         let pet = PFObject(className: "Pet")
