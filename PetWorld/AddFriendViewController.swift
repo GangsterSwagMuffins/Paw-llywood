@@ -54,6 +54,10 @@ class AddFriendViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true;
     }
+    @IBAction func onTapBack(_ sender: Any) {
+        self.dismiss(animated: true) {
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
