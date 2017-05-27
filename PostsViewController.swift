@@ -37,26 +37,25 @@ class PostsViewController: UIViewController {
         //Identify the view controllers from the storyboard
         galleryViewController = storyboard.instantiateViewController(withIdentifier: "GalleryViewController")
         photoViewController = storyboard.instantiateViewController(withIdentifier: "PhotoViewController")
-        videoViewController = storyboard.instantiateViewController(withIdentifier: "VideoViewController")
+    
         
         //Add the view controllers to the list
-        viewControllers = [galleryViewController, photoViewController, videoViewController]
+        viewControllers = [galleryViewController, photoViewController]
         
         buttons[0].isSelected = true
         buttons[1].isSelected = false
-        buttons[2].isSelected = false
+       
         
         
         //Set the default button text color
         self.buttons[0].setTitleColor(self.selectedTextColor, for: UIControlState.selected)
         self.buttons[1].setTitleColor(self.selectedTextColor, for: UIControlState.selected)
-        self.buttons[2].setTitleColor(self.selectedTextColor, for: UIControlState.selected)
+       
         
         self.buttons[0].setTitleColor(self.deselectedTextColor, for: UIControlState.normal)
         
         self.buttons[1].setTitleColor(self.deselectedTextColor, for: UIControlState.normal)
         
-        self.buttons[2].setTitleColor(self.deselectedTextColor, for: UIControlState.normal)
         
         didPressTab(buttons[selectedIndex])
         
@@ -116,6 +115,19 @@ class PostsViewController: UIViewController {
     
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc : VerifyPhotoViewController = segue.destination as! VerifyPhotoViewController
+        
+        
+        let gallery: GalleryViewController = galleryViewController as! GalleryViewController
+        
+        let destVc : VerifyPhotoViewController = segue.destination as! VerifyPhotoViewController
+        
+        destVc.chosenPicture.image = gallery.chosenPicture.image
+
+        
+        
+    }
     
     
     /*

@@ -21,6 +21,7 @@
 		1F7D42551ED93B9E00E4B278 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */; };
 		1F7D42571ED93C3400E4B278 /* PhotoCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */; };
 		1F7D42591ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */; };
+		1F7D425D1ED9F15E00E4B278 /* VerifyPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */; };
 		1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FEF9F1ECA02D80009CC06 /* Pet.swift */; };
 		1FB386E11EA5BED400FBEB8E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1FB386E01EA5BED400FBEB8E /* Podfile */; };
 		1FB386E31EA5C44000FBEB8E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */; };
@@ -75,6 +76,7 @@
 		1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureViewController.swift; sourceTree = "<group>"; };
 		1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryItemCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPhotoViewController.swift; sourceTree = "<group>"; };
 		1F9FEF9F1ECA02D80009CC06 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		1FB386E01EA5BED400FBEB8E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				33751ED51EDA07E000E60E34 /* Profile */,
 				1F15C5371E9C98F0005B828B /* SettingsViewController.swift */,
 				5EC637401ED413B7003D67F3 /* PetsTableViewCell.swift */,
+				1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -331,7 +334,7 @@
 				TargetAttributes = {
 					1F73AAAB1E9C937C00A5C1AD = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = EAL5Y6KT76;
+						DevelopmentTeam = SC45B5UP34;
 						ProvisioningStyle = Automatic;
 					};
 					1F73AABF1E9C937D00A5C1AD = {
@@ -448,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FB386E31EA5C44000FBEB8E /* LoginViewController.swift in Sources */,
+				1F7D425D1ED9F15E00E4B278 /* VerifyPhotoViewController.swift in Sources */,
 				33751ECB1ED937AC00E60E34 /* FriendsViewController.swift in Sources */,
 				33AB42701ECBB031007B7BB4 /* Post.swift in Sources */,
 				1FB386E51EA5CEEE00FBEB8E /* SignUpViewController.swift in Sources */,
@@ -619,11 +623,11 @@
 			baseConfigurationReference = 57FC94EB9F2EA35A528B412B /* Pods-PetWorld.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = EAL5Y6KT76;
+				DEVELOPMENT_TEAM = SC45B5UP34;
 				INFOPLIST_FILE = PetWorld/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gangsterswagmuffins.Petstagram1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gangsterswagmuffins.Petstagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -635,11 +639,11 @@
 			baseConfigurationReference = 6BA0A4BE051DCD8953020CDD /* Pods-PetWorld.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = EAL5Y6KT76;
+				DEVELOPMENT_TEAM = SC45B5UP34;
 				INFOPLIST_FILE = PetWorld/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gangsterswagmuffins.Petstagram1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gangsterswagmuffins.Petstagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
