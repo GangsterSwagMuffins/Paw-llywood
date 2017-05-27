@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="ftW-ju-rIh">
             <objects>
-                <viewController id="Fe6-sd-Mq5" customClass="LoginViewController" customModule="PetWorld" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="Fe6-sd-Mq5" customClass="LoginViewController" customModule="PetWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LOa-Yr-jdl"/>
                         <viewControllerLayoutGuide type="bottom" id="XEv-8W-LCk"/>
@@ -358,6 +358,14 @@
                                         <rect key="frame" x="18" y="254" width="35" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8t-OD-HL8">
+                                        <rect key="frame" x="160" y="337" width="55" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Log Out"/>
+                                        <connections>
+                                            <action selector="onTapLogOut:" destination="udb-9Q-avP" eventType="touchUpInside" id="3K0-Ri-FdH"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
