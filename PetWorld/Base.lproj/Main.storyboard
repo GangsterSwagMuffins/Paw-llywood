@@ -397,6 +397,7 @@
                         <outlet property="nameLabel" destination="Ut0-9j-Mki" id="bpC-pt-rms"/>
                         <outlet property="statusLabel" destination="YMb-yU-UE4" id="655-7X-vOh"/>
                         <outlet property="weightLabel" destination="wXR-ez-C7c" id="Y2g-GG-lWJ"/>
+                        <segue destination="VXC-MX-S4r" kind="show" id="7lf-v8-Yvn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fk3-43-80M" userLabel="First Responder" sceneMemberID="firstResponder"/>
