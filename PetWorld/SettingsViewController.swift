@@ -45,13 +45,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "PetsTableViewCell", for: indexPath) as! PetsTableViewCell
         
         let pet = user.petsArray[indexPath.row]
-    /*
+    
         cell.nameLabel = pet.name
         if (pet.image == nil) {
             pet.image = #imageLiteral(resourceName: "Default Profile Image")
         }
-        cell.imageView = pet.image
- `*/
+        cell.otherPetsImageView = pet.image
         return cell
     }
 
