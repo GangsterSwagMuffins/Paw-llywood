@@ -27,16 +27,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if(user == nil) {
-            if(User.current() == nil) {
-                return; // logged out
-            }
-            user = User.current();
-        }
-        user = User.current();
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         if (pet != nil) {
             breedLabel.text = pet.breed
             imageView.image = pet.image
@@ -48,6 +38,19 @@ class ProfileViewController: UIViewController {
             }
             imageView.image = pet.image
             
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if(user == nil) {
+            if(User.current() == nil) {
+                return; // logged out
+            }
+            user = User.current();
+        }
+        user = User.current();
+        if user.petsArray.first != nil {
+            pet = user.petsArray.first
         }
     }
 
