@@ -397,6 +397,7 @@
                         <outlet property="nameLabel" destination="Ut0-9j-Mki" id="bpC-pt-rms"/>
                         <outlet property="statusLabel" destination="YMb-yU-UE4" id="655-7X-vOh"/>
                         <outlet property="weightLabel" destination="wXR-ez-C7c" id="Y2g-GG-lWJ"/>
+                        <segue destination="VXC-MX-S4r" kind="show" id="7lf-v8-Yvn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fk3-43-80M" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -414,12 +415,41 @@
                     <view key="view" contentMode="scaleToFill" id="7Bk-o0-ChL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aFc-s3-Haa">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon-Photoring" translatesAutoresizingMaskIntoConstraints="NO" id="cSy-Dh-lpt">
+                                        <rect key="frame" x="113" y="265" width="148" height="136"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="V22-G6-eMB" appends="YES" id="5nN-t7-cnw"/>
+                                        </connections>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Profile Picture" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E35-EM-jHH">
+                                        <rect key="frame" x="102" y="435" width="171" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kuu-Vp-e4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="V22-G6-eMB">
+                    <connections>
+                        <action selector="onTapImageView:" destination="VXC-MX-S4r" id="OL6-ES-CcV"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2685" y="794"/>
+            <point key="canvasLocation" x="2684" y="793.8530734632684"/>
         </scene>
         <!--Home-->
         <scene sceneID="bp3-gV-DPB">
@@ -727,6 +757,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Icon-Photoring" width="152" height="152"/>
         <image name="Login Background" width="414" height="736"/>
         <image name="bone gray" width="32" height="32"/>
         <image name="i" width="20" height="20"/>

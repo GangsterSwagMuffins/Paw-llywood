@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import Parse
 
-class ProfilePictureEditorViewController: UIViewController {
+class ProfilePictureEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var imageView: UIImageView!
+    weak var profileImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.setHidesBackButton(true, animated: false);
+        
         // Do any additional setup after loading the view.
+        imageView.clipsToBounds = true;
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +29,46 @@ class ProfilePictureEditorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onTapImageView(_ sender: Any) {
+        let vc = UIImagePickerController();
+        vc.delegate = self;
+        vc.allowsEditing = true;
+        vc.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+        present(vc, animated: true, completion: nil);
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        // Get the image captured by the UIImagePickerController
+        // let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        
+        // Do something with the images (based on your use case)
+        imageView.contentMode = .scaleAspectFill;
+        imageView.layer.borderColor = UIColor.white.cgColor;
+        imageView.layer.borderWidth = 2.0;
+        imageView.image = editedImage;
+        
+        // Dismiss UIImagePickerController to go back to your original view controller
+        dismiss(animated: true, completion: nil);
+        
+        updateProfileImage();
+    }
+    
+    func updateProfileImage() {
+        /*
+        let image = Post.generateFileFromImage(imageView.image!);
+        profileImage = self.imageView.image;
+        User.current()!.setObject(image, forKey: "profilePicture");
+         
+        image.save();
+        User.current()?.save();
+        User.current()!.profilePicURL = URL(string: Post.getURLFromFile(image));
+        self.navigationController?.popViewController(animated: true);
+        dismiss(animated:true, completion: nil);
+ 
+        */
+    }
 
     /*
     // MARK: - Navigation
