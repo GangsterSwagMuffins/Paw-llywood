@@ -47,14 +47,15 @@ class ProfilePictureEditorViewController: UIViewController, UIImagePickerControl
         }
         
         self.dismiss(animated: true, completion: nil)
-        self.performSegue(withIdentifier: "backToProfile", sender: self)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func onTapProfile(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
-
+    
+    
 
     /*
     // MARK: - Navigation
@@ -67,6 +68,7 @@ class ProfilePictureEditorViewController: UIViewController, UIImagePickerControl
         if segue.identifier == "backToProfile" {
             let dVC = segue.destination as! ProfileViewController
             dVC.pet = self.pet
+            dVC.imageView = self.profileImage
             dVC.user = self.user
         }
     }
