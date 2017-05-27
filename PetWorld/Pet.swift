@@ -7,3 +7,8 @@
 //
 
 import UIKit
+import Parse
+
+class Pet {
+    
+}
