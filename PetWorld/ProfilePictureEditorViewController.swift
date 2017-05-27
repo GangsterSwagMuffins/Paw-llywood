@@ -38,22 +38,18 @@ class ProfilePictureEditorViewController: UIViewController, UIImagePickerControl
         vc.sourceType = UIImagePickerControllerSourceType.photoLibrary;
         present(vc, animated: true, completion: nil);
     }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
-        // Get the image captured by the UIImagePickerController
-        // let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            profileImage.image = image
+        } else{
+            print("Something went wrong")
+        }
         
-        // Do something with the images (based on your use case)
-        profileImage.contentMode = .scaleAspectFill;
-        profileImage.image = editedImage;
-        
-        // Dismiss UIImagePickerController to go back to your original view controller
-        dismiss(animated: true, completion: nil);
-        
-        performSegue(withIdentifier: "backToProfile", sender: self)
+        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "backToProfile", sender: self)
     }
+    
     
     @IBAction func onTapProfile(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -64,10 +60,16 @@ class ProfilePictureEditorViewController: UIViewController, UIImagePickerControl
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "backToProfile" {
+            let dVC = segue.destination as! ProfileViewController
+            dVC.pet = self.pet
+            dVC.user = self.user
+        }
     }
-    */
+ 
 
 }
