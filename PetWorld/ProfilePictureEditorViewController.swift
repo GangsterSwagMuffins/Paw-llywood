@@ -57,14 +57,10 @@ class ProfilePictureEditorViewController: UIViewController, UIImagePickerControl
     
     func updateProfileImage() {
         /*
-        let image = Post.generateFileFromImage(imageView.image!);
         profileImage = self.imageView.image;
-        User.current()!.setObject(image, forKey: "profilePicture");
          
         image.save();
         User.current()?.save();
-        User.current()!.profilePicURL = URL(string: Post.getURLFromFile(image));
-        self.navigationController?.popViewController(animated: true);
         dismiss(animated:true, completion: nil);
  
         */
