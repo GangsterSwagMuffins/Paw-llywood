@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameTextField: UITextField!
 
@@ -20,6 +20,8 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.usernameTextField.delegate = self
+        self.passwordTextField.delegate = self
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -53,18 +55,24 @@ class SignUpViewController: UIViewController {
             }
         }
         
-        
-        
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
     }
     
     /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "signupSegue" {
+            let dVc = segue.destination as! HomeViewController
+        }
     }
-    */
+ 
 
 }
