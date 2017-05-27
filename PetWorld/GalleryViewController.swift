@@ -39,12 +39,16 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         //Camera roll is "smart album" because it collects photos on it's own!
         let collection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
         
+        let options = PHFetchOptions()
+        
+        options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
         if (collection.firstObject != nil){ //If there the collections actually returned something
             //Found the album
             self.assetCollection = collection.firstObject! as PHAssetCollection
             print("collection has \(collection.count) many photos!")
             // Do any additional setup after loading the view.
-              photosAsset = PHAsset.fetchAssets(in: self.assetCollection, options: nil)
+              photosAsset = PHAsset.fetchAssets(in: self.assetCollection, options: options)
               print("Here is the colleciton size: \(photosAsset.count)")
             
             //Let the first element be the default image chosen
@@ -86,6 +90,8 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryItemCell", for: indexPath) as! GalleryItemCellCollectionViewCell
         
         let asset = self.photosAsset[indexPath.item] as! PHAsset
+        
+        
         
         PHImageManager.default().requestImage(for: asset, targetSize: cell.galleryPhoto.frame.size, contentMode: .aspectFill, options: nil) { (result:UIImage?, info: [AnyHashable : Any]?) in
             cell.setGalleryPhoto(image: result!)
