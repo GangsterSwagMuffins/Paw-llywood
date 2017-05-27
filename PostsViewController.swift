@@ -66,6 +66,18 @@ class PostsViewController: UIViewController {
     
     
     
+    @IBAction func onSaveMedia(_ sender: Any) {
+        
+        
+        
+    }
+    @IBOutlet weak var onExitTapped: UIButton!
+    
+   
+    @IBAction func exitTapped(_ sender: Any) {
+        
+        //Leave this post view and go back home
+    }
     @IBAction func didPressTab(_ sender: UIButton) {
         //Save the value of the previous button pressed
         let previousIndex = selectedIndex

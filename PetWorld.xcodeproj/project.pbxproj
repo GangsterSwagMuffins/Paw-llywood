@@ -303,7 +303,7 @@
 				TargetAttributes = {
 					1F73AAAB1E9C937C00A5C1AD = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = Y2ZU24E3BN;
+						DevelopmentTeam = SC45B5UP34;
 						ProvisioningStyle = Automatic;
 					};
 					1F73AABF1E9C937D00A5C1AD = {
@@ -587,11 +587,11 @@
 			baseConfigurationReference = 57FC94EB9F2EA35A528B412B /* Pods-PetWorld.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y2ZU24E3BN;
+				DEVELOPMENT_TEAM = SC45B5UP34;
 				INFOPLIST_FILE = PetWorld/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gangsterswagmuffins.PetWorld;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gangsterswagmuffins.Petstagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -603,11 +603,11 @@
 			baseConfigurationReference = 6BA0A4BE051DCD8953020CDD /* Pods-PetWorld.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y2ZU24E3BN;
+				DEVELOPMENT_TEAM = SC45B5UP34;
 				INFOPLIST_FILE = PetWorld/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gangsterswagmuffins.PetWorld;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gangsterswagmuffins.Petstagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
