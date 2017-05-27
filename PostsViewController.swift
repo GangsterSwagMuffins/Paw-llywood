@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import Photos
 
 class PostsViewController: UIViewController {
 
@@ -123,7 +125,8 @@ class PostsViewController: UIViewController {
         
         let destVc : VerifyPhotoViewController = segue.destination as! VerifyPhotoViewController
         
-        destVc.chosenPicture.image = gallery.chosenPicture.image
+        
+        }
 
         
         
@@ -140,4 +143,4 @@ class PostsViewController: UIViewController {
     }
     */
 
-}
+

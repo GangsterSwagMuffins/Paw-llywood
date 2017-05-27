@@ -948,7 +948,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zr5-Ar-ZYr">
-                                <rect key="frame" x="-20" y="364" width="434" height="372"/>
+                                <rect key="frame" x="16" y="364" width="359" height="303"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="0qj-Pe-HHu">
@@ -978,9 +978,24 @@
                                 </cells>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MQA-gm-YFX">
-                                <rect key="frame" x="39" y="28" width="336" height="308"/>
+                                <rect key="frame" x="16" y="76" width="359" height="260"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pX5-O7-hRz">
+                                <rect key="frame" x="16" y="0.0" width="359" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwX-P2-gv1">
+                                        <rect key="frame" x="304" y="36" width="78" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="checkmark"/>
+                                        <connections>
+                                            <segue destination="CXy-Ck-19v" kind="showDetail" identifier="PictureChosenSegue" id="4k2-W2-gtJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -991,7 +1006,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OH7-qx-Clt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3347.826086956522" y="-294.29347826086956"/>
+            <point key="canvasLocation" x="3126" y="-97"/>
         </scene>
         <!--Photo Capture View Controller-->
         <scene sceneID="5ar-sU-Unl">
@@ -1174,5 +1189,6 @@
         <segue reference="yzy-01-iTE"/>
         <segue reference="tKs-kK-mOb"/>
         <segue reference="3tw-TB-Lwy"/>
+>>>>>>> c1d91fb90e9ef056166ac5cab3a0698b345e5477
     </inferredMetricsTieBreakers>
 </document>

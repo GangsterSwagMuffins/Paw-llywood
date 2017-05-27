@@ -22,6 +22,9 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
     
     
     
+    
+    
+    
     //Member vars/consts
     var assetCollection: PHAssetCollection! //Specific folder (Camera Roll)
     var photosAsset: PHFetchResult<PHAsset>!// Actual photos in the folder
@@ -126,7 +129,7 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         }*/
         
         //Update the new last cell
-     //   lastCellIndex = indexPath
+        lastCellIndex = indexPath
       
    
         let cell : GalleryItemCellCollectionViewCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryItemCell", for: indexPath) as! GalleryItemCellCollectionViewCell
@@ -163,14 +166,19 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
    
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
+        // Get the new view controller using
+        let destVc: VerifyPhotoViewController = segue.destination as! VerifyPhotoViewController
+        
         // Pass the selected object to the new view controller.
+        destVc.chosenPicture.image = self.chosenPicture.image
+        
+        
     }
-    */
+    
 
 }
