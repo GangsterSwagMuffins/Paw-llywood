@@ -38,6 +38,8 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        
+        
         //Camera roll is "smart album" because it collects photos on it's own!
         let collection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
         
@@ -110,27 +112,38 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
     
     
     
+   
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if (self.lastCellIndex != nil){
+        print("cell index: \(indexPath.item)")
+        print("press detected")
+        
+      /*  if (self.lastCellIndex != nil){
             self.collectionView.deselectItem(at: lastCellIndex!, animated: true)
-            
-            
-            
         
-        }
+        }*/
+        
         //Update the new last cell
-        lastCellIndex = indexPath
+     //   lastCellIndex = indexPath
       
-        
-        
-        
+   
         let cell : GalleryItemCellCollectionViewCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryItemCell", for: indexPath) as! GalleryItemCellCollectionViewCell
         
         
         
         //Extract the gallery image and present it to the user
-       self.chosenPicture.image = cell.galleryPhoto.image
+        let asset = self.photosAsset[indexPath.item] as! PHAsset
+        
+        
+        
+        PHImageManager.default().requestImage(for: asset, targetSize: cell.galleryPhoto.frame.size, contentMode: .aspectFill, options: nil) { (result:UIImage?, info: [AnyHashable : Any]?) in
+            self.chosenPicture.image = result
+        }
+
+        
+        self.chosenPicture.setNeedsDisplay()
         
         
         
@@ -143,6 +156,10 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+   
     
 
     /*

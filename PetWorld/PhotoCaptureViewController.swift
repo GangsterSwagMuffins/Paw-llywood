@@ -9,14 +9,19 @@
 import UIKit
 import AVFoundation
 
-class PhotoCaptureViewController: UIViewController {
+class PhotoCaptureViewController: UIViewController, AVCapturePhotoCaptureDelegate {
 
     @IBOutlet weak var previewView: UIView!
-    @IBOutlet weak var captureImageView: UIImageView!
+    
+    
+   
     
     var session: AVCaptureSession?
     var stillImageOutput: AVCapturePhotoOutput?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    //Photo taken by the user
+    var takenPicture: UIImage?
+    
     
     
     
@@ -98,7 +103,58 @@ class PhotoCaptureViewController: UIViewController {
     
     
     
-    @IBAction func didTakePhoto(_ sender: Any) {
+    @IBAction func didTakePhoto(_ sender: UIButton) {
+        
+        if self.stillImageOutput?.connection(withMediaType: AVMediaTypeVideo) != nil {
+            
+            print("not nil!")
+            
+            let settings = AVCapturePhotoSettings()
+            
+            stillImageOutput?.capturePhoto(with: settings, delegate: self)
+            
+            
+            //Segue to the next screen
+            performSegue(withIdentifier: "PhotoCaptureSegue", sender: nil)
+            
+        }
+
+        
+        
+    }
+    
+    
+    
+    
+    func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?, previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
+        
+        
+        if let error = error {
+            print(error.localizedDescription)
+        }
+        
+        if let sampleBuffer = photoSampleBuffer{
+            let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: nil)
+            
+            let capturePhoto = UIImage(data: dataImage!)
+            
+            
+            takenPicture = capturePhoto
+            
+            
+            
+            
+        }
+        
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc : VerifyPhotoViewController = segue.destination as! VerifyPhotoViewController
+        
+        vc.chosenPicture.image = takenPicture
+        
     }
     
     
