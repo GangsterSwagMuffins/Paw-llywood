@@ -26,6 +26,8 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
     var assetCollection: PHAssetCollection! //Specific folder (Camera Roll)
     var photosAsset: PHFetchResult<PHAsset>!// Actual photos in the folder
     
+    var lastCellIndex: IndexPath?
+    
     
     
     
@@ -104,6 +106,37 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         
         
         return cell
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if (self.lastCellIndex != nil){
+            self.collectionView.deselectItem(at: lastCellIndex!, animated: true)
+            
+            
+            
+        
+        }
+        //Update the new last cell
+        lastCellIndex = indexPath
+      
+        
+        
+        
+        let cell : GalleryItemCellCollectionViewCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryItemCell", for: indexPath) as! GalleryItemCellCollectionViewCell
+        
+        
+        
+        //Extract the gallery image and present it to the user
+       self.chosenPicture.image = cell.galleryPhoto.image
+        
+        
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
