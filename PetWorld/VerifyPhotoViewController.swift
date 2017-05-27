@@ -10,6 +10,7 @@ import UIKit
 
 class VerifyPhotoViewController: UIViewController {
 
+    @IBOutlet weak var caption: UILabel!
     @IBOutlet weak var chosenPicture: UIImageView!
     var picture: UIImage?
     
@@ -23,9 +24,35 @@ class VerifyPhotoViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func onPost(_ sender: Any) {
+        // caption
+        let captionText = caption.text
+        // post photo
+        let photoPost = resize(photo: self.chosenPicture.image!, newSize: CGSize(width: 240, height: 240))
+        Post.postUserImage(photo: photoPost, caption: captionText) { (success: Bool, error: Error?) in
+            if success {
+                print("Photo posted")
+                self.performSegue(withIdentifier: "PhotoCaptureSegue", sender: nil)
+            } else {
+                print(error?.localizedDescription ?? "Photo not posted")
+            }
+        }
+    
+    }
+    
+    func resize(photo: UIImage, newSize: CGSize) -> UIImage {
+        
+        //Resize the image to match the siize that is passed in
+        let resizedImage = UIImageView(frame: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        resizedImage.contentMode = UIViewContentMode.scaleAspectFill
+        resizedImage.image = photo
+        
+        //update the image on the view controller to the new size
+        UIGraphicsBeginImageContext(resizedImage.frame.size)
+        resizedImage.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
     }
     
 

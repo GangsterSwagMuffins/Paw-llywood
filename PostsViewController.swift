@@ -117,7 +117,7 @@ class PostsViewController: UIViewController {
     
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   /*  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc : VerifyPhotoViewController = segue.destination as! VerifyPhotoViewController
         
         
@@ -130,7 +130,7 @@ class PostsViewController: UIViewController {
 
         
         
-    }
+    } */
     
     
     /*
@@ -144,3 +144,4 @@ class PostsViewController: UIViewController {
     */
 
 
+}

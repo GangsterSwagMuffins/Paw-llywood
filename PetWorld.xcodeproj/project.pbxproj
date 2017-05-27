@@ -191,17 +191,13 @@
 		1F73AADD1E9C938C00A5C1AD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1F15C5351E9C9813005B828B /* HomeViewController.swift */,
+				33751ED71EDA2A6C00E60E34 /* Post */,
 				33751ED61EDA07F100E60E34 /* Login */,
 				33751ECC1ED93A4B00E60E34 /* Friends View Controllers */,
-				1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */,
-				1F15C5351E9C9813005B828B /* HomeViewController.swift */,
-				1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */,
-				5E0CF80E1EBE68E70088427A /* PostsViewController.swift */,
-				33AB426D1ECBB015007B7BB4 /* PostTableViewCell.swift */,
 				33751ED51EDA07E000E60E34 /* Profile */,
 				1F15C5371E9C98F0005B828B /* SettingsViewController.swift */,
 				5EC637401ED413B7003D67F3 /* PetsTableViewCell.swift */,
-				1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -253,6 +249,18 @@
 				1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		33751ED71EDA2A6C00E60E34 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */,
+				5E0CF80E1EBE68E70088427A /* PostsViewController.swift */,
+				1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */,
+				1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */,
+				33AB426D1ECBB015007B7BB4 /* PostTableViewCell.swift */,
+			);
+			name = Post;
 			sourceTree = "<group>";
 		};
 		BEA0489666F0373EAB2C17FB /* Frameworks */ = {
