@@ -26,7 +26,9 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if pet == nil {
+            imageView.image = #imageLiteral(resourceName: "Default Profile Image")
+        }
         if (pet != nil) {
             breedLabel.text = pet.breed
             imageView.image = pet.image
@@ -96,6 +98,7 @@ class ProfileViewController: UIViewController {
         nameLabel.becomeFirstResponder()
     }
     
+    
     @IBAction func onTapAddPet(_ sender: Any) {
         pet.name = nameLabel.text
         pet.breed = breedLabel.text
@@ -111,6 +114,9 @@ class ProfileViewController: UIViewController {
         return true;
     }
     
+    @IBAction func onTapEditPic(_ sender: Any) {
+        performSegue(withIdentifier: "picEditor", sender: self)
+    }
     
     
     
@@ -118,10 +124,17 @@ class ProfileViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "picEditor" {
+            let dVc = segue.destination as! ProfilePictureEditorViewController
+            dVc.user = User.current()
+            dVc.pet = self.pet
+        }
     }
-    */
+ 
 
 }
