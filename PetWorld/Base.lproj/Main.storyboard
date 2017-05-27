@@ -208,7 +208,7 @@
         <!--Profile-->
         <scene sceneID="eS1-V4-ea5">
             <objects>
-                <viewController id="udb-9Q-avP" customClass="ProfileViewController" customModule="PetWorld" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ProfileViewController" storyboardIdentifier="ProfileViewController" id="udb-9Q-avP" customClass="ProfileViewController" customModule="PetWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kWX-VT-axR"/>
                         <viewControllerLayoutGuide type="bottom" id="bc8-vf-quf"/>
