@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ProfileViewController: UIViewController, UITextFieldDelegate {
+class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
 
@@ -132,9 +132,30 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onTapEditPic(_ sender: Any) {
-        self.performSegue(withIdentifier: "picEditor", sender: self)
+        //self.performSegue(withIdentifier: "picEditor", sender: self)
+        let vc = UIImagePickerController();
+        vc.delegate = self;
+        vc.allowsEditing = true;
+        vc.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+        present(vc, animated: true, completion: nil);
+
+    }
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            pet.image = image
+            imageView.image = image
+        } else{
+            print("Something went wrong")
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
     
     
     /*

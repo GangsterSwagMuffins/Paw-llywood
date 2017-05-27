@@ -50,6 +50,10 @@ class ProfilePictureEditorViewController: UIViewController, UIImagePickerControl
         self.dismiss(animated: true, completion: nil)
     }
     
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     @IBAction func onTapProfile(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
