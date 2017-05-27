@@ -402,7 +402,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="430" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gog-EF-MdP">
-                                <rect key="frame" x="0.0" y="62" width="375" height="605"/>
+                                <rect key="frame" x="0.0" y="62" width="375" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="430" id="LaN-Ks-siV" customClass="PostTableViewCell" customModule="PetWorld" customModuleProvider="target">
@@ -576,24 +576,6 @@
             </objects>
             <point key="canvasLocation" x="4749" y="-293"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Bnj-uS-ICN">
-            <objects>
-                <viewController id="sA4-LA-g0S" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mcW-RK-6nj"/>
-                        <viewControllerLayoutGuide type="bottom" id="nb6-SP-hCN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3J1-ET-EV8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XoS-Sv-iMD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1123" y="-773"/>
-        </scene>
         <!--TabBarController-->
         <scene sceneID="xp6-8C-97z">
             <objects>
@@ -722,7 +704,7 @@
         <image name="stats" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yzy-01-iTE"/>
-        <segue reference="8Wb-AZ-G8D"/>
+        <segue reference="L5Y-6f-aSj"/>
+        <segue reference="tKs-kK-mOb"/>
     </inferredMetricsTieBreakers>
 </document>
