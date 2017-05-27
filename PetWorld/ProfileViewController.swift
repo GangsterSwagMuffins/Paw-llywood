@@ -34,13 +34,12 @@ class ProfileViewController: UIViewController {
     
     @IBAction func onTapLogOut(_ sender: Any) {
         
-        let refreshAlert = UIAlertController(title: "Log Out", message: "Are you sure you want to Log Out of Instagram?", preferredStyle: UIAlertControllerStyle.alert);
+        let refreshAlert = UIAlertController(title: "Log Out", message: "Are you sure you want to Log Out?", preferredStyle: UIAlertControllerStyle.alert);
         
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil));
         
         refreshAlert.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { (action: UIAlertAction!) in
 
-          //  User.logOutInBackground;
             //change view controller to login view controller
             let viewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
             self.present(viewController!, animated: true, completion: nil)

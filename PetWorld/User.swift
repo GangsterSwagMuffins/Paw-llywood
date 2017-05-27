@@ -10,5 +10,5 @@ import UIKit
 import Parse
 
 class User: PFUser {
-   //var petsArray = [Pet]()!
+    var petsArray = [Pet]()
 }
