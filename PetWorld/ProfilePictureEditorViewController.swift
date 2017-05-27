@@ -11,8 +11,8 @@ import Parse
 
 class ProfilePictureEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var imageView: UIImageView!
-    weak var profileImage: UIImageView!
+
+    var profileImage: UIImageView!
     var user: User!
     var pet: Pet!
     
@@ -46,27 +46,19 @@ class ProfilePictureEditorViewController: UIViewController, UIImagePickerControl
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         // Do something with the images (based on your use case)
-        imageView.contentMode = .scaleAspectFill;
-        imageView.layer.borderColor = UIColor.white.cgColor;
-        imageView.layer.borderWidth = 2.0;
-        imageView.image = editedImage;
+        profileImage.contentMode = .scaleAspectFill;
+        profileImage.image = editedImage;
         
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil);
         
-        updateProfileImage();
+        performSegue(withIdentifier: "backToProfile", sender: self)
     }
     
-    func updateProfileImage() {
-        /*
-        profileImage = self.imageView.image;
-         
-        image.save();
-        User.current()?.save();
-        dismiss(animated:true, completion: nil);
- 
-        */
+    @IBAction func onTapProfile(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
+
 
     /*
     // MARK: - Navigation
