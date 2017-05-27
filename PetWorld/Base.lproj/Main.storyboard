@@ -420,14 +420,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon-Photoring" translatesAutoresizingMaskIntoConstraints="NO" id="cSy-Dh-lpt">
-                                        <rect key="frame" x="113" y="265" width="148" height="136"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="V22-G6-eMB" appends="YES" id="5nN-t7-cnw"/>
-                                        </connections>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Profile Picture" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E35-EM-jHH">
                                         <rect key="frame" x="102" y="435" width="171" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -435,6 +427,14 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Pet Profile Pic Chooser" translatesAutoresizingMaskIntoConstraints="NO" id="75O-Ux-p8y">
+                                        <rect key="frame" x="114" y="154" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Login Background" translatesAutoresizingMaskIntoConstraints="NO" id="gh6-i8-Ujc">
+                                        <rect key="frame" x="-20" y="-69" width="414" height="736"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -471,7 +471,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="430"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LaN-Ks-siV" id="hzA-mf-zlK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="429.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="429"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zQ3-hm-o3F">
@@ -695,7 +695,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LeM-sX-XVo" id="6cQ-TQ-tJG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RWp-gi-nzZ">
@@ -757,8 +757,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon-Photoring" width="152" height="152"/>
         <image name="Login Background" width="414" height="736"/>
+        <image name="Pet Profile Pic Chooser" width="150" height="150"/>
         <image name="bone gray" width="32" height="32"/>
         <image name="i" width="20" height="20"/>
         <image name="iconmonstr-building-1-24" width="24" height="24"/>
