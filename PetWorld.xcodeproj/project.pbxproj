@@ -191,17 +191,15 @@
 		1F73AADD1E9C938C00A5C1AD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				33751ED61EDA07F100E60E34 /* Login */,
 				33751ECC1ED93A4B00E60E34 /* Friends View Controllers */,
 				1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */,
 				1F15C5351E9C9813005B828B /* HomeViewController.swift */,
-				1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */,
 				1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */,
 				5E0CF80E1EBE68E70088427A /* PostsViewController.swift */,
 				33AB426D1ECBB015007B7BB4 /* PostTableViewCell.swift */,
-				5E1D58431ED91B970055C09D /* ProfilePictureEditorViewController.swift */,
-				1F15C5331E9C97EC005B828B /* ProfileViewController.swift */,
+				33751ED51EDA07E000E60E34 /* Profile */,
 				1F15C5371E9C98F0005B828B /* SettingsViewController.swift */,
-				1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */,
 				5EC637401ED413B7003D67F3 /* PetsTableViewCell.swift */,
 				1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */,
 			);
@@ -237,6 +235,24 @@
 				33751ED31ED96B3A00E60E34 /* FriendTableViewCell.swift */,
 			);
 			name = "Friends View Controllers";
+			sourceTree = "<group>";
+		};
+		33751ED51EDA07E000E60E34 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5E1D58431ED91B970055C09D /* ProfilePictureEditorViewController.swift */,
+				1F15C5331E9C97EC005B828B /* ProfileViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		33751ED61EDA07F100E60E34 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */,
+				1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		BEA0489666F0373EAB2C17FB /* Frameworks */ = {

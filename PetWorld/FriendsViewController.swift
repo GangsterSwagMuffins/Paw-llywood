@@ -51,8 +51,12 @@ class FriendsViewController: UIViewController {
     @IBAction func switchTabs(_ sender: UISegmentedControl) {
         self.currentViewController!.view.removeFromSuperview()
         self.currentViewController!.removeFromParentViewController()
-        
-        displayCurrentTab(sender.selectedSegmentIndex)
+        if segmentedControl.selectedSegmentIndex == 1 {
+            self.performSegue(withIdentifier: "addFriend", sender: self)
+        }
+        else {
+            displayCurrentTab(sender.selectedSegmentIndex)
+        }
     }
     
     func displayCurrentTab(_ tabIndex: Int){

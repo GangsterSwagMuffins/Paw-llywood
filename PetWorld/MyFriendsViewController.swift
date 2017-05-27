@@ -65,8 +65,8 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let post = feed[indexPath.row]
         cell.nameLabel.text = post["name"] as! String?
-        cell.numberLabel.text = post["name"] as! String?
-        //print(post["username"] as! String?)
+        cell.numberLabel.text = post["number"] as! String?
+
         
         return cell
     }
