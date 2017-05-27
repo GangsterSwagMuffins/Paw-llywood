@@ -22,7 +22,7 @@ class ProfilePictureEditorViewController: UIViewController, UIImagePickerControl
         self.navigationItem.setHidesBackButton(true, animated: false);
         
         // Do any additional setup after loading the view.
-//        imageView.clipsToBounds = true;
+       //imageView.clipsToBounds = true;
 
     }
 

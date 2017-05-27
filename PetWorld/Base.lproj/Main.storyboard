@@ -391,7 +391,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="onTapEditPic:" destination="udb-9Q-avP" eventType="touchUpInside" id="zp8-gp-dr0"/>
-                                    <action selector="onTapPicEdit:" destination="udb-9Q-avP" eventType="touchUpInside" id="0bY-b9-hAK"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Ab-4u-wts">
@@ -1131,8 +1130,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="64s-04-dY4"/>
-        <segue reference="L5Y-6f-aSj"/>
-        <segue reference="tKs-kK-mOb"/>
         <segue reference="yzy-01-iTE"/>
+        <segue reference="tKs-kK-mOb"/>
     </inferredMetricsTieBreakers>
 </document>
