@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import Parse
 
-class MyFriendsViewController: UIViewController {
+class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+    var feed: [PFObject] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.tableView.reloadData()
 
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
