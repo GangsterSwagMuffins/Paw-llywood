@@ -13,6 +13,8 @@ class ProfilePictureEditorViewController: UIViewController, UIImagePickerControl
 
     @IBOutlet weak var imageView: UIImageView!
     weak var profileImage: UIImageView!
+    var user: User!
+    var pet: Pet!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -12,6 +12,8 @@ import Parse
 class PetsTableViewCell: UITableViewCell {
 
     
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var otherPetsImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
