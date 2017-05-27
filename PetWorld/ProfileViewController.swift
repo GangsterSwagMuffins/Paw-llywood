@@ -9,18 +9,19 @@
 import UIKit
 
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var breedLabel: UILabel!
-    @IBOutlet weak var ageLabel: UILabel!
-    @IBOutlet weak var genderLabel: UILabel!
-    @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var weightLabel: UILabel!
-    @IBOutlet weak var heightLabel: UILabel!
-    @IBOutlet weak var followersLabel: UILabel!
-    @IBOutlet weak var followingLabel: UILabel!
+
+    @IBOutlet var nameLabel: UITextField!
+    @IBOutlet var breedLabel: UITextField!
+    @IBOutlet var ageLabel: UITextField!
+    @IBOutlet var genderLabel: UITextField!
+    @IBOutlet var statusLabel: UITextField!
+    @IBOutlet var weightLabel: UITextField!
+    @IBOutlet var heightLabel: UITextField!
+    @IBOutlet var followersLabel: UITextField!
+    @IBOutlet var followingLabel: UITextField!
     var pet: Pet!
     var user: User!
     
@@ -29,6 +30,16 @@ class ProfileViewController: UIViewController {
         if pet == nil {
             imageView.image = #imageLiteral(resourceName: "Default Profile Image")
         }
+        breedLabel.delegate = self
+        nameLabel.delegate = self
+        ageLabel.delegate = self
+        genderLabel.delegate = self
+        statusLabel.delegate = self
+        weightLabel.delegate = self
+        heightLabel.delegate = self
+        followersLabel.delegate = self
+        followingLabel.delegate = self
+        
         if (pet != nil) {
             breedLabel.text = pet.breed
             imageView.image = pet.image
@@ -82,25 +93,30 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func onTapBreedEdit(_ sender: Any) {
-        breedLabel.isUserInteractionEnabled = true;
         breedLabel.becomeFirstResponder()
     }
 
     @IBAction func onTapAgeEdit(_ sender: Any) {
-        ageLabel.isUserInteractionEnabled = true
         ageLabel.becomeFirstResponder()
     }
     @IBAction func onTapGenderEdit(_ sender: Any) {
-        genderLabel.isUserInteractionEnabled = true
         genderLabel.becomeFirstResponder()
     }
     
     @IBAction func onTapNameEdit(_ sender: Any) {
-        nameLabel.isUserInteractionEnabled = true
         nameLabel.becomeFirstResponder()
     }
     
+    @IBAction func onTapStatusEdit(_ sender: Any) {
+        statusLabel.becomeFirstResponder()
+    }
+    @IBAction func onTapWeightEdit(_ sender: Any) {
+        weightLabel.becomeFirstResponder()
+    }
     
+    @IBAction func onTapHeightEdit(_ sender: Any) {
+        heightLabel.becomeFirstResponder()
+    }
     @IBAction func onTapAddPet(_ sender: Any) {
       //  pet.name = nameLabel.text
         pet.breed = breedLabel.text
@@ -112,12 +128,11 @@ class ProfileViewController: UIViewController {
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        textField.isUserInteractionEnabled = false
         return true;
     }
     
     @IBAction func onTapEditPic(_ sender: Any) {
-        performSegue(withIdentifier: "picEditor", sender: self)
+        self.performSegue(withIdentifier: "picEditor", sender: self)
     }
     
     
