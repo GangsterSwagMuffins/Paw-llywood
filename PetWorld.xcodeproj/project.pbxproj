@@ -230,8 +230,8 @@
 			children = (
 				33751ECA1ED937AC00E60E34 /* FriendsViewController.swift */,
 				33751ECD1ED95BAB00E60E34 /* MyFriendsViewController.swift */,
-				33751ED31ED96B3A00E60E34 /* FriendTableViewCell.swift */,
 				33751ECF1ED95BB800E60E34 /* AddFriendViewController.swift */,
+				33751ED31ED96B3A00E60E34 /* FriendTableViewCell.swift */,
 			);
 			name = "Friends View Controllers";
 			sourceTree = "<group>";

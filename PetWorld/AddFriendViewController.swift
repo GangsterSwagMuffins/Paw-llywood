@@ -7,13 +7,33 @@
 //
 
 import UIKit
+import Parse
 
 class AddFriendViewController: UIViewController {
 
+    @IBOutlet weak var numberTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func onTap(_ sender: Any) {
+        view.endEditing(true)
+    }
+    @IBAction func onTapNumber(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    @IBAction func onSave(_ sender: Any) {
+        let post = PFObject(className: "Friend")
+        post["name"] = numberTextField.text
+        post["number"] = numberTextField.text
+        
+        // Save object (following function will save the object in Parse asynchronously)
+        post.saveInBackground { (True, error) in
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
