@@ -8,9 +8,9 @@
 
 import UIKit
 
-class VerifyPhotoViewController: UIViewController {
+class VerifyPhotoViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet var caption: UITextField!
 
-    @IBOutlet weak var caption: UILabel!
     @IBOutlet weak var chosenPicture: UIImageView!
     var picture: UIImage?
     
@@ -21,6 +21,7 @@ class VerifyPhotoViewController: UIViewController {
         super.viewDidLoad()
 
         chosenPicture.image = picture
+        caption.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -54,7 +55,10 @@ class VerifyPhotoViewController: UIViewController {
         UIGraphicsEndImageContext()
         return newImage!
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
 
     /*
     // MARK: - Navigation

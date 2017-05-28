@@ -15,8 +15,7 @@ class PostsViewController: UIViewController {
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet var buttons: [UIButton]!
-    
-    //Text color button states
+        //Text color button states
     //Selected state
     let selectedTextColor = UIColor.black
     //Non selected state
@@ -59,7 +58,7 @@ class PostsViewController: UIViewController {
         self.buttons[1].setTitleColor(self.deselectedTextColor, for: UIControlState.normal)
         
         
-        didPressTab(buttons[selectedIndex])
+        // didPressTab(buttons[selectedIndex])
         
         
         
@@ -72,30 +71,28 @@ class PostsViewController: UIViewController {
         
         
     }
-    @IBOutlet weak var onExitTapped: UIButton!
     
-   
-    @IBAction func exitTapped(_ sender: Any) {
+    func didPressTab(sender: Int ) {
         
-        //Leave this post view and go back home
-    }
-    @IBAction func didPressTab(_ sender: UIButton) {
         //Save the value of the previous button pressed
         let previousIndex = selectedIndex
+        
         //Get then index of the button pressed
-        selectedIndex = sender.tag
+        selectedIndex = sender
+        
         //Deselect the last button pressed
         buttons[previousIndex].isSelected = false
         print("button #\(previousIndex) deselected")
+        
         //Remove the previous view controller
         let previousVC = viewControllers[previousIndex]
         previousVC.view.removeFromSuperview()
         previousVC.removeFromParentViewController()
         
         //Add the new button and set the button state
-        sender.isSelected = true
+        //sender.isSelected = true
         
-        print("button #\(sender.tag) selected")
+        //print("button #\(sender.tag) selected")
         //Access the new new view controlller via array and selected index
         let vc = viewControllers[selectedIndex]
         //Add the new view controller
@@ -109,11 +106,30 @@ class PostsViewController: UIViewController {
         
         //Trigger the viewDidAppear function
         vc.didMove(toParentViewController: self)
-        
-        
-        
-        
     }
+    
+
+    
+    @IBAction func onTapExit(_ sender: Any) {
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController")
+        self.present(viewController!, animated: true, completion: nil)
+    }
+   
+    @IBAction func exitTapped(_ sender: Any) {
+        
+        //Leave this post view and go back home
+    }
+    
+    
+    @IBAction func onCamera(_ sender: Any) {
+        selectedIndex = 1
+        didPressTab(sender: 1)
+    }
+    @IBAction func onGallery(_ sender: Any) {
+        selectedIndex = 0
+        didPressTab(sender: 0)
+    }
+
     
     
     

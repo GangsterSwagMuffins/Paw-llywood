@@ -29,6 +29,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         super.viewDidLoad()
         if pet == nil {
             imageView.image = #imageLiteral(resourceName: "dog.jpg")
+            imageView.image = #imageLiteral(resourceName: "DOGDOG")
         }
         breedLabel.delegate = self
         nameLabel.delegate = self
@@ -48,6 +49,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             followingLabel.text = String(describing: pet.following)
             if pet.image == nil {
                 pet.image = #imageLiteral(resourceName: "dog.jpg")
+                pet.image = #imageLiteral(resourceName: "DOGDOG")
             }
             imageView.image = pet.image
             
