@@ -153,7 +153,7 @@ class PhotoCaptureViewController: UIViewController, AVCapturePhotoCaptureDelegat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc : VerifyPhotoViewController = segue.destination as! VerifyPhotoViewController
         
-        vc.chosenPicture.image = takenPicture
+        vc.picture = takenPicture
         
     }
     

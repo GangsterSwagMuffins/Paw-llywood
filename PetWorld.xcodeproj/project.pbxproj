@@ -241,6 +241,7 @@
 			children = (
 				5E1D58431ED91B970055C09D /* ProfilePictureEditorViewController.swift */,
 				1F15C5331E9C97EC005B828B /* ProfileViewController.swift */,
+				1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -259,7 +260,6 @@
 			children = (
 				1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */,
 				5E0CF80E1EBE68E70088427A /* PostsViewController.swift */,
-				1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */,
 				1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */,
 				33AB426D1ECBB015007B7BB4 /* PostTableViewCell.swift */,
 			);

@@ -566,7 +566,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EH7-hE-62f">
-                                        <rect key="frame" x="34" y="19" width="26" height="25"/>
+                                        <rect key="frame" x="8" y="8" width="26" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <state key="normal" title="x">
@@ -575,14 +575,6 @@
                                         <connections>
                                             <action selector="exitTapped:" destination="0mg-yN-LeB" eventType="touchUpInside" id="INc-gg-bPk"/>
                                             <action selector="onTapExit:" destination="0mg-yN-LeB" eventType="touchUpInside" id="Std-jo-GWl"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LO-3C-2fE">
-                                        <rect key="frame" x="325" y="20" width="44" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button" image="checkmark"/>
-                                        <connections>
-                                            <segue destination="CXy-Ck-19v" kind="showDetail" identifier="PictureChosenSegue" id="3tw-TB-Lwy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -985,25 +977,22 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pX5-O7-hRz">
-                                <rect key="frame" x="16" y="0.0" width="359" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwX-P2-gv1">
-                                        <rect key="frame" x="304" y="36" width="78" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button" image="checkmark"/>
-                                        <connections>
-                                            <segue destination="CXy-Ck-19v" kind="showDetail" identifier="PictureChosenSegue" id="4k2-W2-gtJ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MQA-gm-YFX">
                                 <rect key="frame" x="16" y="60" width="343" height="268"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pX5-O7-hRz">
+                                <rect key="frame" x="16" y="0.0" width="359" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwX-P2-gv1">
+                                <rect key="frame" x="16" y="67" width="343" height="261"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="CXy-Ck-19v" kind="showDetail" identifier="PictureChosenSegue" id="4k2-W2-gtJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1033,10 +1022,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddT-ft-Xnl">
-                                        <rect key="frame" x="153" y="490" width="69" height="75"/>
+                                        <rect key="frame" x="8" y="8" width="367" height="659"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button" image="photocaptureicon"/>
+                                        <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="didTakePhoto:" destination="0RG-Fd-oRE" eventType="touchUpInside" id="HRn-hP-16P"/>
                                             <segue destination="CXy-Ck-19v" kind="showDetail" identifier="PhotoCaptureSegue" id="x5q-jG-s3i"/>
@@ -1184,12 +1173,10 @@
         <image name="Login Background" width="414" height="736"/>
         <image name="Pet Profile Pic Chooser" width="150" height="150"/>
         <image name="bone gray" width="32" height="32"/>
-        <image name="checkmark" width="24" height="24"/>
         <image name="i" width="20" height="20"/>
         <image name="iconmonstr-building-1-24" width="24" height="24"/>
         <image name="pawllywood" width="375" height="200"/>
         <image name="pawprint" width="20" height="20"/>
-        <image name="photocaptureicon" width="64" height="64"/>
         <image name="scale" width="20" height="20"/>
         <image name="settings" width="20" height="20"/>
         <image name="stats" width="20" height="20"/>
