@@ -14,7 +14,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBAction func onLoginTap(_ sender: Any) {
+    @IBAction func onLoginTap(_ sender: UIButton) {
         
         print("Called!")
         let username = usernameTextField.text ?? ""

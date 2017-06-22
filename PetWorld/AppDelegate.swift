@@ -27,13 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        // /* // UNCOMMENT TO DIRECTLY ACCESS LOGIN/SIGNUP
         if PFUser.current() != nil {
             print("There is a current user")
-            
-            //
-    //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      //      let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+            print("Username: \(PFUser.current()!.username)")
             
             
-       //     window?.rootViewController = vc
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+            
+            
+            window?.rootViewController = vc
         }
         // */ // UNCOMMENT TO DIRECTLY ACCESS LOGIN/SIGNUP
         

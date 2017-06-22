@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -14,6 +15,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var user: User!
     var pet: Pet!
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +23,22 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func onLogout(_ sender: UIButton) {
+        print("logout button pressed!")
+        PFUser.logOutInBackground { (error: Error?) in
+            if (error != nil){
+                print(error!)
+                return
+            }
+            
+            print("Successfully logged out!!!")
+            
+            
+        }
+        
+      
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
