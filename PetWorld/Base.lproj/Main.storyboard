@@ -1172,11 +1172,12 @@
                     <navigationItem key="navigationItem" id="Bod-Pb-BgB"/>
                     <connections>
                         <outlet property="tableView" destination="plB-YT-0lc" id="bLf-fw-A8E"/>
+                        <segue destination="Fe6-sd-Mq5" kind="presentation" identifier="LogoutSegue" id="lPb-Wj-DB7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nw6-Ji-y1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="862" y="1222"/>
+            <point key="canvasLocation" x="398" y="806"/>
         </scene>
     </scenes>
     <resources>
@@ -1193,6 +1194,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yzy-01-iTE"/>
+        <segue reference="lPb-Wj-DB7"/>
         <segue reference="Jto-do-SuL"/>
         <segue reference="64s-04-dY4"/>
         <segue reference="8Wb-AZ-G8D"/>
