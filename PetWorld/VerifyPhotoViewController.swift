@@ -30,7 +30,7 @@ class VerifyPhotoViewController: UIViewController, UITextFieldDelegate {
         let captionText = caption.text
         // post photo
         let photoPost = resize(photo: self.chosenPicture.image!, newSize: CGSize(width: 240, height: 240))
-        Post.postUserImage(photo: photoPost, caption: captionText) { (success: Bool, error: Error?) in
+            Post.postUserImage(photo: photoPost, caption: captionText) { (success: Bool, error: Error?) in
             if success {
                 print("Photo posted")
                 self.performSegue(withIdentifier: "PhotoCaptureSegue", sender: nil)

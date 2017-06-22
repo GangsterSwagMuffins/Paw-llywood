@@ -161,7 +161,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onCreateAccTap:" destination="bke-4c-Ccd" eventType="touchUpInside" id="AHB-Q8-lgz"/>
-                                    <segue destination="QHn-we-XxN" kind="show" identifier="signupSegue" id="yzy-01-iTE"/>
+                                    <segue destination="QHn-we-XxN" kind="presentation" identifier="SignUpSegue" id="yzy-01-iTE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rlt-qB-SQ7">
@@ -203,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZUo-tP-YHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-306" y="788"/>
+            <point key="canvasLocation" x="-500" y="694"/>
         </scene>
         <!--Profile-->
         <scene sceneID="eS1-V4-ea5">
@@ -218,10 +218,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OfN-tS-cpv">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="208"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="257"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOr-hk-r2L">
-                                <rect key="frame" x="0.0" y="206" width="375" height="412"/>
+                                <rect key="frame" x="0.0" y="206" width="375" height="461"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Breed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cvj-Ai-zEm">
                                         <rect key="frame" x="74" y="30" width="60" height="21"/>
@@ -665,7 +665,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="420"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LaN-Ks-siV" id="hzA-mf-zlK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="420"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="419"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zQ3-hm-o3F">
@@ -762,7 +762,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mhq-9F-Pga" id="7h2-77-tX2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayV-h6-JLp">
@@ -1114,7 +1114,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LeM-sX-XVo" id="6cQ-TQ-tJG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RWp-gi-nzZ">
@@ -1193,11 +1193,11 @@
         <image name="stats" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="x5q-jG-s3i"/>
+        <segue reference="8Wb-AZ-G8D"/>
         <segue reference="yzy-01-iTE"/>
-        <segue reference="lPb-Wj-DB7"/>
+        <segue reference="h1A-o7-o6e"/>
         <segue reference="Jto-do-SuL"/>
         <segue reference="64s-04-dY4"/>
-        <segue reference="8Wb-AZ-G8D"/>
-        <segue reference="x5q-jG-s3i"/>
     </inferredMetricsTieBreakers>
 </document>

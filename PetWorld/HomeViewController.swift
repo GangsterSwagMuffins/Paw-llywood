@@ -28,10 +28,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidAppear(_ animated: Bool) {
         
+        
+        let currentUser: PFUser = PFUser.current()!
+        let username = currentUser.username!
+        
         // Query
         let query = PFQuery(className: "Post")
         query.order(byDescending: "_created_at")
-        query.includeKey("author")
+        query.whereKey("author", equalTo: currentUser)
+        
         query.limit = 20
         
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) -> Void in
