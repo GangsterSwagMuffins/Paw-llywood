@@ -8,14 +8,24 @@
 
 import UIKit
 import Parse
+import AVFoundation
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     var feed: [PFObject] = []
     
+    var player: AVPlayer!
+    var playerLayer: AVPlayerLayer!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
         print("Loading Home")
         tableView.delegate = self
         tableView.dataSource = self
@@ -30,7 +40,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         let currentUser: PFUser = PFUser.current()!
-        let username = currentUser.username!
+     
         
         // Query
         let query = PFQuery(className: "Post")

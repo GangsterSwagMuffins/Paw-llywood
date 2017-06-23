@@ -8,11 +8,15 @@
 
 import UIKit
 import Parse
+import AVFoundation
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var player: AVPlayer!
+    var playerLayer: AVPlayerLayer!
+    
     
     @IBAction func onLoginTap(_ sender: UIButton) {
         
@@ -51,9 +55,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.usernameTextField.delegate = self;
         self.passwordTextField.delegate = self;
+        let URL = Bundle.main.url(forResource: "WolfieAndLammy", withExtension: "mp4")
+        
+        player = AVPlayer.init(url: URL!)
+        playerLayer = AVPlayerLayer(player: player)
+        
+        playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        playerLayer.frame = view.layer.frame
+        
+        player.actionAtItemEnd = AVPlayerActionAtItemEnd.none
+        player.play()
+        
+        view.layer.insertSublayer(playerLayer, at: 0)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(playerItemReachEnd(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentItem)
         
         
         
+        
+    }
+    
+    func playerItemReachEnd(notification: NSNotification){
+        player.seek(to: kCMTimeZero)
+        
+    
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
