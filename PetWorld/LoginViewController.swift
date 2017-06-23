@@ -58,6 +58,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let URL = Bundle.main.url(forResource: "WolfieAndLammy", withExtension: "mp4")
         
         player = AVPlayer.init(url: URL!)
+        player.volume = 0.0
+        
         playerLayer = AVPlayerLayer(player: player)
         
         playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
