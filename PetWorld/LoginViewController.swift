@@ -27,6 +27,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         print("username: \(username)\n")
         print("password: \(password)\n")
         
+        
+        //Actually login user
         PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
             if (user != nil){
                 print("You are logged in!!!")
@@ -55,21 +57,38 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.usernameTextField.delegate = self;
         self.passwordTextField.delegate = self;
-        let URL = Bundle.main.url(forResource: "WolfieAndLammy", withExtension: "mp4")
         
+        
+
+        
+        
+        /*The following is code to set up the background video*/
+        
+        //Find the video in the project folder
+        let URL = Bundle.main.url(forResource: "WolfieAndLammy", withExtension: "mp4")
+        //Create AVPlayer object
         player = AVPlayer.init(url: URL!)
+        //Until I find a way to strip audio....
         player.volume = 0.0
         
-        playerLayer = AVPlayerLayer(player: player)
         
+        //Create a player layer
+        playerLayer = AVPlayerLayer(player: player)
+        //Keep aspect ration
         playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        //Set the player layer dimensions to the views layer dimensions
         playerLayer.frame = view.layer.frame
         
+        //Don't mess with video at the end
         player.actionAtItemEnd = AVPlayerActionAtItemEnd.none
+        
+        //Start the video
         player.play()
         
+        //Insert the the player into the view
         view.layer.insertSublayer(playerLayer, at: 0)
         
+        //Create a callback for the event that the video stops so it replays again
         NotificationCenter.default.addObserver(self, selector: #selector(playerItemReachEnd(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentItem)
         
         
@@ -78,6 +97,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func playerItemReachEnd(notification: NSNotification){
+        
+        //Reset the video to start again
         player.seek(to: kCMTimeZero)
         
     
