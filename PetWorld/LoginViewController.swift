@@ -81,7 +81,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         /*The following is code to set up the background video*/
         
         //Find the video in the project folder
-        let URL = Bundle.main.url(forResource: "WolfieAndLammy", withExtension: "mp4")
+        let URL = Bundle.main.url(forResource: "BGVideo", withExtension: "mp4")
         //Create AVPlayer object
         player = AVPlayer.init(url: URL!)
         //Until I find a way to strip audio....

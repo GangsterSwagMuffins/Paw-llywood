@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0B60A8FD553CBD42FE2C78E9 /* Pods_PetWorld.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B6E87101CC204FDD0CCA3F /* Pods_PetWorld.framework */; };
-		1F075BF41EFCD17600350EF5 /* WolfieAndLammy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1F075BF31EFCCBCC00350EF5 /* WolfieAndLammy.mp4 */; };
 		1F15C5341E9C97EC005B828B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F15C5331E9C97EC005B828B /* ProfileViewController.swift */; };
 		1F15C5361E9C9813005B828B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F15C5351E9C9813005B828B /* HomeViewController.swift */; };
 		1F15C5381E9C98F0005B828B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F15C5371E9C98F0005B828B /* SettingsViewController.swift */; };
@@ -26,6 +25,7 @@
 		1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FEF9F1ECA02D80009CC06 /* Pet.swift */; };
 		1FAD6F341F042E5F006783F7 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD6F331F042E5F006783F7 /* DesignableTextField.swift */; };
 		1FAD6F361F045448006783F7 /* danger.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAD6F351F045448006783F7 /* danger.png */; };
+		1FAD6F381F04B280006783F7 /* BGVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FAD6F371F04B166006783F7 /* BGVideo.mp4 */; };
 		1FB386E11EA5BED400FBEB8E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1FB386E01EA5BED400FBEB8E /* Podfile */; };
 		1FB386E31EA5C44000FBEB8E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */; };
 		1FB386E51EA5CEEE00FBEB8E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */; };
@@ -61,7 +61,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F075BF31EFCCBCC00350EF5 /* WolfieAndLammy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = WolfieAndLammy.mp4; sourceTree = "<group>"; };
 		1F15C5331E9C97EC005B828B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1F15C5351E9C9813005B828B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F15C5371E9C98F0005B828B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +84,7 @@
 		1F9FEF9F1ECA02D80009CC06 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		1FAD6F331F042E5F006783F7 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		1FAD6F351F045448006783F7 /* danger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = danger.png; sourceTree = "<group>"; };
+		1FAD6F371F04B166006783F7 /* BGVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = BGVideo.mp4; sourceTree = "<group>"; };
 		1FB386E01EA5BED400FBEB8E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 				1F73AAB31E9C937C00A5C1AD /* Main.storyboard */,
 				1F73AAB61E9C937C00A5C1AD /* Assets.xcassets */,
 				1FAD6F351F045448006783F7 /* danger.png */,
-				1F075BF31EFCCBCC00350EF5 /* WolfieAndLammy.mp4 */,
+				1FAD6F371F04B166006783F7 /* BGVideo.mp4 */,
 				5E81BC091EDA333A002F8915 /* dog.jpg */,
 				1F73AAB81E9C937C00A5C1AD /* LaunchScreen.storyboard */,
 				1F73AABB1E9C937C00A5C1AD /* Info.plist */,
@@ -396,11 +396,11 @@
 			files = (
 				1F73AABA1E9C937C00A5C1AD /* LaunchScreen.storyboard in Resources */,
 				5E81BC0A1EDA333A002F8915 /* dog.jpg in Resources */,
-				1F075BF41EFCD17600350EF5 /* WolfieAndLammy.mp4 in Resources */,
 				1F73AAB71E9C937C00A5C1AD /* Assets.xcassets in Resources */,
 				1FB386E11EA5BED400FBEB8E /* Podfile in Resources */,
 				1FAD6F361F045448006783F7 /* danger.png in Resources */,
 				1F73AAB51E9C937C00A5C1AD /* Main.storyboard in Resources */,
+				1FAD6F381F04B280006783F7 /* BGVideo.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
