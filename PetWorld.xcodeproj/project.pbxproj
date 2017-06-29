@@ -26,6 +26,9 @@
 		1FAD6F341F042E5F006783F7 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD6F331F042E5F006783F7 /* DesignableTextField.swift */; };
 		1FAD6F361F045448006783F7 /* danger.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAD6F351F045448006783F7 /* danger.png */; };
 		1FAD6F381F04B280006783F7 /* BGVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FAD6F371F04B166006783F7 /* BGVideo.mp4 */; };
+		1FAD6F3A1F0571B7006783F7 /* WildernessTypeface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FAD6F391F0571B7006783F7 /* WildernessTypeface-Regular.ttf */; };
+		1FAD6F3C1F05773A006783F7 /* HollywoodHills.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FAD6F3B1F05773A006783F7 /* HollywoodHills.ttf */; };
+		1FAD6F401F057A9A006783F7 /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD6F3F1F057A9A006783F7 /* DesignableImageView.swift */; };
 		1FB386E11EA5BED400FBEB8E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1FB386E01EA5BED400FBEB8E /* Podfile */; };
 		1FB386E31EA5C44000FBEB8E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */; };
 		1FB386E51EA5CEEE00FBEB8E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */; };
@@ -85,6 +88,9 @@
 		1FAD6F331F042E5F006783F7 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		1FAD6F351F045448006783F7 /* danger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = danger.png; sourceTree = "<group>"; };
 		1FAD6F371F04B166006783F7 /* BGVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = BGVideo.mp4; sourceTree = "<group>"; };
+		1FAD6F391F0571B7006783F7 /* WildernessTypeface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WildernessTypeface-Regular.ttf"; path = "PetWorld/Assets.xcassets/WildernessTypeface-Regular.dataset/WildernessTypeface-Regular.ttf"; sourceTree = "<group>"; };
+		1FAD6F3B1F05773A006783F7 /* HollywoodHills.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = HollywoodHills.ttf; path = PetWorld/Assets.xcassets/HollywoodHills.dataset/HollywoodHills.ttf; sourceTree = "<group>"; };
+		1FAD6F3F1F057A9A006783F7 /* DesignableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
 		1FB386E01EA5BED400FBEB8E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +149,7 @@
 		1F73AAA31E9C937B00A5C1AD = {
 			isa = PBXGroup;
 			children = (
+				1FAD6F3D1F057757006783F7 /* Fonts */,
 				1F73AAAE1E9C937C00A5C1AD /* PetWorld */,
 				1F73AAC31E9C937D00A5C1AD /* PetWorldTests */,
 				1F73AACE1E9C937D00A5C1AD /* PetWorldUITests */,
@@ -166,17 +173,16 @@
 			isa = PBXGroup;
 			children = (
 				1F73AAAF1E9C937C00A5C1AD /* AppDelegate.swift */,
+				1FAD6F3E1F057777006783F7 /* Storyboards */,
 				1F73AADF1E9C93A500A5C1AD /* Model */,
 				1F73AADE1E9C939800A5C1AD /* View */,
 				1F73AADD1E9C938C00A5C1AD /* View Controllers */,
 				1FB386E01EA5BED400FBEB8E /* Podfile */,
-				1F73AAB31E9C937C00A5C1AD /* Main.storyboard */,
+				1F73AABB1E9C937C00A5C1AD /* Info.plist */,
 				1F73AAB61E9C937C00A5C1AD /* Assets.xcassets */,
 				1FAD6F351F045448006783F7 /* danger.png */,
 				1FAD6F371F04B166006783F7 /* BGVideo.mp4 */,
 				5E81BC091EDA333A002F8915 /* dog.jpg */,
-				1F73AAB81E9C937C00A5C1AD /* LaunchScreen.storyboard */,
-				1F73AABB1E9C937C00A5C1AD /* Info.plist */,
 			);
 			path = PetWorld;
 			sourceTree = "<group>";
@@ -217,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				1FAD6F331F042E5F006783F7 /* DesignableTextField.swift */,
+				1FAD6F3F1F057A9A006783F7 /* DesignableImageView.swift */,
 				1F15C5391E9EFFC3005B828B /* ProfileView.swift */,
 				1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */,
 			);
@@ -232,6 +239,24 @@
 				33751ED11ED9688B00E60E34 /* Friend.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		1FAD6F3D1F057757006783F7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1FAD6F3B1F05773A006783F7 /* HollywoodHills.ttf */,
+				1FAD6F391F0571B7006783F7 /* WildernessTypeface-Regular.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		1FAD6F3E1F057777006783F7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1F73AAB31E9C937C00A5C1AD /* Main.storyboard */,
+				1F73AAB81E9C937C00A5C1AD /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		33751ECC1ED93A4B00E60E34 /* Friends View Controllers */ = {
@@ -394,6 +419,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FAD6F3C1F05773A006783F7 /* HollywoodHills.ttf in Resources */,
+				1FAD6F3A1F0571B7006783F7 /* WildernessTypeface-Regular.ttf in Resources */,
 				1F73AABA1E9C937C00A5C1AD /* LaunchScreen.storyboard in Resources */,
 				5E81BC0A1EDA333A002F8915 /* dog.jpg in Resources */,
 				1F73AAB71E9C937C00A5C1AD /* Assets.xcassets in Resources */,
@@ -489,6 +516,7 @@
 				33751ED01ED95BB800E60E34 /* AddFriendViewController.swift in Sources */,
 				1F15C53A1E9EFFC3005B828B /* ProfileView.swift in Sources */,
 				1F7D42591ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift in Sources */,
+				1FAD6F401F057A9A006783F7 /* DesignableImageView.swift in Sources */,
 				33751ED41ED96B3A00E60E34 /* FriendTableViewCell.swift in Sources */,
 				33751ED21ED9688B00E60E34 /* Friend.swift in Sources */,
 				1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */,
