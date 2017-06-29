@@ -25,6 +25,7 @@
 		1F7D425D1ED9F15E00E4B278 /* VerifyPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */; };
 		1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FEF9F1ECA02D80009CC06 /* Pet.swift */; };
 		1FAD6F341F042E5F006783F7 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD6F331F042E5F006783F7 /* DesignableTextField.swift */; };
+		1FAD6F361F045448006783F7 /* danger.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAD6F351F045448006783F7 /* danger.png */; };
 		1FB386E11EA5BED400FBEB8E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1FB386E01EA5BED400FBEB8E /* Podfile */; };
 		1FB386E31EA5C44000FBEB8E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */; };
 		1FB386E51EA5CEEE00FBEB8E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */; };
@@ -83,6 +84,7 @@
 		1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPhotoViewController.swift; sourceTree = "<group>"; };
 		1F9FEF9F1ECA02D80009CC06 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		1FAD6F331F042E5F006783F7 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
+		1FAD6F351F045448006783F7 /* danger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = danger.png; sourceTree = "<group>"; };
 		1FB386E01EA5BED400FBEB8E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				1FB386E01EA5BED400FBEB8E /* Podfile */,
 				1F73AAB31E9C937C00A5C1AD /* Main.storyboard */,
 				1F73AAB61E9C937C00A5C1AD /* Assets.xcassets */,
+				1FAD6F351F045448006783F7 /* danger.png */,
 				1F075BF31EFCCBCC00350EF5 /* WolfieAndLammy.mp4 */,
 				5E81BC091EDA333A002F8915 /* dog.jpg */,
 				1F73AAB81E9C937C00A5C1AD /* LaunchScreen.storyboard */,
@@ -396,6 +399,7 @@
 				1F075BF41EFCD17600350EF5 /* WolfieAndLammy.mp4 in Resources */,
 				1F73AAB71E9C937C00A5C1AD /* Assets.xcassets in Resources */,
 				1FB386E11EA5BED400FBEB8E /* Podfile in Resources */,
+				1FAD6F361F045448006783F7 /* danger.png in Resources */,
 				1F73AAB51E9C937C00A5C1AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

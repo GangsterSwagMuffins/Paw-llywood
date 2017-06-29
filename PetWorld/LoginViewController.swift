@@ -12,15 +12,22 @@ import AVFoundation
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var errorDisplay: UILabel!
+    @IBOutlet weak var usernameTextField: DesignableTextField!
+    @IBOutlet weak var passwordTextField: DesignableTextField!
+    
+    
+    
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     
     
     @IBAction func onLoginTap(_ sender: UIButton) {
         
-        print("Called!")
+        
+        updateErrorDisplay(showErrorDisplay: false)
+        
+        
         let username = usernameTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
@@ -33,9 +40,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if (user != nil){
                 print("You are logged in!!!")
                 self.performSegue(withIdentifier: "HomeSegue", sender: nil)
-            }else{
-                print(error!)
-                print("Trouble signing in!!!")
+            }else if let error = error{
+                let pfError = error as! NSError
+                
+                if pfError.code == 101{
+                    print("Bad User/Pass Combination")
+                    self.errorDisplay.text = "Bad User/Pass Combination"
+                }
+                
+                self.updateErrorDisplay(showErrorDisplay: true)
+                
+                
+                
             }
         }
         
@@ -113,6 +129,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func updateErrorDisplay(showErrorDisplay: Bool){
+        if (showErrorDisplay){
+            self.errorDisplay.isHidden = false
+            passwordTextField.showRightView = true
+            passwordTextField.updateView()
+            
+        }else{
+            self.errorDisplay.isHidden = true
+            passwordTextField.showRightView = false
+        }
+    
+    }
     
   
     

@@ -11,6 +11,10 @@ import UIKit
 @IBDesignable
 class DesignableTextField: UITextField {
     
+    
+    
+    var showRightView = false
+    
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet{
             layer.cornerRadius = cornerRadius
@@ -21,7 +25,23 @@ class DesignableTextField: UITextField {
     
     }
     
+    @IBInspectable var rightImage: UIImage?{
+        didSet{
+            updateView()
+        
+        }
+    
+    }
+    
     @IBInspectable var leftImage: UIImage?{
+        didSet{
+            updateView()
+        
+        }
+    
+    }
+    
+    @IBInspectable var rightPadding: CGFloat = 0{
         didSet{
             updateView()
         
@@ -40,7 +60,7 @@ class DesignableTextField: UITextField {
     
     func updateView(){
         
-        if let image = leftImage{
+        if let leftImage = leftImage{
             //There is an image
             leftViewMode = .always
             
@@ -59,7 +79,7 @@ class DesignableTextField: UITextField {
             view.addSubview(imageView)
             
             
-            imageView.image = image
+            imageView.image = leftImage
             imageView.tintColor = tintColor
             
             leftView = view
@@ -67,6 +87,42 @@ class DesignableTextField: UITextField {
              //Image is nil
             leftViewMode = .never
         }
+        
+        rightViewMode = .always
+        
+        if let rightImage = rightImage{
+            
+            rightViewMode = .always
+        //There is a right image set
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20) )
+            var width = rightPadding + 20
+            if (borderStyle == UITextBorderStyle.none || borderStyle == UITextBorderStyle.line){
+                width = width + 5
+                
+            }
+            
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 20 ))
+            view.addSubview(imageView)
+            imageView.image = rightImage
+            imageView.tintColor = UIColor.red
+            
+            rightView = view
+            
+            
+        
+        }else{
+        //There is no right image set nil bruh
+            rightViewMode = .never
+        
+        }
+        
+        if (showRightView == true){
+            rightViewMode = .always
+        }else{
+            rightViewMode = .never
+        }
+        
+        
         
         let placeholder_string = (placeholder != nil) ? placeholder! : ""
         
