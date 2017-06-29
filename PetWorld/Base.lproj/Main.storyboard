@@ -31,7 +31,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vbt-9q-vwR" customClass="DesignableTextField" customModule="PetWorld" customModuleProvider="target">
-                                <rect key="frame" x="99" y="324" width="200" height="49"/>
+                                <rect key="frame" x="87" y="324" width="200" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.43659855769230771" green="0.43659855769230771" blue="0.43659855769230771" alpha="0.24348060344827585" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.95686274509803926" green="0.74901960784313726" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,19 +49,8 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="rightImage" value="danger.png"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TF-9w-FKP">
-                                <rect key="frame" x="172" y="402" width="127" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create an Account">
-                                    <color key="titleColor" red="0.88627450980392153" green="0.70980392156862748" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="onSignUp:" destination="Fe6-sd-Mq5" eventType="touchUpInside" id="EeM-hb-sPc"/>
-                                    <segue destination="bke-4c-Ccd" kind="showDetail" id="PQh-5e-Tob"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zh4-ac-gpP">
-                                <rect key="frame" x="106" y="402" width="38" height="30"/>
+                                <rect key="frame" x="103" y="402" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.88627450980392153" green="0.70980392156862748" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
@@ -71,7 +60,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ulO-Mx-ZBe" customClass="DesignableTextField" customModule="PetWorld" customModuleProvider="target">
-                                <rect key="frame" x="99" y="267" width="200" height="49"/>
+                                <rect key="frame" x="87" y="267" width="200" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.43659855769230771" green="0.43659855769230771" blue="0.43659855769230771" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.97647058823529409" green="0.75686274509803919" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
@@ -88,13 +77,24 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is an error message!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uI-BM-htI">
-                                <rect key="frame" x="99" y="381" width="200" height="14"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bad User/Pass Combination!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uI-BM-htI">
+                                <rect key="frame" x="113" y="380" width="149" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="1" green="0.024544653639720582" blue="0.094643362254661634" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TF-9w-FKP">
+                                <rect key="frame" x="160" y="402" width="127" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create an Account">
+                                    <color key="titleColor" red="0.88627450980392153" green="0.70980392156862748" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSignUp:" destination="Fe6-sd-Mq5" eventType="touchUpInside" id="EeM-hb-sPc"/>
+                                    <segue destination="bke-4c-Ccd" kind="showDetail" id="PQh-5e-Tob"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
