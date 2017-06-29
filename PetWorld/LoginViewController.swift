@@ -91,7 +91,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         //Create a player layer
         playerLayer = AVPlayerLayer(player: player)
         //Keep aspect ration
-        playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        playerLayer.videoGravity = AVLayerVideoGravityResize
         //Set the player layer dimensions to the views layer dimensions
         playerLayer.frame = view.layer.frame
         
