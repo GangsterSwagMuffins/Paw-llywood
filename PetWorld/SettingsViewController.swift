@@ -33,6 +33,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             }
             self.performSegue(withIdentifier: "LogoutSegue", sender: nil)
             print("Successfully logged out!!!")
+           
             
             
         }

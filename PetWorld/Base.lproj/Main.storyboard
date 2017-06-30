@@ -88,7 +88,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onSignUp:" destination="Fe6-sd-Mq5" eventType="touchUpInside" id="EeM-hb-sPc"/>
-                                    <segue destination="bke-4c-Ccd" kind="showDetail" id="PQh-5e-Tob"/>
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="pawllywood" translatesAutoresizingMaskIntoConstraints="NO" id="4jV-aM-Kgf">
@@ -101,7 +100,7 @@
                                 <color key="tintColor" red="0.97647058819999999" green="0.75686274509999996" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="imageColor">
-                                        <color key="value" red="0.99607843137254903" green="0.94350516784143956" blue="0.25755257125005054" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
@@ -113,11 +112,12 @@
                         <outlet property="passwordTextField" destination="vbt-9q-vwR" id="uBV-FJ-gRP"/>
                         <outlet property="usernameTextField" destination="ulO-Mx-ZBe" id="qfI-DU-k6h"/>
                         <segue destination="baz-EG-3hH" kind="presentation" identifier="HomeSegue" id="Jto-do-SuL"/>
+                        <segue destination="bke-4c-Ccd" kind="presentation" identifier="SignUpSegue" id="jIL-p8-Ns6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tt6-ct-AcI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-274.39999999999998" y="-1.3493253373313345"/>
+            <point key="canvasLocation" x="-1490" y="-636"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="e3z-bO-ZzU">
@@ -131,49 +131,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Login Background" translatesAutoresizingMaskIntoConstraints="NO" id="xQG-XC-NXe">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.69999999999999996" contentMode="center" fixedFrame="YES" image="Login Background" translatesAutoresizingMaskIntoConstraints="NO" id="xQG-XC-NXe">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcG-43-dsg">
-                                <rect key="frame" x="101" y="253" width="173" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="oHx-Mu-wf1"/>
-                                </constraints>
-                                <nil key="textColor"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcG-43-dsg" customClass="DesignableTextField" customModule="PetWorld" customModuleProvider="target">
+                                <rect key="frame" x="97" y="196" width="173" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.99607843137254903" green="0.792156862745098" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.98563498258590698" green="0.95308703184127808" blue="0.29158824682235718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="pugsil_burned"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sf3-CV-9KC">
-                                <rect key="frame" x="101" y="342" width="173" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="AKd-nf-hCg"/>
-                                </constraints>
-                                <nil key="textColor"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sf3-CV-9KC" customClass="DesignableTextField" customModule="PetWorld" customModuleProvider="target">
+                                <rect key="frame" x="97" y="245" width="173" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.99607843137254903" green="0.792156862745098" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.92405849358974357" green="0.76970794960434519" blue="0.2577153642897817" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="dogsil_burned"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Create an Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90J-rP-7bm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create an Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90J-rP-7bm">
                                 <rect key="frame" x="66" y="131" width="242" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.68235294117647061" green="0.56862745098039214" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeJ-mK-rSt">
-                                <rect key="frame" x="134" y="398" width="107" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="idY-1r-70T"/>
-                                </constraints>
-                                <state key="normal" title="Create Account">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onCreateAccTap:" destination="bke-4c-Ccd" eventType="touchUpInside" id="AHB-Q8-lgz"/>
-                                    <segue destination="QHn-we-XxN" kind="presentation" identifier="SignUpSegue" id="yzy-01-iTE"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rlt-qB-SQ7">
-                                <rect key="frame" x="105" y="454" width="165" height="23"/>
+                                <rect key="frame" x="105" y="445" width="165" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <state key="normal" title="Already have an account? Login here.">
@@ -184,28 +184,43 @@
                                     <segue destination="Fe6-sd-Mq5" kind="show" identifier="cancelSignUp" id="h1A-o7-o6e"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wmP-Hy-aE2" customClass="DesignableTextField" customModule="PetWorld" customModuleProvider="target">
+                                <rect key="frame" x="97" y="290" width="173" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.99607843137254903" green="0.792156862745098" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.92405849358974357" green="0.76970794960434519" blue="0.2577153642897817" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="bone gray"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeJ-mK-rSt">
+                                <rect key="frame" x="129" y="364" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start Adventure">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCreateAccTap:" destination="bke-4c-Ccd" eventType="touchUpInside" id="ZnL-Io-KY6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="mcG-43-dsg" secondAttribute="trailing" constant="79" id="3JP-N8-YjI"/>
-                            <constraint firstItem="mcG-43-dsg" firstAttribute="leading" secondItem="Sf3-CV-9KC" secondAttribute="leading" id="3Pg-v8-EkH"/>
-                            <constraint firstItem="TeJ-mK-rSt" firstAttribute="top" secondItem="Sf3-CV-9KC" secondAttribute="bottom" constant="35" id="6cE-4o-v85"/>
-                            <constraint firstItem="mcG-43-dsg" firstAttribute="leading" secondItem="CBV-9o-CvY" secondAttribute="leadingMargin" constant="91" id="P9H-5X-cCt"/>
-                            <constraint firstItem="mcG-43-dsg" firstAttribute="trailing" secondItem="Sf3-CV-9KC" secondAttribute="trailing" id="VQl-8Z-vTX"/>
-                            <constraint firstItem="90J-rP-7bm" firstAttribute="top" secondItem="pGg-w5-fgV" secondAttribute="bottom" constant="100" id="bAI-SO-dtz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="90J-rP-7bm" secondAttribute="trailing" constant="42" id="h3q-l9-DrT"/>
-                            <constraint firstItem="GCo-L1-C9D" firstAttribute="top" secondItem="TeJ-mK-rSt" secondAttribute="bottom" constant="164" id="iYq-lk-VzO"/>
-                            <constraint firstItem="90J-rP-7bm" firstAttribute="leading" secondItem="CBV-9o-CvY" secondAttribute="leadingMargin" constant="59" id="wab-AC-dcF"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="passwordTextField" destination="Sf3-CV-9KC" id="9UC-eB-kMN"/>
-                        <outlet property="usernameTextField" destination="mcG-43-dsg" id="NH5-2l-L9Q"/>
+                        <outlet property="passwordTextField" destination="wmP-Hy-aE2" id="Qwn-3I-TMG"/>
+                        <outlet property="usernameTextField" destination="Sf3-CV-9KC" id="4Rr-tR-zHq"/>
+                        <segue destination="baz-EG-3hH" kind="presentation" identifier="HomeSegue" id="wPD-Yx-bzc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZUo-tP-YHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-506" y="1025"/>
+            <point key="canvasLocation" x="-511" y="-787"/>
         </scene>
         <!--Profile-->
         <scene sceneID="eS1-V4-ea5">
@@ -935,7 +950,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dln-wr-70U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1013.6" y="-464.6176911544228"/>
+            <point key="canvasLocation" x="3785" y="402"/>
         </scene>
         <!--Gallery View Controller-->
         <scene sceneID="13n-ZN-VxG">
@@ -1067,7 +1082,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZj-wG-Eae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="337"/>
+            <point key="canvasLocation" x="262" y="-137"/>
         </scene>
         <!--Settings-->
         <scene sceneID="kip-EC-Yk7">
@@ -1192,16 +1207,16 @@
         <image name="iconmonstr-building-1-24" width="24" height="24"/>
         <image name="pawllywood" width="375" height="200"/>
         <image name="pawprint" width="20" height="20"/>
+        <image name="pugsil_burned" width="325" height="582"/>
         <image name="scale" width="20" height="20"/>
         <image name="settings" width="20" height="20"/>
         <image name="stats" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="x5q-jG-s3i"/>
-        <segue reference="8Wb-AZ-G8D"/>
-        <segue reference="yzy-01-iTE"/>
+        <segue reference="tKs-kK-mOb"/>
+        <segue reference="wPD-Yx-bzc"/>
         <segue reference="h1A-o7-o6e"/>
-        <segue reference="Jto-do-SuL"/>
         <segue reference="64s-04-dY4"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,4 +11,8 @@ import Parse
 
 class User: PFUser {
     var petsArray = [Pet]()
+    func myfunction(){
+    
+    
+    }
 }

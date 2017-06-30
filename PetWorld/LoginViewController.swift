@@ -62,7 +62,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onSignUp(_ sender: Any) {
         //If user presses the sign up button then go to the sign up screen
         //Probably uncessesary
-      
+      self.performSegue(withIdentifier: "SignUpSegue", sender: nil)
         
     }
     
@@ -119,6 +119,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     
     }
+    
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true;
