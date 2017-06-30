@@ -16,6 +16,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var passwordTextField: UITextField!
     
+    
+    @IBOutlet weak var emailTextField: DesignableTextField!
+    
+    
+    @IBOutlet weak var errorDisplay: UILabel!
+    
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     
@@ -27,7 +33,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
         
-        
+        errorDisplay.isHidden = true
         
         /*The following is code to set up the background video*/
         
@@ -83,12 +89,26 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     }
     @IBAction func onCreateAccTap(_ sender: UIButton) {
+        errorDisplay.isHidden = true
         
         print("Start adventure")
         
         let user = PFUser()
-        let username = usernameTextField.text!
-        let password = passwordTextField.text!
+        
+        
+        let username = usernameTextField.text! ?? ""
+        
+        let password = passwordTextField.text! ?? ""
+        
+        let email = emailTextField.text! ?? ""
+        
+        if (email == "" || username == "" || password == ""){
+            
+            print("One of the fields was left blank.")
+            errorDisplay.isHidden = false
+            errorDisplay.text = "One of the above fields is blank"
+        }
+        
         
         
         user.username = username
@@ -103,6 +123,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             if let error = error {
                 print("Something went wrong.")
                   print(error.localizedDescription)
+                
+                let nsError = error as! NSError
+            
+                let code = nsError.code
+                if (code == 202){
+                    print("username already exists")
+                    self.errorDisplay.isHidden = false
+                    
+                    self.errorDisplay.text = "Username already taken."
+                }
                 // Show the errorString somewhere and let the user try again.
             } else {
                 print("Successfully signed up!")
@@ -113,6 +143,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
+    
+    
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true;

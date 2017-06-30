@@ -64,7 +64,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             user = User.current();
         }
         user = User.current();
-        if user.petsArray.first != nil && user.petsArray.count > 1 {
+        if  user.petsArray.count >= 1 {
             self.pet = user.petsArray.first
         }else{
             self.pet = Pet()
