@@ -22,6 +22,7 @@
 		1F7D42571ED93C3400E4B278 /* PhotoCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */; };
 		1F7D42591ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */; };
 		1F7D425D1ED9F15E00E4B278 /* VerifyPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */; };
+		1F9CF7081F08233D00F0F072 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9CF7071F08233D00F0F072 /* DesignableButton.swift */; };
 		1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FEF9F1ECA02D80009CC06 /* Pet.swift */; };
 		1FAD6F341F042E5F006783F7 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD6F331F042E5F006783F7 /* DesignableTextField.swift */; };
 		1FAD6F361F045448006783F7 /* danger.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAD6F351F045448006783F7 /* danger.png */; };
@@ -84,6 +85,7 @@
 		1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureViewController.swift; sourceTree = "<group>"; };
 		1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryItemCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPhotoViewController.swift; sourceTree = "<group>"; };
+		1F9CF7071F08233D00F0F072 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		1F9FEF9F1ECA02D80009CC06 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		1FAD6F331F042E5F006783F7 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		1FAD6F351F045448006783F7 /* danger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = danger.png; sourceTree = "<group>"; };
@@ -214,7 +216,6 @@
 				33751ECC1ED93A4B00E60E34 /* Friends View Controllers */,
 				33751ED51EDA07E000E60E34 /* Profile */,
 				1F15C5371E9C98F0005B828B /* SettingsViewController.swift */,
-				5EC637401ED413B7003D67F3 /* PetsTableViewCell.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -226,6 +227,9 @@
 				1FAD6F3F1F057A9A006783F7 /* DesignableImageView.swift */,
 				1F15C5391E9EFFC3005B828B /* ProfileView.swift */,
 				1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */,
+				33AB426D1ECBB015007B7BB4 /* PostTableViewCell.swift */,
+				5EC637401ED413B7003D67F3 /* PetsTableViewCell.swift */,
+				1F9CF7071F08233D00F0F072 /* DesignableButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -295,7 +299,6 @@
 				1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */,
 				5E0CF80E1EBE68E70088427A /* PostsViewController.swift */,
 				1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */,
-				33AB426D1ECBB015007B7BB4 /* PostTableViewCell.swift */,
 			);
 			name = Post;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				1FAD6F341F042E5F006783F7 /* DesignableTextField.swift in Sources */,
 				33AB426E1ECBB015007B7BB4 /* PostTableViewCell.swift in Sources */,
 				1F15C5361E9C9813005B828B /* HomeViewController.swift in Sources */,
+				1F9CF7081F08233D00F0F072 /* DesignableButton.swift in Sources */,
 				5E1D58441ED91B970055C09D /* ProfilePictureEditorViewController.swift in Sources */,
 				1F15C5381E9C98F0005B828B /* SettingsViewController.swift in Sources */,
 			);

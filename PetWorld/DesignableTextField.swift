@@ -119,7 +119,7 @@ class DesignableTextField: UITextField {
         if (showRightView == true){
             rightViewMode = .always
         }else{
-            rightViewMode = .never
+            rightViewMode = .never 
         }
         
         

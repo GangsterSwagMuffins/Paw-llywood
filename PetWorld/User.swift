@@ -11,6 +11,11 @@ import Parse
 
 class User: PFUser {
     var petsArray = [Pet]()
+    
+    var profilePicture: UIImage?
+    
+    
+    
     func myfunction(){
     
     

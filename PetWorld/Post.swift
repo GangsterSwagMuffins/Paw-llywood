@@ -10,15 +10,74 @@ import UIKit
 import Parse
 
 class Post: NSObject {
-    var username: String?
-    var photo: UIImage?
-    var caption: String?
     
-    init(username: String, photo: UIImage, caption: String) {
-        self.username = username
-        self.photo = photo
-        self.caption = caption
+    
+    var username: String?
+    var author : User?
+    var media: PFFile?
+    var caption: String?
+    var likesCount : Int?
+    var commentsCount : Int?
+    var timeStamp : String?
+    
+    weak var delegate: PhotoLoadedDelegate?
+    
+    
+    
+    
+    
+    
+    
+    
+    func constructor(postMap: PFObject, tableView: UITableView) {
+        //Extract username
+        
+        let user : PFObject = postMap["author"] as! PFObject
+        
+        print("object ID: \(user.objectId!)")
+        
+        if let id = user.objectId{
+            var query = PFQuery(className: "_User")
+            query.getObjectInBackground(withId: id, block: { (user: PFObject?, error: Error?) in
+                if (error == nil){
+                    print("data from the network: \(user!)")
+                    let user_obj = user as! User
+                    print(user_obj)
+                    print("the username from network: \(user_obj.username!)")
+                    
+                        self.username = user_obj.username!
+                    tableView.reloadData()
+                    
+                
+                }
+            })
+        
+        
+        }
+        
+        print("username extracted: \(username)")
+        print(postMap)
+        
+        //Extract the photo/video
+      
+        var mediaTemp: UIImage?
+        
+        //Extrct media file data
+         media = postMap["media"] as! PFFile
+        
+        
+     
+        
+       
+        
+        //Extract the time created
+        timeStamp = postMap["_created_at"] as? String
+        
+        //Extract the caption text
+        caption = postMap["caption"] as? String
+    
     }
+    
     
     class func postUserImage(photo: UIImage, caption: String?, success: PFBooleanResultBlock?) {
         let post = PFObject(className: "Post")
@@ -45,3 +104,10 @@ class Post: NSObject {
         return nil
     }
 }
+
+
+protocol PhotoLoadedDelegate: class{
+    func photoLoaded(picture:UIImage, post: Post, tableview: UITableView)
+
+}
+

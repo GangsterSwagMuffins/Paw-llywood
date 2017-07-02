@@ -14,33 +14,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     var feed: [PFObject] = []
-    
+    var posts: [Post] = []
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     
     
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        
-        print("Loading Home")
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 600
-        
-        self.tableView.reloadData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        
-        let currentUser: PFUser = PFUser.current()!
-     
+        print("view did load")
+        let currentUser = PFUser.current()
         
         // Query
         let query = PFQuery(className: "Post")
@@ -52,14 +38,40 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) -> Void in
             if let posts = posts {
                 self.feed = posts
-                self.tableView.reloadData()
+                for postMap in self.feed{
+                    let post = Post()
+                    post.constructor(postMap: postMap, tableView: self.tableView )
+                    self.posts.append(post)
+                    
+                }
                 
             }
             else {
                 print(error?.localizedDescription ?? "")
             }
         }
+        
+        
+        
+        
+        print("Loading Home")
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 600
+        var count = 1
+        
+        
+        
+        
         self.tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        
+    self.tableView.reloadData()
     }
     
     // Table functions
@@ -72,26 +84,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return feed.count
     }
     
+    
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
-        
-        let post = feed[indexPath.row]
-        cell.captionLabel.text = post["caption"] as! String?
-        let username = post["username"] as! String?
-        cell.usernameButton.setTitle(username, for: .normal)
-        cell.timestampLabel.text = post["_created_at"] as! String?
-        //print(post["username"] as! String?)
-        
-        // Get photo data and add to cell
-        let photo = post["media"] as! PFFile
-        photo.getDataInBackground { (data: Data?, error: Error?) in
-            if let data = data {
-                cell.photoImage.image = UIImage(data: data)
-            }
-            else {
-                print(error?.localizedDescription ?? "")
-            }
+        //So we don't have to look at old pictures since we are reusing cells.
+        if (cell.imageView?.image != nil){
+            
+            cell.imageView?.image = nil
         }
+        
+        
+        
+        cell.post = posts[indexPath.row]
+        
+       
         return cell
     }
 
@@ -99,6 +107,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+   
     
 
     /*
