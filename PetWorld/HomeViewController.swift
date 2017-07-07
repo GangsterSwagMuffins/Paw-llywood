@@ -31,7 +31,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Query
         let query = PFQuery(className: "Post")
         query.order(byDescending: "_created_at")
-        query.whereKey("author", equalTo: currentUser)
         
         query.limit = 20
         
@@ -107,6 +106,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+  
     
    
     

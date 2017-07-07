@@ -13,6 +13,7 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -31,7 +32,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+            let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            
+            vc.tabBar.barTintColor = TextManipulation.themeColor()
+            vc.tabBar.tintColor = TextManipulation.secondaryColor()
+            
+            
+          
+            
+            
+            // vc.tabBar.tintColor = radicalRed
+            
             
             
             window?.rootViewController = vc

@@ -46,6 +46,7 @@ class Post: NSObject {
                     print("the username from network: \(user_obj.username!)")
                     
                         self.username = user_obj.username!
+                    //TODO: Test this out later.....
                     tableView.reloadData()
                     
                 
