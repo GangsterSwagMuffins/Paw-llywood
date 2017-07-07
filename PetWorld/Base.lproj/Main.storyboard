@@ -728,12 +728,64 @@
                     <view key="view" contentMode="scaleToFill" id="moH-dv-qzY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Login Background" translatesAutoresizingMaskIntoConstraints="NO" id="db8-YZ-gL8">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet's Name?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="850-K9-SAW">
+                                <rect key="frame" x="48" y="155" width="278" height="55"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="46"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.34999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IPK-ww-K1q" customClass="DesignableTextField" customModule="PetWorld" customModuleProvider="target">
+                                <rect key="frame" x="48" y="310.5" width="279" height="45"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="BRH-dW-aHr"/>
+                                </constraints>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09x-7i-Tr0" customClass="DesignableButton" customModule="PetWorld" customModuleProvider="target">
+                                <rect key="frame" x="160" y="390" width="55" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="F4K-N3-tX2"/>
+                                    <constraint firstAttribute="height" constant="50" id="gqA-t8-PcY"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="checkmark">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IPK-ww-K1q" firstAttribute="centerY" secondItem="moH-dv-qzY" secondAttribute="centerY" id="COB-oX-tUM"/>
+                            <constraint firstItem="09x-7i-Tr0" firstAttribute="centerX" secondItem="moH-dv-qzY" secondAttribute="centerX" id="Fqs-QQ-AQT"/>
+                            <constraint firstItem="850-K9-SAW" firstAttribute="top" secondItem="jV2-Ga-wRi" secondAttribute="bottom" constant="135" id="Ial-8N-B5I"/>
+                            <constraint firstItem="09x-7i-Tr0" firstAttribute="top" secondItem="IPK-ww-K1q" secondAttribute="bottom" constant="34.5" id="UWb-7D-n93"/>
+                            <constraint firstItem="db8-YZ-gL8" firstAttribute="leading" secondItem="moH-dv-qzY" secondAttribute="leading" id="ZuY-RZ-wII"/>
+                            <constraint firstItem="db8-YZ-gL8" firstAttribute="top" secondItem="jV2-Ga-wRi" secondAttribute="bottom" id="eza-mZ-3BX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IPK-ww-K1q" secondAttribute="trailing" constant="32" id="fqK-b7-jQE"/>
+                            <constraint firstItem="850-K9-SAW" firstAttribute="centerX" secondItem="moH-dv-qzY" secondAttribute="centerX" id="nAg-Ha-6p6"/>
+                            <constraint firstItem="VyI-Px-ovn" firstAttribute="top" secondItem="db8-YZ-gL8" secondAttribute="bottom" id="qSw-I7-g3H"/>
+                            <constraint firstAttribute="trailing" secondItem="db8-YZ-gL8" secondAttribute="trailing" id="yAn-ym-AdC"/>
+                            <constraint firstItem="IPK-ww-K1q" firstAttribute="leading" secondItem="moH-dv-qzY" secondAttribute="leadingMargin" constant="32" id="yKi-0l-XGQ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c4t-kN-baX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2947" y="836"/>
+            <point key="canvasLocation" x="-2948" y="804.64767616191909"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dPh-Bp-OPR">
@@ -751,7 +803,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3OW-Z3-W2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2205" y="813"/>
+            <point key="canvasLocation" x="-2249" y="805"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Mix-hd-oKU">
@@ -1364,6 +1416,7 @@
         <image name="Pet Profile Pic Chooser" width="150" height="150"/>
         <image name="bone gray" width="32" height="32"/>
         <image name="catLikeButton" width="120" height="120"/>
+        <image name="checkmark" width="24" height="24"/>
         <image name="danger.png" width="24" height="24"/>
         <image name="default_profile" width="94" height="208"/>
         <image name="dogsil_burned" width="598" height="569"/>
