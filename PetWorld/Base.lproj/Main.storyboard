@@ -835,6 +835,9 @@
                                 <state key="normal" title="CHOOSE">
                                     <color key="titleColor" red="1" green="0.75034847210969613" blue="0.27616106156726561" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onChooseTapped:" destination="iiH-eP-Dw6" eventType="touchUpInside" id="QhM-1n-DVy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzc-iz-bEF" customClass="DesignableButton" customModule="PetWorld" customModuleProvider="target">
                                 <rect key="frame" x="160" y="474" width="55" height="50"/>
@@ -863,16 +866,22 @@
                             <constraint firstItem="svy-ca-jJk" firstAttribute="leading" secondItem="ofE-ap-Qzg" secondAttribute="leading" id="IbV-ve-6aR"/>
                             <constraint firstItem="NYr-18-79U" firstAttribute="centerX" secondItem="ofE-ap-Qzg" secondAttribute="centerX" id="KRI-e0-sHP"/>
                             <constraint firstAttribute="trailing" secondItem="svy-ca-jJk" secondAttribute="trailing" id="LYd-8k-zNy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ENL-Xl-KhX" secondAttribute="trailing" constant="46" id="Mko-dd-5cm"/>
                             <constraint firstItem="XJN-za-GXF" firstAttribute="top" secondItem="8MW-5w-g9A" secondAttribute="bottom" constant="100" id="Pe5-vM-1tn"/>
                             <constraint firstItem="KSD-ki-nof" firstAttribute="top" secondItem="svy-ca-jJk" secondAttribute="bottom" id="PnC-c6-gX2"/>
                             <constraint firstItem="gzc-iz-bEF" firstAttribute="top" secondItem="ENL-Xl-KhX" secondAttribute="bottom" constant="45" id="dCt-1i-KGU"/>
+                            <constraint firstItem="ENL-Xl-KhX" firstAttribute="leading" secondItem="ofE-ap-Qzg" secondAttribute="leadingMargin" constant="47" id="mon-fZ-c0B"/>
                             <constraint firstItem="ENL-Xl-KhX" firstAttribute="centerX" secondItem="ofE-ap-Qzg" secondAttribute="centerX" id="oVr-sU-mOS"/>
                             <constraint firstItem="svy-ca-jJk" firstAttribute="top" secondItem="8MW-5w-g9A" secondAttribute="bottom" id="rdq-TB-Uxs"/>
                             <constraint firstItem="gzc-iz-bEF" firstAttribute="centerX" secondItem="ofE-ap-Qzg" secondAttribute="centerX" id="uiP-yA-DSJ"/>
                             <constraint firstItem="NYr-18-79U" firstAttribute="top" secondItem="XJN-za-GXF" secondAttribute="bottom" constant="30" id="v3q-i5-aMv"/>
+                            <constraint firstItem="KSD-ki-nof" firstAttribute="top" secondItem="gzc-iz-bEF" secondAttribute="bottom" constant="143" id="vOU-1W-l3R"/>
                             <constraint firstItem="XJN-za-GXF" firstAttribute="centerX" secondItem="ofE-ap-Qzg" secondAttribute="centerX" id="zzc-qC-g3g"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="profileImagePreview" destination="ENL-Xl-KhX" id="UIj-tb-P0i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3OW-Z3-W2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
