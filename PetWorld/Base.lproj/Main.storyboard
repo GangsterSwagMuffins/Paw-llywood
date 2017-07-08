@@ -748,6 +748,9 @@
                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="finishedTypingPetName:" destination="sV9-w2-9fx" eventType="editingDidEnd" id="SNj-KU-4T5"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09x-7i-Tr0" customClass="DesignableButton" customModule="PetWorld" customModuleProvider="target">
                                 <rect key="frame" x="160" y="390" width="55" height="50"/>
@@ -756,7 +759,7 @@
                                     <constraint firstAttribute="width" constant="55" id="F4K-N3-tX2"/>
                                     <constraint firstAttribute="height" constant="50" id="gqA-t8-PcY"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="checkmark">
+                                <state key="normal" backgroundImage="right_arrow">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -765,6 +768,9 @@
                                         <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="checkButtonTapped:" destination="sV9-w2-9fx" eventType="touchUpInside" id="vPS-58-ScW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -782,6 +788,10 @@
                             <constraint firstItem="IPK-ww-K1q" firstAttribute="leading" secondItem="moH-dv-qzY" secondAttribute="leadingMargin" constant="32" id="yKi-0l-XGQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="checkMarkButton" destination="09x-7i-Tr0" id="Ekr-4b-bnT"/>
+                        <outlet property="petNameTextField" destination="IPK-ww-K1q" id="Zc6-3z-qGK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c4t-kN-baX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -819,13 +829,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default Profile Image" translatesAutoresizingMaskIntoConstraints="NO" id="ENL-Xl-KhX">
                                 <rect key="frame" x="63" y="279" width="250" height="150"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Vf-XM-ocD">
-                                <rect key="frame" x="129" y="439" width="117" height="52"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="33"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" red="0.88721605929783365" green="1" blue="0.8706085946406813" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYr-18-79U">
                                 <rect key="frame" x="116" y="197" width="142" height="52"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="33"/>
@@ -833,19 +836,39 @@
                                     <color key="titleColor" red="1" green="0.75034847210969613" blue="0.27616106156726561" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzc-iz-bEF" customClass="DesignableButton" customModule="PetWorld" customModuleProvider="target">
+                                <rect key="frame" x="160" y="474" width="55" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="DUx-Hi-BVk"/>
+                                    <constraint firstAttribute="width" constant="55" id="X9a-lr-M1V"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="right_arrow">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="checkButtonTapped:" destination="sV9-w2-9fx" eventType="touchUpInside" id="Mag-lZ-P5W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ENL-Xl-KhX" firstAttribute="top" secondItem="NYr-18-79U" secondAttribute="bottom" constant="30" id="1uf-vD-tmC"/>
-                            <constraint firstItem="8Vf-XM-ocD" firstAttribute="top" secondItem="ENL-Xl-KhX" secondAttribute="bottom" constant="10" id="7Pb-Py-85D"/>
-                            <constraint firstItem="8Vf-XM-ocD" firstAttribute="centerX" secondItem="ofE-ap-Qzg" secondAttribute="centerX" id="E5V-Lf-YXb"/>
                             <constraint firstItem="svy-ca-jJk" firstAttribute="leading" secondItem="ofE-ap-Qzg" secondAttribute="leading" id="IbV-ve-6aR"/>
                             <constraint firstItem="NYr-18-79U" firstAttribute="centerX" secondItem="ofE-ap-Qzg" secondAttribute="centerX" id="KRI-e0-sHP"/>
                             <constraint firstAttribute="trailing" secondItem="svy-ca-jJk" secondAttribute="trailing" id="LYd-8k-zNy"/>
                             <constraint firstItem="XJN-za-GXF" firstAttribute="top" secondItem="8MW-5w-g9A" secondAttribute="bottom" constant="100" id="Pe5-vM-1tn"/>
                             <constraint firstItem="KSD-ki-nof" firstAttribute="top" secondItem="svy-ca-jJk" secondAttribute="bottom" id="PnC-c6-gX2"/>
+                            <constraint firstItem="gzc-iz-bEF" firstAttribute="top" secondItem="ENL-Xl-KhX" secondAttribute="bottom" constant="45" id="dCt-1i-KGU"/>
                             <constraint firstItem="ENL-Xl-KhX" firstAttribute="centerX" secondItem="ofE-ap-Qzg" secondAttribute="centerX" id="oVr-sU-mOS"/>
                             <constraint firstItem="svy-ca-jJk" firstAttribute="top" secondItem="8MW-5w-g9A" secondAttribute="bottom" id="rdq-TB-Uxs"/>
+                            <constraint firstItem="gzc-iz-bEF" firstAttribute="centerX" secondItem="ofE-ap-Qzg" secondAttribute="centerX" id="uiP-yA-DSJ"/>
                             <constraint firstItem="NYr-18-79U" firstAttribute="top" secondItem="XJN-za-GXF" secondAttribute="bottom" constant="30" id="v3q-i5-aMv"/>
                             <constraint firstItem="XJN-za-GXF" firstAttribute="centerX" secondItem="ofE-ap-Qzg" secondAttribute="centerX" id="zzc-qC-g3g"/>
                         </constraints>
@@ -933,7 +956,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="460" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gog-EF-MdP" customClass="DesignableTableView">
-                                <rect key="frame" x="0.0" y="16" width="375" height="602"/>
+                                <rect key="frame" x="0.0" y="16" width="375" height="651"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="460" id="LaN-Ks-siV" customClass="PostTableViewCell" customModule="PetWorld" customModuleProvider="target">
@@ -1433,7 +1456,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="plB-YT-0lc">
-                                <rect key="frame" x="0.0" y="66" width="375" height="552"/>
+                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PetsTableViewCell" rowHeight="95" id="LeM-sX-XVo" customClass="PetsTableViewCell" customModule="PetWorld" customModuleProvider="target">
@@ -1513,7 +1536,6 @@
         <image name="Pet Profile Pic Chooser" width="150" height="150"/>
         <image name="bone gray" width="32" height="32"/>
         <image name="catLikeButton" width="120" height="120"/>
-        <image name="checkmark" width="24" height="24"/>
         <image name="danger.png" width="24" height="24"/>
         <image name="default_profile" width="94" height="208"/>
         <image name="dogsil_burned" width="598" height="569"/>
@@ -1522,6 +1544,7 @@
         <image name="pawllywood" width="375" height="200"/>
         <image name="pawprint" width="20" height="20"/>
         <image name="pugsil_burned" width="325" height="582"/>
+        <image name="right_arrow" width="256" height="256"/>
         <image name="scale" width="20" height="20"/>
         <image name="settings" width="20" height="20"/>
         <image name="stats" width="20" height="20"/>

@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class TutorialPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
     
@@ -17,6 +19,8 @@ class TutorialPageViewController: UIPageViewController, UIPageViewControllerDele
                   self.vcInstance(name: "TransitionToNormalViewController")]} ()
     
     
+    
+    var currIndex = 0;
     
     private func vcInstance(name: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name)
@@ -78,16 +82,20 @@ class TutorialPageViewController: UIPageViewController, UIPageViewControllerDele
              return nil
         }
         
-        let previousIndex = viewControllerIndex - 1;
+        let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else {
-            return vcArray.last
+            return nil
         }
+        
         guard vcArray.count > previousIndex else {
             return nil
         }
         
+        
         return vcArray[previousIndex]
+        
+        
         
     }
     
@@ -98,16 +106,22 @@ class TutorialPageViewController: UIPageViewController, UIPageViewControllerDele
             return nil
         }
         
-        let nextIndex = viewControllerIndex + 1;
+        let nextIndex = viewControllerIndex + 1
+        let viewControllersCount = vcArray.count
         
-        guard nextIndex < vcArray.count else {
-            return vcArray.first
-        }
-        guard vcArray.count > nextIndex else {
+        guard viewControllersCount != nextIndex else {
             return nil
         }
         
+        
+        guard viewControllersCount > nextIndex else{
+            return nil
+        }
+        
+        
         return vcArray[nextIndex]
+        
+        
     
     }
     
@@ -127,6 +141,16 @@ class TutorialPageViewController: UIPageViewController, UIPageViewControllerDele
         
         return firstViewControllerIndex
 }
+    
+    func onCheckMarkTapped(sender: UIButton){
+      let vc =  self.pageViewController(self, viewControllerAfter: vcInstance(name: "PetPhotoUploadViewController"))
+        
+        setViewControllers([vc!], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+        
+        print("onCheckMarkTappedCalled!")
+    
+    }
+    
     
 
     /*
