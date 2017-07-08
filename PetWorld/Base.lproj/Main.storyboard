@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fe6-sd-Mq5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yra-EU-ztw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -717,10 +717,10 @@
             </objects>
             <point key="canvasLocation" x="4657" y="-788"/>
         </scene>
-        <!--View Controller-->
+        <!--Pet Name View Controller-->
         <scene sceneID="W1l-fX-DCk">
             <objects>
-                <viewController storyboardIdentifier="PetNameViewController" id="sV9-w2-9fx" sceneMemberID="viewController">
+                <viewController restorationIdentifier="PetNameViewController" storyboardIdentifier="PetNameViewController" id="sV9-w2-9fx" customClass="PetNameViewController" customModule="PetWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jV2-Ga-wRi"/>
                         <viewControllerLayoutGuide type="bottom" id="VyI-Px-ovn"/>
@@ -787,10 +787,18 @@
             </objects>
             <point key="canvasLocation" x="-2948" y="804.64767616191909"/>
         </scene>
-        <!--View Controller-->
+        <!--Tutorial Page View Controller-->
+        <scene sceneID="7xW-3K-a9f">
+            <objects>
+                <pageViewController restorationIdentifier="TutorialPageViewController" storyboardIdentifier="TutorialPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Yra-EU-ztw" customClass="TutorialPageViewController" customModule="PetWorld" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hy2-O0-Qnk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3796" y="903"/>
+        </scene>
+        <!--Pet Photo Upload View Controller-->
         <scene sceneID="dPh-Bp-OPR">
             <objects>
-                <viewController storyboardIdentifier="PetPhotoUploadViewController" id="iiH-eP-Dw6" sceneMemberID="viewController">
+                <viewController restorationIdentifier="PetPhotoUploadViewController" storyboardIdentifier="PetPhotoUploadViewController" id="iiH-eP-Dw6" customClass="PetPhotoUploadViewController" customModule="PetWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8MW-5w-g9A"/>
                         <viewControllerLayoutGuide type="bottom" id="KSD-ki-nof"/>
@@ -847,10 +855,10 @@
             </objects>
             <point key="canvasLocation" x="-2182" y="805"/>
         </scene>
-        <!--View Controller-->
+        <!--Transition To Normal View Controller-->
         <scene sceneID="Mix-hd-oKU">
             <objects>
-                <viewController storyboardIdentifier="TransitionToNormalViewController" id="PdQ-vs-5He" sceneMemberID="viewController">
+                <viewController restorationIdentifier="TransitionToNormalViewController" storyboardIdentifier="TransitionToNormalViewController" id="PdQ-vs-5He" customClass="TransitionToNormalViewController" customModule="PetWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aHH-x5-df2"/>
                         <viewControllerLayoutGuide type="bottom" id="QyY-2k-Mgi"/>

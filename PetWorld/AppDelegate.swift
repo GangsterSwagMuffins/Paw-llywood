@@ -32,10 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+           // let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             
-            vc.tabBar.barTintColor = TextManipulation.themeColor()
-            vc.tabBar.tintColor = TextManipulation.secondaryColor()
+          //  vc.tabBar.barTintColor = TextManipulation.themeColor()
+          //  vc.tabBar.tintColor = TextManipulation.secondaryColor()
             
             
           
@@ -44,8 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // vc.tabBar.tintColor = radicalRed
             
             
-            
-            window?.rootViewController = vc
+            let vc = storyboard.instantiateViewController(withIdentifier: "TutorialPageViewController")
+           window?.rootViewController = vc
         }
         // */ // UNCOMMENT TO DIRECTLY ACCESS LOGIN/SIGNUP
         
