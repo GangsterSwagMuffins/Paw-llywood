@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Parse
 
-class PetPhotoUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PetPhotoUploadViewController: UIViewController {
 
     @IBOutlet weak var profileImagePreview: UIImageView!
     
@@ -26,6 +27,13 @@ class PetPhotoUploadViewController: UIViewController, UIImagePickerControllerDel
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        print("view will disappear called")
+        extractPhoto()
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -36,6 +44,8 @@ class PetPhotoUploadViewController: UIViewController, UIImagePickerControllerDel
         openGallery()
         
     }
+    
+    
     
     func imagePreviewTapped(_ sender: UITapGestureRecognizer){
         print("Tap recognized by imageview")
@@ -55,23 +65,31 @@ class PetPhotoUploadViewController: UIViewController, UIImagePickerControllerDel
         
     }
     
+    //This function extracts the photo from the UIImageView and stores in the pet object
+    func extractPhoto(){
+        let currentUser = PFUser.current() as! User
+        let pet = currentUser.petsArray.first
+        pet?.image = profileImagePreview.image
+        print("extractPhoto() called")
+    }
+    
+   
+
+
+}
+
+
+
+//Implement the imagePickerController delegate functions
+extension PetPhotoUploadViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-       profileImagePreview.image = originalImage
+        profileImagePreview.image = originalImage
+        extractPhoto()
         
         //let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         dismiss(animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

@@ -93,7 +93,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         print("Start adventure")
         
-        let user = PFUser()
+        let user = User()
         
         
         let username = usernameTextField.text! ?? ""

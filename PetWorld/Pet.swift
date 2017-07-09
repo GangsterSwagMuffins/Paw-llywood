@@ -21,12 +21,9 @@ class Pet: NSObject {
     
     
     
-    
     class func addPet(user: User, profilePicture: UIImage, name: String, success: PFBooleanResultBlock?) {
         let pet = PFObject(className: "Pet")
-        user.petsArray.append(pet)
         
-        pet["photo"] = getPhotoFile(photo: photo)
         pet["owner"] = PFUser.current() // Pointer column type that points to PFUser
         
         pet["name"] = name

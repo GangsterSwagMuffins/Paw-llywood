@@ -7,13 +7,26 @@
 //
 
 import UIKit
+import Parse
 
 class TransitionToNormalViewController: UIViewController {
+    @IBOutlet weak var profilePicturePreview: UIImageView!
 
+    @IBOutlet weak var petNamePreview: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+        updateUI()
+
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +34,28 @@ class TransitionToNormalViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func updateUI(){
+        let currentUser = PFUser.current() as! User
+        
+        let pet = currentUser.petsArray.first
+        
+        if let image = pet?.image {
+            profilePicturePreview.image = pet?.image
+            print("pet image: \(pet?.image)")
+        }
+       
+        if let name = pet?.name{
+            print("petname: \(pet?.name)")
+            
+            petNamePreview.text = pet?.name
+        
+        }
+        
+    
+    }
+    
+    @IBAction func onTappedStart(_ sender: Any) {
+    }
 
     /*
     // MARK: - Navigation

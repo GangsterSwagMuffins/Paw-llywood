@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 
 
@@ -52,6 +53,11 @@ class TutorialPageViewController: UIPageViewController, UIPageViewControllerDele
         print("TutorialPageViewController loaded!")
         self.delegate = self
         self.dataSource = self
+        //Initialize the first
+        let currentUser = PFUser.current() as! User
+        currentUser.petsArray.append(Pet())
+        
+        
         
         if let firstViewController = vcArray.first{
            self.setViewControllers([firstViewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)

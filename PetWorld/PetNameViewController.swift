@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 
 //TODO: Add checks so the user does not leave pet name field blank.
 class PetNameViewController: UIViewController {
 
     
-    var pet : Pet?
+
     
     
     @IBOutlet weak var petNameTextField: DesignableTextField!
@@ -23,7 +24,7 @@ class PetNameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pet = Pet()
+        
         //Use respsponder chain for target action
        
 
@@ -37,21 +38,26 @@ class PetNameViewController: UIViewController {
     
     //Just in case the user does not press the check mark
     @IBAction func finishedTypingPetName(_ sender: UITextField) {
-        let petName = sender.text;
+        let currentUser = PFUser.current() as! User
         
-        if let petName = petName {
-            pet?.name = petName
-        }
+        let pet = currentUser.petsArray.first
+        pet?.name = sender.text
+        
+        print("User stopped typing in username for their pet.")
         
         
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
+        print("viewWillDisappear called!")
+        saveName();
+    }
+    
     @IBAction func checkButtonTapped(_ sender: UIButton) {
         //Duct tape check
-        let petName = petNameTextField.text ?? "PettyMcPetPet";
-        
-       pet?.name = petName
+       
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let pagerVC = storyboard.instantiateViewController(withIdentifier: "TutorialPageViewController") as! TutorialPageViewController
@@ -59,6 +65,17 @@ class PetNameViewController: UIViewController {
         
     }
     
+    
+    func saveName(){
+        let currentUser = PFUser.current() as! User
+        let pet = currentUser.petsArray.first
+        let petName = petNameTextField.text ?? "PettyMcPetPet";
+        //pet?.name = petName
+        //currentUser.petsArray.first?.name = petName
+        print("first pet name\(currentUser.petsArray.first?.name)")
+        print("saveName() called")
+    
+    }
     
     
     
