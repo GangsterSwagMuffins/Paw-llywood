@@ -955,6 +955,7 @@
                     <connections>
                         <outlet property="petNamePreview" destination="ztM-bM-8bq" id="biW-dh-D3C"/>
                         <outlet property="profilePicturePreview" destination="W8u-2P-eFw" id="Sek-9k-r7B"/>
+                        <segue destination="baz-EG-3hH" kind="presentation" identifier="HomeSegue" id="Ygf-eT-NMt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJs-5s-gXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -974,7 +975,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="460" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gog-EF-MdP" customClass="DesignableTableView">
-                                <rect key="frame" x="0.0" y="16" width="375" height="651"/>
+                                <rect key="frame" x="0.0" y="16" width="375" height="602"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="460" id="LaN-Ks-siV" customClass="PostTableViewCell" customModule="PetWorld" customModuleProvider="target">
@@ -1106,7 +1107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBP-cL-Jos" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1354" y="94"/>
+            <point key="canvasLocation" x="1114" y="850"/>
         </scene>
         <!--My Friends View Controller-->
         <scene sceneID="6X8-vA-KyV">
@@ -1129,7 +1130,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mhq-9F-Pga" id="7h2-77-tX2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayV-h6-JLp">
@@ -1432,7 +1433,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZj-wG-Eae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="470" y="-788"/>
+            <point key="canvasLocation" x="-473" y="805"/>
         </scene>
         <!--Settings-->
         <scene sceneID="kip-EC-Yk7">
@@ -1481,7 +1482,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LeM-sX-XVo" id="6cQ-TQ-tJG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RWp-gi-nzZ">
@@ -1569,9 +1570,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="64s-04-dY4"/>
-        <segue reference="wPD-Yx-bzc"/>
-        <segue reference="h1A-o7-o6e"/>
-        <segue reference="xqy-IX-JRq"/>
+        <segue reference="Ygf-eT-NMt"/>
+        <segue reference="tKs-kK-mOb"/>
         <segue reference="4k2-W2-gtJ"/>
+        <segue reference="h1A-o7-o6e"/>
     </inferredMetricsTieBreakers>
 </document>

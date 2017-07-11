@@ -21,6 +21,8 @@ class TransitionToNormalViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         
         
@@ -55,6 +57,7 @@ class TransitionToNormalViewController: UIViewController {
     }
     
     @IBAction func onTappedStart(_ sender: Any) {
+        performSegue(withIdentifier: "HomeSegue", sender: nil)
     }
 
     /*
