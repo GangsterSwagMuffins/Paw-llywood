@@ -44,8 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // vc.tabBar.tintColor = radicalRed
             
             
-            let vc = storyboard.instantiateViewController(withIdentifier: "TutorialPageViewController")
-           window?.rootViewController = vc
+           // let vc = storyboard.instantiateViewController(withIdentifier: "TutorialPageViewController")
+          // window?.rootViewController = vc
         }
         // */ // UNCOMMENT TO DIRECTLY ACCESS LOGIN/SIGNUP
         

@@ -137,7 +137,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             } else {
                 print("Successfully signed up!")
                 // Hooray! Let them use the app now.
-                self.performSegue(withIdentifier: "HomeSegue", sender: nil)
+                self.performSegue(withIdentifier: "TutorialSegue", sender: nil)
                 
             }
         }
