@@ -12,6 +12,7 @@
 		1F15C5361E9C9813005B828B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F15C5351E9C9813005B828B /* HomeViewController.swift */; };
 		1F15C5381E9C98F0005B828B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F15C5371E9C98F0005B828B /* SettingsViewController.swift */; };
 		1F15C53A1E9EFFC3005B828B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F15C5391E9EFFC3005B828B /* ProfileView.swift */; };
+		1F232B991F158727002367AD /* PostMediaTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F232B981F158727002367AD /* PostMediaTabViewController.swift */; };
 		1F43B13A1F1029E8001D9CC1 /* PetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F43B1391F1029E8001D9CC1 /* PetNameViewController.swift */; };
 		1F43B13C1F1029FF001D9CC1 /* PetPhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F43B13B1F1029FF001D9CC1 /* PetPhotoUploadViewController.swift */; };
 		1F43B13E1F102A26001D9CC1 /* TransitionToNormalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F43B13D1F102A26001D9CC1 /* TransitionToNormalViewController.swift */; };
@@ -76,6 +77,7 @@
 		1F15C5351E9C9813005B828B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F15C5371E9C98F0005B828B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1F15C5391E9EFFC3005B828B /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		1F232B981F158727002367AD /* PostMediaTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMediaTabViewController.swift; sourceTree = "<group>"; };
 		1F43B1391F1029E8001D9CC1 /* PetNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetNameViewController.swift; sourceTree = "<group>"; };
 		1F43B13B1F1029FF001D9CC1 /* PetPhotoUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetPhotoUploadViewController.swift; sourceTree = "<group>"; };
 		1F43B13D1F102A26001D9CC1 /* TransitionToNormalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionToNormalViewController.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */,
 				5E0CF80E1EBE68E70088427A /* PostsViewController.swift */,
 				1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */,
+				1F232B981F158727002367AD /* PostMediaTabViewController.swift */,
 			);
 			name = Post;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F232B991F158727002367AD /* PostMediaTabViewController.swift in Sources */,
 				1FB386E31EA5C44000FBEB8E /* LoginViewController.swift in Sources */,
 				1F43B13A1F1029E8001D9CC1 /* PetNameViewController.swift in Sources */,
 				1F7D425D1ED9F15E00E4B278 /* VerifyPhotoViewController.swift in Sources */,
