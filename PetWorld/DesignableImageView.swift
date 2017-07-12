@@ -20,6 +20,16 @@ class DesignableImageView: UIImageView {
     
     }
     
+    @IBInspectable var isCircle: Bool?{
+        didSet{
+            if ( isCircle != nil && isCircle!){
+                self.layer.cornerRadius = self.frame.size.width / 2
+                self.clipsToBounds = true
+            }
+        }
+    
+    }
+    
 
     /*
     // Only override draw() if you perform custom drawing.

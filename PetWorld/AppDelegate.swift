@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        // /* // UNCOMMENT TO DIRECTLY ACCESS LOGIN/SIGNUP
         if PFUser.current() != nil {
             print("There is a current user")
-            print("Username: \(PFUser.current()!.username)")
             
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)

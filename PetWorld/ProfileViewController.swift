@@ -7,68 +7,77 @@
 //
 
 import UIKit
+import Parse
 
 
 class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var imageView: UIImageView!
-
-    @IBOutlet var nameLabel: UITextField!
-    @IBOutlet var breedLabel: UITextField!
-    @IBOutlet var ageLabel: UITextField!
-    @IBOutlet var genderLabel: UITextField!
-    @IBOutlet var statusLabel: UITextField!
-    @IBOutlet var weightLabel: UITextField!
-    @IBOutlet var heightLabel: UITextField!
-    @IBOutlet var followersLabel: UITextField!
-    @IBOutlet var followingLabel: UITextField!
     var pet: Pet!
     var user: User!
     
+    @IBOutlet weak var profilePictureImageView: UIImageView!
+    
+    @IBOutlet weak var backgroundPictureImageView: UIImageView!
+    
+    @IBOutlet weak var ownerLabel: UILabel!
+    
+    @IBOutlet weak var miniBioLabel: UILabel!
+    
+    @IBOutlet weak var petNameLabel: UILabel!
+    
+    @IBOutlet weak var petAgeLabel: UILabel!
+    
+    @IBOutlet weak var breedLabel: UILabel!
+    
+    @IBOutlet weak var hobbyLabel: UILabel!
+    
+    @IBOutlet weak var fullBioLabel: UILabel!
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if pet == nil {
-            imageView.image = #imageLiteral(resourceName: "dog.jpg")
-            imageView.image = #imageLiteral(resourceName: "DOGDOG")
-        }
-        breedLabel.delegate = self
-        nameLabel.delegate = self
-        ageLabel.delegate = self
-        genderLabel.delegate = self
-        statusLabel.delegate = self
-        weightLabel.delegate = self
-        heightLabel.delegate = self
-        followersLabel.delegate = self
-        followingLabel.delegate = self
+        let currentUser = User.current()
+        let username = currentUser?.username
+        let ownerText = ownerLabel.text!
         
-        if (pet != nil) {
-            breedLabel.text = pet.breed
-            imageView.image = pet.image
-            genderLabel.text = pet.gender
-            followersLabel.text = String(describing: pet.followers)
-            followingLabel.text = String(describing: pet.following)
-            if pet.image == nil {
-                pet.image = #imageLiteral(resourceName: "dog.jpg")
-                pet.image = #imageLiteral(resourceName: "DOGDOG")
+        if let username = username{
+            ownerLabel.text = "\(ownerText) \(username)"
+           
+
+        }
+
+        //Populate all the pet fields/info/data GUI
+        let pet = currentUser?.petsArray.first
+        
+        
+        if let pet = pet {
+            //Extract the image and put on the scren
+            if let profilePicture = pet.image{
+                profilePictureImageView.image = profilePicture
             }
-            imageView.image = pet.image
+            //Extract the pet's name and display on screen.
+            if let petName = pet.name{
+                petNameLabel.text = petName
+            }
+            
+            
+            
+            
             
         }
+        
+        
+        
+        
+        
+        
     }
     
     override func viewWillAppear(_ animatee3d: Bool) {
-        if(user == nil) {
-            if(User.current() == nil) {
-                return; // logged out
-            }
-            user = User.current();
-        }
-        user = User.current();
-        if  user.petsArray.count >= 1 {
-            self.pet = user.petsArray.first
-        }else{
-            self.pet = Pet()
-        }
+      
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,71 +101,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }));
         
         present(refreshAlert, animated: true, completion: nil);
-    }
-    
-    @IBAction func onTapBreedEdit(_ sender: Any) {
-        breedLabel.becomeFirstResponder()
-    }
-
-    @IBAction func onTapAgeEdit(_ sender: Any) {
-        ageLabel.becomeFirstResponder()
-    }
-    @IBAction func onTapGenderEdit(_ sender: Any) {
-        genderLabel.becomeFirstResponder()
-    }
-    
-    @IBAction func onTapNameEdit(_ sender: Any) {
-        nameLabel.becomeFirstResponder()
-    }
-    
-    @IBAction func onTapStatusEdit(_ sender: Any) {
-        statusLabel.becomeFirstResponder()
-    }
-    @IBAction func onTapWeightEdit(_ sender: Any) {
-        weightLabel.becomeFirstResponder()
-    }
-    
-    @IBAction func onTapHeightEdit(_ sender: Any) {
-        heightLabel.becomeFirstResponder()
-    }
-    @IBAction func onTapAddPet(_ sender: Any) {
-      //  pet.name = nameLabel.text
-        pet.breed = breedLabel.text
-        pet.age = Int(ageLabel.text!)
-        pet.gender = genderLabel.text
-        pet.following = Int(followingLabel.text!)
-        pet.followers = Int(followersLabel.text!)
-        user.petsArray.append(pet)
-    }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true;
-    }
-    
-    @IBAction func onTapEditPic(_ sender: Any) {
-        //self.performSegue(withIdentifier: "picEditor", sender: self)
-        let vc = UIImagePickerController();
-        vc.delegate = self;
-        vc.allowsEditing = true;
-        vc.sourceType = UIImagePickerControllerSourceType.photoLibrary;
-        present(vc, animated: true, completion: nil);
-
-    }
-    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
-        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
-            pet.image = image
-            imageView.image = image
-        } else{
-            print("Something went wrong")
-        }
-        
-        self.dismiss(animated: true, completion: nil)
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
     }
     
     

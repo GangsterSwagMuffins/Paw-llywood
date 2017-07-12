@@ -34,16 +34,14 @@ class Post: NSObject {
         
         let user : PFObject = postMap["author"] as! PFObject
         
-        print("object ID: \(user.objectId!)")
         
         if let id = user.objectId{
             var query = PFQuery(className: "_User")
             query.getObjectInBackground(withId: id, block: { (user: PFObject?, error: Error?) in
                 if (error == nil){
-                    print("data from the network: \(user!)")
+                   
                     let user_obj = user as! User
                     print(user_obj)
-                    print("the username from network: \(user_obj.username!)")
                     
                         self.username = user_obj.username!
                     //TODO: Test this out later.....

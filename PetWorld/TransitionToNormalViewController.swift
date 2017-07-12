@@ -10,6 +10,9 @@ import UIKit
 import Parse
 
 class TransitionToNormalViewController: UIViewController {
+    
+    
+    
     @IBOutlet weak var profilePicturePreview: UIImageView!
 
     @IBOutlet weak var petNamePreview: UILabel!
@@ -37,9 +40,13 @@ class TransitionToNormalViewController: UIViewController {
     }
     
     func updateUI(){
-        let currentUser = PFUser.current() as! User
+        let currentUser = User.current()
+        let pet = currentUser?.petsArray.first
         
-        let pet = currentUser.petsArray.first
+        
+        
+       
+        
         
         if let image = pet?.image {
             profilePicturePreview.image = pet?.image
@@ -53,11 +60,23 @@ class TransitionToNormalViewController: UIViewController {
         
         }
         
+        
+        
     
     }
     
     @IBAction func onTappedStart(_ sender: Any) {
         performSegue(withIdentifier: "HomeSegue", sender: nil)
+        //Now update the user since we have made the pet object.
+        let currentUser = User.current()!
+        let pet = currentUser.petsArray.first!
+        pet["image"] = Post.getPhotoFile(photo: pet.image)
+        
+       pet.saveInBackground()
+        
+        currentUser.saveInBackground()
+     
+
     }
 
     /*

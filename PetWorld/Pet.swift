@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class Pet: NSObject {
+class Pet: PFObject {
 
     //Profile pictre
     var image: UIImage?

@@ -114,8 +114,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         user.username = username
         user.password = password
         
-        print("username: \(username)")
-        print("password: \(password)")
+        
         
         
         user.signUpInBackground {

@@ -53,9 +53,13 @@ class TutorialPageViewController: UIPageViewController, UIPageViewControllerDele
         print("TutorialPageViewController loaded!")
         self.delegate = self
         self.dataSource = self
-        //Initialize the first
+        //Initialize the first pet
         let currentUser = PFUser.current() as! User
-        currentUser.petsArray.append(Pet())
+        let pet = Pet(className: "Pet")
+        pet.saveInBackground()
+        currentUser.petsArray.append(pet)
+        
+        
         
         
         

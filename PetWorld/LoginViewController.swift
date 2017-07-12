@@ -31,8 +31,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let username = usernameTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
-        print("username: \(username)\n")
-        print("password: \(password)\n")
+    
         
         
         //Actually login user
