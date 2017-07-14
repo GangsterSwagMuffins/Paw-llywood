@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SettingsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var user: User!
@@ -19,11 +19,26 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+      //  tableView.delegate = self
+       // tableView.dataSource = self
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+     /*   if(user == nil) {
+            if(User.current() == nil) {
+                tableView.reloadData();
+                return; // logged out
+            }
+            user = User.current();
+        }*/
+    }
+    
+    
+    
+    
+    
     @IBAction func onLogout(_ sender: UIButton) {
         print("logout button pressed!")
         PFUser.logOutInBackground { (error: Error?) in
@@ -42,23 +57,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        if(user == nil) {
-            if(User.current() == nil) {
-                tableView.reloadData();
-                return; // logged out
-            }
-            user = User.current();
-        }
-    }
-    
+   
+    /*
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
-        return user.petsArray.count
+      //  return user.petsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,7 +86,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-
+*/
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 

@@ -41,6 +41,7 @@
 		1FB386E11EA5BED400FBEB8E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1FB386E01EA5BED400FBEB8E /* Podfile */; };
 		1FB386E31EA5C44000FBEB8E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */; };
 		1FB386E51EA5CEEE00FBEB8E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */; };
+		1FE5DDA91F16D985005F118D /* PetFieldsLoadedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE5DDA81F16D985005F118D /* PetFieldsLoadedDelegate.swift */; };
 		33751ECB1ED937AC00E60E34 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33751ECA1ED937AC00E60E34 /* FriendsViewController.swift */; };
 		33751ECE1ED95BAB00E60E34 /* MyFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33751ECD1ED95BAB00E60E34 /* MyFriendsViewController.swift */; };
 		33751ED01ED95BB800E60E34 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33751ECF1ED95BB800E60E34 /* AddFriendViewController.swift */; };
@@ -112,6 +113,7 @@
 		1FB386E01EA5BED400FBEB8E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1FB386E21EA5C44000FBEB8E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1FB386E41EA5CEEE00FBEB8E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1FE5DDA81F16D985005F118D /* PetFieldsLoadedDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PetFieldsLoadedDelegate.swift; path = PetWorld/PetFieldsLoadedDelegate.swift; sourceTree = "<group>"; };
 		33751ECA1ED937AC00E60E34 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		33751ECD1ED95BAB00E60E34 /* MyFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFriendsViewController.swift; sourceTree = "<group>"; };
 		33751ECF1ED95BB800E60E34 /* AddFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		1F73AAA31E9C937B00A5C1AD = {
 			isa = PBXGroup;
 			children = (
+				1FE5DDA81F16D985005F118D /* PetFieldsLoadedDelegate.swift */,
 				1FAD6F3D1F057757006783F7 /* Fonts */,
 				1F73AAAE1E9C937C00A5C1AD /* PetWorld */,
 				1F73AAC31E9C937D00A5C1AD /* PetWorldTests */,
@@ -543,6 +546,7 @@
 				33AB42701ECBB031007B7BB4 /* Post.swift in Sources */,
 				1FB386E51EA5CEEE00FBEB8E /* SignUpViewController.swift in Sources */,
 				1F7D42551ED93B9E00E4B278 /* GalleryViewController.swift in Sources */,
+				1FE5DDA91F16D985005F118D /* PetFieldsLoadedDelegate.swift in Sources */,
 				1F73AAB01E9C937C00A5C1AD /* AppDelegate.swift in Sources */,
 				5EC637411ED413B7003D67F3 /* PetsTableViewCell.swift in Sources */,
 				33751ECE1ED95BAB00E60E34 /* MyFriendsViewController.swift in Sources */,

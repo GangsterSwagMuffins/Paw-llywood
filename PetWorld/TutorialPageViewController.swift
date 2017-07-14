@@ -14,6 +14,10 @@ import Parse
 class TutorialPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
     
+    
+    
+    var pet: Pet?
+    
     lazy var vcArray: [UIViewController] = {
         return [self.vcInstance(name: "PetNameViewController"),
                 self.vcInstance(name: "PetPhotoUploadViewController"),
@@ -55,17 +59,23 @@ class TutorialPageViewController: UIPageViewController, UIPageViewControllerDele
         self.dataSource = self
         //Initialize the first pet
         let currentUser = PFUser.current() as! User
-        let pet = Pet(className: "Pet")
+        let pet = Pet()
+        self.pet = pet
         pet.saveInBackground()
-        currentUser.petsArray.append(pet)
+        
+        
+        ((vcArray[0])as! PetNameViewController).pet = pet
+        ((vcArray[1])as! PetPhotoUploadViewController).pet = pet
+        ((vcArray[2])as! TransitionToNormalViewController).pet = pet
         
         
         
         
         
-        if let firstViewController = vcArray.first{
+        
+        if let firstViewController: PetNameViewController = vcArray.first as! PetNameViewController?{
            self.setViewControllers([firstViewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
-            
+            firstViewController.pet = self.pet
             print("Found first View controller!")
         
         }else{
@@ -102,8 +112,9 @@ class TutorialPageViewController: UIPageViewController, UIPageViewControllerDele
             return nil
         }
         
-        
-        return vcArray[previousIndex]
+        let previousVC = vcArray[previousIndex]
+    
+        return previousVC
         
         
         
@@ -128,8 +139,10 @@ class TutorialPageViewController: UIPageViewController, UIPageViewControllerDele
             return nil
         }
         
+        let nextVC = vcArray[nextIndex]
         
-        return vcArray[nextIndex]
+        
+        return nextVC
         
         
     

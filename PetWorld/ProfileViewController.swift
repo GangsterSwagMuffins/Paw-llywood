@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 
-class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, PetFieldsLoadedDelegate {
     
     var pet: Pet!
     var user: User!
@@ -39,44 +39,35 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let currentUser = User.current()
-        let username = currentUser?.username
-        let ownerText = ownerLabel.text!
-        
-        if let username = username{
-            ownerLabel.text = "\(ownerText) \(username)"
-           
+        updateOwnerField()
+        //Have an instance of delegate from app del
+        let currentUser = User.current()!
+        if (AppDelegate.getPets().count > 0){
+            print("number of pets > 0")
+            let defaults = UserDefaults.standard
+            let petIndex = defaults.integer(forKey: "currentPet")
+             self.pet = AppDelegate.getPets()[petIndex]
+            let imageFile : PFFile = self.pet!["image"] as! PFFile
+            Pet.loadPicture(imageFile: imageFile, successBlock: { (image: UIImage) in
+                self.pet?.image = image
+                self.updatePetUI(pet: self.pet!)
+            })
+            
 
-        }
-
-        //Populate all the pet fields/info/data GUI
-        let pet = currentUser?.petsArray.first
-        
-        
-        if let pet = pet {
-            //Extract the image and put on the scren
-            if let profilePicture = pet.image{
-                profilePictureImageView.image = profilePicture
-            }
-            //Extract the pet's name and display on screen.
-            if let petName = pet.name{
-                petNameLabel.text = petName
-            }
-            
-            
-            
-            
-            
+        }else{
+            print("getPets() has <= 0")
         }
         
         
-        
-        
+        if let pet = self.pet{
+            updatePetUI(pet: pet)
+        }
         
         
     }
     
     override func viewWillAppear(_ animatee3d: Bool) {
+       
       
     }
 
@@ -101,6 +92,45 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }));
         
         present(refreshAlert, animated: true, completion: nil);
+    }
+    
+    func updatePetUI(pet: Pet){
+        updatePetName(pet: pet)
+        updateProfilePicture(pet :pet)
+    }
+    
+    func updatePetName(pet: Pet){
+        if let petName = pet.name{
+            petNameLabel.text = petName
+        }
+    }
+    
+    func updateProfilePicture(pet: Pet){
+        //Extract the image and put on the scren
+        if let profilePicture = pet.image{
+            profilePictureImageView.image = profilePicture
+        }
+    }
+    
+    func updateOwnerField(){
+        
+        let currentUser = User.current()
+        let username = currentUser?.username
+        let ownerText = ownerLabel.text!
+        
+        
+        if let username = username{
+            ownerLabel.text = "\(ownerText) \(username)"
+        }
+    }
+    
+    
+    func petFieldsLoaded(){
+        
+        if let pet = self.pet{
+              updatePetUI(pet: (self.pet!))
+        }
+      
     }
     
     

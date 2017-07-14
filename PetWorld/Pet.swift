@@ -9,31 +9,77 @@
 import UIKit
 import Parse
 
-class Pet: PFObject {
+class Pet: PFObject, PFSubclassing {
+    
+    
+    static func parseClassName() -> String {
+         return "Pet"
+    }
+    
+    
+    
+    weak var delegate : PetFieldsLoadedDelegate?
+    
+   private static var currentPet: Pet?
+    static var currentPetIdx = 0
+    
 
+     var owner: PFUser?
+    
     //Profile pictre
-    var image: UIImage?
+   var image: UIImage?
     //Background profile picture
-    var backgroundImage: UIImage?
+  //  var backgroundImage: UIImage?
     //Name of the pet.
     var name: String?
-    var breed: String?
-    var species: String?
-    var age: Int?
+    
+     var breed: String?
+    
+     var species: String?
+    
+   var age: NSNumber?
     //Animals's favorite hobby
     var hobby: String?
     //Animal's favorite toy
     var toy: String?
     //Male or female none of this 55 gender stuff.
-    var gender: String?
+     var gender: String?
     //Don't be a folllower be a leader.
-    var followers: Int?
+    var followers: NSNumber?
     //Increase this.
-    var following: Int?
+ var following: NSNumber?
     //Mini bio (32 characters max)
-    var miniBio: String?
+     var miniBio: String?
     //Long bio (256 characters max)
-    var longBio: String?
+   var longBio: String?
+    
+    
+   
+    
+  override init() {
+    super.init()
+    
+    }
+    
+    init(objectMap: PFObject){
+        
+        super.init()
+        
+        self.name = objectMap["name"] as! String?
+       /* self.breed = objectMap["breed"]
+        self.species = objectMap["species"]
+        self.age = objectMap["age"]
+        self.hobby = objectMap["hobby"]
+        self.toy = objectMap["toy"]
+        self.gender = objectMap["gender"]
+        self.followers = objectMap["followers"]
+        self.following = objectMap["following"]
+        self.miniBio = objectMap["miniBio"]
+        self.long = objectMap["longBio"]*/
+        
+    }
+ 
+    
     
     
     
@@ -52,7 +98,85 @@ class Pet: PFObject {
         
     }
     
-    class func getPhotoFile(photo: UIImage?) -> PFFile? {
+    
+    
+    
+    
+    
+   
+    
+    
+   class func loadPicture(imageFile: PFFile, successBlock: ((UIImage)->Void)? ) ->UIImage?{
+        print("loadProfilePictureCalled")
+    var picture: UIImage?
+        imageFile.getDataInBackground { (imageData: Data?, error: Error?) in
+            if let error = error{
+                print("error: \(error)")
+            }else{
+                if let imageData = imageData{
+                    picture = UIImage(data: imageData)
+                    successBlock!(picture!)
+                }
+            }
+        }
+    
+    return picture
+     
+        
+    }
+    
+    
+    
+    
+    class func loadPets(finishedDownloading: @escaping ([Pet])->Void){
+        
+       //If there is a user then make this query for the pets.
+            if let currentUser = User.current() {
+           //List of pets that will populated from server
+            var pets : [Pet] = []
+                
+                //Look for all pets with this user/owner
+            let query = PFQuery(className: "Pet")
+                query.whereKey("owner", equalTo: currentUser)
+                
+                query.findObjectsInBackground(block: { (petPFObjects: [PFObject]?, error: Error?) in
+                    if let error = error{//Quick error check
+                        print("error: \(error.localizedDescription)")
+                    }else{
+                        //Go through each PFObject
+                        if let petPFObjects = petPFObjects{
+                            for petPFObject in petPFObjects{
+                                let newPet : Pet = petPFObject as! Pet
+                                newPet.name = newPet["name"] as! String?
+                                pets.append(newPet)
+                                
+    
+                                
+                            }
+                         
+                            
+                           
+                        }
+                        
+                         finishedDownloading(pets)
+                        
+                    }
+            })
+          
+        }
+        
+        
+        
+        
+       
+        
+    }
+    
+    
+    
+    
+    
+   class func getPhotoFile(photo: UIImage?) -> PFFile? {
         if let photo = photo {
             if let photo_data = UIImagePNGRepresentation(photo) {
                 return PFFile(name: "photo.png", data: photo_data)
@@ -62,4 +186,6 @@ class Pet: PFObject {
         }
         return nil
     }
+
+
 }

@@ -17,8 +17,16 @@ class TransitionToNormalViewController: UIViewController {
 
     @IBOutlet weak var petNamePreview: UILabel!
     
+    weak var parentVC: UIViewController?
+    
+    
+    var pet: Pet?
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+          updateUI()
         
         
         // Do any additional setup after loading the view.
@@ -27,10 +35,7 @@ class TransitionToNormalViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        
-        updateUI()
-
+          updateUI()
         
     }
 
@@ -41,38 +46,23 @@ class TransitionToNormalViewController: UIViewController {
     
     func updateUI(){
         let currentUser = User.current()
-        let pet = currentUser?.petsArray.first
+        petNamePreview.text = self.pet?.name
+        profilePicturePreview.image = self.pet?.image
         
-        
-        
-       
-        
-        
-        if let image = pet?.image {
-            profilePicturePreview.image = pet?.image
-            print("pet image: \(pet?.image)")
-        }
-       
-        if let name = pet?.name{
-            print("petname: \(pet?.name)")
-            
-            petNamePreview.text = pet?.name
-        
-        }
-        
-        
-        
-    
     }
     
     @IBAction func onTappedStart(_ sender: Any) {
         performSegue(withIdentifier: "HomeSegue", sender: nil)
         //Now update the user since we have made the pet object.
         let currentUser = User.current()!
-        let pet = currentUser.petsArray.first!
-        pet["image"] = Post.getPhotoFile(photo: pet.image)
+      
+        pet?["name"] = pet?.name
+        pet?["image"] = Post.getPhotoFile(photo: pet?.image)
+        pet?["owner"] = currentUser
         
-       pet.saveInBackground()
+
+        
+       pet?.saveInBackground()
         
         currentUser.saveInBackground()
      

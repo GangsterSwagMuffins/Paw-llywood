@@ -12,6 +12,11 @@ import Parse
 class PetPhotoUploadViewController: UIViewController {
 
     @IBOutlet weak var profileImagePreview: UIImageView!
+    weak var parentVC: UIViewController!
+    
+    
+    
+    var pet: Pet?
     
     
     
@@ -32,6 +37,9 @@ class PetPhotoUploadViewController: UIViewController {
         super.viewWillDisappear(true)
         print("view will disappear called")
         extractPhoto()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+         let vc = storyboard.instantiateViewController(withIdentifier: "TransitionToNormalViewController") as! TransitionToNormalViewController
+        vc.pet = self.pet
         
     }
 
@@ -60,7 +68,6 @@ class PetPhotoUploadViewController: UIViewController {
         vc.delegate = self
         vc.allowsEditing = true
         vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        
         self.present(vc, animated: true, completion: nil)
         
     }
@@ -68,8 +75,8 @@ class PetPhotoUploadViewController: UIViewController {
     //This function extracts the photo from the UIImageView and stores in the pet object
     func extractPhoto(){
         let currentUser = PFUser.current() as! User
-        let pet = currentUser.petsArray.first
-        pet?.image = profileImagePreview.image
+        self.pet?.image = profileImagePreview.image
+        
         print("extractPhoto() called")
     }
     

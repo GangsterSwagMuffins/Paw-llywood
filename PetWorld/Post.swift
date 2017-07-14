@@ -55,7 +55,7 @@ class Post: NSObject {
         }
         
         print("username extracted: \(username)")
-        print(postMap)
+        //print(postMap)
         
         //Extract the photo/video
       
