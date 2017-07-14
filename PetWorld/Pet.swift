@@ -55,36 +55,6 @@ class Pet: PFObject, PFSubclassing {
     
     
     
-    
-    override init() {
-        super.init()
-        
-    }
-    
-    init(objectMap: PFObject){
-        
-        super.init()
-        
-        self.name = objectMap["name"] as! String?
-        /* self.breed = objectMap["breed"]
-         self.species = objectMap["species"]
-         self.age = objectMap["age"]
-         self.hobby = objectMap["hobby"]
-         self.toy = objectMap["toy"]
-         self.gender = objectMap["gender"]
-         self.followers = objectMap["followers"]
-         self.following = objectMap["following"]
-         self.miniBio = objectMap["miniBio"]
-         self.long = objectMap["longBio"]*/
-        
-    }
-    
-    
-    
-    
-    
-    
-    
     class func addPet(user: User, profilePicture: UIImage, name: String, success: PFBooleanResultBlock?) {
         let pet = PFObject(className: "Pet")
         
@@ -98,14 +68,7 @@ class Pet: PFObject, PFSubclassing {
         
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     class func loadPicture(imageFile: PFFile, successBlock: ((UIImage)->Void)? ) ->UIImage?{
         print("loadProfilePictureCalled")
         var picture: UIImage?
@@ -125,9 +88,7 @@ class Pet: PFObject, PFSubclassing {
         
     }
     
-    
-    
-    
+  
     class func loadPets(finishedDownloading: @escaping ([Pet])->Void){
         
         //If there is a user then make this query for the pets.
@@ -147,20 +108,20 @@ class Pet: PFObject, PFSubclassing {
                     if let petPFObjects = petPFObjects{
                         for petPFObject in petPFObjects{
                             let newPet : Pet = petPFObject as! Pet
-                            print(newPet.name)
+                           
                             //Some default fields until have screen to input this data
                             
-                            /* newPet.breed = "Cairn Terrier"
+                            newPet.breed = "Cairn Terrier"
                              newPet.species = "Dog"
                              newPet.age = 4
                              newPet.hobby = "Chewing Eddie's Socks"
                              newPet.toy = "My Binky"
                              newPet.gender = "Female"
                              newPet.followers = 10
-                             newPet.followering = 12
+                             newPet.following = 12
                              newPet.miniBio = "#PureBreads#MAGA"
-                             newpet.longBio = "I am Cairn Terrier and I love my walks!!!"
-                             */
+                             newPet.longBio = "I am Cairn Terrier and I love my walks!!!"
+                             newPet.saveInBackground()
                             pets.append(newPet)
                             
                             
