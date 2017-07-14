@@ -13,52 +13,52 @@ class Pet: PFObject, PFSubclassing {
     
     
     static func parseClassName() -> String {
-         return "Pet"
+        return "Pet"
     }
     
     
     
     weak var delegate : PetFieldsLoadedDelegate?
     
-   private static var currentPet: Pet?
+    private static var currentPet: Pet?
     static var currentPetIdx = 0
     
-
-     var owner: PFUser?
+    
+    var owner: PFUser?
     
     //Profile pictre
-   var image: UIImage?
+    var image: UIImage?
     //Background profile picture
-  //  var backgroundImage: UIImage?
+    //  var backgroundImage: UIImage?
     //Name of the pet.
-    var name: String?
+    @NSManaged var name: String?
     
-     var breed: String?
+    @NSManaged var breed: String?
     
-     var species: String?
+    @NSManaged var species: String?
     
-   var age: NSNumber?
+    @NSManaged var age: NSNumber?
     //Animals's favorite hobby
-    var hobby: String?
+    @NSManaged var hobby: String?
     //Animal's favorite toy
-    var toy: String?
+    @NSManaged var toy: String?
     //Male or female none of this 55 gender stuff.
-     var gender: String?
+    @NSManaged var gender: String?
     //Don't be a folllower be a leader.
-    var followers: NSNumber?
+    @NSManaged var followers: NSNumber?
     //Increase this.
- var following: NSNumber?
+    @NSManaged var following: NSNumber?
     //Mini bio (32 characters max)
-     var miniBio: String?
+    @NSManaged  var miniBio: String?
     //Long bio (256 characters max)
-   var longBio: String?
+    @NSManaged  var longBio: String?
     
     
-   
     
-  override init() {
-    super.init()
     
+    override init() {
+        super.init()
+        
     }
     
     init(objectMap: PFObject){
@@ -66,19 +66,19 @@ class Pet: PFObject, PFSubclassing {
         super.init()
         
         self.name = objectMap["name"] as! String?
-       /* self.breed = objectMap["breed"]
-        self.species = objectMap["species"]
-        self.age = objectMap["age"]
-        self.hobby = objectMap["hobby"]
-        self.toy = objectMap["toy"]
-        self.gender = objectMap["gender"]
-        self.followers = objectMap["followers"]
-        self.following = objectMap["following"]
-        self.miniBio = objectMap["miniBio"]
-        self.long = objectMap["longBio"]*/
+        /* self.breed = objectMap["breed"]
+         self.species = objectMap["species"]
+         self.age = objectMap["age"]
+         self.hobby = objectMap["hobby"]
+         self.toy = objectMap["toy"]
+         self.gender = objectMap["gender"]
+         self.followers = objectMap["followers"]
+         self.following = objectMap["following"]
+         self.miniBio = objectMap["miniBio"]
+         self.long = objectMap["longBio"]*/
         
     }
- 
+    
     
     
     
@@ -103,12 +103,12 @@ class Pet: PFObject, PFSubclassing {
     
     
     
-   
     
     
-   class func loadPicture(imageFile: PFFile, successBlock: ((UIImage)->Void)? ) ->UIImage?{
+    
+    class func loadPicture(imageFile: PFFile, successBlock: ((UIImage)->Void)? ) ->UIImage?{
         print("loadProfilePictureCalled")
-    var picture: UIImage?
+        var picture: UIImage?
         imageFile.getDataInBackground { (imageData: Data?, error: Error?) in
             if let error = error{
                 print("error: \(error)")
@@ -119,9 +119,9 @@ class Pet: PFObject, PFSubclassing {
                 }
             }
         }
-    
-    return picture
-     
+        
+        return picture
+        
         
     }
     
@@ -130,45 +130,58 @@ class Pet: PFObject, PFSubclassing {
     
     class func loadPets(finishedDownloading: @escaping ([Pet])->Void){
         
-       //If there is a user then make this query for the pets.
-            if let currentUser = User.current() {
-           //List of pets that will populated from server
+        //If there is a user then make this query for the pets.
+        if let currentUser = User.current() {
+            //List of pets that will populated from server
             var pets : [Pet] = []
-                
-                //Look for all pets with this user/owner
+            
+            //Look for all pets with this user/owner
             let query = PFQuery(className: "Pet")
-                query.whereKey("owner", equalTo: currentUser)
-                
-                query.findObjectsInBackground(block: { (petPFObjects: [PFObject]?, error: Error?) in
-                    if let error = error{//Quick error check
-                        print("error: \(error.localizedDescription)")
-                    }else{
-                        //Go through each PFObject
-                        if let petPFObjects = petPFObjects{
-                            for petPFObject in petPFObjects{
-                                let newPet : Pet = petPFObject as! Pet
-                                newPet.name = newPet["name"] as! String?
-                                pets.append(newPet)
-                                
-    
-                                
-                            }
-                         
+            query.whereKey("owner", equalTo: currentUser)
+            
+            query.findObjectsInBackground(block: { (petPFObjects: [PFObject]?, error: Error?) in
+                if let error = error{//Quick error check
+                    print("error: \(error.localizedDescription)")
+                }else{
+                    //Go through each PFObject
+                    if let petPFObjects = petPFObjects{
+                        for petPFObject in petPFObjects{
+                            let newPet : Pet = petPFObject as! Pet
+                            print(newPet.name)
+                            //Some default fields until have screen to input this data
                             
-                           
+                            /* newPet.breed = "Cairn Terrier"
+                             newPet.species = "Dog"
+                             newPet.age = 4
+                             newPet.hobby = "Chewing Eddie's Socks"
+                             newPet.toy = "My Binky"
+                             newPet.gender = "Female"
+                             newPet.followers = 10
+                             newPet.followering = 12
+                             newPet.miniBio = "#PureBreads#MAGA"
+                             newpet.longBio = "I am Cairn Terrier and I love my walks!!!"
+                             */
+                            pets.append(newPet)
+                            
+                            
+                            
                         }
                         
-                         finishedDownloading(pets)
+                        
                         
                     }
+                    
+                    finishedDownloading(pets)
+                    
+                }
             })
-          
+            
         }
         
         
         
         
-       
+        
         
     }
     
@@ -176,7 +189,7 @@ class Pet: PFObject, PFSubclassing {
     
     
     
-   class func getPhotoFile(photo: UIImage?) -> PFFile? {
+    class func getPhotoFile(photo: UIImage?) -> PFFile? {
         if let photo = photo {
             if let photo_data = UIImagePNGRepresentation(photo) {
                 return PFFile(name: "photo.png", data: photo_data)
@@ -186,6 +199,6 @@ class Pet: PFObject, PFSubclassing {
         }
         return nil
     }
-
-
+    
+    
 }
