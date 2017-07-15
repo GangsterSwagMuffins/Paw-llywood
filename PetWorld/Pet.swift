@@ -29,7 +29,7 @@ class Pet: PFObject, PFSubclassing {
     //Profile pictre
     var image: UIImage?
     //Background profile picture
-    //  var backgroundImage: UIImage?
+    var backgroundImage: UIImage?
     //Name of the pet.
     @NSManaged var name: String?
     
@@ -121,35 +121,21 @@ class Pet: PFObject, PFSubclassing {
                              newPet.following = 12
                              newPet.miniBio = "#PureBreads#MAGA"
                              newPet.longBio = "I am Cairn Terrier and I love my walks!!!"
+                            let petImage = UIImage(named: "Wolfie_Maga")
+                             newPet["backgroundImage"] = getPhotoFile(photo:petImage)
                              newPet.saveInBackground()
                             pets.append(newPet)
                             
-                            
-                            
                         }
                         
-                        
-                        
                     }
-                    
                     finishedDownloading(pets)
-                    
                 }
             })
-            
         }
-        
-        
-        
-        
-        
-        
     }
     
-    
-    
-    
-    
+  
     class func getPhotoFile(photo: UIImage?) -> PFFile? {
         if let photo = photo {
             if let photo_data = UIImagePNGRepresentation(photo) {
