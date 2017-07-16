@@ -38,6 +38,8 @@ class ProfilePictureEditorViewController: UIViewController, UIImagePickerControl
         vc.sourceType = UIImagePickerControllerSourceType.photoLibrary;
         present(vc, animated: true, completion: nil);
     }
+    
+    
     private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -49,6 +51,7 @@ class ProfilePictureEditorViewController: UIViewController, UIImagePickerControl
         self.dismiss(animated: true, completion: nil)
         self.dismiss(animated: true, completion: nil)
     }
+    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)

@@ -70,9 +70,8 @@ class Pet: PFObject, PFSubclassing {
     
  
     class func loadPicture(imageFile: PFFile, successBlock: ((UIImage)->Void)? ) ->UIImage?{
-        print("loadProfilePictureCalled")
-        var picture: UIImage?
-        imageFile.getDataInBackground { (imageData: Data?, error: Error?) in
+                var picture: UIImage?
+        imageFile.getDataInBackground({ (imageData:Data?, error: Error?) in
             if let error = error{
                 print("error: \(error)")
             }else{
@@ -81,7 +80,11 @@ class Pet: PFObject, PFSubclassing {
                     successBlock!(picture!)
                 }
             }
+            
+        }) { (int: Int32) in
+            print("totalProgress: \(int)%")
         }
+        
         
         return picture
         
@@ -110,7 +113,7 @@ class Pet: PFObject, PFSubclassing {
                             let newPet : Pet = petPFObject as! Pet
                            
                             //Some default fields until have screen to input this data
-                            
+                            print(newPet)
                             newPet.breed = "Cairn Terrier"
                              newPet.species = "Dog"
                              newPet.age = 4
@@ -122,6 +125,8 @@ class Pet: PFObject, PFSubclassing {
                              newPet.miniBio = "#PureBreads#MAGA"
                              newPet.longBio = "I am Cairn Terrier and I love my walks!!!"
                             let petImage = UIImage(named: "Wolfie_Maga")
+                            
+                             newPet["image"] = getPhotoFile(photo:petImage)
                              newPet["backgroundImage"] = getPhotoFile(photo:petImage)
                              newPet.saveInBackground()
                             pets.append(newPet)
@@ -139,7 +144,7 @@ class Pet: PFObject, PFSubclassing {
     class func getPhotoFile(photo: UIImage?) -> PFFile? {
         if let photo = photo {
             if let photo_data = UIImagePNGRepresentation(photo) {
-                return PFFile(name: "photo.png", data: photo_data)
+                return PFFile(name: "wolfie.png", data: photo_data)
             }
         } else {
             return nil

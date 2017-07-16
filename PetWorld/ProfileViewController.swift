@@ -15,7 +15,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     var pet: Pet!
     var user: User!
     
+    
+    var tableViewController: AboutMeTableViewController?
+    
+    @IBOutlet weak var containerView: UIView!
+    
+    
     @IBOutlet weak var profilePictureImageView: UIImageView!
+    
     
     @IBOutlet weak var backgroundPictureImageView: UIImageView!
     
@@ -51,8 +58,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             //Get the current pet
              self.pet = AppDelegate.getPets()[petIndex]
             
+          //  loadBackgroundImage(pet: self.pet)
             loadProfileImage(pet: self.pet)
-            loadBackgroundImage(pet: self.pet)
+            
             
             
 
@@ -66,10 +74,51 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }
         
         
+         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+         self.tableViewController = storyBoard.instantiateViewController(withIdentifier: "AboutMeTableViewController") as! AboutMeTableViewController
+        
+        
+        self.tableViewController?.pet = self.pet
+        self.tableViewController?.view.frame = containerView.bounds
+        containerView.addSubview((self.tableViewController?.view)!)
+        
+        
+        
+  
+        
+        
+        
+        
+        
     }
     
     override func viewWillAppear(_ animatee3d: Bool) {
-       
+        //Have an instance of delegate from app del
+        let currentUser = User.current()!
+        if (AppDelegate.getPets().count > 0){
+            print("number of pets > 0")
+            //Grab the current pet from settings
+            let defaults = UserDefaults.standard
+            let petIndex = defaults.integer(forKey: "currentPet")
+            
+            //Get the current pet
+            self.pet = AppDelegate.getPets()[petIndex]
+            
+           // loadBackgroundImage(pet: self.pet)
+            loadProfileImage(pet: self.pet)
+            
+            
+            
+            
+        }else{ // If no pets were loaded....
+            print("getPets() has <= 0")
+        }
+        
+        
+        if let pet = self.pet{
+            updatePetUI(pet: pet)
+        }
+          self.tableViewController?.pet = self.pet
       
     }
 
@@ -103,12 +152,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     func updatePetUI(pet: Pet){
         updatePetName(pet: pet)
         updateProfilePicture(pet :pet)
-        updatePetAgeLabel(pet: pet)
+        /*updatePetAgeLabel(pet: pet)
         updateBreedLabel(pet: pet)
         updateHobbyLabel(pet: pet)
         updateFullBioLabel(pet: pet)
-        updateMiniBioLabel(pet: pet)
-        updateBackgroundImage(pet: pet)
+        updateMiniBioLabel(pet: pet)*/
+        //updateBackgroundImage(pet: pet)
     }
     
     
@@ -121,26 +170,26 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     func updatePetAgeLabel(pet: Pet){
         if let age = pet.age {
-            petAgeLabel.text = "\(age)"
+            petAgeLabel.text = "Age: \(age)"
         }
     }
     
     func updateBreedLabel(pet: Pet){
         if let breed = pet.breed{
-            breedLabel.text = breed
+            breedLabel.text = "Breed: \(breed)"
         }
         
     }
     
     func updateHobbyLabel(pet: Pet){
         if let hobby = pet.hobby{
-            hobbyLabel.text = hobby
+            hobbyLabel.text = "Favorite Hobby: \(hobby)"
         }
     }
     
     func updateFullBioLabel(pet: Pet){
         if let fullBio = pet.longBio{
-            fullBioLabel.text = fullBio
+            fullBioLabel.text = "Bio: \(fullBio)"
         }
     }
     
@@ -154,15 +203,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     func updateMiniBioLabel(pet: Pet){
         if let miniBio = pet.miniBio{
-            miniBioLabel.text = miniBio
+            miniBioLabel.text = "\(miniBio)"
         }
     }
     
-    func updateBackgroundImage(pet: Pet){
+   /* func updateBackgroundImage(pet: Pet){
         if let backgroundImage = pet.backgroundImage{
          backgroundPictureImageView.image = backgroundImage
         }
-    }
+    }*/
     
     
     func loadProfileImage(pet: Pet){
@@ -195,7 +244,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 self.updatePetUI(pet: pet)
             })
             
-        }else{//If it was already loaded then updat the UI
+        }else{//If it was already loaded then update 
+            
             self.updatePetUI(pet: pet)
         }
     }

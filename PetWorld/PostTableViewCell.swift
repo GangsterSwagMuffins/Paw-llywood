@@ -62,7 +62,7 @@ class PostTableViewCell: UITableViewCell{
                 
             }
             
-            print("Here is the author fo the post \(post.username)")
+           // print("Here is the author fo the post \(post.username)")
             usernameButton.setTitle(post.username, for: UIControlState.normal)
             self.usernameButton.titleLabel?.textColor = TextManipulation.themeColor()
             

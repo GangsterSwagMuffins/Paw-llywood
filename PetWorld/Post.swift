@@ -41,7 +41,7 @@ class Post: NSObject {
                 if (error == nil){
                    
                     let user_obj = user as! User
-                    print(user_obj)
+                 //   print(user_obj)
                     
                         self.username = user_obj.username!
                     //TODO: Test this out later.....
@@ -54,7 +54,7 @@ class Post: NSObject {
         
         }
         
-        print("username extracted: \(username)")
+     //   print("username extracted: \(username)")
         //print(postMap)
         
         //Extract the photo/video
