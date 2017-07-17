@@ -58,7 +58,7 @@ class TutorialPageViewController: UIPageViewController, UIPageViewControllerDele
         self.delegate = self
         self.dataSource = self
         //Initialize the first pet
-        let currentUser = PFUser.current() as! User
+       
         let pet = Pet()
         self.pet = pet
         pet.saveInBackground()

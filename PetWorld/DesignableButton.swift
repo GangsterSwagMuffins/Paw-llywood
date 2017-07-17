@@ -20,6 +20,41 @@ class DesignableButton: UIButton {
     
     }
     
+    @IBInspectable var imageColor: UIColor = UIColor.black{
+        didSet{
+            self.imageView?.tintColor = imageColor
+        }
+    
+    }
+    
+    @IBInspectable var imageWidth: CGFloat = 0 {
+        didSet{
+            
+            if let imageView = self.imageView{
+                let currentSize = imageView.frame.size
+                imageView.frame.size = CGSize(width: imageWidth, height: currentSize.height)
+            }
+            
+            
+        }
+     
+    }
+    
+    @IBInspectable var imageHeight: CGFloat = 0{
+        didSet{
+            
+            if let imageView = self.imageView{
+                let currentSize = imageView.frame.size
+                imageView.frame.size = CGSize(width: currentSize.width , height: imageHeight)
+                
+            }
+            
+        }
+        
+    }
+    
+    
+    
     
     
     

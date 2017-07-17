@@ -33,7 +33,8 @@ class TextManipulation: NSObject {
     }
     
     class func secondaryColor() -> UIColor{
-        return UIColor(red: 227/255, green: 208/255, blue: 66/255, alpha: 1.0);
+        return UIColor.white
+      //  return UIColor(red: 227/255, green: 208/255, blue: 66/255, alpha: 1.0);
     }
 
 }

@@ -46,7 +46,7 @@ class PetNameViewController: UIViewController {
     
     //Just in case the user does not press the check mark
     @IBAction func finishedTypingPetName(_ sender: UITextField) {
-        let currentUser = User.current()!
+       
         
         self.pet?.name = sender.text
         
@@ -78,7 +78,7 @@ class PetNameViewController: UIViewController {
     
     
     func saveName(){
-        let currentUser = PFUser.current() as! User
+       
         let petName = petNameTextField.text ?? "PettyMcPetPet";
         self.pet?.name = petName
         print("saveName() called")
