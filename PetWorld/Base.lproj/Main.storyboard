@@ -321,8 +321,8 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYj-ft-Hui" customClass="DesignableButton" customModule="PetWorld" customModuleProvider="target">
                                 <rect key="frame" x="310" y="212" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.001985483758268047" green="0.055907516129935476" blue="0.95979567307692304" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="pencil"/>
+                                <color key="backgroundColor" red="0.0036749731037111991" green="0.21184392924670323" blue="0.68756009615384617" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="pen"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="29"/>
@@ -1547,7 +1547,7 @@
         <image name="iconmonstr-building-1-24" width="24" height="24"/>
         <image name="pawllywood" width="375" height="200"/>
         <image name="pawprint" width="20" height="20"/>
-        <image name="pencil" width="512" height="512"/>
+        <image name="pen" width="24" height="24"/>
         <image name="pugsil_burned" width="325" height="582"/>
         <image name="right_arrow" width="256" height="256"/>
         <image name="scale" width="20" height="20"/>
