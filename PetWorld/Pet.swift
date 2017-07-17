@@ -37,6 +37,10 @@ class Pet: PFObject, PFSubclassing {
     
     @NSManaged var species: String?
     
+    @NSManaged var weight: NSNumber?
+    
+    @NSManaged var height: NSNumber?
+    
     @NSManaged var age: NSNumber?
     //Animals's favorite hobby
     @NSManaged var hobby: String?
@@ -52,6 +56,7 @@ class Pet: PFObject, PFSubclassing {
     @NSManaged  var miniBio: String?
     //Long bio (256 characters max)
     @NSManaged  var longBio: String?
+    
     
     
     
