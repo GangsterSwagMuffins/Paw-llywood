@@ -62,6 +62,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         return true
     }
     
+    class func currentPet() -> Pet{
+        let defaults = UserDefaults.standard
+        
+        let currentPetIndex = defaults.integer(forKey: "currentPet") ?? 0
+        
+        let pets = getPets()
+        
+        return pets[currentPetIndex]
+        
+        
+    }
+    
+    
     class func getPets() -> [Pet]{
 
         
