@@ -26,6 +26,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBAction func editProfileButtonTapped(_ sender: Any) {
         //Code to open edit profile view controller
         
+        self.performSegue(withIdentifier:
+            "EditProfile", sender: nil)
         print("editProfileButtonPressed")
         
     }
@@ -86,35 +88,39 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         let currentUser = User.current()!
         
         
-        if (AppDelegate.getPets().count > 0){
-            
-            
-            print("number of pets > 0")
-            //Grab the current pet from settings
-            let defaults = UserDefaults.standard
-            
-            
-            let petIndex = defaults.integer(forKey: "currentPet")
-            
-            //Get the current pet
-            self.pet = AppDelegate.getPets()[petIndex]
-            
-            
-            self.profileView.loadProfileImage(pet: pet)
-            
-            
-            
-        }else{ // If no pets were loaded....
-            print("getPets() has <= 0")
-        }
         
+        if (self.pet == nil){
+            if (AppDelegate.getPets().count > 0){
+                
+                
+                //Get the current pet
+                self.pet = AppDelegate.currentPet()
+                
+                
+                self.profileView.loadProfileImage(pet: pet)
+                
+                
+                
+            }else{ // If no pets were loaded....
+                print("getPets() has <= 0")
+            }
+            
+        
+        }
+       
         
         if let pet = self.pet{
             self.profileView.updatePetUI(pet: pet)
+            print(pet)
+           
         }
           self.tableViewController?.pet = self.pet
+        self.tableViewController?.updateUI(pet: pet)
+         self.tableViewController?.tableView.reloadData()
       
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -144,6 +150,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         if let pet = self.pet{
               self.profileView.updatePetUI(pet: (self.pet!))
+              self.tableViewController?.updateUI(pet: pet)
+              self.tableViewController?.tableView.reloadData()
         }
       
     }

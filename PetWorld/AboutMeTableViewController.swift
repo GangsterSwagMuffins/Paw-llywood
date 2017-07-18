@@ -33,6 +33,18 @@ class AboutMeTableViewController: UITableViewController {
             
         }
         
+    }
+    
+        
+        func viewDidAppear(animated: Bool){
+            
+            if let pet = self.pet{
+                
+                updateUI(pet: pet)
+                
+            }
+        
+        }
         
         
 
@@ -41,7 +53,7 @@ class AboutMeTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
+    
     
     
     

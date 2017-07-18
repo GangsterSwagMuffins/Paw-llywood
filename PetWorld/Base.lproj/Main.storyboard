@@ -356,6 +356,7 @@
                     <connections>
                         <outlet property="profileView" destination="wp0-T4-A6j" id="iIz-Dc-Fui"/>
                         <segue destination="VXC-MX-S4r" kind="show" identifier="picEditor" id="V0s-zY-qLX"/>
+                        <segue destination="qhA-QY-hBq" kind="presentation" identifier="EditProfile" id="8kP-J4-f6v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fk3-43-80M" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -381,7 +382,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-687.20000000000005" y="-9.4452773613193415"/>
+            <point key="canvasLocation" x="-279" y="177"/>
         </scene>
         <!--About Me Table View Controller-->
         <scene sceneID="rgx-KH-tVF">
@@ -560,7 +561,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="177"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Wolfie_Maga" translatesAutoresizingMaskIntoConstraints="NO" id="I3y-9R-bO8" customClass="DesignableImageView" customModule="PetWorld" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default_profile" translatesAutoresizingMaskIntoConstraints="NO" id="I3y-9R-bO8" customClass="DesignableImageView" customModule="PetWorld" customModuleProvider="target">
                                                     <rect key="frame" x="116" y="0.0" width="142" height="114"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <userDefinedRuntimeAttributes>
@@ -573,6 +574,9 @@
                                                     <state key="normal" title="Upload new Photo">
                                                         <color key="titleColor" red="0.0036749731037111991" green="0.21184392924670323" blue="0.68756009615384617" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onNewPhotoTapped:" destination="qhA-QY-hBq" eventType="touchUpInside" id="WfA-0C-EpX"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -605,6 +609,9 @@
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="bone gray"/>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onFinishedTyping:" destination="qhA-QY-hBq" eventType="editingDidEnd" id="kX5-3J-ew4"/>
+                                                    </connections>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Species" placeholder="Breed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Vr-lO-rsa" customClass="DesignableTextField" customModule="PetWorld" customModuleProvider="target">
                                                     <rect key="frame" x="112" y="70" width="183" height="17"/>
@@ -620,6 +627,9 @@
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="bone gray"/>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onFinishedTyping:" destination="qhA-QY-hBq" eventType="editingDidEnd" id="cu5-C6-SB3"/>
+                                                    </connections>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Age" placeholder="Breed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jEv-HK-44c" customClass="DesignableTextField" customModule="PetWorld" customModuleProvider="target">
                                                     <rect key="frame" x="112" y="106" width="183" height="17"/>
@@ -635,6 +645,9 @@
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="bone gray"/>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onFinishedTyping:" destination="qhA-QY-hBq" eventType="editingDidEnd" id="J5A-Hz-YCA"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -667,6 +680,9 @@
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="bone gray"/>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onFinishedTyping:" destination="qhA-QY-hBq" eventType="editingDidEnd" id="RRH-gc-yOl"/>
+                                                    </connections>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Height (inches)" placeholder="Breed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TLR-Vv-x6f" customClass="DesignableTextField" customModule="PetWorld" customModuleProvider="target">
                                                     <rect key="frame" x="109" y="88" width="183" height="17"/>
@@ -682,6 +698,9 @@
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="bone gray"/>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onFinishedTyping:" destination="qhA-QY-hBq" eventType="editingDidEnd" id="fvy-lh-gqa"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -714,6 +733,9 @@
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="bone gray"/>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onFinishedTyping:" destination="qhA-QY-hBq" eventType="editingDidEnd" id="tHL-mv-bL7"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -729,11 +751,17 @@
                                                     <rect key="frame" x="200" y="72" width="48" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Cancel"/>
+                                                    <connections>
+                                                        <action selector="onCancelTapped:" destination="qhA-QY-hBq" eventType="touchUpInside" id="5yK-bd-41L"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6g-qg-8zx">
                                                     <rect key="frame" x="118" y="72" width="34" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Save"/>
+                                                    <connections>
+                                                        <action selector="onSaveTapped:" destination="qhA-QY-hBq" eventType="touchUpInside" id="HJU-lS-bIB"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -747,15 +775,17 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="ageTextView" destination="jEv-HK-44c" id="Enz-ic-1Mb"/>
-                        <outlet property="breedTextView" destination="UKQ-8t-q8k" id="xGu-ul-pqk"/>
-                        <outlet property="profileImageView" destination="I3y-9R-bO8" id="kKb-cB-vvv"/>
-                        <outlet property="weightTextView" destination="0BA-UZ-b7K" id="65v-Jc-yXF"/>
+                        <outlet property="bioTextView" destination="6hj-LD-oO3" id="uYu-QQ-rTf"/>
+                        <outlet property="breedTextView" destination="UKQ-8t-q8k" id="pCx-6c-z4o"/>
+                        <outlet property="heightTextView" destination="TLR-Vv-x6f" id="QR1-WG-kTb"/>
+                        <outlet property="profileImageView" destination="I3y-9R-bO8" id="FeN-WP-YSQ"/>
+                        <outlet property="speciesTextView" destination="8Vr-lO-rsa" id="zwc-5x-PgY"/>
+                        <outlet property="weightTextView" destination="0BA-UZ-b7K" id="aw3-id-oAY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Btw-JL-qxv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="196" y="659.82008995502258"/>
+            <point key="canvasLocation" x="164" y="1028"/>
         </scene>
         <!--Profile Picture Editor View Controller-->
         <scene sceneID="BK2-ql-yh9">

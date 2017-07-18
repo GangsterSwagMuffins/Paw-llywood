@@ -18,6 +18,8 @@
 		1F43B13C1F1029FF001D9CC1 /* PetPhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F43B13B1F1029FF001D9CC1 /* PetPhotoUploadViewController.swift */; };
 		1F43B13E1F102A26001D9CC1 /* TransitionToNormalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F43B13D1F102A26001D9CC1 /* TransitionToNormalViewController.swift */; };
 		1F43B1401F1059A1001D9CC1 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F43B13F1F1059A1001D9CC1 /* TutorialPageViewController.swift */; };
+		1F59EBE71F1D2FBE00A2CBE2 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F59EBE61F1D2FBE00A2CBE2 /* EditProfileViewController.swift */; };
+		1F59EBE91F1D300400A2CBE2 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F59EBE81F1D300400A2CBE2 /* EditProfileView.swift */; };
 		1F73AAB01E9C937C00A5C1AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73AAAF1E9C937C00A5C1AD /* AppDelegate.swift */; };
 		1F73AAB51E9C937C00A5C1AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F73AAB31E9C937C00A5C1AD /* Main.storyboard */; };
 		1F73AAB71E9C937C00A5C1AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F73AAB61E9C937C00A5C1AD /* Assets.xcassets */; };
@@ -85,6 +87,8 @@
 		1F43B13B1F1029FF001D9CC1 /* PetPhotoUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetPhotoUploadViewController.swift; sourceTree = "<group>"; };
 		1F43B13D1F102A26001D9CC1 /* TransitionToNormalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionToNormalViewController.swift; sourceTree = "<group>"; };
 		1F43B13F1F1059A1001D9CC1 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
+		1F59EBE61F1D2FBE00A2CBE2 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		1F59EBE81F1D300400A2CBE2 /* EditProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		1F73AAAC1E9C937C00A5C1AD /* PetWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F73AAAF1E9C937C00A5C1AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F73AAB41E9C937C00A5C1AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 				1F9CF7071F08233D00F0F072 /* DesignableButton.swift */,
 				1F9CF70B1F0A952C00F0F072 /* DesignableTableView.swift */,
 				1F9CF70D1F0ACEAB00F0F072 /* ViewDesignable.swift */,
+				1F59EBE81F1D300400A2CBE2 /* EditProfileView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */,
 				1F232B9A1F15BEE9002367AD /* ProfileViewController.swift */,
 				1F34C1081F1AEDFA00EEF564 /* AboutMeTableViewController.swift */,
+				1F59EBE61F1D2FBE00A2CBE2 /* EditProfileViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -569,9 +575,11 @@
 				1F43B13E1F102A26001D9CC1 /* TransitionToNormalViewController.swift in Sources */,
 				1F232B9B1F15BEE9002367AD /* ProfileViewController.swift in Sources */,
 				1F9CF70C1F0A952D00F0F072 /* DesignableTableView.swift in Sources */,
+				1F59EBE71F1D2FBE00A2CBE2 /* EditProfileViewController.swift in Sources */,
 				33AB426E1ECBB015007B7BB4 /* PostTableViewCell.swift in Sources */,
 				1F15C5361E9C9813005B828B /* HomeViewController.swift in Sources */,
 				1F9CF7081F08233D00F0F072 /* DesignableButton.swift in Sources */,
+				1F59EBE91F1D300400A2CBE2 /* EditProfileView.swift in Sources */,
 				1F9CF70A1F09E19900F0F072 /* TextManipulation.swift in Sources */,
 				1F43B1401F1059A1001D9CC1 /* TutorialPageViewController.swift in Sources */,
 				1F43B13C1F1029FF001D9CC1 /* PetPhotoUploadViewController.swift in Sources */,

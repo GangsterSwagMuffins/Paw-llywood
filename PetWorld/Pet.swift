@@ -127,6 +127,8 @@ class Pet: PFObject, PFSubclassing {
                              newPet.gender = "Female"
                              newPet.followers = 10
                              newPet.following = 12
+                            newPet.weight = 40
+                            newPet.height = 20
                              newPet.miniBio = "#PureBreads#MAGA"
                              newPet.longBio = "I am Cairn Terrier and I love my walks!!!"
                             let petImage = UIImage(named: "Wolfie_Maga")
