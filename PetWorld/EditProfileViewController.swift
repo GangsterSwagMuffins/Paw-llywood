@@ -17,6 +17,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
    
     @IBOutlet weak var speciesTextView: DesignableTextField!
     
+    @IBOutlet weak var ageTextView: DesignableTextField!
     
     @IBOutlet weak var weightTextView: DesignableTextField!
     
@@ -26,10 +27,12 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     
     var newBreed: String?
     var newSpecies: String?
+    var newAge: NSNumber?
     var newWeight: NSNumber?
     var newHeight: NSNumber?
     var newBio: String?
     var newImage: UIImage?
+    
     
     
     
@@ -92,8 +95,11 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         self.newBreed = breedTextView.text
         self.newSpecies = speciesTextView.text
         self.newWeight = Int(weightTextView.text!) as! NSNumber
+        print(newWeight)
         self.newHeight = Int(heightTextView.text!) as! NSNumber
         self.newBio = bioTextView.text
+        
+        self.newAge = Int(ageTextView.text!) as! NSNumber
     
     }
     
@@ -107,6 +113,12 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         breedTextView.text = pet.breed ?? "PettyMcPetPet"
         
         speciesTextView.text = pet.species ?? "DinoNugget"
+    
+    if let age = pet.age{
+        ageTextView.text = "\(age)"
+    }else{
+        ageTextView.text = "0"
+    }
     
     if let weight = pet.weight{
         weightTextView.text = "\(weight)"
@@ -138,12 +150,21 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         
         pet.breed = newBreed
         pet.species = newSpecies
+        pet.age = newAge
         pet.weight = newWeight
         pet.height = newHeight
         pet.longBio = newBio
         pet.image = newImage
         pet["image"] = Pet.getPhotoFile(photo: newImage)
-        pet.saveInBackground()
+        
+        print(pet)
+        pet.saveInBackground { (bool: Bool, error: Error?) in
+            if let error = error{
+                print("error: \(error.localizedDescription)")
+            }else{
+                print("finished saving!!!!")
+            }
+        }
     
     }
     
