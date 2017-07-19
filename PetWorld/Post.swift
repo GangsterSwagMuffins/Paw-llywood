@@ -27,22 +27,9 @@ class Post: PFObject, PFSubclassing {
    @NSManaged var commentsCount : NSNumber?
    @NSManaged var timeStamp : String?
     
-    weak var delegate: PhotoLoadedDelegate?
+   
     
-
-    
-    class func getPosts(completionHandler: ()->()){
-        
-    }
-    
-    
-  
     
 }
 
-
-protocol PhotoLoadedDelegate: class{
-    func photoLoaded(picture:UIImage, post: Post, tableview: UITableView)
-
-}
 
