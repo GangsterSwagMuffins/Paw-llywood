@@ -28,6 +28,52 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         print("view did load")
         let currentUser = PFUser.current()
         
+        
+        
+        // Query
+        let query = PFQuery(className: "Post")
+        query.order(byDescending: "_created_at")
+        
+        query.limit = 20
+        
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) -> Void in
+            if let posts = posts {
+                self.feed = posts
+                for postMap in self.feed{
+                    let post = Post()
+                    post.constructor(postMap: postMap, tableView: self.tableView )
+                    self.posts.append(post)
+                    
+                }
+                
+            }
+            else {
+                print(error?.localizedDescription ?? "")
+            }
+        }
+        
+      
+        
+        
+        
+        
+        print("Loading Home")
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 600
+        var count = 1
+        
+        
+        
+        
+        self.tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        
         // Query
         let query = PFQuery(className: "Post")
         query.order(byDescending: "_created_at")
@@ -51,23 +97,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         
-        
-        
-        print("Loading Home")
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 600
-        var count = 1
-        
-        
-        
-        
-        self.tableView.reloadData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         
         
     self.tableView.reloadData()

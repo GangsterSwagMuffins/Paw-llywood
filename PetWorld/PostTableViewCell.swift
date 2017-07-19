@@ -46,6 +46,8 @@ class PostTableViewCell: UITableViewCell{
     
     var post : Post!{
         didSet{
+            
+            print(post)
             let mediaFile = post.media
             
             mediaFile?.getDataInBackground { (data: Data?, error: Error?) in
@@ -61,57 +63,63 @@ class PostTableViewCell: UITableViewCell{
                 }
                 
             }
-            
-           // print("Here is the author fo the post \(post.username)")
-            usernameButton.setTitle(post.username, for: UIControlState.normal)
-            self.usernameButton.titleLabel?.textColor = TextManipulation.themeColor()
-            
-         self.profilePictureButton.layer.masksToBounds = true
-            self.profilePictureButton.layer.cornerRadius = profilePictureButton.frame.width/2
-            self.likeButton.setImage(UIImage(named: "catlikedpressedbutton"), for: .selected)
-            self.likeButton.titleLabel?.textColor = TextManipulation.themeColor()
-            self.captionLabel.textColor = TextManipulation.themeColor()
-            
-            
-            if (post.username != nil){
-                let captionText = "\(post.username!) - \(post.caption!)"
-                let captionLen = captionText.characters.count
-                //"First half" = username section of the string
-                let firstHalfLen = post.username?.characters.count
-                //"Second half" = caption section of the string including the dash
-                let secondHalfLen = captionText.characters.count
-                
-                let range = NSMakeRange((post.username?.characters.count)!, (secondHalfLen - firstHalfLen!))
-                
-                let boldedString = TextManipulation.attributedString(from: captionText, nonBoldRange: range)
-                
-                captionLabel.attributedText = boldedString
-            
-            }
-            
-            
-           
-            
-            
-            //vtimestampLabel.text = post.timeStamp
+  
+        }
+    }
+    
+       
+    
+   
+    
+    func updateUI(){
         
+       updateCaptionText()
+        updateUsernameButton()
+        updateProfilePicture()
+    
+    }
+    
+    
+    func updateCaptionText(){
+        var stubStr: String?
+        stubStr = "Lemons"
+        if let username = stubStr, let caption = post.caption{
+            let captionText = "\(username) - \(caption)"
+            let captionLen = captionText.characters.count
+            //"First half" = username section of the string
+            let firstHalfLen = username.characters.count
+            //"Second half" = caption section of the string including the dash
+            let secondHalfLen = captionText.characters.count
+            
+            let range = NSMakeRange((username.characters.count
+                ), (secondHalfLen - firstHalfLen))
+            
+            let boldedString = TextManipulation.attributedString(from: captionText, nonBoldRange: range)
+            
+            captionLabel.attributedText = boldedString
         }
     
-    
     }
     
-    
-    
-    @IBAction func onUsername(_ sender: Any) {
-    
-        
+    func updateUsernameButton(){
+       // if let username = post.username{
+         //   usernameButton.setTitle(username, for: UIControlState.normal)
+        //}
     }
+
+
+   func updateProfilePicture(){
+    self.profilePictureButton.layer.masksToBounds = true
+    self.profilePictureButton.layer.cornerRadius = profilePictureButton.frame.width/2
+    
+    self.likeButton.setImage(UIImage(named: "catlikedpressedbutton"), for: .selected)
     
     
-    
-    
-    
-    
+   }
+
+
+
+
 
     override func awakeFromNib() {
         super.awakeFromNib()

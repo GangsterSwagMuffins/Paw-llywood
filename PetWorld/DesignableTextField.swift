@@ -25,6 +25,12 @@ class DesignableTextField: UITextField {
     
     }
     
+    @IBInspectable var rightLabel: String?{
+        didSet{
+            updateView()
+        }
+    }
+    
     @IBInspectable var rightImage: UIImage?{
         didSet{
             updateView()
@@ -81,6 +87,38 @@ class DesignableTextField: UITextField {
     
     func updateView(){
         
+        
+        if let rightLabel = rightLabel{
+            
+            rightViewMode = .always
+            //There is a right image set
+            let label = UILabel(frame: CGRect(x: self.bounds.width - 20, y: 0, width: 20, height: 20) )
+            var width = rightPadding + 20
+            
+            if (borderStyle == UITextBorderStyle.none || borderStyle == UITextBorderStyle.line){
+                width = width + 5
+                
+            }
+            
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 20 ))
+            view.addSubview(label)
+            label.text = rightLabel
+            label.tintColor = UIColor.red
+            
+            rightView = view
+            
+            
+            
+        }else{
+            //There is no right image set nil bruh
+            rightViewMode = .never
+            
+        }
+        
+        
+        
+        
+        
         if let leftImage = leftImage{
             //There is an image
             leftViewMode = .always
@@ -109,7 +147,7 @@ class DesignableTextField: UITextField {
             leftViewMode = .never
         }
         
-        rightViewMode = .always
+       
         
         if let rightImage = rightImage{
             

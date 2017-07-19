@@ -9,22 +9,29 @@
 import UIKit
 import Parse
 
-class Post: NSObject {
+class Post: PFObject, PFSubclassing {
+    /**
+     The name of the class as seen in the REST API.
+     */
+    public static func parseClassName() -> String {
+         return "Post"
+    }
+
     
     
-    var username: String?
-    var author : User?
-    var media: PFFile?
-    var caption: String?
-    var likesCount : Int?
-    var commentsCount : Int?
-    var timeStamp : String?
+   @NSManaged var petName: String?
+   @NSManaged var author : Pet?
+   @NSManaged var media: PFFile?
+   @NSManaged var caption: String?
+   @NSManaged var likesCount : NSNumber?
+   @NSManaged var commentsCount : NSNumber?
+   @NSManaged var timeStamp : String?
     
     weak var delegate: PhotoLoadedDelegate?
     
     
     
-    
+  
     
     
     
@@ -32,26 +39,22 @@ class Post: NSObject {
     func constructor(postMap: PFObject, tableView: UITableView) {
         //Extract username
         
-        let user : PFObject = postMap["author"] as! PFObject
+        let petObject : PFObject = postMap["author"] as! PFObject
         
         
-        if let id = user.objectId{
-            var query = PFQuery(className: "_User")
+        if let id = petObject.objectId{
+            var query = PFQuery(className: "Pet")
             query.getObjectInBackground(withId: id, block: { (user: PFObject?, error: Error?) in
                 if (error == nil){
-                   
-                    let user_obj = user as! User
-                 //   print(user_obj)
-                    
-                        self.username = user_obj.username!
+                   let newPet = user! as! Pet
+                   Pet.add(newPet: newPet)
                     //TODO: Test this out later.....
                     tableView.reloadData()
                     
                 
                 }
             })
-        
-        
+         
         }
         
      //   print("username extracted: \(username)")
@@ -77,12 +80,16 @@ class Post: NSObject {
     
     }
     
+    class func getPosts(completionHandler: ()->()){
+        
+    }
+    
     
     class func postUserImage(photo: UIImage, caption: String?, success: PFBooleanResultBlock?) {
-        let post = PFObject(className: "Post")
+        let post = Post()
         
-        post["media"] = getPhotoFile(photo: photo)
-        post["author"] = PFUser.current() // Pointer column type that points to PFUser
+        post.media = getPhotoFile(photo: photo)
+        post.author = Pet.currentPet() // Pointer column type that points to PFUser
         post["caption"] = caption
         post["likesCount"] = 0
         post["commentsCount"] = 0

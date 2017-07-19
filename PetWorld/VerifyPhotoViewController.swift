@@ -55,6 +55,9 @@ class VerifyPhotoViewController: UIViewController, UITextFieldDelegate {
         UIGraphicsEndImageContext()
         return newImage!
     }
+    
+    
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true;

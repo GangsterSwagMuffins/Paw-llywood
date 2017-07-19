@@ -11,16 +11,13 @@ import Parse
 
 class Pet: PFObject, PFSubclassing {
     
+    static var pets: [Pet] = []
     
-    static func parseClassName() -> String {
-        return "Pet"
-    }
-    
-    
+  
     
     weak var delegate : PetFieldsLoadedDelegate?
     
-    private static var currentPet: Pet?
+
     static var currentPetIdx = 0
     
     
@@ -60,18 +57,7 @@ class Pet: PFObject, PFSubclassing {
     
     
     
-    class func addPet(user: User, profilePicture: UIImage, name: String, success: PFBooleanResultBlock?) {
-        let pet = PFObject(className: "Pet")
-        
-        pet["owner"] = PFUser.current() // Pointer column type that points to PFUser
-        
-        pet["name"] = name
-        //pet["profile_picture"] =
-        
-        // Save object (following function will save the object in Parse asynchronously)
-        pet.saveInBackground(block: success)
-        
-    }
+    
     
  
     class func loadPicture(imageFile: PFFile, successBlock: ((UIImage)->Void)? ) ->UIImage?{
@@ -158,6 +144,38 @@ class Pet: PFObject, PFSubclassing {
         }
         return nil
     }
+    
+    
+    
+    
+    //Class functions.....
+    class func currentPet() -> Pet{
+        let defaults = UserDefaults.standard
+        
+        let currentPetIndex = defaults.integer(forKey: "currentPet") ?? 0
+        
+        let pets = getPets()
+        
+        return pets[currentPetIndex]
+        
+        
+    }
+    
+    class func add(newPet: Pet){
+        Pet.pets.append(newPet)
+    }
+    
+    
+    class func getPets() -> [Pet]{
+        
+        
+        return Pet.pets
+    }
+    
+    static func parseClassName() -> String {
+        return "Pet"
+    }
+    
     
     
 }

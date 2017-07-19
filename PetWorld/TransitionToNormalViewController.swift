@@ -61,6 +61,7 @@ class TransitionToNormalViewController: UIViewController {
         pet?["owner"] = currentUser
         
 
+        Pet.add(newPet: pet!)
         
        pet?.saveInBackground()
         

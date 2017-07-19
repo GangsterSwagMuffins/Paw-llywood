@@ -37,6 +37,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         //Actually login user
         PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
             if (user != nil){
+                Pet.loadPets(finishedDownloading: { (pets: [Pet]) in
+                    if (pets.count > 0){
+                        //Save all the pets here!
+                        Pet.pets = pets
+                    }
+                })
+                
                 print("You are logged in!!!")
                 self.performSegue(withIdentifier: "HomeSegue", sender: nil)
             }else if let error = error{

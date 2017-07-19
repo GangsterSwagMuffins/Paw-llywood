@@ -13,7 +13,7 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate  {
 
     var window: UIWindow?
-    static var pets: [Pet] = []
+   
     
  
     
@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //Register the Pet class first
           Pet.registerSubclass()
+          Post.registerSubclass()
         
         
         // Override point for customization after application launch.
@@ -32,11 +33,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
                 configuration.server = "https://petsagram.herokuapp.com/parse"
             })
         )
+        
+        
+        
+        
        // /* // UNCOMMENT TO DIRECTLY ACCESS LOGIN/SIGNUP
             
         
         
         if (User.current() != nil){
+            Pet.loadPets(finishedDownloading: { (pets: [Pet]) in
+                if (pets.count > 0){
+                    //Save all the pets here!
+                    Pet.pets = pets
+                }
+            })
+            
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             
@@ -44,13 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
             vc.tabBar.tintColor = TextManipulation.secondaryColor()
             
             window?.rootViewController = vc
-            
-            Pet.loadPets(finishedDownloading: { (pets: [Pet]) in
-                if (pets.count > 0){
-                    //Save all the pets here!
-                    AppDelegate.pets = pets
-                }
-            })
+           
             
            
         
@@ -62,24 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         return true
     }
     
-    class func currentPet() -> Pet{
-        let defaults = UserDefaults.standard
-        
-        let currentPetIndex = defaults.integer(forKey: "currentPet") ?? 0
-        
-        let pets = getPets()
-        
-        return pets[currentPetIndex]
-        
-        
-    }
-    
-    
-    class func getPets() -> [Pet]{
-
-        
-        return AppDelegate.pets
-    }
+   
     
     
 

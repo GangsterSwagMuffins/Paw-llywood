@@ -105,7 +105,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     
     
    private func initPetInfo(){
-        let pet = AppDelegate.currentPet()
+        let pet = Pet.currentPet()
     
         profileImageView.image = pet.image
     
@@ -146,7 +146,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     }
     
     func saveData(){
-        let pet = AppDelegate.currentPet()
+        let pet = Pet.currentPet()
         
         pet.breed = newBreed
         pet.species = newSpecies

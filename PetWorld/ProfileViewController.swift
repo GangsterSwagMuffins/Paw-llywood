@@ -43,14 +43,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
       //  updateOwnerField()
         //Have an instance of delegate from app del
         let currentUser = User.current()!
-        if (AppDelegate.getPets().count > 0){
+        if (Pet.getPets().count > 0){
             print("number of pets > 0")
-            //Grab the current pet from settings
-            let defaults = UserDefaults.standard
-            let petIndex = defaults.integer(forKey: "currentPet")
-            
             //Get the current pet
-             self.pet = AppDelegate.getPets()[petIndex]
+             self.pet = Pet.currentPet()
             //Automatically updates the UI after finished loading...
              self.profileView.loadProfileImage(pet: pet)
              self.profileView.updateUI(pet: pet)
@@ -67,6 +63,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
          let storyBoard = UIStoryboard(name: "Main", bundle: nil)
          self.tableViewController = storyBoard.instantiateViewController(withIdentifier: "AboutMeTableViewController") as! AboutMeTableViewController
+        
+        
         
         
         self.tableViewController?.pet = self.pet
@@ -90,11 +88,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         
         if (self.pet == nil){
-            if (AppDelegate.getPets().count > 0){
+            if (Pet.getPets().count > 0){
                 
                 
                 //Get the current pet
-                self.pet = AppDelegate.currentPet()
+                self.pet = Pet.currentPet()
                 
                 
                 self.profileView.loadProfileImage(pet: pet)
@@ -115,6 +113,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
            
         }
           self.tableViewController?.pet = self.pet
+        
         self.tableViewController?.updateUI(pet: pet)
          self.tableViewController?.tableView.reloadData()
       
