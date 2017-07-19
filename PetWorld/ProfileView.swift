@@ -153,7 +153,7 @@ class ProfileView: UIView {
             //If it was not loaded then make a request to the server.
             let imageFile : PFFile = pet["image"] as! PFFile
             
-            Pet.loadPicture(imageFile: imageFile, successBlock: { (image: UIImage) in
+            NetworkAPI.loadPicture(imageFile: imageFile, successBlock: { (image: UIImage) in
                 //Then update the UI
                 pet.image = image
                 self.updatePetUI(pet: pet)
@@ -170,7 +170,7 @@ class ProfileView: UIView {
             //If it was not loaded then make a request to the server.
             let imageFile : PFFile = pet["backgroundImage"] as! PFFile
             
-            Pet.loadPicture(imageFile: imageFile, successBlock: { (backgroundImage: UIImage) in
+            NetworkAPI.loadPicture(imageFile: imageFile, successBlock: { (backgroundImage: UIImage) in
                 //Then update the UI
                 print("backgroundImage")
                 pet.backgroundImage = backgroundImage

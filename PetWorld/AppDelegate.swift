@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         
         
         if (User.current() != nil){
-            Pet.loadPets(finishedDownloading: { (pets: [Pet]) in
+            NetworkAPI.loadPets(finishedDownloading: { (pets: [Pet]) in
                 if (pets.count > 0){
                     //Save all the pets here!
                     Pet.pets = pets

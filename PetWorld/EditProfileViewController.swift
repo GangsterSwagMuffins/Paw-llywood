@@ -155,7 +155,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         pet.height = newHeight
         pet.longBio = newBio
         pet.image = newImage
-        pet["image"] = Pet.getPhotoFile(photo: newImage)
+        pet["image"] = NetworkAPI.getPhotoFile(photo: newImage)
         
         print(pet)
         pet.saveInBackground { (bool: Bool, error: Error?) in
