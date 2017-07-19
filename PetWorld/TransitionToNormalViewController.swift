@@ -57,7 +57,7 @@ class TransitionToNormalViewController: UIViewController {
         let currentUser = User.current()!
       
         pet?["name"] = pet?.name
-        pet?["image"] = Post.getPhotoFile(photo: pet?.image)
+        pet?["image"] = NetworkAPI.getPhotoFile(photo: pet?.image)
         pet?["owner"] = currentUser
         
 

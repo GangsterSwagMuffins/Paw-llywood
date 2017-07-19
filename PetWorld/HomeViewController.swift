@@ -25,7 +25,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("view did load")
+     //Set up autolayout
+        tableView.rowHeight = UITableViewAutomaticDimension
+        //For the scrolling bar size
+        tableView.estimatedRowHeight = 600
+    
+        tableView.delegate = self
+        tableView.dataSource = self
         
         NetworkAPI.getPosts(numPosts: 20, successHandler: { (posts: [Post]) in
             
@@ -33,18 +39,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.tableView.reloadData()
             
         }, errorHandler: nil)
-        
-     
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 600
-        var count = 1
-        
-        
-        
-        
+ 
         self.tableView.reloadData()
     }
     
@@ -80,38 +75,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
         //So we don't have to look at old pictures since we are reusing cells.
         if (cell.imageView?.image != nil){
-            
             cell.imageView?.image = nil
         }
-        
-        
-        
+   
         cell.post = posts[indexPath.row]
-        
-       
+
         return cell
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
-  
-    
-   
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

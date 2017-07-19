@@ -97,6 +97,20 @@ class NetworkAPI: NSObject {
         return nil
     }
     
+    class func postUserImage(photo: UIImage, caption: String?, success: PFBooleanResultBlock?) {
+        let post = Post()
+        
+        post.media = getPhotoFile(photo: photo)
+        post.author = Pet.currentPet() // Pointer column type that points to PFUser
+        post["caption"] = caption
+        post["likesCount"] = 0
+        post["commentsCount"] = 0
+        
+        // Save object (following function will save the object in Parse asynchronously)
+        post.saveInBackground(block: success)
+        
+    }
+    
     
     class func getPosts(numPosts: Int, successHandler: @escaping ([Post])->(),  errorHandler: ((Error)->())?){
         // Query
