@@ -40,8 +40,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let posts = posts {
                 self.feed = posts
                 for postMap in self.feed{
-                    let post = Post()
-                    post.constructor(postMap: postMap, tableView: self.tableView )
+                    let post = postMap as! Post
                     self.posts.append(post)
                     
                 }
@@ -84,8 +83,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let posts = posts {
                 self.feed = posts
                 for postMap in self.feed{
-                    let post = Post()
-                    post.constructor(postMap: postMap, tableView: self.tableView )
+                    let post = postMap as! Post
                     self.posts.append(post)
                     
                 }

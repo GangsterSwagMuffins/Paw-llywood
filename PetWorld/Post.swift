@@ -29,56 +29,7 @@ class Post: PFObject, PFSubclassing {
     
     weak var delegate: PhotoLoadedDelegate?
     
-    
-    
-  
-    
-    
-    
-    
-    func constructor(postMap: PFObject, tableView: UITableView) {
-        //Extract username
-        
-        let petObject : PFObject = postMap["author"] as! PFObject
-        
-        
-        if let id = petObject.objectId{
-            var query = PFQuery(className: "Pet")
-            query.getObjectInBackground(withId: id, block: { (user: PFObject?, error: Error?) in
-                if (error == nil){
-                   let newPet = user! as! Pet
-                   Pet.add(newPet: newPet)
-                    //TODO: Test this out later.....
-                    tableView.reloadData()
-                    
-                
-                }
-            })
-         
-        }
-        
-     //   print("username extracted: \(username)")
-        //print(postMap)
-        
-        //Extract the photo/video
-      
-        var mediaTemp: UIImage?
-        
-        //Extrct media file data
-         media = postMap["media"] as! PFFile
-        
-        
-     
-        
-       
-        
-        //Extract the time created
-        timeStamp = postMap["_created_at"] as? String
-        
-        //Extract the caption text
-        caption = postMap["caption"] as? String
-    
-    }
+
     
     class func getPosts(completionHandler: ()->()){
         
