@@ -30,14 +30,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         NetworkAPI.getPosts(numPosts: 20, successHandler: { (posts: [Post]) in
             
             self.posts = posts
+            self.tableView.reloadData()
             
         }, errorHandler: nil)
         
-        
-        
-        
-        
-    
+     
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -57,6 +54,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         NetworkAPI.getPosts(numPosts: 20, successHandler: { (posts: [Post]) in
             
             self.posts = posts
+            self.tableView.reloadData()
             
         }, errorHandler: nil)
         
