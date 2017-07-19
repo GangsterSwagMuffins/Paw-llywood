@@ -62,7 +62,7 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
             let asset = self.photosAsset[0] as! PHAsset
             
             
-            PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: nil) { (result:UIImage?, info: [AnyHashable : Any]?) in
+            PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 400, height: 400), contentMode: .aspectFill, options: nil) { (result:UIImage?, info: [AnyHashable : Any]?) in
                     self.chosenPicture.image = result
             }
                 

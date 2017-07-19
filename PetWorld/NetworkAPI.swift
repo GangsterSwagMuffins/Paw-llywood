@@ -34,6 +34,8 @@ class NetworkAPI: NSObject {
     }
     
     
+
+    
     
     class func loadPets(finishedDownloading: @escaping ([Pet])->Void){
         
@@ -116,6 +118,8 @@ class NetworkAPI: NSObject {
         // Query
         let query = PFQuery(className: "Post")
         query.order(byDescending: "_created_at")
+        //Populate the pet data field.
+    
         
         query.limit = numPosts
         
@@ -128,12 +132,84 @@ class NetworkAPI: NSObject {
             }else{
                 if let postObjects = postObjects { //Successfully grabbed posts objects
                     let posts: [Post] = postObjects as! [Post]
+                    for post in posts{
+                        let pet = ((posts[0]).author)!
+                       loadPet(petObject: pet, completionHandler: { 
+                        successHandler(posts)
+                       }, errorHandler: nil)
+                        if let owner = pet.owner{
+                            loadOwner(userObject: owner, completionHandler: { 
+                                successHandler(posts)
+                            }, errorHandler: nil)
+                        }
+                    }
+                    
                     successHandler(posts)
                 }
             }
             
         }
     }
+    
+    class func loadOwner(userObject: PFObject, completionHandler: (()->())?, errorHandler: (()->())?){
+        var user = userObject as! User
+        user.fetchInBackground { (userObj: PFObject?, error: Error?) in
+            if let error = error {
+                print(error)
+                if let errorHandler = errorHandler{
+                    errorHandler()
+                }
+            }else{
+                if let userObj = userObj{
+                    user = userObj as! User
+                    print("Pet Loaded")
+                    if let completionHandler = completionHandler{
+                        completionHandler()
+                    }
+                    
+                }
+            }
+        }
+    
+    }
+    
+    class func loadPet(petObject: PFObject, completionHandler: (()->())?, errorHandler: (()->())?){
+        var pet = petObject as! Pet
+        pet.fetchInBackground { (petObj: PFObject?, error: Error?) in
+            if let error = error {
+                print(error)
+                if let errorHandler = errorHandler{
+                    errorHandler()
+                }
+            }else{
+                if let petObj = petObj{
+                    pet = petObj as! Pet
+                    print("Pet Loaded")
+                    if let completionHandler = completionHandler{
+                        completionHandler()
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    
+    class func resize(photo: UIImage, newSize: CGSize) -> UIImage {
+        
+        //Resize the image to match the siize that is passed in
+        let resizedImage = UIImageView(frame: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        resizedImage.contentMode = UIViewContentMode.scaleAspectFill
+        resizedImage.image = photo
+        
+        //update the image on the view controller to the new size
+        UIGraphicsBeginImageContext(resizedImage.frame.size)
+        resizedImage.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+    }
+    
     
     
     

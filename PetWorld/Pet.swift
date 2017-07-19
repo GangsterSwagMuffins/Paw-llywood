@@ -12,14 +12,8 @@ import Parse
 class Pet: PFObject, PFSubclassing {
     
     static var pets: [Pet] = []
-    
   
-    
-    weak var delegate : PetFieldsLoadedDelegate?
-    
-
     static var currentPetIdx = 0
-    
     
     var owner: PFUser?
     
@@ -63,7 +57,13 @@ class Pet: PFObject, PFSubclassing {
         
         let pets = getPets()
         
-        return pets[currentPetIndex]
+        if pets.count > 0{
+          return  pets[currentPetIndex]
+        }
+        //Stub pet
+        return Pet()
+        
+        
         
         
     }
@@ -82,7 +82,5 @@ class Pet: PFObject, PFSubclassing {
     static func parseClassName() -> String {
         return "Pet"
     }
-    
-    
     
 }

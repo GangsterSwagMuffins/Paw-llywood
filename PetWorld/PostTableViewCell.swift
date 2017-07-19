@@ -46,25 +46,13 @@ class PostTableViewCell: UITableViewCell{
     
     var post : Post!{
         didSet{
-            
-            print(post)
-            let mediaFile = post.media
-            
-            mediaFile?.getDataInBackground { (data: Data?, error: Error?) in
-                if let data = data {
-                    print("Successdfully received data!")
-                    self.photoImage.image = UIImage(data: data)
-                    
-                    
-                }
-                else {
-                    print(error?.localizedDescription ?? "")
-                    
-                }
+             updateUI()
                 
             }
   
         }
+        
+        
     }
     
        
@@ -76,7 +64,13 @@ class PostTableViewCell: UITableViewCell{
        updateCaptionText()
         updateUsernameButton()
         updateProfilePicture()
+        updateMedia()
     
+    }
+
+    func updateMedia(){
+       
+        
     }
     
     
@@ -116,6 +110,9 @@ class PostTableViewCell: UITableViewCell{
     
     
    }
+
+
+
 
 
 

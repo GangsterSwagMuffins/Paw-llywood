@@ -12,7 +12,7 @@ import Parse
 
 class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, PetFieldsLoadedDelegate {
     
-    var pet: Pet!
+    var pet: Pet?
     var user: User!
     var shouldShowEditButton: Bool = true
     
@@ -48,8 +48,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             //Get the current pet
              self.pet = Pet.currentPet()
             //Automatically updates the UI after finished loading...
-             self.profileView.loadProfileImage(pet: pet)
-             self.profileView.updateUI(pet: pet)
+            
+            if let pet = self.pet{
+                self.profileView.loadProfileImage(pet: pet)
+                self.profileView.updateUI(pet: pet)
+            }
+            
     
         }else{ // If no pets were loaded....
             print("getPets() has <= 0")
@@ -94,8 +98,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 //Get the current pet
                 self.pet = Pet.currentPet()
                 
+                if let pet = self.pet{
+                    self.profileView.loadProfileImage(pet: pet)
+                }
                 
-                self.profileView.loadProfileImage(pet: pet)
                 
                 
                 
@@ -114,9 +120,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }
           self.tableViewController?.pet = self.pet
         
-        self.tableViewController?.updateUI(pet: pet)
-         self.tableViewController?.tableView.reloadData()
-      
+        if let pet = self.pet{
+              self.tableViewController?.updateUI(pet: pet)
+            self.tableViewController?.tableView.reloadData()
+            
+        }
+       
+        
     }
     
     

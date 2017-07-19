@@ -29,7 +29,9 @@ class VerifyPhotoViewController: UIViewController, UITextFieldDelegate {
         // caption
         let captionText = caption.text
         // post photo
-        let photoPost = resize(photo: self.chosenPicture.image!, newSize: CGSize(width: 240, height: 240))
+        let photoPost = NetworkAPI.resize(photo: self.chosenPicture.image!, newSize: CGSize(width: 240, height: 240))
+            let post = Post()
+            post.media = NetworkAPI.getPhotoFile(photo: photoPost)
             NetworkAPI.postUserImage(photo: photoPost, caption: captionText) { (success: Bool, error: Error?) in
             if success {
                 print("Photo posted")
@@ -41,21 +43,7 @@ class VerifyPhotoViewController: UIViewController, UITextFieldDelegate {
     
     }
     
-    func resize(photo: UIImage, newSize: CGSize) -> UIImage {
-        
-        //Resize the image to match the siize that is passed in
-        let resizedImage = UIImageView(frame: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        resizedImage.contentMode = UIViewContentMode.scaleAspectFill
-        resizedImage.image = photo
-        
-        //update the image on the view controller to the new size
-        UIGraphicsBeginImageContext(resizedImage.frame.size)
-        resizedImage.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage!
-    }
-    
+   
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
