@@ -13,7 +13,7 @@ import AVFoundation
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    var feed: [PFObject] = []
+  
     var posts: [Post] = []
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
@@ -26,37 +26,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         print("view did load")
-        let currentUser = PFUser.current()
         
-        
-        
-        // Query
-        let query = PFQuery(className: "Post")
-        query.order(byDescending: "_created_at")
-        
-        query.limit = 20
-        
-        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) -> Void in
-            if let posts = posts {
-                self.feed = posts
-                for postMap in self.feed{
-                    let post = postMap as! Post
-                    self.posts.append(post)
-                    
-                }
-                
-            }
-            else {
-                print(error?.localizedDescription ?? "")
-            }
-        }
-        
-      
+        NetworkAPI.getPosts(numPosts: 20, successHandler: { (posts: [Post]) in
+            
+            self.posts = posts
+            
+        }, errorHandler: nil)
         
         
         
         
-        print("Loading Home")
+        
+    
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -73,27 +54,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         
         
-        // Query
-        let query = PFQuery(className: "Post")
-        query.order(byDescending: "_created_at")
-        
-        query.limit = 20
-        
-        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) -> Void in
-            if let posts = posts {
-                self.feed = posts
-                for postMap in self.feed{
-                    let post = postMap as! Post
-                    self.posts.append(post)
-                    
-                }
-                
-            }
-            else {
-                print(error?.localizedDescription ?? "")
-            }
-        }
-        
+        NetworkAPI.getPosts(numPosts: 20, successHandler: { (posts: [Post]) in
+            
+            self.posts = posts
+            
+        }, errorHandler: nil)
         
         
         
@@ -107,7 +72,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return feed.count
+        return posts.count
     }
     
     

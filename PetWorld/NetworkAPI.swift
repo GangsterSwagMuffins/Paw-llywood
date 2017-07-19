@@ -98,6 +98,30 @@ class NetworkAPI: NSObject {
     }
     
     
+    class func getPosts(numPosts: Int, successHandler: @escaping ([Post])->(),  errorHandler: ((Error)->())?){
+        // Query
+        let query = PFQuery(className: "Post")
+        query.order(byDescending: "_created_at")
+        
+        query.limit = numPosts
+        
+        query.findObjectsInBackground { (postObjects: [PFObject]?, error: Error?) in
+            if let error = error{
+                print(error)
+                if let errorHandler = errorHandler{
+                     errorHandler(error)
+                }
+            }else{
+                if let postObjects = postObjects { //Successfully grabbed posts objects
+                    let posts: [Post] = postObjects as! [Post]
+                    successHandler(posts)
+                }
+            }
+            
+        }
+    }
+    
+    
     
     
 
