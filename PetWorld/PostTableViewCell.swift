@@ -37,6 +37,7 @@ class PostTableViewCell: UITableViewCell{
         if (isLiked){
             isLiked = false
            likeButton.isSelected = false
+            
         }else{
             isLiked = true
             likeButton.isSelected = true
@@ -46,6 +47,7 @@ class PostTableViewCell: UITableViewCell{
     
     var post : Post!{
         didSet{
+             
              updateUI()
                 
             }
@@ -53,7 +55,7 @@ class PostTableViewCell: UITableViewCell{
         }
         
         
-    }
+    
     
        
     
@@ -65,12 +67,22 @@ class PostTableViewCell: UITableViewCell{
         updateUsernameButton()
         updateProfilePicture()
         updateMedia()
+        
     
     }
 
     func updateMedia(){
-       
-        
+        if let image = post.image{
+            self.photoImage.image = image
+        }else{
+            if let media = post.media{
+                NetworkAPI.loadPicture(imageFile: media, successBlock: { (image: UIImage) in
+                    self.post.image = image
+                    self.photoImage.image = image
+                })
+            }
+           
+        }
     }
     
     
@@ -96,9 +108,13 @@ class PostTableViewCell: UITableViewCell{
     }
     
     func updateUsernameButton(){
-       // if let username = post.username{
-         //   usernameButton.setTitle(username, for: UIControlState.normal)
-        //}
+        if let pet = post.author{
+            
+                if let name = pet.name{
+                     self.usernameButton.setTitle(name, for: UIControlState.normal)
+                }
+            
+        }
     }
 
 
@@ -106,27 +122,20 @@ class PostTableViewCell: UITableViewCell{
     self.profilePictureButton.layer.masksToBounds = true
     self.profilePictureButton.layer.cornerRadius = profilePictureButton.frame.width/2
     
-    self.likeButton.setImage(UIImage(named: "catlikedpressedbutton"), for: .selected)
-    
+    if let pet = post.author{
+            if let picture = pet.image{
+                //self.profilePictureButton.imageView?.image = picture
+                self.profilePictureButton.setImage(picture, for: .normal)
+                //self.profilePictureButton.setImage(picture, for: .selected)
+                //self.profilePictureButton.setImage(picture, for: .focused)
+               // self.profilePictureButton.setBackgroundImage(picture, for: .normal)
+            }
+        
+       
+    }
     
    }
 
 
-
-
-
-
-
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

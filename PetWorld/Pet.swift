@@ -48,6 +48,27 @@ class Pet: PFObject, PFSubclassing {
     //Long bio (256 characters max)
     @NSManaged  var longBio: String?
    
+   
+    
+    func constructor(petObject: PFObject){
+        NetworkAPI.loadPicture(imageFile: petObject["image"] as! PFFile, successBlock: { (image: UIImage) in
+            self.image = image
+        })
+        self.owner = petObject["owner"] as! PFUser?
+        self.name = petObject["name"] as! String?
+        self.breed = petObject["breed"] as! String?
+        self.species = petObject["species"] as! String?
+        self.weight = petObject["weight"] as! NSNumber?
+        self.height = petObject["height"] as! NSNumber?
+        self.age = petObject["age"] as! NSNumber?
+        self.hobby = petObject["hobby"] as! String?
+        self.toy = petObject["toy"] as! String?
+        self.gender = petObject["gender"] as! String?
+        self.followers = petObject["followers"] as! NSNumber?
+        self.following = petObject["following"] as! NSNumber?
+        self.miniBio = petObject["miniBio"] as! String?
+        self.longBio = petObject["longBio"] as! String?
+    }
     
     //Class functions.....
     class func currentPet() -> Pet{

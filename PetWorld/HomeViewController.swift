@@ -18,10 +18,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     
-    
-    
-    
-    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()

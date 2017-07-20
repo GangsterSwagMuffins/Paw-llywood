@@ -58,7 +58,7 @@ class NetworkAPI: NSObject {
                             let newPet : Pet = petPFObject as! Pet
                             
                             //Some default fields until have screen to input this data
-                            print(newPet)
+                          //  print(newPet)
                             newPet.breed = "Cairn Terrier"
                             newPet.species = "Dog"
                             newPet.age = 4
@@ -117,11 +117,13 @@ class NetworkAPI: NSObject {
     class func getPosts(numPosts: Int, successHandler: @escaping ([Post])->(),  errorHandler: ((Error)->())?){
         // Query
         let query = PFQuery(className: "Post")
+        query.includeKey("author")
         query.order(byDescending: "_created_at")
         //Populate the pet data field.
     
         
         query.limit = numPosts
+        
         
         query.findObjectsInBackground { (postObjects: [PFObject]?, error: Error?) in
             if let error = error{
@@ -132,14 +134,17 @@ class NetworkAPI: NSObject {
             }else{
                 if let postObjects = postObjects { //Successfully grabbed posts objects
                     let posts: [Post] = postObjects as! [Post]
+                    
                     for post in posts{
-                        let pet = ((posts[0]).author)!
-                       loadPet(petObject: pet, completionHandler: { 
-                        successHandler(posts)
-                       }, errorHandler: nil)
+                        let pet = post["author"] as! Pet
+                        post.author = pet
+                        NetworkAPI.loadPicture(imageFile: pet["image"] as! PFFile, successBlock: { (image: UIImage) in
+                            pet.image = image
+                        })
+
                         if let owner = pet.owner{
-                            loadOwner(userObject: owner, completionHandler: { 
-                                successHandler(posts)
+                            loadOwner(userObject: owner, completionHandler: {
+                                pet.owner = owner
                             }, errorHandler: nil)
                         }
                     }
@@ -151,7 +156,7 @@ class NetworkAPI: NSObject {
         }
     }
     
-    class func loadOwner(userObject: PFObject, completionHandler: (()->())?, errorHandler: (()->())?){
+    class func loadOwner(userObject: PFObject, completionHandler: @escaping ()->(), errorHandler: (()->())?){
         var user = userObject as! User
         user.fetchInBackground { (userObj: PFObject?, error: Error?) in
             if let error = error {
@@ -163,9 +168,9 @@ class NetworkAPI: NSObject {
                 if let userObj = userObj{
                     user = userObj as! User
                     print("Pet Loaded")
-                    if let completionHandler = completionHandler{
+                    
                         completionHandler()
-                    }
+                    
                     
                 }
             }
@@ -173,7 +178,7 @@ class NetworkAPI: NSObject {
     
     }
     
-    class func loadPet(petObject: PFObject, completionHandler: (()->())?, errorHandler: (()->())?){
+    class func loadPet(petObject: PFObject, completionHandler:  (()->())?, errorHandler: (()->())?){
         var pet = petObject as! Pet
         pet.fetchInBackground { (petObj: PFObject?, error: Error?) in
             if let error = error {
@@ -184,7 +189,6 @@ class NetworkAPI: NSObject {
             }else{
                 if let petObj = petObj{
                     pet = petObj as! Pet
-                    print("Pet Loaded")
                     if let completionHandler = completionHandler{
                         completionHandler()
                     }

@@ -26,6 +26,7 @@ class Post: PFObject, PFSubclassing {
    @NSManaged var likesCount : NSNumber?
    @NSManaged var commentsCount : NSNumber?
    @NSManaged var timeStamp : String?
+    var image: UIImage?
     
    
     

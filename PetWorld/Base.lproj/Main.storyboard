@@ -1217,7 +1217,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FrC-OX-fQq">
-                                                    <rect key="frame" x="29" y="0.0" width="58" height="30"/>
+                                                    <rect key="frame" x="49" y="0.0" width="58" height="30"/>
                                                     <state key="normal">
                                                         <attributedString key="attributedTitle">
                                                             <fragment content="Username">
@@ -1233,7 +1233,7 @@
                                                     <rect key="frame" x="0.0" y="32" width="375" height="150"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fG6-gG-oRR" customClass="DesignableButton" customModule="PetWorld" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="8" width="25" height="24"/>
+                                                    <rect key="frame" x="16" y="8" width="25" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="25" id="mci-HI-plQ"/>
                                                     </constraints>
@@ -1284,6 +1284,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="fG6-gG-oRR" firstAttribute="top" secondItem="hzA-mf-zlK" secondAttribute="top" constant="8" id="2ZA-Nq-vw1"/>
+                                                <constraint firstItem="fG6-gG-oRR" firstAttribute="leading" secondItem="hzA-mf-zlK" secondAttribute="leading" constant="16" id="4oS-ji-Ze7"/>
                                                 <constraint firstItem="Gsh-Xm-ruQ" firstAttribute="top" secondItem="hzA-mf-zlK" secondAttribute="top" constant="32" id="6f4-X5-gh8"/>
                                                 <constraint firstAttribute="trailing" secondItem="Gsh-Xm-ruQ" secondAttribute="trailing" id="8N4-MM-aKD"/>
                                                 <constraint firstItem="fG6-gG-oRR" firstAttribute="top" secondItem="hzA-mf-zlK" secondAttribute="topMargin" id="Aid-vp-CyU"/>
@@ -1299,8 +1300,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="voL-bJ-1P9" secondAttribute="trailing" constant="21" id="TAL-H4-TJS"/>
                                                 <constraint firstItem="0St-24-Dvm" firstAttribute="leading" secondItem="hzA-mf-zlK" secondAttribute="leadingMargin" id="aAO-OP-CiM"/>
                                                 <constraint firstItem="Gsh-Xm-ruQ" firstAttribute="leading" secondItem="hzA-mf-zlK" secondAttribute="leading" id="bgc-sa-9oD"/>
-                                                <constraint firstItem="FrC-OX-fQq" firstAttribute="leading" secondItem="fG6-gG-oRR" secondAttribute="trailing" constant="4" id="ebX-cZ-iJr"/>
-                                                <constraint firstItem="fG6-gG-oRR" firstAttribute="leading" secondItem="hzA-mf-zlK" secondAttribute="leading" id="mNL-H3-wO4"/>
+                                                <constraint firstItem="FrC-OX-fQq" firstAttribute="leading" secondItem="fG6-gG-oRR" secondAttribute="trailing" constant="8" id="ebX-cZ-iJr"/>
                                                 <constraint firstItem="We0-uZ-h4r" firstAttribute="leading" secondItem="hzA-mf-zlK" secondAttribute="leadingMargin" id="pW4-eL-AqU"/>
                                                 <constraint firstItem="Gsh-Xm-ruQ" firstAttribute="top" secondItem="FrC-OX-fQq" secondAttribute="bottom" constant="2" id="pfW-Sf-N5J"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="cZD-8I-qpH" secondAttribute="bottom" constant="5" id="qbw-vM-Pmc"/>

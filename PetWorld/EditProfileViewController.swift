@@ -157,7 +157,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         pet.image = newImage
         pet["image"] = NetworkAPI.getPhotoFile(photo: newImage)
         
-        print(pet)
+       // print(pet)
         pet.saveInBackground { (bool: Bool, error: Error?) in
             if let error = error{
                 print("error: \(error.localizedDescription)")

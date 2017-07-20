@@ -115,7 +115,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         if let pet = self.pet{
             self.profileView.updatePetUI(pet: pet)
-            print(pet)
+          //  print(pet)
            
         }
           self.tableViewController?.pet = self.pet
