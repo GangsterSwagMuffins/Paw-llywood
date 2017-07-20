@@ -140,6 +140,7 @@ class NetworkAPI: NSObject {
                         post.author = pet
                         NetworkAPI.loadPicture(imageFile: pet["image"] as! PFFile, successBlock: { (image: UIImage) in
                             pet.image = image
+                            successHandler(posts)
                         })
 
                         if let owner = pet.owner{
@@ -149,7 +150,7 @@ class NetworkAPI: NSObject {
                         }
                     }
                     
-                    successHandler(posts)
+                    
                 }
             }
             

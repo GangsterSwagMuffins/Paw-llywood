@@ -16,7 +16,7 @@ class TextManipulation: NSObject {
         let fontSize = UIFont.systemFontSize
         let attrs = [
             NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
-            NSForegroundColorAttributeName: UIColor.black
+            NSForegroundColorAttributeName: TextManipulation.themeColor()
         ]
         let nonBoldAttribute = [
             NSFontAttributeName: UIFont.systemFont(ofSize: fontSize),
