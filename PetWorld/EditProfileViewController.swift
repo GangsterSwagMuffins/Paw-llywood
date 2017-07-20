@@ -107,7 +107,10 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
    private func initPetInfo(){
         let pet = Pet.currentPet()
     
+    if let image = pet.image{
         profileImageView.image = pet.image
+    }
+    
     
     
         breedTextView.text = pet.breed ?? "PettyMcPetPet"
