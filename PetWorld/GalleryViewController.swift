@@ -12,17 +12,9 @@ import Photos
 class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
     
     
-    
-    
-    
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var chosenPicture: UIImageView!
-    
-    
-    
-    
     
     
     //Member vars/consts
@@ -31,17 +23,12 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
     
     var lastCellIndex: IndexPath?
     
-    
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-        
         
         //Camera roll is "smart album" because it collects photos on it's own!
         let collection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
@@ -61,22 +48,16 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
             //Let the first element be the default image chosen
             let asset = self.photosAsset[0] as! PHAsset
             
-            
             PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 400, height: 400), contentMode: .aspectFill, options: nil) { (result:UIImage?, info: [AnyHashable : Any]?) in
                     self.chosenPicture.image = result
             }
-                
-            
-            
+    
             
         }else{
             //Could not find the camera roll for some reason...
             print("Trouble finding the camera roll!")
         }
         
-       
-        
-      
         // Do any additional setup after loading the view.
     }
     
@@ -88,7 +69,6 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         
         return 0
         
-        
     }
     
     
@@ -97,25 +77,13 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryItemCell", for: indexPath) as! GalleryItemCellCollectionViewCell
         
         let asset = self.photosAsset[indexPath.item] as! PHAsset
-        
-        
-        
+   
         PHImageManager.default().requestImage(for: asset, targetSize: cell.galleryPhoto.frame.size, contentMode: .aspectFill, options: nil) { (result:UIImage?, info: [AnyHashable : Any]?) in
             cell.setGalleryPhoto(image: result!)
         }
         
-        
-        
-        
-        
-        
-        
         return cell
     }
-    
-    
-    
-   
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -145,14 +113,6 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         PHImageManager.default().requestImage(for: asset, targetSize: chosenPicture.frame.size, contentMode: .aspectFill, options: nil) { (result:UIImage?, info: [AnyHashable : Any]?) in
             self.chosenPicture.image = result
         }
-
-        
-       // self.chosenPicture.setNeedsDisplay()
-        
-        
-        
-        
-        
         
     }
 
@@ -160,12 +120,8 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
-   
-    
 
+    
     
     // MARK: - Navigation
 

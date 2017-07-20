@@ -1216,55 +1216,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="460"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FrC-OX-fQq">
-                                                    <rect key="frame" x="59" y="0.0" width="30" height="30"/>
-                                                    <color key="tintColor" red="0.039215686274509803" green="0.11372549019607843" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal">
-                                                        <attributedString key="attributedTitle"/>
-                                                    </state>
-                                                </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default Profile Image" translatesAutoresizingMaskIntoConstraints="NO" id="Gsh-Xm-ruQ">
                                                     <rect key="frame" x="0.0" y="40" width="375" height="150"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0St-24-Dvm">
-                                                    <rect key="frame" x="8" y="192" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="8cj-Tl-pIz"/>
-                                                        <constraint firstAttribute="height" constant="40" id="Qi4-wc-NgI"/>
-                                                    </constraints>
-                                                    <state key="normal" image="catLikeButton"/>
-                                                    <connections>
-                                                        <action selector="onLikeButtonTapped:" destination="LaN-Ks-siV" eventType="touchUpInside" id="2k1-dy-X1C"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ab7-NB-OVC">
-                                                    <rect key="frame" x="52" y="194" width="38" height="38"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="38" id="h8S-Kw-kGR"/>
-                                                        <constraint firstAttribute="height" constant="38" id="wd9-mV-Fi3"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button" image="Comment_Growl"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="We0-uZ-h4r">
-                                                    <rect key="frame" x="8" y="236" width="68" height="30"/>
-                                                    <state key="normal" title="400 Likes">
-                                                        <color key="titleColor" red="0.039215686274509803" green="0.12156862745098039" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="coachcoreywayne" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZD-8I-qpH">
-                                                    <rect key="frame" x="8" y="270" width="145" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                    <color key="textColor" red="0.039215686274509803" green="0.14509803921568629" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voL-bJ-1P9">
-                                                    <rect key="frame" x="310" y="0.0" width="44" height="30"/>
-                                                    <state key="normal" title="Follow">
-                                                        <color key="titleColor" red="0.039215686274509803" green="0.090196078431372548" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fG6-gG-oRR" customClass="DesignableButton" customModule="PetWorld" customModuleProvider="target">
-                                                    <rect key="frame" x="13" y="0.0" width="31" height="30"/>
+                                                    <rect key="frame" x="8" y="2" width="31" height="30"/>
                                                     <state key="normal" title="Button" image="default_profile"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1272,29 +1228,73 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0St-24-Dvm">
+                                                    <rect key="frame" x="8" y="198" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="8cj-Tl-pIz"/>
+                                                        <constraint firstAttribute="height" constant="40" id="Qi4-wc-NgI"/>
+                                                    </constraints>
+                                                    <state key="normal" image="white_heart"/>
+                                                    <connections>
+                                                        <action selector="onLikeButtonTapped:" destination="LaN-Ks-siV" eventType="touchUpInside" id="2k1-dy-X1C"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ab7-NB-OVC">
+                                                    <rect key="frame" x="52" y="200" width="38" height="38"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="38" id="h8S-Kw-kGR"/>
+                                                        <constraint firstAttribute="height" constant="38" id="wd9-mV-Fi3"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="comment_icon"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="We0-uZ-h4r">
+                                                    <rect key="frame" x="8" y="250" width="68" height="30"/>
+                                                    <state key="normal" title="400 Likes">
+                                                        <color key="titleColor" red="0.039215686274509803" green="0.12156862745098039" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="coachcoreywayne" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZD-8I-qpH">
+                                                    <rect key="frame" x="8" y="292" width="145" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <color key="textColor" red="0.039215686274509803" green="0.14509803921568629" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voL-bJ-1P9">
+                                                    <rect key="frame" x="308" y="0.0" width="46" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <state key="normal" title="Follow">
+                                                        <color key="titleColor" red="0.039215686274509803" green="0.090196078431372548" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrC-OX-fQq">
+                                                    <rect key="frame" x="52" y="2" width="30" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <color key="tintColor" red="0.039215686274509803" green="0.11372549019607843" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title=""/>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="fG6-gG-oRR" firstAttribute="leading" secondItem="hzA-mf-zlK" secondAttribute="leadingMargin" constant="5" id="4XI-0O-Nsv"/>
+                                                <constraint firstItem="fG6-gG-oRR" firstAttribute="leading" secondItem="hzA-mf-zlK" secondAttribute="leadingMargin" id="4XI-0O-Nsv"/>
                                                 <constraint firstItem="Gsh-Xm-ruQ" firstAttribute="top" secondItem="hzA-mf-zlK" secondAttribute="top" constant="40" id="6f4-X5-gh8"/>
-                                                <constraint firstItem="FrC-OX-fQq" firstAttribute="leading" secondItem="fG6-gG-oRR" secondAttribute="trailing" constant="15" id="7uF-Wx-l28"/>
+                                                <constraint firstItem="FrC-OX-fQq" firstAttribute="leading" secondItem="fG6-gG-oRR" secondAttribute="trailing" constant="13" id="7uF-Wx-l28"/>
                                                 <constraint firstAttribute="trailing" secondItem="Gsh-Xm-ruQ" secondAttribute="trailing" id="8N4-MM-aKD"/>
-                                                <constraint firstItem="fG6-gG-oRR" firstAttribute="top" secondItem="hzA-mf-zlK" secondAttribute="topMargin" constant="-8" id="8ce-rQ-G63"/>
-                                                <constraint firstItem="We0-uZ-h4r" firstAttribute="top" secondItem="0St-24-Dvm" secondAttribute="bottom" constant="4" id="FgV-Hd-WjS"/>
+                                                <constraint firstItem="fG6-gG-oRR" firstAttribute="top" secondItem="hzA-mf-zlK" secondAttribute="topMargin" constant="-6" id="8ce-rQ-G63"/>
+                                                <constraint firstItem="We0-uZ-h4r" firstAttribute="top" secondItem="0St-24-Dvm" secondAttribute="bottom" constant="12" id="FgV-Hd-WjS"/>
                                                 <constraint firstItem="Ab7-NB-OVC" firstAttribute="leading" secondItem="0St-24-Dvm" secondAttribute="trailing" constant="4" id="HsV-EO-3Gr"/>
                                                 <constraint firstItem="cZD-8I-qpH" firstAttribute="leading" secondItem="hzA-mf-zlK" secondAttribute="leadingMargin" id="J7L-5D-L9c"/>
                                                 <constraint firstItem="voL-bJ-1P9" firstAttribute="top" secondItem="hzA-mf-zlK" secondAttribute="top" id="Ky3-wW-WCH"/>
-                                                <constraint firstItem="Ab7-NB-OVC" firstAttribute="top" secondItem="Gsh-Xm-ruQ" secondAttribute="bottom" constant="4" id="NVa-Y4-dZN"/>
-                                                <constraint firstItem="0St-24-Dvm" firstAttribute="top" secondItem="Gsh-Xm-ruQ" secondAttribute="bottom" constant="2" id="OWY-Gk-Q1m"/>
+                                                <constraint firstItem="Ab7-NB-OVC" firstAttribute="top" secondItem="Gsh-Xm-ruQ" secondAttribute="bottom" constant="10" id="NVa-Y4-dZN"/>
+                                                <constraint firstItem="0St-24-Dvm" firstAttribute="top" secondItem="Gsh-Xm-ruQ" secondAttribute="bottom" constant="8" id="OWY-Gk-Q1m"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="We0-uZ-h4r" secondAttribute="trailing" constant="5" id="Pnn-Xf-vJA"/>
                                                 <constraint firstAttribute="trailing" secondItem="voL-bJ-1P9" secondAttribute="trailing" constant="21" id="TAL-H4-TJS"/>
                                                 <constraint firstItem="fG6-gG-oRR" firstAttribute="bottom" secondItem="FrC-OX-fQq" secondAttribute="bottom" id="VDq-jO-ahX"/>
                                                 <constraint firstItem="0St-24-Dvm" firstAttribute="leading" secondItem="hzA-mf-zlK" secondAttribute="leadingMargin" id="aAO-OP-CiM"/>
                                                 <constraint firstItem="Gsh-Xm-ruQ" firstAttribute="leading" secondItem="hzA-mf-zlK" secondAttribute="leading" id="bgc-sa-9oD"/>
-                                                <constraint firstItem="Gsh-Xm-ruQ" firstAttribute="top" secondItem="FrC-OX-fQq" secondAttribute="bottom" constant="10" id="dHk-Qn-KJC"/>
+                                                <constraint firstItem="Gsh-Xm-ruQ" firstAttribute="top" secondItem="FrC-OX-fQq" secondAttribute="bottom" constant="8" id="dHk-Qn-KJC"/>
                                                 <constraint firstItem="We0-uZ-h4r" firstAttribute="leading" secondItem="hzA-mf-zlK" secondAttribute="leadingMargin" id="pW4-eL-AqU"/>
-                                                <constraint firstItem="FrC-OX-fQq" firstAttribute="leading" secondItem="hzA-mf-zlK" secondAttribute="leadingMargin" constant="51" id="phr-J1-qNP"/>
+                                                <constraint firstItem="FrC-OX-fQq" firstAttribute="leading" secondItem="hzA-mf-zlK" secondAttribute="leadingMargin" constant="44" id="phr-J1-qNP"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="cZD-8I-qpH" secondAttribute="bottom" constant="32" id="qbw-vM-Pmc"/>
-                                                <constraint firstItem="cZD-8I-qpH" firstAttribute="top" secondItem="We0-uZ-h4r" secondAttribute="bottom" constant="4" id="u7a-42-LBb"/>
+                                                <constraint firstItem="cZD-8I-qpH" firstAttribute="top" secondItem="We0-uZ-h4r" secondAttribute="bottom" constant="12" id="u7a-42-LBb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1772,12 +1772,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Comment_Growl" width="120" height="120"/>
         <image name="Default Profile Image" width="250" height="150"/>
         <image name="Login Background" width="414" height="736"/>
         <image name="Pet Profile Pic Chooser" width="150" height="150"/>
         <image name="bone gray" width="32" height="32"/>
-        <image name="catLikeButton" width="120" height="120"/>
+        <image name="comment_icon" width="256" height="256"/>
         <image name="danger.png" width="24" height="24"/>
         <image name="default_profile" width="94" height="208"/>
         <image name="dogsil_burned" width="598" height="569"/>
@@ -1789,6 +1788,7 @@
         <image name="right_arrow" width="256" height="256"/>
         <image name="scale" width="20" height="20"/>
         <image name="settings" width="20" height="20"/>
+        <image name="white_heart" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xqy-IX-JRq"/>

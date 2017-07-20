@@ -87,9 +87,15 @@ class PostTableViewCell: UITableViewCell{
     
     
     func updateCaptionText(){
-        var stubStr: String?
-        stubStr = "Lemons"
-        if let username = stubStr, let caption = post.caption{
+        var username: String = ""
+        if let pet = post.author{
+            if let name = pet.name{
+                username = name
+            }
+        }
+        
+        
+        if let caption = post.caption{
             let captionText = "\(username) - \(caption)"
             let captionLen = captionText.characters.count
             //"First half" = username section of the string
@@ -103,7 +109,11 @@ class PostTableViewCell: UITableViewCell{
             let boldedString = TextManipulation.attributedString(from: captionText, nonBoldRange: range)
             
             captionLabel.attributedText = boldedString
+        if let pet = post.author{
+            
+            }
         }
+        
     
     }
     
