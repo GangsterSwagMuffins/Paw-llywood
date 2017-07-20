@@ -111,7 +111,14 @@ class PostTableViewCell: UITableViewCell{
         if let pet = post.author{
             
                 if let name = pet.name{
-                     self.usernameButton.setTitle(name, for: UIControlState.normal)
+                   // self.usernameButton.titleLabel?.text = name
+                    
+                    self.usernameButton.setTitle(name, for: UIControlState.normal)
+                    self.usernameButton.setTitle(name, for: UIControlState.selected)
+                    self.usernameButton.setTitle(name, for: UIControlState.highlighted)
+                    self.usernameButton.setTitle(name, for: UIControlState.focused)
+                    self.usernameButton.setTitle(name, for: UIControlState.reserved)
+                    //self.usernameButton.titleLabel?.text = name
                 }
             
         }

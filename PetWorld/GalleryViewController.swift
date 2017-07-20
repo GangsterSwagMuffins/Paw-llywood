@@ -142,12 +142,12 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         
         
         
-        PHImageManager.default().requestImage(for: asset, targetSize: cell.galleryPhoto.frame.size, contentMode: .aspectFill, options: nil) { (result:UIImage?, info: [AnyHashable : Any]?) in
+        PHImageManager.default().requestImage(for: asset, targetSize: chosenPicture.frame.size, contentMode: .aspectFill, options: nil) { (result:UIImage?, info: [AnyHashable : Any]?) in
             self.chosenPicture.image = result
         }
 
         
-        self.chosenPicture.setNeedsDisplay()
+       // self.chosenPicture.setNeedsDisplay()
         
         
         
