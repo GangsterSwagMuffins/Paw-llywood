@@ -20,9 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        //Register the Pet class first
+        //Register subclases
           Pet.registerSubclass()
           Post.registerSubclass()
+        Comment.registerSubclass()
         
         
         // Override point for customization after application launch.

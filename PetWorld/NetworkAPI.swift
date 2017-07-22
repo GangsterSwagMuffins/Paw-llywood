@@ -200,6 +200,12 @@ class NetworkAPI: NSObject {
     }
     
     
+    class func getLikedPosts(user: User){
+         let query = PFQuery(className: "Post")
+        
+        query.whereKey("userLiked", equalTo: user)
+    }
+    
     class func resize(photo: UIImage, newSize: CGSize) -> UIImage {
         
         //Resize the image to match the siize that is passed in

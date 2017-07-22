@@ -33,12 +33,14 @@ class VerifyPhotoViewController: UIViewController, UITextFieldDelegate {
             let post = Post()
             post.media = NetworkAPI.getPhotoFile(photo: photoPost)
             NetworkAPI.postUserImage(photo: photoPost, caption: captionText) { (success: Bool, error: Error?) in
-            if success {
-                print("Photo posted")
-                self.performSegue(withIdentifier: "PhotoCaptureSegue", sender: nil)
-            } else {
-                print(error?.localizedDescription ?? "Photo not posted")
-            }
+                if let error = error{
+                    print("error occured")
+                }else{
+                    if success{
+                        self.performSegue(withIdentifier: "HomeSegue", sender: nil)
+                    }
+                }
+                
         }
     
     }
