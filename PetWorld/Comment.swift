@@ -9,13 +9,23 @@
 import Foundation
 import Parse
 
-class Comment: NSObject, PFObject, PFSubclassing{
+class Comment: PFObject, PFSubclassing{
+    
+    
+    @NSManaged var text: String?
+    @NSManaged var owner: Pet?
+    
+    
+    
+    
     
     
     
     static func parseClassName() -> String {
         return "Comment"
     }
+    
+    
 
 }
 
