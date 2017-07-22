@@ -11,6 +11,9 @@ import Parse
 
 class User: PFUser {
     
+    @NSManaged var likedPosts: [Post]?
+    
+    
    
     
   
