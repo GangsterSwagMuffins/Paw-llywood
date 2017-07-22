@@ -45,9 +45,18 @@ class PostTableViewCell: UITableViewCell{
         }
     }
     
+    //TODO: See comments nested in the function.
+    @IBAction func onCommentButtonTapped(_ sender: UIButton){
+        
+        //When the comment button is pressed the comment screen appears.
+        //And make a query to the server for the comments
+    
+    }
+    
+    
     var post : Post!{
         didSet{
-             
+            initLikeButton()
              updateUI()
                 
             }
@@ -57,7 +66,7 @@ class PostTableViewCell: UITableViewCell{
         
     
     
-       
+    
     
    
     
@@ -67,6 +76,7 @@ class PostTableViewCell: UITableViewCell{
         updateUsernameButton()
         updateProfilePicture()
         updateMedia()
+        updateLikeButton()
         
     
     }
@@ -132,6 +142,21 @@ class PostTableViewCell: UITableViewCell{
                 }
             
         }
+    }
+    
+    func updateLikeButton(){
+        
+    }
+    
+    
+    //TODO: Look below.
+    func initLikeButton(){
+        self.likeButton.setImage(UIImage(named: "white_heart"), for: UIControlState.normal)
+        
+        self.likeButton.setImage(UIImage(named: "dark_heart"), for: UIControlState.selected)
+        
+        //Add logic to see how to init the like button
+        
     }
 
 

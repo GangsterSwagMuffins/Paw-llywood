@@ -9,9 +9,7 @@
 import Foundation
 import Parse
 
-class Comment: NSObject, PFObject, PFSubclassing{
-    
-    
+class Comment: PFObject, PFSubclassing{
     
     static func parseClassName() -> String {
         return "Comment"

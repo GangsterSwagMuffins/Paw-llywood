@@ -46,6 +46,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         NetworkAPI.getPosts(numPosts: 20, successHandler: { (posts: [Post]) in
             
             self.posts = posts
+            print(posts.count)
             self.tableView.reloadData()
             
         }, errorHandler: nil)
