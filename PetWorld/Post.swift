@@ -23,7 +23,7 @@ class Post: PFObject, PFSubclassing {
    @NSManaged var author : Pet?
    @NSManaged var media: PFFile?
    @NSManaged var caption: String?
-   @NSManaged var likedBy: [PFUser]?
+   @NSManaged var likedBy: [Pet]?
    @NSManaged var comments: [Comment]?
    @NSManaged var timeStamp : String?
     var image: UIImage?

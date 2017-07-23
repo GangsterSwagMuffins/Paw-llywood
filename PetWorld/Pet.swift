@@ -84,9 +84,6 @@ class Pet: PFObject, PFSubclassing {
         //Stub pet
         return Pet()
         
-        
-        
-        
     }
     
     class func add(newPet: Pet){

@@ -106,7 +106,7 @@ class NetworkAPI: NSObject {
         post.author = Pet.currentPet() // Pointer column type that points to PFUser
         post["caption"] = caption
         post["likesCount"] = 0
-        post["commentsCount"] = 0
+        post[""]
         
         // Save object (following function will save the object in Parse asynchronously)
         post.saveInBackground(block: success)
@@ -137,11 +137,18 @@ class NetworkAPI: NSObject {
                     
                     for post in posts{
                         let pet = post["author"] as! Pet
+                        print(pet)
                         post.author = pet
-                        NetworkAPI.loadPicture(imageFile: pet["image"] as! PFFile, successBlock: { (image: UIImage) in
-                            pet.image = image
-                            successHandler(posts)
-                        })
+                        let petImage = pet["image"]
+                        
+                        
+                        if let petImage = petImage{
+                            NetworkAPI.loadPicture(imageFile: petImage as! PFFile, successBlock: { (image: UIImage) in
+                                pet.image = image
+                                successHandler(posts)
+                            })
+                        }
+                        
 
                         if let owner = pet.owner{
                             loadOwner(userObject: owner, completionHandler: {

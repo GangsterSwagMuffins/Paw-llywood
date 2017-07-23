@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         )
         
         
-        
+      //  mockData()
         
        // /* // UNCOMMENT TO DIRECTLY ACCESS LOGIN/SIGNUP
             
@@ -68,6 +68,74 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         // */ // UNCOMMENT TO DIRECTLY ACCESS LOGIN/SIGNUP
         
         return true
+    }
+    
+    func mockData(){
+   /*      let user1 = User()
+        user1.username = "user1"
+        user1.password = "password"
+        user1.signUpInBackground()
+      //  user1.saveInBackground()
+        let user2 = User()
+        user2.username = "user2"
+        user2.password = "password"
+        //user2.saveInBackground()
+        user2.signUpInBackground()
+        
+        let user3  = User()
+        user3.username = "user3"
+        user3.password = "password"
+        user3.signUpInBackground()*/
+       // user3.saveInBackground()
+        
+    
+     /*   let brownDog = Pet()
+        let fuzzyDog = Pet()
+        let dalmation = Pet()
+        
+        
+        brownDog["owner"] = user1
+        brownDog["image"] = NetworkAPI.getPhotoFile(photo: UIImage(named: "brown_dog"))
+        
+        fuzzyDog["owner"] = user2
+        fuzzyDog["image"] = NetworkAPI.getPhotoFile(photo: UIImage(named: "fuzzy_dog"))
+        
+        dalmation["owner"] = user3
+        dalmation["image"] = NetworkAPI.getPhotoFile(photo: UIImage(named: "dalmation"))
+        
+        brownDog.saveInBackground()
+        fuzzyDog.saveInBackground()
+        dalmation.saveInBackground()*/
+        
+        
+        
+        
+        let post1 = Post()
+        post1.author = Pet.currentPet()
+        post1.caption = "F the police."
+     //   post1.likedBy = [fuzzyDog, dalmation]
+        post1.media = NetworkAPI.getPhotoFile(photo: UIImage(named: "brown_dog"))
+        post1.saveInBackground()
+        
+        let post2 = Post()
+        post2.author = Pet.currentPet()
+        post2.caption = "I am fuzzy."
+      //  post2.likedBy = [dalmation, brownDog]
+        post2.media = NetworkAPI.getPhotoFile(photo: UIImage(named: "fuzzy_dog"))
+      //  NetworkAPI.postUserImage(photo: , caption: <#T##String?#>, success: <#T##PFBooleanResultBlock?##PFBooleanResultBlock?##(Bool, Error?) -> Void#>)
+        post2.saveInBackground()
+        
+        
+        let post3 = Post()
+        post3.author = Pet.currentPet()
+        post3.caption = "I am a german spy."
+      //  post3.likedBy = [fuzzyDog, brownDog]
+        post3.media = NetworkAPI.getPhotoFile(photo: UIImage(named: "dalmation"))
+        post3.saveInBackground()
+        
+        
+        
+        
     }
     
    
