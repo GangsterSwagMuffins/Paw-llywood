@@ -31,10 +31,15 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBAction func onPostButtonTapped(_ sender: Any) {
         
+        //Create new comment an init member fields
         let newComment = Comment()
         newComment.text = self.commentTextField.text
         newComment.author = Pet.currentPet()
+        
+        //Create link (relationship) Comment -> Post
         newComment.post = self.post
+        
+        //Create link (relationship) from Post -> Comment
         if let post = self.post {
             if post.comments == nil {
                 post.comments = [newComment]
@@ -55,7 +60,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         
-        
+        //Testing to be deleted
         if let pet = newComment.author{
            print(pet)
         }

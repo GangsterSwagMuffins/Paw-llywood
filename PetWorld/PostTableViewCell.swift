@@ -36,10 +36,14 @@ class PostTableViewCell: UITableViewCell{
         
         if (isLiked){
             isLiked = false
+            //Update the server
+            updateLike(liked: false)
            likeButton.isSelected = false
             
         }else{
             isLiked = true
+            //Update the server
+            updateLike(liked: true)
             likeButton.isSelected = true
         
         }
@@ -56,12 +60,7 @@ class PostTableViewCell: UITableViewCell{
   
         }
         
-        
-    
-    
-    
-    
-   
+ 
     
     func updateUI(){
         
@@ -139,6 +138,8 @@ class PostTableViewCell: UITableViewCell{
     
     func updateLikeButton(){
         
+        
+        
     }
     
     
@@ -170,6 +171,22 @@ class PostTableViewCell: UITableViewCell{
     }
     
    }
+    
+    
+    /*Makes a network call updating the liked status of a post.*/
+    func updateLike(liked: Bool){
+        
+        NetworkAPI.toggleLiked(withPost: self.post, byPet: Pet.currentPet(), withState: liked, completionHandler: { (success: Bool, error: Error?) in
+            if let error = error{
+                print("Could not toggle like! \(error)")
+            }else{
+                if success{
+                    print("successfully toggled like")
+                }
+            }
+        })
+        
+    }
     
     
 

@@ -236,7 +236,6 @@ class NetworkAPI: NSObject {
         let query = PFQuery(className: "Comment")
             query.includeKeys(["author"])
         query.whereKey("post", equalTo: withPost)
-            query.cachePolicy = PFCachePolicy.networkOnly
         
         query.order(byDescending: "_created_at")
         query.limit = 20
@@ -291,6 +290,22 @@ class NetworkAPI: NSObject {
     
     class func update(post: Post, withResult: @escaping PFBooleanResultBlock){
        post.saveInBackground(block: withResult)
+    }
+    
+    class func toggleLiked(withPost: Post, byPet: Pet, withState liked: Bool, completionHandler: @escaping PFBooleanResultBlock){
+        if (liked){
+            if (withPost.likedBy == nil){
+                withPost.likedBy = []
+            }
+            withPost.likedBy?.append(byPet)
+        }else{
+            if let index = withPost.likedBy?.index(of: byPet){
+                withPost.likedBy?.remove(at: index)
+            }
+        }
+        withPost.saveInBackground(block: completionHandler)
+        
+        
     }
     
     
