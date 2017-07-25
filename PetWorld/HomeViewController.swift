@@ -28,9 +28,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
          initTableView()
         
-        
-        
-        
         if (!isLoadingPosts){
             isLoadingPosts = true
             loadPosts()
@@ -89,8 +86,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cell = sender.superview?.superview as! PostTableViewCell
         commentViewController.post = cell.post
+        print(cell.post)
         commentViewController.comments = cell.post.comments!
-    
+        print(cell.post.comments)
         
         
         self.present(commentViewController, animated: true) { 

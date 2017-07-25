@@ -58,7 +58,7 @@ class NetworkAPI: NSObject {
                             let newPet : Pet = petPFObject as! Pet
                             
                             //Some default fields until have screen to input this data
-                          //  print(newPet)
+                    /*      //  print(newPet)
                             newPet.breed = "Cairn Terrier"
                             newPet.species = "Dog"
                             newPet.age = 4
@@ -75,7 +75,7 @@ class NetworkAPI: NSObject {
                             
                             newPet["image"] = getPhotoFile(photo:petImage)
                             newPet["backgroundImage"] = getPhotoFile(photo:petImage)
-                            newPet.saveInBackground()
+                            newPet.saveInBackground()*/
                             pets.append(newPet)
                             
                         }
@@ -235,6 +235,7 @@ class NetworkAPI: NSObject {
         
         let query = PFQuery(className: "Comment")
             query.includeKeys(["author"])
+        query.whereKey("post", equalTo: withPost)
             query.cachePolicy = PFCachePolicy.networkOnly
         
         query.order(byDescending: "_created_at")
@@ -285,6 +286,11 @@ class NetworkAPI: NSObject {
     class func postComment(comment: Comment, successBlock: PFBooleanResultBlock?){
         comment.saveInBackground(block: successBlock)
         
+    }
+    
+    
+    class func update(post: Post, withResult: @escaping PFBooleanResultBlock){
+       post.saveInBackground(block: withResult)
     }
     
     

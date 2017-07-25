@@ -35,6 +35,26 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         newComment.text = self.commentTextField.text
         newComment.author = Pet.currentPet()
         newComment.post = self.post
+        if let post = self.post {
+            if post.comments == nil {
+                post.comments = [newComment]
+            }else{
+                post.comments?.append(newComment)
+            }
+            
+            NetworkAPI.update(post: post, withResult: { (success: Bool, error: Error?) in
+                if (success){
+                    print("updated post with new comments")
+                }else{
+                    print(error)
+                    
+                }
+            
+            })
+            
+        }
+        
+        
         
         if let pet = newComment.author{
            print(pet)
@@ -45,7 +65,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         NetworkAPI.postComment(comment: newComment) { (success: Bool, error: Error?) in
             if let error = error{
-                print(error)
+                print("Could not save comment...\n\n\(error)")
                 //Do some kind of error handling...
             }else{
                 if (success){
@@ -67,6 +87,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 600
         
+        self.tableView.reloadData()
         
         
 
