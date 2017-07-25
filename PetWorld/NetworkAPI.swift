@@ -106,7 +106,8 @@ class NetworkAPI: NSObject {
         post.author = Pet.currentPet() // Pointer column type that points to PFUser
         post["caption"] = caption
         post["likesCount"] = 0
-        post[""]
+        
+        
         
         // Save object (following function will save the object in Parse asynchronously)
         post.saveInBackground(block: success)
@@ -137,7 +138,8 @@ class NetworkAPI: NSObject {
                     
                     for post in posts{
                         let pet = post["author"] as! Pet
-                        print(pet)
+                        print("post__________\n\(post)\n_____________________")
+                        //print(pet)
                         post.author = pet
                         let petImage = pet["image"]
                         
@@ -228,6 +230,58 @@ class NetworkAPI: NSObject {
         return newImage!
     }
     
+    
+    class func getComments(withPost: Post, populateFields: Bool, successHandler: @escaping([Comment])->(),  errorHandler: @escaping(Error)->() ){
+        
+        let query = PFQuery(className: "Comment")
+            query.includeKeys(["post", "petAuthor"])
+            query.cachePolicy = PFCachePolicy.networkOnly
+        
+        query.order(byDescending: "_created_at")
+        query.limit = 20
+        
+        query.findObjectsInBackground { (commentObjects: [PFObject]?, error: Error?) in
+            if let error = error{
+                print("An error has occurred: \(error.localizedDescription)")
+                errorHandler(error)
+            }else{
+
+                if let commentObjects = commentObjects{
+                    let comments: [Comment] = commentObjects as! [Comment]
+                    
+                    for comment in comments{
+                        print(comment.allKeys)
+                        //Every time a comment is loaded update screen
+                        let post = comment.post
+                        
+                        let pet = comment.author
+                        print(pet)
+                        print(post)
+                       // let pet  = post?.author
+                        if let pet = pet{
+                            loadPet(petObject: pet, completionHandler: { 
+                                successHandler(comments)
+                            }, errorHandler: {
+                                print("There was an error loading the comments.")
+                            })
+                            
+                        
+                        }
+                        
+                        successHandler(comments)
+                        
+                    }
+                    
+                    successHandler(comments)
+                }
+            }
+        }
+    }
+    
+    class func postComment(comment: Comment, successBlock: PFBooleanResultBlock?){
+        comment.saveInBackground(block: successBlock)
+        
+    }
     
     
     

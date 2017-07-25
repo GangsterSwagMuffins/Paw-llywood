@@ -32,6 +32,8 @@
 		1F7D42571ED93C3400E4B278 /* PhotoCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */; };
 		1F7D42591ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */; };
 		1F7D425D1ED9F15E00E4B278 /* VerifyPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */; };
+		1F83D45F1F254DAD000CF412 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83D45E1F254DAD000CF412 /* CommentViewController.swift */; };
+		1F83D4611F254DE4000CF412 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83D4601F254DE4000CF412 /* CommentTableViewCell.swift */; };
 		1F9CF7081F08233D00F0F072 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9CF7071F08233D00F0F072 /* DesignableButton.swift */; };
 		1F9CF70A1F09E19900F0F072 /* TextManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9CF7091F09E19800F0F072 /* TextManipulation.swift */; };
 		1F9CF70C1F0A952D00F0F072 /* DesignableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9CF70B1F0A952C00F0F072 /* DesignableTableView.swift */; };
@@ -108,6 +110,8 @@
 		1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureViewController.swift; sourceTree = "<group>"; };
 		1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryItemCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPhotoViewController.swift; sourceTree = "<group>"; };
+		1F83D45E1F254DAD000CF412 /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		1F83D4601F254DE4000CF412 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		1F9CF7071F08233D00F0F072 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		1F9CF7091F09E19800F0F072 /* TextManipulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextManipulation.swift; sourceTree = "<group>"; };
 		1F9CF70B1F0A952C00F0F072 /* DesignableTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTableView.swift; sourceTree = "<group>"; };
@@ -269,7 +273,6 @@
 		1F73AADD1E9C938C00A5C1AD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1F15C5351E9C9813005B828B /* HomeViewController.swift */,
 				33751ED71EDA2A6C00E60E34 /* Post */,
 				33751ED61EDA07F100E60E34 /* Login */,
 				33751ECC1ED93A4B00E60E34 /* Friends View Controllers */,
@@ -288,6 +291,7 @@
 				33AB426D1ECBB015007B7BB4 /* PostTableViewCell.swift */,
 				5EC637401ED413B7003D67F3 /* PetsTableViewCell.swift */,
 				1F59EBE81F1D300400A2CBE2 /* EditProfileView.swift */,
+				1F83D4601F254DE4000CF412 /* CommentTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -357,11 +361,13 @@
 		33751ED71EDA2A6C00E60E34 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				1F15C5351E9C9813005B828B /* HomeViewController.swift */,
 				1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */,
 				1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */,
 				5E0CF80E1EBE68E70088427A /* PostsViewController.swift */,
 				1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */,
 				1F232B981F158727002367AD /* PostMediaTabViewController.swift */,
+				1F83D45E1F254DAD000CF412 /* CommentViewController.swift */,
 			);
 			name = Post;
 			sourceTree = "<group>";
@@ -566,6 +572,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F83D45F1F254DAD000CF412 /* CommentViewController.swift in Sources */,
 				1F232B991F158727002367AD /* PostMediaTabViewController.swift in Sources */,
 				1FB386E31EA5C44000FBEB8E /* LoginViewController.swift in Sources */,
 				1F34C1091F1AEDFA00EEF564 /* AboutMeTableViewController.swift in Sources */,
@@ -590,6 +597,7 @@
 				33751ED41ED96B3A00E60E34 /* FriendTableViewCell.swift in Sources */,
 				1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */,
 				1FAD6F341F042E5F006783F7 /* DesignableTextField.swift in Sources */,
+				1F83D4611F254DE4000CF412 /* CommentTableViewCell.swift in Sources */,
 				1F43B13E1F102A26001D9CC1 /* TransitionToNormalViewController.swift in Sources */,
 				1F232B9B1F15BEE9002367AD /* ProfileViewController.swift in Sources */,
 				1F9CF70C1F0A952D00F0F072 /* DesignableTableView.swift in Sources */,

@@ -11,19 +11,18 @@ import Parse
 
 class Comment: PFObject, PFSubclassing{
     
-    
-    @NSManaged var text: String?
-    @NSManaged var owner: Pet?
-    
-    
-    
-    
-    
-    
-    
-    static func parseClassName() -> String {
+    public static func parseClassName() -> String {
         return "Comment"
     }
+    
+    //That actual text of the comment.
+    @NSManaged var text: String?
+    //Who wrote the post
+   @NSManaged  var author: Pet?
+    //The post that the comment belongs to.
+    @NSManaged var post: Post?
+
+  
     
     
 

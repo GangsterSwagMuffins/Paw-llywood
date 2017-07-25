@@ -17,43 +17,38 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var posts: [Post] = []
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
+    //True when making network requests
+    var isLoadingComments: Bool  = false
+    var isLoadingPosts: Bool = false
+    var commentViewController: CommentViewController?
     
   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     //Set up autolayout
-        tableView.rowHeight = UITableViewAutomaticDimension
-        //For the scrolling bar size
-        tableView.estimatedRowHeight = 600
-    
-        tableView.delegate = self
-        tableView.dataSource = self
+         initTableView()
         
-        NetworkAPI.getPosts(numPosts: 20, successHandler: { (posts: [Post]) in
-            
-            self.posts = posts
-            self.tableView.reloadData()
-            
-        }, errorHandler: nil)
+        
+        
+        
+        if (!isLoadingPosts){
+            isLoadingPosts = true
+            loadPosts()
+        }
+        
+        
  
         self.tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
-        
-        NetworkAPI.getPosts(numPosts: 20, successHandler: { (posts: [Post]) in
-            
-            self.posts = posts
-            print(posts.count)
-            self.tableView.reloadData()
-            
-        }, errorHandler: nil)
-        
-        
-        
-    self.tableView.reloadData()
+        if (!isLoadingPosts){
+            isLoadingPosts = true
+            loadPosts()
+        }
+       
+        self.tableView.reloadData()
     }
     
     // Table functions
@@ -86,6 +81,70 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //TODO: See comments nested in the function.
+    @IBAction func onCommentButtonTapped(_ sender: UIButton){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let commentViewController = storyboard.instantiateViewController(withIdentifier: "CommentViewController") as! CommentViewController
+        
+        let cell = sender.superview?.superview as! PostTableViewCell
+        commentViewController.post = cell.post
+        commentViewController.comments = cell.post.comments!
+    
+        
+        
+        self.present(commentViewController, animated: true) { 
+            print("Loaded comment View Controller")
+        }
+    }
+    
+    
+    
+    
+    
+    
+    func loadPosts(){
+        
+        NetworkAPI.getPosts(numPosts: 20, successHandler: { (posts: [Post]) in
+            //Finished loading pets
+            self.isLoadingPosts = false
+            //Update the GUI
+            self.posts = posts
+            self.tableView.reloadData()
+            
+            if (!self.isLoadingComments){
+                self.isLoadingComments = true
+                for post in posts{
+                    self.loadComments(forPost: post)
+                }
+            }
+            
+            
+        }, errorHandler: nil)
+        
+    }
+    
+    func loadComments(forPost: Post){
+        NetworkAPI.getComments(withPost: forPost, populateFields: true, successHandler: { (comments: [Comment]) in
+            
+            forPost.comments = comments
+            self.isLoadingComments = false
+            
+        }) { (error: Error) in
+            print("error occurred loading comments!")
+        }
+    }
+    
+    func initTableView(){
+        //Set up autolayout
+        tableView.rowHeight = UITableViewAutomaticDimension
+        //For the scrolling bar size
+        tableView.estimatedRowHeight = 600
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+
 
 
 }

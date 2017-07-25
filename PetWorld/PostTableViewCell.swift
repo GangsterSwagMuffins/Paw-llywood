@@ -45,13 +45,6 @@ class PostTableViewCell: UITableViewCell{
         }
     }
     
-    //TODO: See comments nested in the function.
-    @IBAction func onCommentButtonTapped(_ sender: UIButton){
-        
-        //When the comment button is pressed the comment screen appears.
-        //And make a query to the server for the comments
-    
-    }
     
     
     var post : Post!{
@@ -177,6 +170,8 @@ class PostTableViewCell: UITableViewCell{
     }
     
    }
+    
+    
 
 
 

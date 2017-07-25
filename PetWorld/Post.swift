@@ -18,7 +18,7 @@ class Post: PFObject, PFSubclassing {
     }
 
     
-    
+  
    @NSManaged var petName: String?
    @NSManaged var author : Pet?
    @NSManaged var media: PFFile?
