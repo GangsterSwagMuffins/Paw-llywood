@@ -47,6 +47,8 @@ class Pet: PFObject, PFSubclassing {
     @NSManaged  var miniBio: String?
     //Long bio (256 characters max)
     @NSManaged  var longBio: String?
+    //Pet's liked post
+    @NSManaged var likedPosts: [Post]?
    
    
     

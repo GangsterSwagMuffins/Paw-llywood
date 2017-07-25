@@ -295,15 +295,32 @@ class NetworkAPI: NSObject {
     class func toggleLiked(withPost: Post, byPet: Pet, withState liked: Bool, completionHandler: @escaping PFBooleanResultBlock){
         if (liked){
             if (withPost.likedBy == nil){
+                //Duck tape... Probably should initialize array when creating post.
                 withPost.likedBy = []
             }
+            
+            if (byPet.likedPosts == nil){
+                byPet.likedPosts = []
+            }
+            
+            //Many to many relationship...
+            byPet.likedPosts?.append(withPost)
             withPost.likedBy?.append(byPet)
+            
+            
         }else{
             if let index = withPost.likedBy?.index(of: byPet){
                 withPost.likedBy?.remove(at: index)
             }
+            
+            if let postIndex = byPet.likedPosts?.index(of: withPost){
+                byPet.likedPosts?.remove(at: postIndex)
+            }
+            
         }
         withPost.saveInBackground(block: completionHandler)
+        //TODO: Make this more safe  ___________________
+        byPet.saveInBackground(block: completionHandler)
         
         
     }
