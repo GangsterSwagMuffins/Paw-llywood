@@ -234,7 +234,7 @@ class NetworkAPI: NSObject {
     class func getComments(withPost: Post, populateFields: Bool, successHandler: @escaping([Comment])->(),  errorHandler: @escaping(Error)->() ){
         
         let query = PFQuery(className: "Comment")
-            query.includeKeys(["post", "petAuthor"])
+            query.includeKeys(["author"])
             query.cachePolicy = PFCachePolicy.networkOnly
         
         query.order(byDescending: "_created_at")
@@ -254,16 +254,21 @@ class NetworkAPI: NSObject {
                         //Every time a comment is loaded update screen
                         let post = comment.post
                         
-                        let pet = comment.author
-                        print(pet)
-                        print(post)
-                       // let pet  = post?.author
-                        if let pet = pet{
-                            loadPet(petObject: pet, completionHandler: { 
-                                successHandler(comments)
-                            }, errorHandler: {
-                                print("There was an error loading the comments.")
-                            })
+                       
+                        if let pet = comment.author{
+                            if pet.image == nil{
+                                let imageFile: PFFile? = pet["image"] as? PFFile
+                                
+                                if let imageFile = imageFile{
+                                    loadPicture(imageFile: imageFile, successBlock: { (image: UIImage) in
+                                        pet.image = image
+                                        successHandler(comments)
+                                    })
+                                }
+                            }
+                        }
+                       
+                        
                             
                         
                         }
@@ -272,11 +277,10 @@ class NetworkAPI: NSObject {
                         
                     }
                     
-                    successHandler(comments)
                 }
             }
         }
-    }
+    
     
     class func postComment(comment: Comment, successBlock: PFBooleanResultBlock?){
         comment.saveInBackground(block: successBlock)
@@ -286,5 +290,13 @@ class NetworkAPI: NSObject {
     
     
     
+    
+    }
+    
 
-}
+    
+    
+    
+    
+
+
