@@ -1404,6 +1404,7 @@
                                             <outlet property="captionLabel" destination="cZD-8I-qpH" id="qDv-gJ-gVM"/>
                                             <outlet property="commentButton" destination="Ab7-NB-OVC" id="prm-Un-uSo"/>
                                             <outlet property="likeButton" destination="0St-24-Dvm" id="GI5-J4-pF4"/>
+                                            <outlet property="likesLabel" destination="We0-uZ-h4r" id="Zn3-Gy-YNC"/>
                                             <outlet property="photoImage" destination="Gsh-Xm-ruQ" id="PxH-fi-eWR"/>
                                             <outlet property="profilePictureButton" destination="fG6-gG-oRR" id="G2F-es-UWj"/>
                                             <outlet property="usernameButton" destination="FrC-OX-fQq" id="ZBJ-gy-YAs"/>

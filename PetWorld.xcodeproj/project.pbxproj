@@ -180,6 +180,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		1F35EE121F28F87E001B9569 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1F83D45E1F254DAD000CF412 /* CommentViewController.swift */,
+				1F15C5351E9C9813005B828B /* HomeViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 		1F43B1381F1025EE001D9CC1 /* FirstTime */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +284,7 @@
 		1F73AADD1E9C938C00A5C1AD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1F35EE121F28F87E001B9569 /* Home */,
 				33751ED71EDA2A6C00E60E34 /* Post */,
 				33751ED61EDA07F100E60E34 /* Login */,
 				33751ECC1ED93A4B00E60E34 /* Friends View Controllers */,
@@ -364,13 +374,11 @@
 		33751ED71EDA2A6C00E60E34 /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				1F15C5351E9C9813005B828B /* HomeViewController.swift */,
 				1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */,
 				1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */,
 				5E0CF80E1EBE68E70088427A /* PostsViewController.swift */,
 				1F7D425C1ED9F15E00E4B278 /* VerifyPhotoViewController.swift */,
 				1F232B981F158727002367AD /* PostMediaTabViewController.swift */,
-				1F83D45E1F254DAD000CF412 /* CommentViewController.swift */,
 			);
 			name = Post;
 			sourceTree = "<group>";

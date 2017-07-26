@@ -26,6 +26,7 @@ class PostTableViewCell: UITableViewCell{
     @IBOutlet weak var usernameButton: UIButton!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var likesLabel: UIButton!
     
     var loadingState: Bool = false
     var isLoading: Bool  = false
@@ -35,7 +36,20 @@ class PostTableViewCell: UITableViewCell{
     
     @IBAction func onLikeButtonTapped(_ sender: UIButton) {
         
+        
+        if let likes = self.post.likes as? Int{
+            if (self.likeButton.isSelected){
+                updateNumLikes(numLikes: NSNumber(value: likes - 1))
+            }else{
+                updateNumLikes(numLikes: NSNumber(value: likes + 1))
+
+            }
+        }
+        
+        
         updateLikeButton(liked: !self.likeButton.isSelected)
+        
+        
     }
     
     
@@ -57,6 +71,9 @@ class PostTableViewCell: UITableViewCell{
         updateUsernameButton()
         updateProfilePicture()
         updateMedia()
+        if let likes = self.post.likes{
+            updateNumLikes(numLikes: likes)
+        }
         //updateLikeButton()
         
     
@@ -135,6 +152,10 @@ class PostTableViewCell: UITableViewCell{
         self.likeButton.isSelected = liked
         
         
+    }
+    
+    func updateNumLikes(numLikes: NSNumber){
+        self.likesLabel.setTitle("\(numLikes as! Int) likes", for: UIControlState.normal)
     }
     
     

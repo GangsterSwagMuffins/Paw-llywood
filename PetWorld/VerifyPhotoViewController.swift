@@ -29,10 +29,10 @@ class VerifyPhotoViewController: UIViewController, UITextFieldDelegate {
         // caption
         let captionText = caption.text
         // post photo
-        let photoPost = NetworkAPI.resize(photo: self.chosenPicture.image!, newSize: CGSize(width: 240, height: 240))
+        let resizedImage = NetworkAPI.resize(photo: self.chosenPicture.image!, newSize: CGSize(width: 240, height: 240))
             let post = Post()
-            post.media = NetworkAPI.getPhotoFile(photo: photoPost)
-            NetworkAPI.postUserImage(photo: photoPost, caption: captionText) { (success: Bool, error: Error?) in
+            post.media = NetworkAPI.getPhotoFile(photo: resizedImage)
+            NetworkAPI.postUserImage(photo: resizedImage, caption: captionText) { (success: Bool, error: Error?) in
                 if let error = error{
                     print("error occured")
                 }else{

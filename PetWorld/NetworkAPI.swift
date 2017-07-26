@@ -114,8 +114,8 @@ class NetworkAPI: NSObject {
         
         post.media = getPhotoFile(photo: photo)
         post.author = Pet.currentPet() // Pointer column type that points to PFUser
-        post["caption"] = caption
-        post["likesCount"] = 0
+        post.caption = caption
+        post.likes = 0
         post.likedBy = [:]
         
         
@@ -322,7 +322,10 @@ class NetworkAPI: NSObject {
                 byPet.likedPosts?[postId] = withPost
 
             }
-            
+            //If the user likes add to the number of likes
+            if let likes = withPost.likes as? Int{
+                withPost.likes = NSNumber(value: likes + 1)
+            }
             
             
         }else{
@@ -336,6 +339,11 @@ class NetworkAPI: NSObject {
                 print(withPost)
 
             }
+            //If the user unliked remove from the number of likes
+            if let likes = withPost.likes as? Int{
+                withPost.likes = NSNumber(value: likes - 1)
+            }
+            
             
             
         }
