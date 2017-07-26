@@ -23,10 +23,12 @@ class Post: PFObject, PFSubclassing {
    @NSManaged var author : Pet?
    @NSManaged var media: PFFile?
    @NSManaged var caption: String?
-   @NSManaged var likedBy: [Pet]?
+    @NSManaged var likedBy: [String: Pet]?
    @NSManaged var comments: [Comment]?
    @NSManaged var timeStamp : String?
     var image: UIImage?
+    //Flag to check and see if a post is currently liked by the current Pet logged in
+    var liked: Bool = false
     
    
     

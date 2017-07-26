@@ -23,14 +23,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var commentViewController: CommentViewController?
     var likedPosts: [String: Post] = [:]
     
-  
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
          initTableView()
-        if (Pet.currentPet().name! == "STUB"){
-         initLikedPosts()
-        }
+        initLikedPosts()
+
+        
+        
         
         if (!isLoadingPosts){
             isLoadingPosts = true
@@ -43,6 +45,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
         
         if (!isLoadingPosts){
             isLoadingPosts = true
@@ -50,6 +54,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
        
         self.tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
     }
     
     // Table functions
@@ -100,11 +109,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    
-    
-    
-    
-    
+   
     func loadPosts(){
         
         NetworkAPI.getPosts(numPosts: 20, successHandler: { (posts: [Post]) in
@@ -155,35 +160,42 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func checkIfPostIsLiked(post: Post){
         let objectId = post.objectId
-        print(Pet.currentPet().likedPosts)
-        print(self.likedPosts)
+        let pet = Pet.currentPet()
+       // print(self.likedPosts)
         if let objectId = objectId{
-            let queryResult = self.likedPosts[objectId]
-            if let likedPost = queryResult{
-                likedPost.liked = true
+            if  let queryResult = pet.likedPosts?[objectId]{
+                post.liked = true
+            }
+            
             }
         }
         
-    }
+    
     
     func initLikedPosts(){
         let pet = Pet.currentPet()
-        print(pet)
+      //  print(pet)
         if (pet.likedPosts == nil){
-            pet.likedPosts  = []//Duck tape
+            pet.likedPosts  = [:]//Duck tape
         }
         
-        //Put all liked posts in map.
-        for post in pet.likedPosts!{
-            if let objectId = post.objectId{
-                self.likedPosts[objectId] = post
-            }
-            
-        }
+       
         
        // for post in pe
     }
-
-
+    
+    func findPost(withId: String)->Int?{
+        var counter: Int = 0
+        for post in self.posts{
+            if (post.objectId == withId){
+                return counter
+            }
+            counter = counter + 1
+        }
+        return nil
+    }
+    
 
 }
+
+

@@ -9,10 +9,15 @@
 import UIKit
 import Parse
 
+
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate  {
+  
 
     var window: UIWindow?
+    
    
     
  
@@ -43,21 +48,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         
         
         if (User.current() != nil){
-            NetworkAPI.loadPets(finishedDownloading: { (pets: [Pet]) in
-                if (pets.count > 0){
-                    //Save all the pets here!
-                    Pet.pets = pets
-                }
-            })
             
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+          let storyboard = UIStoryboard(name: "Main", bundle: nil)/*
             let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             
             vc.tabBar.barTintColor = TextManipulation.themeColor()
             vc.tabBar.tintColor = TextManipulation.secondaryColor()
             
-            window?.rootViewController = vc
+            window?.rootViewController = vc*/
+            
+           /* let loadingViewController = storyboard.instantiateViewController(withIdentifier: "LoadingViewController") as! LoadingViewController
+            
+            window?.rootViewController = loadingViewController*/
+            
+            let homeTabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+            
+            
+            
+            
+            
+            
+            
+            NetworkAPI.loadPets(finishedDownloading: { (pets: [Pet]) in
+                if (pets.count > 0){
+                    //Save all the pets here!
+                    Pet.pets = pets
+                    self.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                    
+                    self.window?.rootViewController = homeTabBarController
+                    
+                    
+                }
+            })
+            
+            
+            
            
             
            

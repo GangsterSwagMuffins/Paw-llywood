@@ -48,7 +48,7 @@ class Pet: PFObject, PFSubclassing {
     //Long bio (256 characters max)
     @NSManaged  var longBio: String?
     //Pet's liked post
-    @NSManaged var likedPosts: [Post]?
+    @NSManaged var likedPosts: [String: Post]?
    
    
     
@@ -83,6 +83,10 @@ class Pet: PFObject, PFSubclassing {
         if pets.count > 0{
           return  pets[currentPetIndex]
         }
+        
+        
+        let pet = Pet()
+        pet.name = "STUB"
         //Stub pet
         return Pet()
         

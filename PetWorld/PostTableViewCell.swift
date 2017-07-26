@@ -27,26 +27,15 @@ class PostTableViewCell: UITableViewCell{
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     
-    var isLiked = false
+    var loadingState: Bool = false
+    var isLoading: Bool  = false
     
     @IBOutlet weak var likeButton: UIButton!
     
     
     @IBAction func onLikeButtonTapped(_ sender: UIButton) {
         
-        if (isLiked){
-            isLiked = false
-            //Update the server
-            updateLike(liked: false)
-           likeButton.isSelected = false
-            
-        }else{
-            isLiked = true
-            //Update the server
-            updateLike(liked: true)
-            likeButton.isSelected = true
-        
-        }
+        updateLikeButton(liked: !self.likeButton.isSelected)
     }
     
     
@@ -54,7 +43,7 @@ class PostTableViewCell: UITableViewCell{
     var post : Post!{
         didSet{
             initLikeButton()
-             updateUI()
+            updateUI()
                 
             }
   
@@ -68,7 +57,7 @@ class PostTableViewCell: UITableViewCell{
         updateUsernameButton()
         updateProfilePicture()
         updateMedia()
-        updateLikeButton()
+        //updateLikeButton()
         
     
     }
@@ -111,9 +100,7 @@ class PostTableViewCell: UITableViewCell{
             let boldedString = TextManipulation.attributedString(from: captionText, nonBoldRange: range)
             
             captionLabel.attributedText = boldedString
-        if let pet = post.author{
-            
-            }
+        
         }
         
     
@@ -136,8 +123,16 @@ class PostTableViewCell: UITableViewCell{
         }
     }
     
-    func updateLikeButton(){
+    func updateLikeButton(liked: Bool){
+       
         
+        if (!isLoading){
+            updateLike(liked: liked)
+        }else{
+            print("Still loading .....")
+        }
+        
+        self.likeButton.isSelected = liked
         
         
     }
@@ -149,7 +144,9 @@ class PostTableViewCell: UITableViewCell{
         
         self.likeButton.setImage(UIImage(named: "dark_heart"), for: UIControlState.selected)
         
-        //Add logic to see how to init the like button
+        self.likeButton.isSelected = self.post.liked
+        
+
         
     }
 
@@ -176,11 +173,28 @@ class PostTableViewCell: UITableViewCell{
     /*Makes a network call updating the liked status of a post.*/
     func updateLike(liked: Bool){
         
+        self.loadingState = liked
+        self.isLoading = true
+        
         NetworkAPI.toggleLiked(withPost: self.post, byPet: Pet.currentPet(), withState: liked, completionHandler: { (success: Bool, error: Error?) in
+            
+            
+            
             if let error = error{
                 print("Could not toggle like! \(error)")
             }else{
                 if success{
+                    let newState:  Bool = self.likeButton.isSelected
+                    if (newState != liked){
+                        self.updateLike(liked: newState)
+                        //More loading is required....
+                    }else{//Finished loading
+                        self.isLoading = false
+                    }
+                    
+                    print("successfully toggled like")
+                    
+                }else{
                     print("successfully toggled like")
                 }
             }

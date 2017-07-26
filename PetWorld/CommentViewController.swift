@@ -62,7 +62,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //Testing to be deleted
         if let pet = newComment.author{
-           print(pet)
+          // print(pet)
         }
         comments.append(newComment)
         

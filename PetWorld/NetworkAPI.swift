@@ -1,4 +1,4 @@
-//
+    //
 //  NetworkAPI.swift
 //  PetWorld
 //
@@ -9,7 +9,17 @@
 import UIKit
 import Parse
 
+
+
+
+
+
+
 class NetworkAPI: NSObject {
+    
+    
+    
+    
     
     class func loadPicture(imageFile: PFFile, successBlock: ((UIImage)->Void)? ) ->UIImage?{
         var picture: UIImage?
@@ -56,7 +66,7 @@ class NetworkAPI: NSObject {
                     if let petPFObjects = petPFObjects{
                         for petPFObject in petPFObjects{
                             let newPet : Pet = petPFObject as! Pet
-                            
+                           // print(newPet)
                             //Some default fields until have screen to input this data
                     /*      //  print(newPet)
                             newPet.breed = "Cairn Terrier"
@@ -106,6 +116,8 @@ class NetworkAPI: NSObject {
         post.author = Pet.currentPet() // Pointer column type that points to PFUser
         post["caption"] = caption
         post["likesCount"] = 0
+        post.likedBy = [:]
+        
         
         
         
@@ -209,11 +221,7 @@ class NetworkAPI: NSObject {
     }
     
     
-    class func getLikedPosts(user: User){
-         let query = PFQuery(className: "Post")
-        
-        query.whereKey("userLiked", equalTo: user)
-    }
+    
     
     class func resize(photo: UIImage, newSize: CGSize) -> UIImage {
         
@@ -296,31 +304,46 @@ class NetworkAPI: NSObject {
         if (liked){
             if (withPost.likedBy == nil){
                 //Duck tape... Probably should initialize array when creating post.
-                withPost.likedBy = []
+                withPost.likedBy = [:]
             }
             
             if (byPet.likedPosts == nil){
-                byPet.likedPosts = []
+                byPet.likedPosts = [:]
             }
             
+            
+            
             //Many to many relationship...
-            byPet.likedPosts?.append(withPost)
-            withPost.likedBy?.append(byPet)
+            if  let petId = byPet.objectId{
+                withPost.likedBy?[petId] = byPet
+
+            }
+            if let postId = withPost.objectId{
+                byPet.likedPosts?[postId] = withPost
+
+            }
+            
             
             
         }else{
-            if let index = withPost.likedBy?.index(of: byPet){
-                withPost.likedBy?.remove(at: index)
+            if let postId = withPost.objectId{
+                byPet.likedPosts?.removeValue(forKey: postId)
+                print(byPet)
             }
             
-            if let postIndex = byPet.likedPosts?.index(of: withPost){
-                byPet.likedPosts?.remove(at: postIndex)
+            if let petId = byPet.objectId{
+                withPost.likedBy?.removeValue(forKey: petId)
+                print(withPost)
+
             }
+            
             
         }
-        withPost.saveInBackground(block: completionHandler)
-        //TODO: Make this more safe  ___________________
-        byPet.saveInBackground(block: completionHandler)
+        
+        
+        PFObject.saveAll(inBackground: [withPost, byPet], block: completionHandler)
+        
+        
         
         
     }

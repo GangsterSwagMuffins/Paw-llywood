@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fe6-sd-Mq5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Wmg-4c-r3m">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1100,6 +1100,34 @@
             </objects>
             <point key="canvasLocation" x="-2948" y="804.64767616191909"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="bYG-Qm-9z2">
+            <objects>
+                <viewController storyboardIdentifier="LoadingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wmg-4c-r3m" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vmd-4b-pgq"/>
+                        <viewControllerLayoutGuide type="bottom" id="fsl-Rh-Qwe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6xs-kg-HbE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Loading Background" translatesAutoresizingMaskIntoConstraints="NO" id="zvT-rW-hBV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pawllywood" translatesAutoresizingMaskIntoConstraints="NO" id="nru-xP-xc6">
+                                <rect key="frame" x="0.0" y="117" width="375" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqr-Uu-sZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4631" y="582"/>
+        </scene>
         <!--Tutorial Page View Controller-->
         <scene sceneID="7xW-3K-a9f">
             <objects>
@@ -1268,7 +1296,7 @@
         <!--Home-->
         <scene sceneID="bp3-gV-DPB">
             <objects>
-                <viewController id="QHn-we-XxN" customClass="HomeViewController" customModule="PetWorld" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QHn-we-XxN" customClass="HomeViewController" customModule="PetWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5BG-Ct-3p9"/>
                         <viewControllerLayoutGuide type="bottom" id="g09-cB-Vgz"/>
@@ -1278,7 +1306,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="460" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gog-EF-MdP" customClass="DesignableTableView">
-                                <rect key="frame" x="0.0" y="16" width="375" height="651"/>
+                                <rect key="frame" x="0.0" y="16" width="375" height="602"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="460" id="LaN-Ks-siV" customClass="PostTableViewCell" customModule="PetWorld" customModuleProvider="target">
@@ -1439,7 +1467,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="162"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zFX-B6-Mva" id="dBG-p0-DTx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="UtY-nw-QZH" customClass="DesignableImageView" customModule="PetWorld" customModuleProvider="target">
@@ -1530,7 +1558,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mhq-9F-Pga" id="7h2-77-tX2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayV-h6-JLp">
@@ -1877,14 +1905,14 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="plB-YT-0lc">
-                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                                <rect key="frame" x="0.0" y="66" width="375" height="552"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PetsTableViewCell" rowHeight="95" id="LeM-sX-XVo" customClass="PetsTableViewCell" customModule="PetWorld" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LeM-sX-XVo" id="6cQ-TQ-tJG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RWp-gi-nzZ">
@@ -1952,6 +1980,7 @@
     </scenes>
     <resources>
         <image name="Default Profile Image" width="250" height="150"/>
+        <image name="Loading Background" width="414" height="736"/>
         <image name="Login Background" width="414" height="736"/>
         <image name="Pet Profile Pic Chooser" width="150" height="150"/>
         <image name="bone gray" width="32" height="32"/>
@@ -1971,9 +2000,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tKs-kK-mOb"/>
-        <segue reference="uMF-ZG-7Sy"/>
-        <segue reference="4k2-W2-gtJ"/>
-        <segue reference="64s-04-dY4"/>
+        <segue reference="Jto-do-SuL"/>
         <segue reference="h1A-o7-o6e"/>
+        <segue reference="64s-04-dY4"/>
+        <segue reference="4k2-W2-gtJ"/>
     </inferredMetricsTieBreakers>
 </document>
