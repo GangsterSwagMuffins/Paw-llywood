@@ -63,12 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
             window?.rootViewController = loadingViewController*/
             
             let homeTabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController")
-            
-            
-            
-            
-            
-            
+      
             
             NetworkAPI.loadPets(finishedDownloading: { (pets: [Pet]) in
                 if (pets.count > 0){
@@ -82,12 +77,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
                 }
             })
             
+        }else{
+          let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
             
+            window?.rootViewController = loginViewController
             
-           
-            
-           
-        
         }
         
         

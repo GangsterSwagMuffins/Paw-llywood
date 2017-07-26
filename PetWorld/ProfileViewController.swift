@@ -42,22 +42,26 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         self.profileView.showEdit = shouldShowEditButton
       //  updateOwnerField()
         //Have an instance of delegate from app del
-        let currentUser = User.current()!
-        if (Pet.getPets().count > 0){
-            print("number of pets > 0")
-            //Get the current pet
-             self.pet = Pet.currentPet()
-            //Automatically updates the UI after finished loading...
-            
-            if let pet = self.pet{
-                self.profileView.loadProfileImage(pet: pet)
-                self.profileView.updateUI(pet: pet)
+        
+        
+        if (shouldShowEditButton){
+            if (Pet.getPets().count > 0){
+                print("number of pets > 0")
+                //Get the current pet
+                self.pet = Pet.currentPet()
+                //Automatically updates the UI after finished loading...
+                
+                if let pet = self.pet{
+                    self.profileView.loadProfileImage(pet: pet)
+                    self.profileView.updateUI(pet: pet)
+                }
+                
+                
+            }else{ // If no pets were loaded....
+                print("getPets() has <= 0")
             }
-            
-    
-        }else{ // If no pets were loaded....
-            print("getPets() has <= 0")
         }
+       
         
         
         if let pet = self.pet{
@@ -90,31 +94,30 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         let currentUser = User.current()!
         
         
-        
-        if (self.pet == nil){
-            if (Pet.getPets().count > 0){
-                
-                
-                //Get the current pet
-                self.pet = Pet.currentPet()
-                
-                if let pet = self.pet{
-                    self.profileView.loadProfileImage(pet: pet)
+        if (shouldShowEditButton){
+            if (self.pet == nil){
+                if (Pet.getPets().count > 0){
+                    //Get the current pet
+                    self.pet = Pet.currentPet()
+                    if let pet = self.pet{
+                        self.profileView.loadProfileImage(pet: pet)
+                    }
+                    
+                    
+                    
+                    
+                }else{ // If no pets were loaded....
+                    print("getPets() has <= 0")
                 }
                 
                 
-                
-                
-            }else{ // If no pets were loaded....
-                print("getPets() has <= 0")
             }
-            
-        
         }
+       
        
         
         if let pet = self.pet{
-            self.profileView.updatePetUI(pet: pet)
+            self.profileView.pet = pet
           //  print(pet)
            
         }

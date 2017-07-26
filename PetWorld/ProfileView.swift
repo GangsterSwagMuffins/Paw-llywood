@@ -11,7 +11,11 @@ import Parse
 
 class ProfileView: UIView {
     
-    var pet: Pet!
+    var pet: Pet!{
+        didSet{
+            updateUI(pet: pet)
+        }
+    }
     
     var showEdit: Bool = false{
         didSet{

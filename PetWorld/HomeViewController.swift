@@ -210,6 +210,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
           if let post = sender as? Post{
             if let pet = post.author{
                  profileViewController.pet = pet
+                print(pet)
                 profileViewController.shouldShowEditButton = false
             }
 
