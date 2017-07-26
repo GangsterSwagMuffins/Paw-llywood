@@ -383,7 +383,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-279" y="177"/>
+            <point key="canvasLocation" x="-815" y="3924"/>
         </scene>
         <!--About Me Table View Controller-->
         <scene sceneID="rgx-KH-tVF">
@@ -948,7 +948,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ah-uJ-wi1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1669" y="2946"/>
+            <point key="canvasLocation" x="-2154" y="2867"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Qp2-Sy-BCY">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EhY-df-ZKT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="uIq-dO-aa0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Olr-Xh-giF"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BJY-fd-4Zs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="QHn-we-XxN" kind="relationship" relationship="rootViewController" id="vPo-K3-QUp"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-2810" y="3925"/>
         </scene>
         <!--PostMediaTabViewController-->
         <scene sceneID="gxe-SW-BKf">
@@ -1306,7 +1323,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="460" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gog-EF-MdP" customClass="DesignableTableView">
-                                <rect key="frame" x="0.0" y="16" width="375" height="602"/>
+                                <rect key="frame" x="0.0" y="16" width="375" height="651"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="460" id="LaN-Ks-siV" customClass="PostTableViewCell" customModule="PetWorld" customModuleProvider="target">
@@ -1431,14 +1448,15 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="iconmonstr-building-1-24" id="r1g-dH-Yj9"/>
-                    <navigationItem key="navigationItem" id="pro-MU-9dR"/>
+                    <navigationItem key="navigationItem" title="Home" id="pro-MU-9dR"/>
                     <connections>
                         <outlet property="tableView" destination="Gog-EF-MdP" id="AQu-EV-dUp"/>
+                        <segue destination="udb-9Q-avP" kind="show" identifier="ProfileSegue" id="rcQ-pS-sUj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBP-cL-Jos" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112.8" y="849.62518740629696"/>
+            <point key="canvasLocation" x="-1748" y="3926"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="5HL-7s-XHl">
@@ -1474,7 +1492,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="162"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zFX-B6-Mva" id="dBG-p0-DTx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="UtY-nw-QZH" customClass="DesignableImageView" customModule="PetWorld" customModuleProvider="target">
@@ -1565,7 +1583,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mhq-9F-Pga" id="7h2-77-tX2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayV-h6-JLp">
@@ -1861,16 +1879,16 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="QHn-we-XxN" kind="relationship" relationship="viewControllers" id="L5Y-6f-aSj"/>
                         <segue destination="udb-9Q-avP" kind="relationship" relationship="viewControllers" id="tKs-kK-mOb"/>
                         <segue destination="RNM-cD-UUI" kind="relationship" relationship="viewControllers" id="64s-04-dY4"/>
                         <segue destination="k5T-TP-CS1" kind="relationship" relationship="viewControllers" id="gCM-ov-1Ua"/>
                         <segue destination="quH-Ll-qGI" kind="relationship" relationship="viewControllers" id="8JF-ZU-kii"/>
+                        <segue destination="uIq-dO-aa0" kind="relationship" relationship="viewControllers" id="Vb7-0q-JX3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZj-wG-Eae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1359" y="2199"/>
+            <point key="canvasLocation" x="-1308" y="2279"/>
         </scene>
         <!--Settings-->
         <scene sceneID="kip-EC-Yk7">
@@ -1919,7 +1937,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LeM-sX-XVo" id="6cQ-TQ-tJG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RWp-gi-nzZ">
@@ -2006,7 +2024,7 @@
         <image name="white_heart" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tKs-kK-mOb"/>
+        <segue reference="rcQ-pS-sUj"/>
         <segue reference="Jto-do-SuL"/>
         <segue reference="h1A-o7-o6e"/>
         <segue reference="64s-04-dY4"/>

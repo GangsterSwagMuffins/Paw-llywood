@@ -13,7 +13,11 @@ class ProfileView: UIView {
     
     var pet: Pet!
     
-    var showEdit: Bool = false
+    var showEdit: Bool = false{
+        didSet{
+            updateEditButton(shouldShowOnScreen: showEdit)
+        }
+    }
     
     
     
@@ -59,8 +63,10 @@ class ProfileView: UIView {
     func updateEditButton(shouldShowOnScreen: Bool){
         if (shouldShowOnScreen){
             self.editButton.isHidden = false
+            self.editButton.isEnabled = true
         }else{
             self.editButton.isHidden = true
+            self.editButton.isEnabled = false
         }
     }
     

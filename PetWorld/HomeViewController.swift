@@ -24,8 +24,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var likedPosts: [String: Post] = [:]
     
     
-    @IBAction func onProfileTapped(_ sender: AnyObject) {
+    @IBAction func onProfileTapped(_ sender: UIView) {
         print("profileTapped!!!")
+        
+        
+        let postViewCell = sender.superview?.superview as! PostTableViewCell
+        self.performSegue(withIdentifier: "ProfileSegue", sender: postViewCell.post)
         
         
     }
@@ -198,6 +202,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             counter = counter + 1
         }
         return nil
+    }
+    
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "ProfileSegue"){
+            let profileViewController = segue.destination as! ProfileViewController
+          if let post = sender as? Post{
+            if let pet = post.author{
+                 profileViewController.pet = pet
+                profileViewController.shouldShowEditButton = false
+            }
+
+            }
+            
+        }
     }
     
 
