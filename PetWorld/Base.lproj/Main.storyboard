@@ -1327,6 +1327,9 @@
                                                             <real key="value" value="15"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onProfileTapped:" destination="QHn-we-XxN" eventType="touchUpInside" id="9F8-4q-Qww"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0St-24-Dvm">
                                                     <rect key="frame" x="8" y="198" width="40" height="40"/>
@@ -1374,6 +1377,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                     <color key="tintColor" red="0.039215686274509803" green="0.11372549019607843" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title=""/>
+                                                    <connections>
+                                                        <action selector="onProfileTapped:" destination="QHn-we-XxN" eventType="touchUpInside" id="XUe-eE-2l1"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

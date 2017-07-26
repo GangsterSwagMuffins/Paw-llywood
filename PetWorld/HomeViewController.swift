@@ -24,6 +24,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var likedPosts: [String: Post] = [:]
     
     
+    @IBAction func onProfileTapped(_ sender: AnyObject) {
+        print("profileTapped!!!")
+        
+        
+    }
     
     
     override func viewDidLoad() {
