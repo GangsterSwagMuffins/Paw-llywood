@@ -46,8 +46,17 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
             }else{
                 post.comments?.append(newComment)
             }
+            //Autmatically update comments locally.
+            comments.append(newComment)
             
+            self.tableView.reloadData()
+
+
+            //When the post is finished updating then udpdate the comment to avoid hanging/ deadlock.
             NetworkAPI.update(post: post, withResult: { (success: Bool, error: Error?) in
+                
+                self.updateComment(comment: newComment)
+                
                 if (success){
                     print("updated post with new comments")
                 }else{
@@ -60,26 +69,9 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         
-        //Testing to be deleted
-        if let pet = newComment.author{
-          // print(pet)
-        }
-        comments.append(newComment)
+       
+       
         
-        self.tableView.reloadData()
-        
-        NetworkAPI.postComment(comment: newComment) { (success: Bool, error: Error?) in
-            if let error = error{
-                print("Could not save comment...\n\n\(error)")
-                //Do some kind of error handling...
-            }else{
-                if (success){
-                    print("saved comment!")
-                    
-                    
-                }
-            }
-        }
       
         
     }
@@ -121,6 +113,25 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return cell
         
+    }
+    
+    
+    
+    
+    func updateComment(comment: Comment){
+        
+        NetworkAPI.postComment(comment: comment) { (success: Bool, error: Error?) in
+            if let error = error{
+                print("Could not save comment...\n\n\(error)")
+                //Do some kind of error handling...
+            }else{
+                if (success){
+                    print("saved comment!")
+                    
+                    
+                }
+            }
+        }
     }
     
     
