@@ -43,6 +43,8 @@ class AboutMeTableViewController: UITableViewController {
             
         }
         
+        self.tableView.allowsSelection = false
+        
     }
     
         

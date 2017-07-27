@@ -39,6 +39,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         initPetInfo()
+        self.tableView.allowsSelection = false
         
         
     }

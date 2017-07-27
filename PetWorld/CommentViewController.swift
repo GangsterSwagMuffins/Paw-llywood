@@ -93,6 +93,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView.estimatedRowHeight = 600
         
         self.tableView.reloadData()
+        self.tableView.allowsSelection = false
         
         
 
