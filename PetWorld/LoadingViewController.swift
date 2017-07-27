@@ -16,9 +16,24 @@ class LoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         spinner = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
-        spinner?.startAnimating()
+        if let spinner = spinner{
+            spinner.bringSubview(toFront: spinner)
+            spinner.startAnimating()
+            
+        }
+        
+        
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        print("View did appear")
+        if let spinner = self.spinner{
+            print("Is spinner spinning: \(spinner.isAnimating)")
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,7 +43,11 @@ class LoadingViewController: UIViewController {
     
     
     override func viewWillDisappear(_ animated: Bool) {
-        spinner?.stopAnimating()
+        if let spinner = self.spinner{
+            spinner.stopAnimating()
+            
+        }
+        
     }
     
 
