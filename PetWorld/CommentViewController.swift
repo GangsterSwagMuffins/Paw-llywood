@@ -67,14 +67,10 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
             })
             
         }
-        
-        
-       
-       
-        
-      
-        
+        self.commentTextField.text = ""
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
