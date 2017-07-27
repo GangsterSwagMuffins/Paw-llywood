@@ -38,3 +38,9 @@ class TextManipulation: NSObject {
     }
 
 }
+
+extension String{
+    var isNumber: Bool{
+        return Float(self) != nil
+    }
+}

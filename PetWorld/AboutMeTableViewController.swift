@@ -20,6 +20,16 @@ class AboutMeTableViewController: UITableViewController {
     
     @IBOutlet weak var bioLabel: UILabel!
 
+    @IBOutlet weak var speciesLabel: UILabel!
+    
+    @IBOutlet weak var weightLabel: UILabel!
+    
+    @IBOutlet weak var heightLabel: UILabel!
+    
+    @IBOutlet weak var hobbyLabel: UILabel!
+    
+    
+    
     
     
     override func viewDidLoad() {
@@ -71,7 +81,11 @@ class AboutMeTableViewController: UITableViewController {
     func updateUI(pet: Pet){
         updateBreedLabel(pet: pet)
         updateAgeLabel(pet: pet )
+       // updateHobbyLabel(pet: pet)
+        updateSpeciesLabel(pet: pet)
         updateBioLabel(pet: pet)
+        updateHeightLabel(pet: pet)
+        updateWeightLabel(pet: pet)
         
     }
     
@@ -95,6 +109,38 @@ class AboutMeTableViewController: UITableViewController {
         }
     }
     
+    func updateWeightLabel(pet: Pet){
+        
+        if let weight = pet.weight{
+            let weightDecimal = weight as? Float
+            if let weightDecimal = weightDecimal{
+                self.weightLabel.text =  "\(weightDecimal) lbs"
+            }
+        }
+    }
+    
+    func updateHeightLabel(pet: Pet){
+        if let height = pet.height{
+            let heightDecimal = height as? Float
+            if let heightDecimal = heightDecimal{
+                    self.heightLabel.text = "\(heightDecimal) inches"
+                }
+            }
+        }
+    
+
+    func updateSpeciesLabel(pet: Pet){
+        if let species = pet.species{
+            self.speciesLabel.text = species
+        }
+    }
+    
+    func updateHobbyLabel(pet: Pet){
+        if let hobby = pet.hobby{
+           self.hobbyLabel.text = hobby
+        }
+    }
+
     
 
     // MARK: - Table view data source

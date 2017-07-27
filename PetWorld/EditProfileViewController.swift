@@ -88,18 +88,66 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     }
     
     
-    
+    //This code assumes that user is a nice person and doesnt type letters where number belong.
     func extractData(){
-        self.newImage = profileImageView.image
         
-        self.newBreed = breedTextView.text
-        self.newSpecies = speciesTextView.text
-        self.newWeight = Int(weightTextView.text!) as! NSNumber
-        print(newWeight)
-        self.newHeight = Int(heightTextView.text!) as! NSNumber
-        self.newBio = bioTextView.text
         
-        self.newAge = Int(ageTextView.text!) as! NSNumber
+        if let image = profileImageView.image{
+            self.newImage = image
+        }
+      //  self.newImage = profileImageView.image
+        
+        if let breed = breedTextView.text{
+           self.newBreed = breed
+        }
+        
+      //  self.newBreed = breedTextView.text
+        
+        if let newSpecies = speciesTextView.text{
+            self.newSpecies = newSpecies
+        }
+        
+      //  self.newSpecies = speciesTextView.text
+        
+        if let weightString = weightTextView.text{
+            if (weightString.isNumber){
+                self.newWeight = Float(weightString) as! NSNumber
+
+            }
+        }else{
+            print("User tried to input String data where numbers go!!!")
+
+        }
+        
+        
+       // self.newWeight = Int(weightTextView.text!) as! NSNumber
+        
+       // print(newWeight)
+        
+        if let heightString = self.heightTextView.text{
+            if (heightString.isNumber){
+                self.newHeight = Float(heightString) as! NSNumber
+            }else{
+                 print("User tried to input String data where numbers go!!!")
+            }
+
+        }
+        
+        if let bio = bioTextView.text{
+            self.newBio = bio
+        }
+        
+        
+        //self.newHeight = Int(heightTextView.text!) as! NSNumber
+        //self.newBio = bioTextView.text
+        
+        if let ageString = ageTextView.text{
+            if ageString.isNumber{
+                self.newAge = Float(ageTextView.text!) as! NSNumber
+            }
+        }
+        
+        //self.newAge = Int(ageTextView.text!) as! NSNumber
     
     }
     
@@ -111,34 +159,25 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         profileImageView.image = pet.image
     }
     
-    
-    
-        breedTextView.text = pet.breed ?? "PettyMcPetPet"
+
+        breedTextView.text = pet.breed
         
-        speciesTextView.text = pet.species ?? "DinoNugget"
+        speciesTextView.text = pet.species
     
     if let age = pet.age{
         ageTextView.text = "\(age)"
-    }else{
-        ageTextView.text = "0"
     }
     
     if let weight = pet.weight{
         weightTextView.text = "\(weight)"
-    }else{
-        weightTextView.text = "900"
     }
     
     if let height = pet.height{
         heightTextView.text = "\(height)"
-    }else{
-        heightTextView.text = "20"
     }
     
     if let longBio = pet.longBio{
         bioTextView.text = "\(longBio)"
-    }else{
-        bioTextView.text = "I am a pet."
     }
     
     
