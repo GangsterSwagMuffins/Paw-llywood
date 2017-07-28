@@ -1605,6 +1605,10 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onCommentEditingEnd:" destination="wrF-af-4Fi" eventType="editingDidEnd" id="JLl-aJ-5ZJ"/>
+                                    <action selector="onCommentStartEditing:" destination="wrF-af-4Fi" eventType="editingDidEnd" id="yVY-D8-pnV"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdH-eh-6WE">
                                 <rect key="frame" x="313" y="581" width="62" height="36"/>
@@ -1638,6 +1642,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomConstraint" destination="c7C-4m-w9H" id="fTy-vT-58J"/>
                         <outlet property="commentTextField" destination="9Gi-Xf-4Nc" id="FSV-To-qnf"/>
                         <outlet property="tableView" destination="N8k-Pc-x8m" id="dZs-zR-hBy"/>
                     </connections>

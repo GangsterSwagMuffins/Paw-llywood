@@ -16,9 +16,37 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var commentTextField: UITextField!
     
    var comments: [Comment] = []
+    var keyboardHeight: CGFloat = 0.0
     
     //The post that comment is being reffered by
     var post: Post?
+    
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    
+    
+    
+    
+    
+    @IBAction func onCommentStartEditing(_ sender: AnyObject) {
+        print("comment start")
+       // self.resignFirstResponder()
+       // print(self.keyboardHeight)
+       
+        
+    }
+    
+    
+    @IBAction func onCommentEditingEnd(_ sender: Any) {
+        print("comment end")
+        print(self.keyboardHeight)
+        self.commentTextField.resignFirstResponder()
+
+        UIView.animate(withDuration: 0.2) {
+            self.bottomConstraint.constant = 50
+            self.commentTextField.layoutIfNeeded()
+        }
+    }
+    
     
     
     @IBAction func onBackButtonPressed(_ sender: Any) {
@@ -68,6 +96,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
         self.commentTextField.text = ""
+        self.commentTextField.endEditing(true)
     }
     
     
@@ -84,13 +113,37 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView.allowsSelection = false
         
         
+        
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector:  .keyboardWillShow, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc fileprivate func keyboardWillShow(notification: NSNotification){
+         let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        
+        self.keyboardHeight = (keyboardSize?.height)!
+        
+        
+        print("keyboardWillShow() called!\n_________\n\(keyboardSize)___________")
+        UIView.animate(withDuration: 0.2) {
+            self.bottomConstraint.constant = self.keyboardHeight + self.commentTextField.frame.size.height
+        }
+        
+        
+    
     }
     
     
@@ -130,9 +183,9 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    
-    
+}
 
-   
-
+private extension Selector{
+    static let keyboardWillShow = #selector(CommentViewController.keyboardWillShow(notification:))
+    
 }
