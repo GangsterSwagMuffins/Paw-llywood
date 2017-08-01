@@ -40,9 +40,13 @@ class Pet: PFObject, PFSubclassing {
     //Male or female none of this 55 gender stuff.
     @NSManaged var gender: String?
     //Don't be a folllower be a leader.
-    @NSManaged var followers: NSNumber?
+    @NSManaged var followersCount: NSNumber?
     //Increase this.
-    @NSManaged var following: NSNumber?
+    @NSManaged var followingCount: NSNumber?
+    //Minions
+    @NSManaged var followers: [Pet]?
+    //Idols
+    @NSManaged var following: [Pet]?
     //Mini bio (32 characters max)
     @NSManaged  var miniBio: String?
     //Long bio (256 characters max)
