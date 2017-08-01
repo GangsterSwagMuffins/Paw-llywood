@@ -74,6 +74,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
                     self.window?.rootViewController = homeTabBarController
                     
                     
+                }else{
+                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                    let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
+                    
+                    self.window?.rootViewController = loginViewController
                 }
             })
             

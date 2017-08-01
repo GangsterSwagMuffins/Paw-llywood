@@ -62,7 +62,7 @@ class PostTableViewCell: UITableViewCell{
         
         let postOwner  = cell.post.author!
         
-        if self.followButton.state == UIControlState.application{
+        if self.followButton.isSelected{
             NetworkAPI.unfollow(follower: currentPet, followee: postOwner, completionHandler: {
                 print("Succesfully unfollowed")
             }, errorHandler: { (error: Error) in

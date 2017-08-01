@@ -44,15 +44,17 @@ class Pet: PFObject, PFSubclassing {
     //Increase this.
     @NSManaged var followingCount: NSNumber?
     //Minions
-    @NSManaged var followers: [Pet]?
+    @NSManaged var followers: [String: Pet]?
     //Idols
-    @NSManaged var following: [Pet]?
+    @NSManaged var following: [String:Pet]?
     //Mini bio (32 characters max)
     @NSManaged  var miniBio: String?
     //Long bio (256 characters max)
     @NSManaged  var longBio: String?
     //Pet's liked post
     @NSManaged var likedPosts: [String: Post]?
+    
+   
    
    
     
@@ -112,7 +114,15 @@ class Pet: PFObject, PFSubclassing {
     }
     
     func isFollowing(pet: Pet) -> Bool{
-        return self.following?.index(of: pet) != nil
+        if self.following == nil{
+            following = [:]
+        }
+        
+        if pet.followers == nil{
+            followers = [:]
+        }
+        
+        return self.following![pet.objectId!] != nil
     }
     
 }

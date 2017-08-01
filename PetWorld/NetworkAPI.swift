@@ -358,47 +358,50 @@ class NetworkAPI: NSObject {
     
     
     
-    class func follow(follower: Pet, followee: Pet, completionHandler: @escaping @escaping ((Void) -> Void), errorHandler: ((Error)-> Void)){
+    class func follow(follower: Pet, followee: Pet, completionHandler: @escaping((Void) -> Void), errorHandler: @escaping((Error)-> Void)){
         if follower.following == nil{
-            follower.following = []
+            follower.following = [:]
         }
         
         if followee.followers == nil{
-            followee.followers = []
+            followee.followers = [:]
         }
         
-        follower.following?.append(followee)
-        followee.followers?.append(follower)
+        follower.following?[followee.objectId!] = followee
+        followee.followers?[follower.objectId!] = follower
         
-        PFObject.saveAll(inBackground: [follower, followee]) { (sucess: Bool, error: Error?) in
-            if sucess {
+        PFObject.saveAll(inBackground: [follower, followee]) { (success: Bool, error: Error?) in
+            if success {
                 completionHandler()
             }else{
-                print(error)
-                errorHandler(error!!)
+                if let error = error{
+                    errorHandler(error)
+                }
+               
             }
         }
    
     }
     
     
-    class func unfollow(follower: Pet, followee: Pet, completionHandler: @escaping ((Void) -> Void), errorHandler: ((Error)-> Void)){
+    class func unfollow(follower: Pet, followee: Pet, completionHandler: @escaping((Void) -> Void), errorHandler: @escaping((Error)-> Void)){
         if follower.following == nil{
-            follower.following = []
+            follower.following = [:]
         }
         
         if followee.followers == nil{
-            followee.followers = []
+            followee.followers = [:]
         }
         
-        let followingIndex = follower.following?.index(of: followee)
-        let followeeIndex = followee.followers?.index(of: follower)
+    
         
-        followee.followers?.remove(at: followeeIndex!)
-        follower.following?.remove(at: followingIndex!)
+       
+        follower.following?.removeValue(forKey: followee.objectId!)
+        followee.followers?.removeValue(forKey: follower.objectId!)
         
-        PFObject.saveAll(inBackground: [follower, followee]) { (sucess: Bool, error: Error?) in
-            if sucess {
+        
+        PFObject.saveAll(inBackground: [follower, followee]) { (success: Bool, error: Error?) in
+            if success {
                 completionHandler()
             }else{
                 print(error)
@@ -407,7 +410,8 @@ class NetworkAPI: NSObject {
         
     }
     
-}
+    
+    }
     
 
     
