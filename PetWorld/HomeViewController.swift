@@ -26,16 +26,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     
-    @IBAction func onFollowTapped(_ sender: Any) {
-        //Add follow logic.
-        
-        
-    }
-    
     
     
     @IBAction func onProfileTapped(_ sender: UIView) {
         print("profileTapped!!!")
+
         
         
         let postViewCell = sender.superview?.superview as! PostTableViewCell

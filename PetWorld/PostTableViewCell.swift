@@ -27,6 +27,9 @@ class PostTableViewCell: UITableViewCell{
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var likesLabel: UIButton!
+    @IBOutlet weak var followButton: UIButton!
+    
+    
     
     var loadingState: Bool = false
     var isLoading: Bool  = false
@@ -52,11 +55,42 @@ class PostTableViewCell: UITableViewCell{
         
     }
     
+    @IBAction func onFollowButtonTapped(_ sender: UIButton) {
+        
+        let currentPet = Pet.currentPet()
+        let cell = sender.superview?.superview as! PostTableViewCell
+        
+        let postOwner  = cell.post.author!
+        
+        if self.followButton.state == UIControlState.application{
+            NetworkAPI.unfollow(follower: currentPet, followee: postOwner, completionHandler: {
+                print("Succesfully unfollowed")
+            }, errorHandler: { (error: Error) in
+                print("Unsucessful unfollow")
+            })
+            
+            self.followButton.isSelected = false
+        }else{
+            NetworkAPI.follow(follower: currentPet, followee: postOwner, completionHandler: {
+                print("Successful follow")
+            
+            }, errorHandler: { (error: Error) in
+                
+                print("Unsucessful follow.")
+            })
+            
+            self.followButton.isSelected = true                 
+        }
+        
+    
+        
+    }
     
     
     var post : Post!{
         didSet{
             initLikeButton()
+            initFollowButton()
             updateUI()
                 
             }
@@ -220,6 +254,25 @@ class PostTableViewCell: UITableViewCell{
                 }
             }
         })
+        
+    }
+    
+    
+    func initFollowButton(){
+        self.followButton.setTitle("Unfollow", for: UIControlState.selected)
+        self.followButton.setTitle("Follow",for: UIControlState.normal)
+        
+        
+        let currentPet = Pet.currentPet()
+        if let followee = self.post.author{
+            if currentPet.isFollowing(pet: self.post.author!){
+                self.followButton.isSelected = true
+            }else{
+                self.followButton.isSelected = false
+            }
+        }
+        
+        
         
     }
     

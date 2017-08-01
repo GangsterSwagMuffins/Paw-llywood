@@ -358,9 +358,56 @@ class NetworkAPI: NSObject {
     
     
     
-    
-    
+    class func follow(follower: Pet, followee: Pet, completionHandler: @escaping @escaping ((Void) -> Void), errorHandler: ((Error)-> Void)){
+        if follower.following == nil{
+            follower.following = []
+        }
+        
+        if followee.followers == nil{
+            followee.followers = []
+        }
+        
+        follower.following?.append(followee)
+        followee.followers?.append(follower)
+        
+        PFObject.saveAll(inBackground: [follower, followee]) { (sucess: Bool, error: Error?) in
+            if sucess {
+                completionHandler()
+            }else{
+                print(error)
+                errorHandler(error!!)
+            }
+        }
+   
     }
+    
+    
+    class func unfollow(follower: Pet, followee: Pet, completionHandler: @escaping ((Void) -> Void), errorHandler: ((Error)-> Void)){
+        if follower.following == nil{
+            follower.following = []
+        }
+        
+        if followee.followers == nil{
+            followee.followers = []
+        }
+        
+        let followingIndex = follower.following?.index(of: followee)
+        let followeeIndex = followee.followers?.index(of: follower)
+        
+        followee.followers?.remove(at: followeeIndex!)
+        follower.following?.remove(at: followingIndex!)
+        
+        PFObject.saveAll(inBackground: [follower, followee]) { (sucess: Bool, error: Error?) in
+            if sucess {
+                completionHandler()
+            }else{
+                print(error)
+            }
+        }
+        
+    }
+    
+}
     
 
     

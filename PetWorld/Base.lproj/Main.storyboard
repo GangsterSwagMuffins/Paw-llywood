@@ -1018,7 +1018,7 @@
             <objects>
                 <navigationController id="uIq-dO-aa0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Olr-Xh-giF"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BJY-fd-4Zs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BJY-fd-4Zs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1477,7 +1477,7 @@
                                                         <color key="titleColor" red="0.039215686274509803" green="0.090196078431372548" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="onFollowTapped:" destination="QHn-we-XxN" eventType="touchUpInside" id="5kc-8N-gb2"/>
+                                                        <action selector="onFollowButtonTapped:" destination="LaN-Ks-siV" eventType="touchUpInside" id="NjV-pA-Nc9"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrC-OX-fQq">
@@ -1517,6 +1517,7 @@
                                         <connections>
                                             <outlet property="captionLabel" destination="cZD-8I-qpH" id="qDv-gJ-gVM"/>
                                             <outlet property="commentButton" destination="Ab7-NB-OVC" id="prm-Un-uSo"/>
+                                            <outlet property="followButton" destination="voL-bJ-1P9" id="bUQ-62-j7a"/>
                                             <outlet property="likeButton" destination="0St-24-Dvm" id="GI5-J4-pF4"/>
                                             <outlet property="likesLabel" destination="We0-uZ-h4r" id="Zn3-Gy-YNC"/>
                                             <outlet property="photoImage" destination="Gsh-Xm-ruQ" id="PxH-fi-eWR"/>

@@ -18,8 +18,6 @@ class DesignableTableView: UITableView {
             imageView.image = backgroundImage
             
             self.backgroundView = imageView
-            
-        
         
         }
     
