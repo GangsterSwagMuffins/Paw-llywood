@@ -23,6 +23,9 @@
 		1F59EBE91F1D300400A2CBE2 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F59EBE81F1D300400A2CBE2 /* EditProfileView.swift */; };
 		1F59EBEC1F1EF14C00A2CBE2 /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F59EBEB1F1EF14C00A2CBE2 /* NetworkAPI.swift */; };
 		1F5ADA051F23DD7500C84BCC /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5ADA041F23DD7500C84BCC /* Comment.swift */; };
+		1F5B020D1F2EAB2500BFC632 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5B020C1F2EAB2500BFC632 /* HeaderView.swift */; };
+		1F5B020F1F2EAB6800BFC632 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B020E1F2EAB6800BFC632 /* HeaderView.xib */; };
+		1F5B02111F2FCEF000BFC632 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5B02101F2FCEF000BFC632 /* HomeTabViewController.swift */; };
 		1F73AAB01E9C937C00A5C1AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73AAAF1E9C937C00A5C1AD /* AppDelegate.swift */; };
 		1F73AAB51E9C937C00A5C1AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F73AAB31E9C937C00A5C1AD /* Main.storyboard */; };
 		1F73AAB71E9C937C00A5C1AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F73AAB61E9C937C00A5C1AD /* Assets.xcassets */; };
@@ -96,6 +99,9 @@
 		1F59EBE81F1D300400A2CBE2 /* EditProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		1F59EBEB1F1EF14C00A2CBE2 /* NetworkAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
 		1F5ADA041F23DD7500C84BCC /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		1F5B020C1F2EAB2500BFC632 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		1F5B020E1F2EAB6800BFC632 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		1F5B02101F2FCEF000BFC632 /* HomeTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		1F73AAAC1E9C937C00A5C1AD /* PetWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F73AAAF1E9C937C00A5C1AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F73AAB41E9C937C00A5C1AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 			children = (
 				1F83D45E1F254DAD000CF412 /* CommentViewController.swift */,
 				1F15C5351E9C9813005B828B /* HomeViewController.swift */,
+				1F5B02101F2FCEF000BFC632 /* HomeTabViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -218,6 +225,15 @@
 				1F59EBEB1F1EF14C00A2CBE2 /* NetworkAPI.swift */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		1F5B020B1F2EAB0B00BFC632 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				1F5B020C1F2EAB2500BFC632 /* HeaderView.swift */,
+				1F5B020E1F2EAB6800BFC632 /* HeaderView.xib */,
+			);
+			name = Custom;
 			sourceTree = "<group>";
 		};
 		1F73AAA31E9C937B00A5C1AD = {
@@ -297,6 +313,7 @@
 		1F73AADE1E9C939800A5C1AD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F5B020B1F2EAB0B00BFC632 /* Custom */,
 				1F59EBEA1F1E99F700A2CBE2 /* Designables */,
 				1F15C5391E9EFFC3005B828B /* ProfileView.swift */,
 				1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */,
@@ -503,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FAD6F3C1F05773A006783F7 /* HollywoodHills.ttf in Resources */,
+				1F5B020F1F2EAB6800BFC632 /* HeaderView.xib in Resources */,
 				1FAD6F3A1F0571B7006783F7 /* WildernessTypeface-Regular.ttf in Resources */,
 				1F73AABA1E9C937C00A5C1AD /* LaunchScreen.storyboard in Resources */,
 				5E81BC0A1EDA333A002F8915 /* dog.jpg in Resources */,
@@ -605,12 +623,14 @@
 				1F15C53A1E9EFFC3005B828B /* ProfileView.swift in Sources */,
 				1F7D42591ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift in Sources */,
 				1FAD6F401F057A9A006783F7 /* DesignableImageView.swift in Sources */,
+				1F5B020D1F2EAB2500BFC632 /* HeaderView.swift in Sources */,
 				33751ED41ED96B3A00E60E34 /* FriendTableViewCell.swift in Sources */,
 				1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */,
 				1FAD6F341F042E5F006783F7 /* DesignableTextField.swift in Sources */,
 				1F83D4611F254DE4000CF412 /* CommentTableViewCell.swift in Sources */,
 				1F43B13E1F102A26001D9CC1 /* TransitionToNormalViewController.swift in Sources */,
 				1F232B9B1F15BEE9002367AD /* ProfileViewController.swift in Sources */,
+				1F5B02111F2FCEF000BFC632 /* HomeTabViewController.swift in Sources */,
 				1F9CF70C1F0A952D00F0F072 /* DesignableTableView.swift in Sources */,
 				1F59EBE71F1D2FBE00A2CBE2 /* EditProfileViewController.swift in Sources */,
 				33AB426E1ECBB015007B7BB4 /* PostTableViewCell.swift in Sources */,

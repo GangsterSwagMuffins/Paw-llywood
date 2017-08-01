@@ -9,10 +9,18 @@
 import UIKit
 
 class VerifyPhotoViewController: UIViewController, UITextFieldDelegate {
+    
+    
     @IBOutlet var caption: UITextField!
 
+    @IBOutlet weak var tabBar: HeaderView!
+    
     @IBOutlet weak var chosenPicture: UIImageView!
     var picture: UIImage?
+    
+    var exitCallback: ((Void) -> (Void))?
+    var postSuccesful: ((Post) -> (Void))?
+    var postFailure: ((Post, Error) -> (Void))?
     
     
     override func viewDidLoad() {
@@ -22,6 +30,9 @@ class VerifyPhotoViewController: UIViewController, UITextFieldDelegate {
 
         chosenPicture.image = picture
         caption.delegate = self
+        self.tabBar.onClickCallBack = {
+            self.dismiss(animated: true, completion: nil)
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -35,18 +46,29 @@ class VerifyPhotoViewController: UIViewController, UITextFieldDelegate {
             NetworkAPI.postUserImage(photo: resizedImage, caption: captionText) { (success: Bool, error: Error?) in
                 if let error = error{
                     print("error occured")
+                    self.postFailure?(post, error)
+                    //Tell the home view controller that there was some error.
                 }else{
                     if success{
-                        self.performSegue(withIdentifier: "HomeSegue", sender: nil)
+                        self.postSuccesful?(post)
                     }
                 }
                 
         }
+        
+       postDismiss()
     
     }
     
-   
     
+    
+    
+   
+    func postDismiss(){
+        self.dismiss(animated: false) { 
+            self.exitCallback?()
+        }
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

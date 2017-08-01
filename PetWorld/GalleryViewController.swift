@@ -11,10 +11,13 @@ import Photos
 
 class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var topBar: HeaderView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var chosenPicture: UIImageView!
+    
+    
     
     
     //Member vars/consts
@@ -23,12 +26,26 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
     
     var lastCellIndex: IndexPath?
     
+    var finishedCallback: ((Void) -> (Void))?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        self.topBar.onClickCallBack = {
+            //Do this function when action button is pressed!
+            
+            print("is the finished call back nil \(self.finishedCallback == nil)" )
+            self.dismiss(animated: true, completion: { 
+                //Here should go call back to dismiss post media tab view controller
+                if let finshed = self.finishedCallback{
+                    finshed()
+                    print("finished called!!!")
+                }
+            })
+        }
         
         //Camera roll is "smart album" because it collects photos on it's own!
         let collection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
@@ -132,6 +149,12 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         
         // Pass the selected object to the new view controller.
         destVc.picture = self.chosenPicture.image
+        
+        destVc.exitCallback = {
+            self.dismiss(animated: false, completion: {
+                self.finishedCallback?()
+            })
+        }
         
         
     }

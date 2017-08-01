@@ -1,4 +1,4 @@
-//
+    //
 //  PostsViewController.swift
 //  PetWorld
 //
@@ -14,22 +14,47 @@ class PostsViewController: UIViewController {
 
     
   
-    
+    var exitedCallback: ((Void) -> Void)?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        print("POSTVIEWCONTROLLER VIEWDIDLOAD")
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let tabBarController = storyboard.instantiateViewController(withIdentifier: "PostMediaTabViewController") as! UITabBarController
-        
-        performSegue(withIdentifier: "PostMediaSegue", sender: nil)
+      
         
         print("viewDidLoad()")
         
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("POSTVIEWCONTROLLER VIEWWILLAPPEAR")
+
+        performSegue(withIdentifier: "PostMediaSegue", sender: nil)
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let tabBarController = segue.destination as! UITabBarController
+        
+        print("POSTVIEWCONTROLLER PREPAREFORSEGUE")
+
+        if let viewControllers = tabBarController.viewControllers{
+            let galleryVC = viewControllers[0] as! GalleryViewController
+            
+            galleryVC.finishedCallback = exitedCallback
+            }
+        }
+        
+        
+    
     
     
     

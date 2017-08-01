@@ -1011,14 +1011,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ah-uJ-wi1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2154" y="2867"/>
+            <point key="canvasLocation" x="-1842" y="3108"/>
         </scene>
         <!--Item-->
         <scene sceneID="Qp2-Sy-BCY">
             <objects>
                 <navigationController id="uIq-dO-aa0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Olr-Xh-giF"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BJY-fd-4Zs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BJY-fd-4Zs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1047,7 +1047,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYp-9b-Hxe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-948" y="3152"/>
+            <point key="canvasLocation" x="-1062" y="2942"/>
         </scene>
         <!--Verify Photo View Controller-->
         <scene sceneID="9c1-oI-vc8">
@@ -1088,12 +1088,30 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpp-vk-SOL" customClass="HeaderView" customModule="PetWorld" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.039215686274509803" green="0.086274509803921567" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="FoY-W9-XLP"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Verify"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftPicture" value="left_arrow"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bpp-vk-SOL" firstAttribute="leading" secondItem="3uA-dr-0o7" secondAttribute="leading" id="MWv-DY-k7W"/>
+                            <constraint firstItem="bpp-vk-SOL" firstAttribute="top" secondItem="3uA-dr-0o7" secondAttribute="top" id="Yin-1q-8un"/>
+                            <constraint firstAttribute="trailing" secondItem="bpp-vk-SOL" secondAttribute="trailing" id="eix-OC-G7o"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="caption" destination="KtT-RL-7jC" id="bKy-08-rSJ"/>
                         <outlet property="chosenPicture" destination="AMV-dF-YVe" id="a3J-C0-Mwe"/>
+                        <outlet property="tabBar" destination="bpp-vk-SOL" id="BcY-QN-nkk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyZ-Sa-iN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1422,6 +1440,7 @@
                                                         <constraint firstAttribute="width" constant="40" id="8cj-Tl-pIz"/>
                                                         <constraint firstAttribute="height" constant="40" id="Qi4-wc-NgI"/>
                                                     </constraints>
+                                                    <color key="tintColor" red="0.043137254901960784" green="0.14117647058823529" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" image="white_heart"/>
                                                     <connections>
                                                         <action selector="onLikeButtonTapped:" destination="LaN-Ks-siV" eventType="touchUpInside" id="2k1-dy-X1C"/>
@@ -1433,6 +1452,7 @@
                                                         <constraint firstAttribute="width" constant="38" id="h8S-Kw-kGR"/>
                                                         <constraint firstAttribute="height" constant="38" id="wd9-mV-Fi3"/>
                                                     </constraints>
+                                                    <color key="tintColor" red="0.043137254901960784" green="0.14117647058823529" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="Button" image="comment_icon"/>
                                                     <connections>
                                                         <action selector="onCommentButtonTapped:" destination="QHn-we-XxN" eventType="touchUpInside" id="0Ze-RA-KKG"/>
@@ -1456,6 +1476,9 @@
                                                     <state key="normal" title="Follow">
                                                         <color key="titleColor" red="0.039215686274509803" green="0.090196078431372548" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onFollowTapped:" destination="QHn-we-XxN" eventType="touchUpInside" id="5kc-8N-gb2"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrC-OX-fQq">
                                                     <rect key="frame" x="52" y="2" width="30" height="30"/>
@@ -1875,12 +1898,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pJC-NL-ENk">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pJC-NL-ENk">
                                                     <rect key="frame" x="-3" y="0.0" width="93" height="75"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="pJC-NL-ENk" firstAttribute="top" secondItem="nwX-Q0-Xuy" secondAttribute="top" id="ao9-6I-GaH"/>
+                                            <constraint firstItem="pJC-NL-ENk" firstAttribute="leading" secondItem="nwX-Q0-Xuy" secondAttribute="leadingMargin" constant="-11" id="ooF-Vw-JTh"/>
+                                            <constraint firstAttribute="bottom" secondItem="pJC-NL-ENk" secondAttribute="bottom" id="p2H-Ps-R8d"/>
+                                            <constraint firstAttribute="trailing" secondItem="pJC-NL-ENk" secondAttribute="trailing" id="qVQ-NS-UGs"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="galleryPhoto" destination="pJC-NL-ENk" id="shC-kM-VUL"/>
                                         </connections>
@@ -1891,13 +1919,20 @@
                                 <rect key="frame" x="16" y="60" width="343" height="268"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pX5-O7-hRz">
-                                <rect key="frame" x="16" y="0.0" width="359" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNK-70-g8G" customClass="HeaderView" customModule="PetWorld" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.039215686274509803" green="0.086274509803921567" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="TMe-ME-Tml"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Gallery"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftPicture" value="cancel"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwX-P2-gv1">
-                                <rect key="frame" x="16" y="67" width="343" height="261"/>
+                                <rect key="frame" x="0.0" y="143" width="375" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <segue destination="CXy-Ck-19v" kind="showDetail" identifier="PictureChosenSegue" id="4k2-W2-gtJ"/>
@@ -1905,16 +1940,22 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fNK-70-g8G" secondAttribute="trailing" id="9kn-7w-ROd"/>
+                            <constraint firstItem="fNK-70-g8G" firstAttribute="leading" secondItem="CFi-Op-7yV" secondAttribute="leading" id="hSE-xO-W8h"/>
+                            <constraint firstItem="fNK-70-g8G" firstAttribute="top" secondItem="CFi-Op-7yV" secondAttribute="top" id="oiQ-zC-9Ch"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Gallery" id="VPX-pp-kzR"/>
                     <connections>
                         <outlet property="chosenPicture" destination="MQA-gm-YFX" id="mkU-6G-zym"/>
                         <outlet property="collectionView" destination="Zr5-Ar-ZYr" id="XYb-JC-Lph"/>
+                        <outlet property="topBar" destination="fNK-70-g8G" id="4Ds-Zs-pt9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OH7-qx-Clt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4" y="3536"/>
+            <point key="canvasLocation" x="42.399999999999999" y="3915.2923538230889"/>
         </scene>
         <!--PhotoCaptureViewController-->
         <scene sceneID="5ar-sU-Unl">
@@ -1960,7 +2001,7 @@
         <!--HomeTabViewController-->
         <scene sceneID="xp6-8C-97z">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" title="HomeTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="baz-EG-3hH" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" title="HomeTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="baz-EG-3hH" customClass="HomeTabViewController" customModule="PetWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="QPc-qD-yo9"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="q8L-cl-sYd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -1973,11 +2014,12 @@
                         <segue destination="k5T-TP-CS1" kind="relationship" relationship="viewControllers" id="gCM-ov-1Ua"/>
                         <segue destination="quH-Ll-qGI" kind="relationship" relationship="viewControllers" id="8JF-ZU-kii"/>
                         <segue destination="uIq-dO-aa0" kind="relationship" relationship="viewControllers" id="Vb7-0q-JX3"/>
+                        <segue destination="G6b-Cr-Tf0" kind="presentation" identifier="PostMediaTabSegue" id="4ew-3a-QG0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZj-wG-Eae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1308" y="2279"/>
+            <point key="canvasLocation" x="-1287" y="2213"/>
         </scene>
         <!--Settings-->
         <scene sceneID="kip-EC-Yk7">
@@ -2098,12 +2140,14 @@
         <image name="Login Background" width="540" height="960"/>
         <image name="Pet Profile Pic Chooser" width="150" height="150"/>
         <image name="bone gray" width="32" height="32"/>
+        <image name="cancel" width="512" height="512"/>
         <image name="comment_icon" width="256" height="256"/>
         <image name="danger.png" width="24" height="24"/>
         <image name="default_profile" width="94" height="208"/>
         <image name="dna" width="512" height="512"/>
         <image name="dogsil_burned" width="598" height="569"/>
         <image name="iconmonstr-building-1-24" width="24" height="24"/>
+        <image name="left_arrow" width="512" height="512"/>
         <image name="pawllywood" width="375" height="200"/>
         <image name="pawprint" width="20" height="20"/>
         <image name="pen" width="24" height="24"/>
@@ -2114,10 +2158,11 @@
         <image name="white_heart" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rcQ-pS-sUj"/>
-        <segue reference="Jto-do-SuL"/>
-        <segue reference="h1A-o7-o6e"/>
-        <segue reference="64s-04-dY4"/>
+        <segue reference="4ew-3a-QG0"/>
+        <segue reference="uMF-ZG-7Sy"/>
         <segue reference="4k2-W2-gtJ"/>
+        <segue reference="64s-04-dY4"/>
+        <segue reference="rcQ-pS-sUj"/>
+        <segue reference="h1A-o7-o6e"/>
     </inferredMetricsTieBreakers>
 </document>

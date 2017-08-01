@@ -8,11 +8,16 @@
 
 import UIKit
 
-class PostMediaTabViewController: UITabBarController {
+class PostMediaTabViewController: UITabBarController, UITabBarControllerDelegate {
+    
+    
+    var exitedCallback: ((Void)->(Void))?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -20,6 +25,7 @@ class PostMediaTabViewController: UITabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
 
