@@ -127,10 +127,11 @@ class NetworkAPI: NSObject {
     }
     
     
-    class func getPosts(numPosts: Int, successHandler: @escaping ([Post])->(),  errorHandler: ((Error)->())?){
+    class func getPosts(numPosts: Int, forPet: Pet,  successHandler: @escaping ([Post])->(),  errorHandler: ((Error)->())?){
         // Query
         let query = PFQuery(className: "Post")
-        query.includeKey("author")
+        query.whereKey("following", containedIn: Array(forPet.following!))
+        query.includeKey(forPet.name!)
         query.order(byDescending: "_created_at")
         //Populate the pet data field.
     
@@ -176,6 +177,12 @@ class NetworkAPI: NSObject {
             }
             
         }
+    }
+    
+    
+    class func getHomeFeed(numPosts: Int, successHandler: @escaping(([Post]) -> ()), errorHandler:  ((Error) -> ())?){
+        getPosts(numPosts: numPosts, forPet: Pet.currentPet(), successHandler: successHandler, errorHandler: errorHandler)
+     
     }
     
     class func loadOwner(userObject: PFObject, completionHandler: @escaping ()->(), errorHandler: (()->())?){
@@ -408,6 +415,23 @@ class NetworkAPI: NSObject {
             }
         }
         
+    }
+    
+    class func createNewPet(withName: String, with profilePic: UIImage, completionHandler: @escaping PFBooleanResultBlock){
+           let newPet = Pet()
+        //TODO: Need to fix this really stupid.
+           newPet["image"] = NetworkAPI.getPhotoFile(photo: profilePic)
+           newPet.image = profilePic
+        //Mini constructor code
+        newPet.following = [:]
+        newPet.followers = [:]
+        newPet.likedPosts = [:]
+        newPet.followingCount = 0
+        newPet.followersCount = 0
+        newPet.owner = User.current()
+    
+        newPet.saveInBackground(block: completionHandler)
+    
     }
     
     
