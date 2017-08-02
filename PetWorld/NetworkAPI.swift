@@ -123,10 +123,16 @@ class NetworkAPI: NSObject {
     class func getPosts(numPosts: Int, forPet: Pet,  successHandler: @escaping ([Post])->(),  errorHandler: ((Error)->())?){
         // Query
         let query = PFQuery(className: "Post")
-        query.whereKey("following", containedIn: Array(forPet.following!))
-        query.includeKey(forPet.name!)
+     
+        let following = Array(forPet.following!.values)
+        let array = Array(forPet.following!.values)
+        
+        print(array)
+        query.whereKey("author", containedIn: following)
+        query.includeKey("author")
         query.order(byDescending: "_created_at")
         //Populate the pet data field.
+        
     
         
         query.limit = numPosts
@@ -143,13 +149,15 @@ class NetworkAPI: NSObject {
                     let posts: [Post] = postObjects as! [Post]
                     if (postObjects.count <= 0){
                         successHandler(posts)
+                        return
                     }
                     
                     for post in posts{
                         let pet = post["author"] as! Pet
                         print("post__________\n\(post)\n_____________________")
-                        //print(pet)
+                        print(pet)
                         post.author = pet
+                        
                         let petImage = pet["image"]
                         
                         

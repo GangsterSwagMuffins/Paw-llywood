@@ -128,7 +128,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func loadPosts(){
         MBProgressHUD.showAdded(to: self.view, animated: true)
        
-        
+       
         
         NetworkAPI.getHomeFeed(numPosts: 20, successHandler: { (posts: [Post]) in
             //Finished loading pets
