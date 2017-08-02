@@ -22,13 +22,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBA-eg-pgM">
-                    <rect key="frame" x="170.5" y="17" width="33.5" height="21"/>
+                    <rect key="frame" x="170" y="17" width="34" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghe-VE-13X">
-                    <rect key="frame" x="16" y="15.5" width="25" height="25"/>
+                    <rect key="frame" x="16" y="15" width="25" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="25" id="8AB-fb-sk7"/>
                         <constraint firstAttribute="height" constant="25" id="Inl-k2-XmG"/>

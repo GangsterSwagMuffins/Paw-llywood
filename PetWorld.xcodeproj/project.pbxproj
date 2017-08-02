@@ -36,6 +36,8 @@
 		1F73AAD01E9C937D00A5C1AD /* PetWorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73AACF1E9C937D00A5C1AD /* PetWorldUITests.swift */; };
 		1F73F9551F324FA5002AA24B /* SearchPetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F9541F324FA5002AA24B /* SearchPetsViewController.swift */; };
 		1F73F9571F3251A2002AA24B /* PetDescriptionCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F9561F3251A2002AA24B /* PetDescriptionCellTableViewCell.swift */; };
+		1F73F9591F327985002AA24B /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F73F9581F327985002AA24B /* SearchView.xib */; };
+		1F73F95B1F327AE7002AA24B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F95A1F327AE7002AA24B /* SearchView.swift */; };
 		1F7D42551ED93B9E00E4B278 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */; };
 		1F7D42571ED93C3400E4B278 /* PhotoCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */; };
 		1F7D42591ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */; };
@@ -122,6 +124,8 @@
 		1F73AAD11E9C937D00A5C1AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F73F9541F324FA5002AA24B /* SearchPetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPetsViewController.swift; sourceTree = "<group>"; };
 		1F73F9561F3251A2002AA24B /* PetDescriptionCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetDescriptionCellTableViewCell.swift; sourceTree = "<group>"; };
+		1F73F9581F327985002AA24B /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
+		1F73F95A1F327AE7002AA24B /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureViewController.swift; sourceTree = "<group>"; };
 		1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryItemCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -242,6 +246,8 @@
 				1F5B020E1F2EAB6800BFC632 /* HeaderView.xib */,
 				1F5B02121F311F7A00BFC632 /* EmptyView.xib */,
 				1F5B02141F3121E800BFC632 /* EmptyView.swift */,
+				1F73F9581F327985002AA24B /* SearchView.xib */,
+				1F73F95A1F327AE7002AA24B /* SearchView.swift */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -535,6 +541,7 @@
 				1FAD6F3C1F05773A006783F7 /* HollywoodHills.ttf in Resources */,
 				1F5B020F1F2EAB6800BFC632 /* HeaderView.xib in Resources */,
 				1FAD6F3A1F0571B7006783F7 /* WildernessTypeface-Regular.ttf in Resources */,
+				1F73F9591F327985002AA24B /* SearchView.xib in Resources */,
 				1F73AABA1E9C937C00A5C1AD /* LaunchScreen.storyboard in Resources */,
 				5E81BC0A1EDA333A002F8915 /* dog.jpg in Resources */,
 				1F73AAB71E9C937C00A5C1AD /* Assets.xcassets in Resources */,
@@ -642,6 +649,7 @@
 				1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */,
 				1FAD6F341F042E5F006783F7 /* DesignableTextField.swift in Sources */,
 				1F83D4611F254DE4000CF412 /* CommentTableViewCell.swift in Sources */,
+				1F73F95B1F327AE7002AA24B /* SearchView.swift in Sources */,
 				1F73F9571F3251A2002AA24B /* PetDescriptionCellTableViewCell.swift in Sources */,
 				1F73F9551F324FA5002AA24B /* SearchPetsViewController.swift in Sources */,
 				1F43B13E1F102A26001D9CC1 /* TransitionToNormalViewController.swift in Sources */,

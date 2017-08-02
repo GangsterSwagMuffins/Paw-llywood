@@ -14,18 +14,27 @@ class SearchPetsViewController: UIViewController, UITableViewDataSource, UITable
     
    
 
+   @IBOutlet weak var searchView: SearchView!
     
+    var searchBar: UISearchBar!
     
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     var pets: [Pet] = []
+    
+    var onDismiss: (()->())!
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.searchBar = self.searchView.searchBar
+        
         self.searchBar.delegate = self
+       
+        
+        
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         

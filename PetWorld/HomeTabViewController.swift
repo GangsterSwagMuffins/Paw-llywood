@@ -45,6 +45,14 @@ class HomeTabViewController: UITabBarController, UITabBarControllerDelegate {
             return false
         }
         
+        if viewController is SearchPetsViewController{
+            let viewController = viewController as! SearchPetsViewController
+            viewController.onDismiss = {
+                print("dismiss called!")
+                self.selectedViewController = self.viewControllers?[0]
+            }
+        }
+        
         return true
         
         
