@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
 import AVFoundation
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -125,13 +126,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
    
     func loadPosts(){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+       
         
-        NetworkAPI.getPosts(numPosts: 20, successHandler: { (posts: [Post]) in
+        
+        NetworkAPI.getHomeFeed(numPosts: 20, successHandler: { (posts: [Post]) in
             //Finished loading pets
             self.isLoadingPosts = false
+            MBProgressHUD.hide(for: self.view, animated: true)
             //Update the GUI
             self.posts = posts
-            
+            print("_____\n\n\nfinished loading!!!\n\n\n________")
             for post in posts{
                 self.checkIfPostIsLiked(post: post)
             }
@@ -145,10 +150,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
             
-            
-        }, errorHandler: nil)
-        
+        }) { (error: Error) in
+             MBProgressHUD.hide(for: self.view, animated: true)
+            print(error)
+        }
     }
+    
+      
     
     func loadComments(forPost: Post){
         NetworkAPI.getComments(withPost: forPost, populateFields: true, successHandler: { (comments: [Comment]) in
