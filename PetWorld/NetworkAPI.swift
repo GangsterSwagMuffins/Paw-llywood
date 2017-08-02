@@ -440,7 +440,7 @@ class NetworkAPI: NSObject {
     
     
     
-    class func searchPets(withName: String, succesHandler:([Pet]) -> (Void), errorHandler: ((Error)->Void)){
+    class func searchPets(withName: String, successHandler:([Pet]) -> (Void), errorHandler: ((Error)->Void)){
         let query = PFQuery(className: "Pet")
         query.whereKey("name", contains: withName)
         query.includeKey("owner")
@@ -451,7 +451,7 @@ class NetworkAPI: NSObject {
             }else{
                 if let petObjects = petObjects{
                     let pets = petObjects as! [Pet]
-                    succesHandler(pets)
+                    successHandler(pets)
                 }
             
             }
