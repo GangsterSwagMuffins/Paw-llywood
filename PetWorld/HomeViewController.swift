@@ -67,8 +67,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             isLoadingPosts = true
             loadPosts()
         }
-       
-        self.tableView.reloadData()
+        if (!self.tableView.isHidden){
+            self.tableView.reloadData()
+
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -139,6 +141,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             print("_____\n\n\nfinished loading!!!\n\n\n________")
             for post in posts{
                 self.checkIfPostIsLiked(post: post)
+            }
+            
+            if posts.count <= 0 {
+                self.tableView.isHidden = true
+            }else{
+                self.tableView.isHidden = false
             }
             
             self.tableView.reloadData()

@@ -37,14 +37,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is where information goes." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nK-we-aXC">
-                    <rect key="frame" x="64" y="487" width="247" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="64" y="487" width="247" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldh-OR-R5V">
-                    <rect key="frame" x="92" y="516" width="191" height="30"/>
-                    <state key="normal" title="Some kind of helpfu button."/>
+                    <rect key="frame" x="172.5" y="509.5" width="30" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <connections>
                         <action selector="onSuggestionButtonTapped:" destination="-1" eventType="touchUpInside" id="ROM-Vi-EMS"/>
                     </connections>
@@ -63,6 +63,8 @@
                 <constraint firstItem="Ldh-OR-R5V" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qQ2-7N-2a7"/>
                 <constraint firstItem="4nK-we-aXC" firstAttribute="top" secondItem="Ix0-ob-SbN" secondAttribute="bottom" constant="8" id="vwa-ef-B05"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
 </document>
