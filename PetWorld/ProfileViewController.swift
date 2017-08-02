@@ -43,7 +43,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
       //  updateOwnerField()
         //Have an instance of delegate from app del
         
-        
         if (shouldShowEditButton){
             if (Pet.getPets().count > 0){
                 print("number of pets > 0")

@@ -54,8 +54,6 @@ class SearchPetsViewController: UIViewController, UITableViewDataSource, UITable
         
         return cell
         
-        
-    
     }
     
     
@@ -65,6 +63,11 @@ class SearchPetsViewController: UIViewController, UITableViewDataSource, UITable
        return pets.count
     }
 
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        self.performSegue(withIdentifier: "ProfileSegue", sender: indexPath )
+    }
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
@@ -80,6 +83,22 @@ class SearchPetsViewController: UIViewController, UITableViewDataSource, UITable
         }
         
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let sender = sender{
+            if (sender is IndexPath){
+                let indexPath = sender as! IndexPath
+                var pet = pets[indexPath.row]
+                let profileVC = segue.destination as! ProfileViewController
+                profileVC.shouldShowEditButton = false
+                profileVC.pet = pet
+            }
+        }
+        
+        }
+       
     
 
   
