@@ -439,7 +439,26 @@ class NetworkAPI: NSObject {
     }
     
     
+    
+    class func searchPets(withName: String, succesHandler:([Pet]) -> (Void), errorHandler: ((Error)->Void)){
+        let query = PFQuery(className: "Pet")
+        query.whereKey("name", contains: withName)
+        query.includeKey("owner")
+        
+        query.findObjectsInBackground { (petObjects: [PFObject]?, error: Error?) in
+            if let error = error{
+                errorHandler(error)
+            }else{
+                if let petObjects = petObjects{
+                    let pets = petObjects as! [Pet]
+                    succesHandler(pets)
+                }
+            
+            }
+        }
     }
+  
+}
     
 
     
