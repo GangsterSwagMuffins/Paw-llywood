@@ -19,9 +19,18 @@ class NetworkAPI: NSObject {
             if let error = error{
                 print("error: \(error)")
             }else{
+                
+                let queue = OperationQueue()
+               
                 if let imageData = imageData{
-                    picture = UIImage(data: imageData)
-                    successBlock!(picture!)
+                    queue.addOperation {
+                        picture = UIImage(data: imageData)
+                        OperationQueue.main.addOperation {
+                           successBlock!(picture!)
+                        }
+                        
+                    }
+                    
                 }
             }
             
@@ -440,7 +449,7 @@ class NetworkAPI: NSObject {
     
     
     
-    class func searchPets(withName: String, successHandler:([Pet]) -> (Void), errorHandler: ((Error)->Void)){
+    class func searchPets(withName: String, successHandler: @escaping ([Pet]) -> (Void),  errorHandler: @escaping ((Error)->Void)){
         let query = PFQuery(className: "Pet")
         query.whereKey("name", contains: withName)
         query.includeKey("owner")
@@ -451,6 +460,14 @@ class NetworkAPI: NSObject {
             }else{
                 if let petObjects = petObjects{
                     let pets = petObjects as! [Pet]
+                    
+                    for pet in pets{
+                        loadPicture(imageFile: pet["image"] as! PFFile, successBlock: { (image: UIImage) in
+                            pet.image = image
+                            successHandler(pets)
+                        })
+                    
+                    }
                     successHandler(pets)
                 }
             

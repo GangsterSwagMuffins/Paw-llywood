@@ -21,7 +21,7 @@ class PetDescriptionCellTableViewCell: UITableViewCell {
     var pet: Pet!{
         didSet{
             if let petName = pet.name{
-                petNameLabel = petName
+                petNameLabel.text = petName
             }
             
             if let petImage = pet.image{
