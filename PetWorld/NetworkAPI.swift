@@ -10,15 +10,7 @@ import UIKit
 import Parse
 
 
-
-
-
-
-
 class NetworkAPI: NSObject {
-    
-    
-    
     
     
     class func loadPicture(imageFile: PFFile, successBlock: ((UIImage)->Void)? ) ->UIImage?{
@@ -96,7 +88,8 @@ class NetworkAPI: NSObject {
             })
         }
     }
-
+    
+    
     
     class func getPhotoFile(photo: UIImage?) -> PFFile? {
         if let photo = photo {
@@ -148,6 +141,9 @@ class NetworkAPI: NSObject {
             }else{
                 if let postObjects = postObjects { //Successfully grabbed posts objects
                     let posts: [Post] = postObjects as! [Post]
+                    if (postObjects.count <= 0){
+                        successHandler(posts)
+                    }
                     
                     for post in posts{
                         let pet = post["author"] as! Pet
@@ -182,7 +178,7 @@ class NetworkAPI: NSObject {
     
     class func getHomeFeed(numPosts: Int, successHandler: @escaping(([Post]) -> ()), errorHandler:  ((Error) -> ())?){
         getPosts(numPosts: numPosts, forPet: Pet.currentPet(), successHandler: successHandler, errorHandler: errorHandler)
-     
+     print("getHomeFeed()")
     }
     
     class func loadOwner(userObject: PFObject, completionHandler: @escaping ()->(), errorHandler: (()->())?){
