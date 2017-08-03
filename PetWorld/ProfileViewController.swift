@@ -24,6 +24,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     var myPostsViewController: MyPostViewController?
     
+    var presentViewController: ProfileViewInfoTabBarController?
+    
     var dismissCallback: (()->())!
     
     
@@ -84,14 +86,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         
          let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-         self.tableViewController = storyBoard.instantiateViewController(withIdentifier: "AboutMeTableViewController") as! AboutMeTableViewController
+         self.presentViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileViewInfoTabBarController") as! ProfileViewInfoTabBarController
         
         
         
         
-        self.tableViewController?.pet = self.pet
-        self.tableViewController?.view.frame = self.profileView.containerView.bounds
-        self.profileView.containerView.addSubview((self.tableViewController?.view)!)
+       self.presentViewController?.pet = self.pet
+        self.presentViewController?.view.frame = self.profileView.containerView.bounds
+        self.profileView.containerView.addSubview((self.presentViewController?.view)!)
     
         
     }
