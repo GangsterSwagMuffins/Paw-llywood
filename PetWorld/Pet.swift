@@ -15,7 +15,7 @@ class Pet: PFObject, PFSubclassing {
   
     static var currentPetIdx = 0
     
-    var owner: PFUser?
+    @NSManaged var owner: PFUser?
     
     //Profile pictre
     var image: UIImage?

@@ -111,11 +111,13 @@ class NetworkAPI: NSObject {
         return nil
     }
     
+    
     class func postUserImage(photo: UIImage, caption: String?, success: PFBooleanResultBlock?) {
         let post = Post()
         
         post.media = getPhotoFile(photo: photo)
-        post.author = Pet.currentPet() // Pointer column type that points to PFUser
+       // post.author = Pet.currentPet() // Pointer column type that points to PFUser
+        post["author"] = Pet.currentPet()
         post.caption = caption
         post.likes = 0
         post.likedBy = [:]
@@ -490,6 +492,105 @@ class NetworkAPI: NSObject {
             }
         }
     }
+    
+    class func getPublicPosts(numPosts: Int, successHandler: @escaping(([Post]) -> Void), errorHandler:((Error) -> Void)?){
+        // Query
+        let query = PFQuery(className: "Post")
+        query.includeKey("author")
+        query.order(byDescending: "_created_at")
+        //Populate the pet data field.
+       
+        query.limit = numPosts
+        
+        query.findObjectsInBackground { (postObjects: [PFObject]?, error: Error?) in
+            if let error = error{
+                print(error)
+                if let errorHandler = errorHandler{
+                    errorHandler(error)
+                }
+            }else{
+                if let postObjects = postObjects { //Successfully grabbed posts objects
+                    let posts: [Post] = postObjects as! [Post]
+                    if (postObjects.count <= 0){
+                        successHandler(posts)
+                        return
+                    }
+                    
+                    for post in posts{
+                        
+                        print(post)
+                        print(post.author)
+                        
+                        print(post["author"])
+                        
+                        let pet = post["author"] as! Pet
+                        print("post__________\n\(post)\n_____________________")
+                        print(pet)
+                        post.author = pet
+                        
+                        let petImage = pet["image"]
+                        
+                        
+                        if let petImage = petImage{
+                            NetworkAPI.loadPicture(imageFile: petImage as! PFFile, successBlock: { (image: UIImage) in
+                                pet.image = image
+                                successHandler(posts)
+                            })
+                        }
+                        
+                        
+                        if let owner = pet.owner{
+                            loadOwner(userObject: owner, completionHandler: {
+                                pet.owner = owner
+                            }, errorHandler: nil)
+                        }
+                    }
+                    
+                    
+                }
+            }
+            
+        }
+    
+    }
+    
+    
+    class func getMyPosts(numPosts: Int, successHandler: @escaping([Post]) -> Void, errorHandler: @escaping(Error) -> Void){
+        let currentPet = Pet.currentPet()!
+        
+        let query = PFQuery(className: "Post")
+        query.includeKey("author")
+        query.whereKey("author", equalTo: currentPet)
+        
+        query.limit = numPosts
+        
+        query.findObjectsInBackground { (postObjects: [PFObject]?, error: Error?) in
+            if let postObjects = postObjects{
+                let posts = postObjects as! [Post]
+                for post in posts{
+                    loadPicture(imageFile: post.author!["image"] as! PFFile, successBlock: { (image :UIImage) in
+                        post.author?.image = image
+                        
+                        loadPicture(imageFile: post.media!, successBlock: { (image: UIImage) in
+                            post.image = image
+                            
+                            successHandler(posts)
+
+                        })
+                        
+                        
+                    })
+                    
+                    
+                }
+                
+                successHandler(posts)
+                
+            }
+        }
+        
+    }
+    
   
 }
     

@@ -38,6 +38,8 @@
 		1F73F9571F3251A2002AA24B /* PetDescriptionCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F9561F3251A2002AA24B /* PetDescriptionCellTableViewCell.swift */; };
 		1F73F9591F327985002AA24B /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F73F9581F327985002AA24B /* SearchView.xib */; };
 		1F73F95B1F327AE7002AA24B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F95A1F327AE7002AA24B /* SearchView.swift */; };
+		1F73F95D1F3373AD002AA24B /* PublicPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F95C1F3373AD002AA24B /* PublicPostCollectionViewCell.swift */; };
+		1F73F95F1F337999002AA24B /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F95E1F337999002AA24B /* MyPostViewController.swift */; };
 		1F7D42551ED93B9E00E4B278 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */; };
 		1F7D42571ED93C3400E4B278 /* PhotoCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */; };
 		1F7D42591ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */; };
@@ -126,6 +128,8 @@
 		1F73F9561F3251A2002AA24B /* PetDescriptionCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetDescriptionCellTableViewCell.swift; sourceTree = "<group>"; };
 		1F73F9581F327985002AA24B /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		1F73F95A1F327AE7002AA24B /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		1F73F95C1F3373AD002AA24B /* PublicPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicPostCollectionViewCell.swift; sourceTree = "<group>"; };
+		1F73F95E1F337999002AA24B /* MyPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
 		1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureViewController.swift; sourceTree = "<group>"; };
 		1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryItemCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -338,6 +342,7 @@
 				1F59EBE81F1D300400A2CBE2 /* EditProfileView.swift */,
 				1F83D4601F254DE4000CF412 /* CommentTableViewCell.swift */,
 				1F73F9561F3251A2002AA24B /* PetDescriptionCellTableViewCell.swift */,
+				1F73F95C1F3373AD002AA24B /* PublicPostCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 				33751ECF1ED95BB800E60E34 /* AddFriendViewController.swift */,
 				33751ED31ED96B3A00E60E34 /* FriendTableViewCell.swift */,
 				1F73F9541F324FA5002AA24B /* SearchPetsViewController.swift */,
+				1F73F95E1F337999002AA24B /* MyPostViewController.swift */,
 			);
 			name = "Friends View Controllers";
 			sourceTree = "<group>";
@@ -642,6 +648,7 @@
 				33751ED01ED95BB800E60E34 /* AddFriendViewController.swift in Sources */,
 				1F9CF70E1F0ACEAE00F0F072 /* ViewDesignable.swift in Sources */,
 				1F15C53A1E9EFFC3005B828B /* ProfileView.swift in Sources */,
+				1F73F95D1F3373AD002AA24B /* PublicPostCollectionViewCell.swift in Sources */,
 				1F7D42591ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift in Sources */,
 				1FAD6F401F057A9A006783F7 /* DesignableImageView.swift in Sources */,
 				1F5B020D1F2EAB2500BFC632 /* HeaderView.swift in Sources */,
@@ -669,6 +676,7 @@
 				5E1D58441ED91B970055C09D /* ProfilePictureEditorViewController.swift in Sources */,
 				1F15C5381E9C98F0005B828B /* SettingsViewController.swift in Sources */,
 				1F59EBEC1F1EF14C00A2CBE2 /* NetworkAPI.swift in Sources */,
+				1F73F95F1F337999002AA24B /* MyPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,7 @@ import AVFoundation
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-  
+
     var posts: [Post] = []
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
