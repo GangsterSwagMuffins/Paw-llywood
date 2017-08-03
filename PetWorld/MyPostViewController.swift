@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
    
     
     
@@ -44,11 +44,15 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
             loadPosts()
         }
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     
     
@@ -63,11 +67,27 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     
+   
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
     
     
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+        
+        return CGSize(width: collectionView.bounds.size.width/3, height: collectionView.bounds.size.height/2)
+    
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsetsMake(0, 0, 0, 0)
+    }
     
     func loadPosts(){
         

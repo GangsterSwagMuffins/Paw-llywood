@@ -31,6 +31,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         print("comment start")
        // self.resignFirstResponder()
        // print(self.keyboardHeight)
+        
        
         
     }

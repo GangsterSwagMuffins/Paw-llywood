@@ -21,7 +21,7 @@ class EmptyView: UIView {
     var displayImage: UIImage?{
         didSet{
             if let imageView = imageDisplayImageView{
-                imageDisplayImageView.image = displayImage
+                imageView.image = displayImage
 
             }
         }

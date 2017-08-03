@@ -21,6 +21,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     
     var tableViewController: AboutMeTableViewController?
+    
+    var myPostsViewController: MyPostViewController?
+    
     var dismissCallback: (()->())!
     
     

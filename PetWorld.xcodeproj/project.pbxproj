@@ -40,6 +40,7 @@
 		1F73F95B1F327AE7002AA24B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F95A1F327AE7002AA24B /* SearchView.swift */; };
 		1F73F95D1F3373AD002AA24B /* PublicPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F95C1F3373AD002AA24B /* PublicPostCollectionViewCell.swift */; };
 		1F73F95F1F337999002AA24B /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F95E1F337999002AA24B /* MyPostViewController.swift */; };
+		1F73F9611F33B93E002AA24B /* ProfileViewInfoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F9601F33B93E002AA24B /* ProfileViewInfoTabBarController.swift */; };
 		1F7D42551ED93B9E00E4B278 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */; };
 		1F7D42571ED93C3400E4B278 /* PhotoCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */; };
 		1F7D42591ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */; };
@@ -130,6 +131,7 @@
 		1F73F95A1F327AE7002AA24B /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		1F73F95C1F3373AD002AA24B /* PublicPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		1F73F95E1F337999002AA24B /* MyPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
+		1F73F9601F33B93E002AA24B /* ProfileViewInfoTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewInfoTabBarController.swift; sourceTree = "<group>"; };
 		1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureViewController.swift; sourceTree = "<group>"; };
 		1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryItemCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				1F232B9A1F15BEE9002367AD /* ProfileViewController.swift */,
 				1F34C1081F1AEDFA00EEF564 /* AboutMeTableViewController.swift */,
 				1F59EBE61F1D2FBE00A2CBE2 /* EditProfileViewController.swift */,
+				1F73F9601F33B93E002AA24B /* ProfileViewInfoTabBarController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				1F5B02111F2FCEF000BFC632 /* HomeTabViewController.swift in Sources */,
 				1F9CF70C1F0A952D00F0F072 /* DesignableTableView.swift in Sources */,
 				1F59EBE71F1D2FBE00A2CBE2 /* EditProfileViewController.swift in Sources */,
+				1F73F9611F33B93E002AA24B /* ProfileViewInfoTabBarController.swift in Sources */,
 				33AB426E1ECBB015007B7BB4 /* PostTableViewCell.swift in Sources */,
 				1F15C5361E9C9813005B828B /* HomeViewController.swift in Sources */,
 				1F9CF7081F08233D00F0F072 /* DesignableButton.swift in Sources */,
