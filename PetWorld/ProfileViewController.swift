@@ -18,6 +18,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     @IBOutlet var profileView: ProfileView!
     
+    @IBOutlet weak var headerView: HeaderView!
+    
+    
     var tableViewController: AboutMeTableViewController?
     var dismissCallback: (()->())!
     
@@ -41,11 +44,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         //Depends on whether or not came from choosing the profile tab or clicking on someone else's profile
         self.profileView.showEdit = shouldShowEditButton
         
-//       // self.profileView.headerView.onClickCallBack = {
-//            self.dismiss(animated: true, completion: {
-//                print("Profile dismissed!")
-//            })
-//        }
+        self.headerView.onClickCallBack = {
+            self.dismiss(animated: true, completion: {
+                print("Profile dismissed!")
+            })
+        }
       //  updateOwnerField()
         //Have an instance of delegate from app del
         

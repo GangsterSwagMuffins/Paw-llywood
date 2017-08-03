@@ -63,9 +63,10 @@ class HeaderView: UIView {
     
     
     func setupView(){
-        UINib(nibName: "HeaderView", bundle: Bundle(for: type(of: self))).instantiate(withOwner: self, options: nil)
-        addSubview(backgroundView)
-        backgroundView.frame = self.bounds
+        let nib = UINib(nibName: "HeaderView", bundle: nil)
+        nib.instantiate(withOwner: self, options: nil)
+        self.backgroundView.frame = bounds
+        addSubview(self.backgroundView)
     }
     
 
