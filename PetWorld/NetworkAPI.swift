@@ -131,7 +131,7 @@ class NetworkAPI: NSObject {
     }
     
     
-    class func getPosts(numPosts: Int, forPet: Pet,  successHandler: @escaping ([Post])->(),  errorHandler: ((Error)->())?){
+    class func getHomeFeed(numPosts: Int, forPet: Pet,  successHandler: @escaping ([Post])->(),  errorHandler: ((Error)->())?){
         // Query
         let query = PFQuery(className: "Post")
      print(forPet)
@@ -555,12 +555,16 @@ class NetworkAPI: NSObject {
     }
     
     
-    class func getMyPosts(numPosts: Int, successHandler: @escaping([Post]) -> Void, errorHandler: @escaping(Error) -> Void){
-        let currentPet = Pet.currentPet()!
+    class func getMyPosts(numPosts: Int, successHandler: @escaping([Post]) -> Void, errorHandler: @escaping(Error) -> Void ){
+        getPosts(numPosts: numPosts, forPet: Pet.currentPet()!, successHandler: successHandler, errorHandler: errorHandler)
+    
+    }
+    
+    class func getPosts(numPosts: Int, forPet: Pet, successHandler: @escaping([Post]) -> Void, errorHandler: @escaping(Error) -> Void){
         
         let query = PFQuery(className: "Post")
         query.includeKey("author")
-        query.whereKey("author", equalTo: currentPet)
+        query.whereKey("author", equalTo: forPet)
         
         query.limit = numPosts
         

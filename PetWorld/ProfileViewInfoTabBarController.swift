@@ -47,6 +47,7 @@ class ProfileViewInfoTabBarController: UIViewController {
         
         
         self.myPostsViewController?.view.frame = self.containerView.bounds
+        self.myPostsViewController?.pet = self.pet
         self.containerView.addSubview((self.myPostsViewController?.view)!)
         
         if myInfoButton.isSelected{
@@ -61,7 +62,7 @@ class ProfileViewInfoTabBarController: UIViewController {
             petInformationViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AboutMeTableViewController") as! AboutMeTableViewController
         }
         
-        
+        self.petInformationViewController?.pet = self.pet
        
         self.petInformationViewController?.view.frame = self.containerView.bounds
         self.containerView.addSubview((self.petInformationViewController?.view)!)

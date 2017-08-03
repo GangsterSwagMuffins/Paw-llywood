@@ -15,6 +15,7 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     var posts: [Post] = []
     var isLoading: Bool = false
+    var pet: Pet?
     
     
     
@@ -93,7 +94,9 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         isLoading = true
         
-        NetworkAPI.getMyPosts(numPosts: 20, successHandler: { (posts: [Post]) in
+        
+        
+        NetworkAPI.getPosts(numPosts: 20, forPet: pet!, successHandler: { (posts:[Post]) in
             self.posts = posts
             self.isLoading  = false
             self.collectionView.reloadData()
@@ -101,6 +104,7 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
             self.isLoading = false
             print(error)
         }
+        
         
     }
 

@@ -135,7 +135,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             //Start loading
             MBProgressHUD.showAdded(to: self.view, animated: true)
             
-            NetworkAPI.getPosts(numPosts: 20, forPet: pet,   successHandler: { (posts: [Post]) in
+            NetworkAPI.getHomeFeed(numPosts: 20, forPet: pet,   successHandler: { (posts: [Post]) in
                 //Finished loading pets
                 self.isLoadingPosts = false
                 MBProgressHUD.hide(for: self.view, animated: true)
