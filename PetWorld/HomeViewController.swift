@@ -128,40 +128,47 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
    
     func loadPosts(){
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-       
-       
         
-        NetworkAPI.getHomeFeed(numPosts: 20, successHandler: { (posts: [Post]) in
-            //Finished loading pets
-            self.isLoadingPosts = false
-            MBProgressHUD.hide(for: self.view, animated: true)
-            //Update the GUI
-            self.posts = posts
-            print("_____\n\n\nfinished loading!!!\n\n\n________")
-            for post in posts{
+       
+       
+        if let pet = Pet.currentPet(){
+            //Start loading
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+            
+            NetworkAPI.getPosts(numPosts: 20, forPet: pet,   successHandler: { (posts: [Post]) in
+                //Finished loading pets
+                self.isLoadingPosts = false
+                MBProgressHUD.hide(for: self.view, animated: true)
+                //Update the GUI
+                self.posts = posts
+                print("_____\n\n\nfinished loading!!!\n\n\n________")
+                for post in posts{
                 self.checkIfPostIsLiked(post: post)
-            }
-            
-            if posts.count <= 0 {
+                }
+                
+                if posts.count <= 0 {
                 self.tableView.isHidden = true
-            }else{
+                }else{
                 self.tableView.isHidden = false
-            }
-            
-            self.tableView.reloadData()
-            
-            if (!self.isLoadingComments){
+                }
+                
+                self.tableView.reloadData()
+                
+                if (!self.isLoadingComments){
                 self.isLoadingComments = true
                 for post in posts{
-                    self.loadComments(forPost: post)
+                self.loadComments(forPost: post)
                 }
+                }
+                
+            }) { (error: Error) in
+                MBProgressHUD.hide(for: self.view, animated: true)
+                print(error)
             }
-            
-        }) { (error: Error) in
-             MBProgressHUD.hide(for: self.view, animated: true)
-            print(error)
+        
         }
+        
+       
     }
     
       
@@ -191,14 +198,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func checkIfPostIsLiked(post: Post){
         let objectId = post.objectId
-        let pet = Pet.currentPet()
        // print(self.likedPosts)
-        if let objectId = objectId{
-            if  let queryResult = pet.likedPosts?[objectId]{
-                post.liked = true
+        
+        if let pet = Pet.currentPet(){
+            if let objectId = objectId{
+                if  let queryResult = pet.likedPosts?[objectId]{
+                    post.liked = true
+                }
+                
             }
-            
-            }
+        }
+        
         }
         
     
@@ -206,8 +216,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func initLikedPosts(){
         let pet = Pet.currentPet()
       //  print(pet)
-        if (pet.likedPosts == nil){
-            pet.likedPosts  = [:]//Duck tape
+        
+        if let pet = Pet.currentPet(){
+            if (pet.likedPosts == nil){
+                pet.likedPosts  = [:]//Duck tape
+            }
+            
+        
         }
         
        

@@ -34,12 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         // Override point for customization after application launch.
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
-                configuration.applicationId = "asdfghjk;lkj;l"
-                configuration.clientKey = "myMasterKey"  // set to nil assuming you have not set clientKey
-                configuration.server = "https://petsagram.herokuapp.com/parse"
+                configuration.applicationId = "petworldy"
+                configuration.clientKey = "goldenchain"  // set to nil assuming you have not set clientKey
+                configuration.server = "https://petworldy.herokuapp.com/parse"
             })
         )
         
+    //    PFUser.logOut()
         
       //  mockData()
         

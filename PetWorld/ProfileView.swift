@@ -30,6 +30,7 @@ class ProfileView: UIView {
     
     @IBOutlet weak var containerView: UIView!
     
+    @IBOutlet weak var headerView: HeaderView!
     
     @IBOutlet weak var profilePictureImageView: UIImageView!
     

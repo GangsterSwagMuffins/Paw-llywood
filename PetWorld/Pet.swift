@@ -79,7 +79,7 @@ class Pet: PFObject, PFSubclassing {
 //    }
     
     //Class functions.....
-    class func currentPet() -> Pet{
+    class func currentPet() -> Pet?{
         let defaults = UserDefaults.standard
         
         let currentPetIndex = defaults.integer(forKey: "currentPet") ?? 0
@@ -88,13 +88,12 @@ class Pet: PFObject, PFSubclassing {
         
         if pets.count > 0{
           return  pets[currentPetIndex]
+        }else{
+            return nil
         }
         
         
-        let pet = Pet()
-        pet.name = "STUB"
-        //Stub pet
-        return Pet()
+      
         
     }
     

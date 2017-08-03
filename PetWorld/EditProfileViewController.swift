@@ -154,33 +154,35 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     
     
    private func initPetInfo(){
-        let pet = Pet.currentPet()
-    
-    if let image = pet.image{
-        profileImageView.image = pet.image
-    }
-    
-
+    if let pet = Pet.currentPet(){
+        if let image = pet.image{
+            profileImageView.image = pet.image
+        }
+        
+        
         breedTextView.text = pet.breed
         
         speciesTextView.text = pet.species
+        
+        if let age = pet.age{
+            ageTextView.text = "\(age)"
+        }
+        
+        if let weight = pet.weight{
+            weightTextView.text = "\(weight)"
+        }
+        
+        if let height = pet.height{
+            heightTextView.text = "\(height)"
+        }
+        
+        if let longBio = pet.longBio{
+            bioTextView.text = "\(longBio)"
+        }
+        
+        
     
-    if let age = pet.age{
-        ageTextView.text = "\(age)"
     }
-    
-    if let weight = pet.weight{
-        weightTextView.text = "\(weight)"
-    }
-    
-    if let height = pet.height{
-        heightTextView.text = "\(height)"
-    }
-    
-    if let longBio = pet.longBio{
-        bioTextView.text = "\(longBio)"
-    }
-    
     
 
         
@@ -189,25 +191,29 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     }
     
     func saveData(){
-        let pet = Pet.currentPet()
-        
-        pet.breed = newBreed
-        pet.species = newSpecies
-        pet.age = newAge
-        pet.weight = newWeight
-        pet.height = newHeight
-        pet.longBio = newBio
-        pet.image = newImage
-        pet["image"] = NetworkAPI.getPhotoFile(photo: newImage)
-        
-       // print(pet)
-        pet.saveInBackground { (bool: Bool, error: Error?) in
-            if let error = error{
-                print("error: \(error.localizedDescription)")
-            }else{
-                print("finished saving!!!!")
+        if let pet = Pet.currentPet(){
+            
+            pet.breed = newBreed
+            pet.species = newSpecies
+            pet.age = newAge
+            pet.weight = newWeight
+            pet.height = newHeight
+            pet.longBio = newBio
+            pet.image = newImage
+            pet["image"] = NetworkAPI.getPhotoFile(photo: newImage)
+            
+            // print(pet)
+            pet.saveInBackground { (bool: Bool, error: Error?) in
+                if let error = error{
+                    print("error: \(error.localizedDescription)")
+                }else{
+                    print("finished saving!!!!")
+                }
             }
+        
+        
         }
+    
     
     }
     

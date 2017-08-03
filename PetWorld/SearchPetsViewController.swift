@@ -76,6 +76,7 @@ class SearchPetsViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         self.performSegue(withIdentifier: "ProfileSegue", sender: indexPath )
+        
     }
     
     
@@ -103,6 +104,8 @@ class SearchPetsViewController: UIViewController, UITableViewDataSource, UITable
                 let profileVC = segue.destination as! ProfileViewController
                 profileVC.shouldShowEditButton = false
                 profileVC.pet = pet
+                
+               // profileVC.dismissCallback
             }
         }
         

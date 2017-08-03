@@ -132,7 +132,7 @@ class NetworkAPI: NSObject {
     class func getPosts(numPosts: Int, forPet: Pet,  successHandler: @escaping ([Post])->(),  errorHandler: ((Error)->())?){
         // Query
         let query = PFQuery(className: "Post")
-     
+     print(forPet)
         let following = Array(forPet.following!.values)
         let array = Array(forPet.following!.values)
         
@@ -193,10 +193,7 @@ class NetworkAPI: NSObject {
     }
     
     
-    class func getHomeFeed(numPosts: Int, successHandler: @escaping(([Post]) -> ()), errorHandler:  ((Error) -> ())?){
-        getPosts(numPosts: numPosts, forPet: Pet.currentPet(), successHandler: successHandler, errorHandler: errorHandler)
-     print("getHomeFeed()")
-    }
+   
     
     class func loadOwner(userObject: PFObject, completionHandler: @escaping ()->(), errorHandler: (()->())?){
         var user = userObject as! User
@@ -446,6 +443,25 @@ class NetworkAPI: NSObject {
         newPet.saveInBackground(block: completionHandler)
     
     }
+    
+    
+    class func createNewPet(withPet: Pet, completionHandler: @escaping PFBooleanResultBlock){
+        //TODO: Need to fix this really stupid.
+        withPet["image"] = NetworkAPI.getPhotoFile(photo: withPet.image)
+        //Mini constructor code
+        withPet.following = [:]
+        withPet.followers = [:]
+        withPet.likedPosts = [:]
+        withPet.followingCount = 0
+        withPet.followersCount = 0
+        withPet.owner = User.current()
+        
+        withPet.saveInBackground(block: completionHandler)
+        
+    }
+
+    
+    
     
     
     

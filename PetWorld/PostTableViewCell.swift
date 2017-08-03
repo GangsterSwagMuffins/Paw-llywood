@@ -61,25 +61,28 @@ class PostTableViewCell: UITableViewCell{
         let cell = sender.superview?.superview as! PostTableViewCell
         
         let postOwner  = cell.post.author!
-        
-        if self.followButton.isSelected{
-            NetworkAPI.unfollow(follower: currentPet, followee: postOwner, completionHandler: {
-                print("Succesfully unfollowed")
-            }, errorHandler: { (error: Error) in
-                print("Unsucessful unfollow")
-            })
-            
-            self.followButton.isSelected = false
-        }else{
-            NetworkAPI.follow(follower: currentPet, followee: postOwner, completionHandler: {
-                print("Successful follow")
-            
-            }, errorHandler: { (error: Error) in
+        if let currentPet = Pet.currentPet(){
+            if self.followButton.isSelected{
+                NetworkAPI.unfollow(follower: currentPet, followee: postOwner, completionHandler: {
+                    print("Succesfully unfollowed")
+                }, errorHandler: { (error: Error) in
+                    print("Unsucessful unfollow")
+                })
                 
-                print("Unsucessful follow.")
-            })
+                self.followButton.isSelected = false
+            }else{
+                NetworkAPI.follow(follower: currentPet, followee: postOwner, completionHandler: {
+                    print("Successful follow")
+                    
+                }, errorHandler: { (error: Error) in
+                    
+                    print("Unsucessful follow.")
+                })
+                
+                self.followButton.isSelected = true
+            }
             
-            self.followButton.isSelected = true                 
+        
         }
         
     
@@ -230,30 +233,32 @@ class PostTableViewCell: UITableViewCell{
         
         self.loadingState = liked
         self.isLoading = true
-        
-        NetworkAPI.toggleLiked(withPost: self.post, byPet: Pet.currentPet(), withState: liked, completionHandler: { (success: Bool, error: Error?) in
-            
-            
-            
-            if let error = error{
-                print("Could not toggle like! \(error)")
-            }else{
-                if success{
-                    let newState:  Bool = self.likeButton.isSelected
-                    if (newState != liked){
-                        self.updateLike(liked: newState)
-                        //More loading is required....
-                    }else{//Finished loading
-                        self.isLoading = false
-                    }
-                    
-                    print("successfully toggled like")
-                    
+        if let pet = Pet.currentPet(){
+            NetworkAPI.toggleLiked(withPost: self.post, byPet: Pet.currentPet()!, withState: liked, completionHandler: { (success: Bool, error: Error?) in
+                
+                
+                
+                if let error = error{
+                    print("Could not toggle like! \(error)")
                 }else{
-                    print("successfully toggled like")
+                    if success{
+                        let newState:  Bool = self.likeButton.isSelected
+                        if (newState != liked){
+                            self.updateLike(liked: newState)
+                            //More loading is required....
+                        }else{//Finished loading
+                            self.isLoading = false
+                        }
+                        
+                        print("successfully toggled like")
+                        
+                    }else{
+                        print("successfully toggled like")
+                    }
                 }
-            }
-        })
+            })
+        }
+       
         
     }
     
@@ -263,14 +268,16 @@ class PostTableViewCell: UITableViewCell{
         self.followButton.setTitle("Follow",for: UIControlState.normal)
         
         
-        let currentPet = Pet.currentPet()
-        if let followee = self.post.author{
-            if currentPet.isFollowing(pet: self.post.author!){
-                self.followButton.isSelected = true
-            }else{
-                self.followButton.isSelected = false
+        if let currentPet = Pet.currentPet(){
+            if let followee = self.post.author{
+                if currentPet.isFollowing(pet: self.post.author!){
+                    self.followButton.isSelected = true
+                }else{
+                    self.followButton.isSelected = false
+                }
             }
         }
+        
         
         
         
