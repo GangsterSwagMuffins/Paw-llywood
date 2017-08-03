@@ -75,7 +75,6 @@ class ProfilePictureEditorViewController: UIViewController, UIImagePickerControl
         if segue.identifier == "backToProfile" {
             let dVC = segue.destination as! ProfileViewController
             dVC.pet = self.pet
-            dVC.user = self.user
         }
     }
  

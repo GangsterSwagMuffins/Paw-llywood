@@ -13,7 +13,6 @@ import Parse
 class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, PetFieldsLoadedDelegate {
     
     var pet: Pet?
-    var user: User!
     var shouldShowEditButton: Bool = true
     
     @IBOutlet var profileView: ProfileView!
@@ -53,6 +52,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         //Have an instance of delegate from app del
         
         if (shouldShowEditButton){
+            
             if (Pet.getPets().count > 0){
                 print("number of pets > 0")
                 //Get the current pet
@@ -64,9 +64,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                     self.profileView.updateUI(pet: pet)
                 }
                 
+
                 
             }else{ // If no pets were loaded....
                 print("getPets() has <= 0")
+                self.headerView.leftButton.isHidden = true
+
             }
         }
        
@@ -86,16 +89,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         self.tableViewController?.pet = self.pet
         self.tableViewController?.view.frame = self.profileView.containerView.bounds
         self.profileView.containerView.addSubview((self.tableViewController?.view)!)
-        
-        
-        
-        
-        
-  
-        
-        
-        
-        
+    
         
     }
     
@@ -113,11 +107,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                         self.profileView.loadProfileImage(pet: pet)
                     }
                     
-                    
-                    
-                    
                 }else{ // If no pets were loaded....
                     print("getPets() has <= 0")
+                    self.headerView.leftButton.isHidden = true
+
                 }
                 
                 
