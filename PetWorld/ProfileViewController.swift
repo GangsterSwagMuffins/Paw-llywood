@@ -69,11 +69,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                     self.profileView.updateUI(pet: pet)
                 }
                 
+                self.headerView.leftButton.isHidden = true
 
                 
             }else{ // If no pets were loaded....
                 print("getPets() has <= 0")
-                self.headerView.leftButton.isHidden = true
 
             }
         }
@@ -111,10 +111,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                     if let pet = self.pet{
                         self.profileView.loadProfileImage(pet: pet)
                     }
-                    
+                    self.headerView.leftButton.isHidden = true
+
                 }else{ // If no pets were loaded....
                     print("getPets() has <= 0")
-                    self.headerView.leftButton.isHidden = true
 
                 }
                 
