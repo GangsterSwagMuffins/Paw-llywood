@@ -29,6 +29,12 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
+        if (!isLoading){
+            print("loadPosts")
+            
+            loadPosts()
+        }
+        
         
         self.collectionView.reloadData()
         
@@ -81,7 +87,11 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
         
-        return CGSize(width: collectionView.bounds.size.width/3, height: collectionView.bounds.size.height/2)
+        let screen = UIScreen.main.bounds
+        let screenWidth = screen.size.width
+        let screenHeight = screen.size.height
+        
+        return CGSize(width: collectionView.bounds.size.width/3, height: screenHeight / 6)
     
     }
     

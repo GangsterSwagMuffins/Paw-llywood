@@ -387,7 +387,6 @@
 				33751ECF1ED95BB800E60E34 /* AddFriendViewController.swift */,
 				33751ED31ED96B3A00E60E34 /* FriendTableViewCell.swift */,
 				1F73F9541F324FA5002AA24B /* SearchPetsViewController.swift */,
-				1F73F95E1F337999002AA24B /* MyPostViewController.swift */,
 			);
 			name = "Friends View Controllers";
 			sourceTree = "<group>";
@@ -395,6 +394,7 @@
 		33751ED51EDA07E000E60E34 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				1F73F95E1F337999002AA24B /* MyPostViewController.swift */,
 				5E1D58431ED91B970055C09D /* ProfilePictureEditorViewController.swift */,
 				1F232B9A1F15BEE9002367AD /* ProfileViewController.swift */,
 				1F34C1081F1AEDFA00EEF564 /* AboutMeTableViewController.swift */,
