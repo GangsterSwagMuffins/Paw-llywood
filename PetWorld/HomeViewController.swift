@@ -1,4 +1,4 @@
-//
+ //
 //  HomeViewController.swift
 //  PetWorld
 //
@@ -117,7 +117,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = sender.superview?.superview as! PostTableViewCell
         commentViewController.post = cell.post
         print(cell.post)
-        commentViewController.comments = cell.post.comments!
+        if let comments = cell.post.comments{
+            commentViewController.comments = comments
+        }else{
+        print("Could not find comments!")
+        }
+       // commentViewController.comments = cell.post.comments!
         print(cell.post.comments)
         
         
@@ -155,7 +160,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tableView.reloadData()
                 
                 if (!self.isLoadingComments){
-                self.isLoadingComments = true
                 for post in posts{
                 self.loadComments(forPost: post)
                 }
@@ -174,6 +178,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
       
     
     func loadComments(forPost: Post){
+        self.isLoadingComments = true
         NetworkAPI.getComments(withPost: forPost, populateFields: true, successHandler: { (comments: [Comment]) in
             
             forPost.comments = comments
@@ -183,6 +188,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             print("error occurred loading comments!")
         }
     }
+    
     
     func initTableView(){
         //Set up autolayout

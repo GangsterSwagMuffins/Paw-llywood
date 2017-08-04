@@ -261,7 +261,6 @@ class NetworkAPI: NSObject {
     class func getComments(withPost: Post, populateFields: Bool, successHandler: @escaping([Comment])->(),  errorHandler: @escaping(Error)->() ){
         
         let query = PFQuery(className: "Comment")
-            query.includeKeys(["author"])
         query.whereKey("post", equalTo: withPost)
         
         query.order(byDescending: "_created_at")
@@ -278,11 +277,10 @@ class NetworkAPI: NSObject {
                     
                     for comment in comments{
                         print(comment.allKeys)
-                        //Every time a comment is loaded update screen
-                        let post = comment.post
-                        
+                        comment.author = withPost.author
+                        comment.post = withPost
                        
-                        if let pet = comment.author{
+                        if let pet = withPost.author{
                             if pet.image == nil{
                                 let imageFile: PFFile? = pet["image"] as? PFFile
                                 
