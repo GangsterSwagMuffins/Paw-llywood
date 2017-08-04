@@ -97,6 +97,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
             homeViewController.posts =  [post]
             homeViewController.isDetailView = true
+            
             self.present(homeViewController, animated: true, completion: { 
                 print("Presented view controller")
             })

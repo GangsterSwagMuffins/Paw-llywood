@@ -83,7 +83,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }else{
             self.tableView.isHidden = false
             self.headerView.leftButton.isHidden = false
-            
+            self.emptyView.isHidden = true
         
         }
         
@@ -256,9 +256,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         
         }
-        
-       
-        
        // for post in pe
     }
     
