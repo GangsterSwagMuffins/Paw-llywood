@@ -91,7 +91,17 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         
         
+        self.presentViewController?.cellTappedCallBack = {
+            (post: Post) in
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            homeViewController.posts =  [post]
+            homeViewController.isDetailView = true
+            self.present(homeViewController, animated: true, completion: { 
+                print("Presented view controller")
+            })
         
+        }
        self.presentViewController?.pet = self.pet
         self.presentViewController?.view.frame = self.profileView.containerView.bounds
         self.profileView.containerView.addSubview((self.presentViewController?.view)!)

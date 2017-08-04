@@ -25,6 +25,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var likedPosts: [String: Post] = [:]
     var isDetailView: Bool = false
     
+    @IBOutlet weak var headerView: HeaderView!
+    @IBOutlet weak var emptyView: EmptyView!
     
     
     
@@ -46,6 +48,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
          initTableView()
         initLikedPosts()
+        self.headerView.onClickCallBack = {
+            self.dismiss(animated: true, completion: { 
+                print("dismissed home view controller")
+            })
+        }
 
         
         if (!isDetailView){
@@ -67,7 +74,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewWillAppear(true)
         
         if (!isDetailView){
-            
+            self.headerView.leftButton.isHidden = true
             if (!isLoadingPosts){
                 isLoadingPosts = true
                 loadPosts()
@@ -75,7 +82,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         }else{
             self.tableView.isHidden = false
-         
+            self.headerView.leftButton.isHidden = false
+            
+        
         }
         
             
@@ -168,8 +177,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 if posts.count <= 0 {
                 self.tableView.isHidden = true
+                    self.emptyView.isHidden = false
                 }else{
                 self.tableView.isHidden = false
+                    self.emptyView.isHidden = true
                 }
                 
                 self.tableView.reloadData()

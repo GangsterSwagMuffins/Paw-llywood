@@ -15,11 +15,9 @@ class ProfileViewInfoTabBarController: UIViewController {
     
     @IBOutlet weak var myInfoButton: UIButton!
     
-    
-    
-    
     @IBOutlet weak var containerView: UIView!
     
+    var cellTappedCallBack: ((Post)->())?
     
     var pet: Pet?
     
@@ -74,6 +72,7 @@ class ProfileViewInfoTabBarController: UIViewController {
         myPostsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MyPostViewController") as! MyPostViewController
         
         myPostsViewController?.pet = pet
+        myPostsViewController?.cellTappedCallback = self.cellTappedCallBack
 
         
         activeViewController = myPostsViewController
