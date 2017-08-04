@@ -64,6 +64,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 self.pet = Pet.currentPet()
                 //Automatically updates the UI after finished loading...
                 
+                self.profileView.pet = self.pet!
                 if let pet = self.pet{
                     self.profileView.loadProfileImage(pet: pet)
                     self.profileView.updateUI(pet: pet)
