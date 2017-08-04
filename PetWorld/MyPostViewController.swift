@@ -73,6 +73,22 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     }
     
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        
+        print("Button pressed!")
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        
+        homeViewController.posts = [self.posts[indexPath.row]]
+        homeViewController.isDetailView = true
+        self.present(homeViewController, animated: true) { 
+            print("home view controller presented")
+        }
+        
+    }
+    
     
    
     

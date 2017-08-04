@@ -23,6 +23,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var isLoadingPosts: Bool = false
     var commentViewController: CommentViewController?
     var likedPosts: [String: Post] = [:]
+    var isDetailView: Bool = false
     
     
     
@@ -47,12 +48,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         initLikedPosts()
 
         
+        if (!isDetailView){
+            if (!isLoadingPosts){
+                isLoadingPosts = true
+                loadPosts()
+            }
         
-        
-        if (!isLoadingPosts){
-            isLoadingPosts = true
-            loadPosts()
         }
+        
+        
         
         
  
@@ -62,12 +66,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        if (!isDetailView){
+            
+            if (!isLoadingPosts){
+                isLoadingPosts = true
+                loadPosts()
+            }
         
-        if (!isLoadingPosts){
-            isLoadingPosts = true
-            loadPosts()
+        }else{
+            self.tableView.isHidden = false
+         
         }
+        
+            
+        
         if (!self.tableView.isHidden){
+            
+            
             self.tableView.reloadData()
 
         }
