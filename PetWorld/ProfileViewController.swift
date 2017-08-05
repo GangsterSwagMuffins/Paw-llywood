@@ -48,6 +48,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         //Depends on whether or not came from choosing the profile tab or clicking on someone else's profile
         self.profileView.showEdit = shouldShowEditButton
         
+        
+//        if let gestures = self.profileView.containerView.gestureRecognizers{
+//            for gesture in gestures{
+//                if gesture is UITapGestureRecognizer{
+//                    let gesture = gesture as! UITapGestureRecognizer
+//                    gesture.cancelsTouchesInView = false
+//                }
+//                
+//            }
+//        }
         self.headerView.onClickCallBack = {
             self.dismiss(animated: true, completion: {
                 print("Profile dismissed!")
@@ -71,7 +81,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 }
                 
                 self.headerView.leftButton.isHidden = true
-
+                
+                
                 
             }else{ // If no pets were loaded....
                 print("getPets() has <= 0")

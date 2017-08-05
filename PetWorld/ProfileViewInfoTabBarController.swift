@@ -65,6 +65,18 @@ class ProfileViewInfoTabBarController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        self.containerView.isUserInteractionEnabled = false
+//        
+//        if let gestures = self  .containerView.gestureRecognizers{
+//            for gesture in gestures{
+//                if gesture is UITapGestureRecognizer{
+//                    let gesture = gesture as! UITapGestureRecognizer
+//                    gesture.cancelsTouchesInView = false
+//                }
+//                
+//            }
+//        }
+        
          petInformationViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AboutMeTableViewController") as! AboutMeTableViewController
         petInformationViewController?.pet = pet
         

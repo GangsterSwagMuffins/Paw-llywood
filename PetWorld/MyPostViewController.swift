@@ -68,18 +68,23 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PublicPostCell", for: indexPath)as! PublicPostCollectionViewCell
         
-        cell.post = posts[indexPath.row]
+        cell.post = posts[indexPath.item]
         
         return cell
     
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+  
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-       cellTappedCallback?(self.posts[indexPath.row])
+        print("cell index: \(indexPath.item)")
+        print("press detected")
+        
+        cellTappedCallback?(self.posts[indexPath.item])
         
     }
-    
     
    
     
