@@ -20,9 +20,21 @@ class HeaderView: UIView {
     @IBOutlet var backgroundView: UIView!
     
     
+    
+    
     var onClickCallBack: ((Void)->Void)?
     
-    
+    @IBInspectable
+    var color: UIColor?{
+        didSet{
+            if let color = color{
+                 self.backgroundView.backgroundColor = color
+            }
+            
+            
+           
+        }
+    }
     
     @IBInspectable
     var title: String?{
@@ -64,10 +76,16 @@ class HeaderView: UIView {
     
     func setupView(){
         let nib = UINib(nibName: "HeaderView", bundle: nil)
+        
         nib.instantiate(withOwner: self, options: nil)
+    
         self.backgroundView.frame = bounds
+        
         addSubview(self.backgroundView)
     }
+    
+    
+    
     
 
 }

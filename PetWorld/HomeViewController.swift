@@ -48,6 +48,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
          initTableView()
         initLikedPosts()
+        
+        
+        
         self.headerView.onClickCallBack = {
             self.dismiss(animated: true, completion: { 
                 print("dismissed home view controller")
@@ -72,6 +75,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
         
         if (!isDetailView){
             self.headerView.leftButton.isHidden = true
@@ -98,7 +102,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewDidAppear(animated)
+        
+        
+        self.headerView.color = UIColor.blue
+        self.headerView.tintColor = UIColor.black
+        self.headerView.backgroundView.tintColor = UIColor.red
+        
+        self.headerView.tintColorDidChange()
+        
+        
+        print("\n\n\n\n\n\n\n______________\nHeaderView color: \n\n\n\n\n\n\n\n\(headerView.tintColor.cgColor.colorSpace)\n\n\n\n\n\n\n\n_________________")
         
     }
     
