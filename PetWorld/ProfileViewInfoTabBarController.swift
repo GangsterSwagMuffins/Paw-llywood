@@ -65,6 +65,9 @@ class ProfileViewInfoTabBarController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.myImagesButton.tintColor = ColorPalette.primary
+        self.myInfoButton.tintColor = UIColor.gray
+        
 //        self.containerView.isUserInteractionEnabled = false
 //        
 //        if let gestures = self  .containerView.gestureRecognizers{
@@ -104,11 +107,17 @@ class ProfileViewInfoTabBarController: UIViewController {
         
         self.activeViewController = myPostsViewController
         
+        self.myImagesButton.tintColor = ColorPalette.primary
+        self.myInfoButton.tintColor = UIColor.gray
+        
       
     }
   
     @IBAction func onMyInfoButtonTapped(_ sender: Any) {
         self.activeViewController = petInformationViewController
+        
+        self.myImagesButton.tintColor = UIColor.gray
+        self.myInfoButton.tintColor = ColorPalette.primary
     }
     
     

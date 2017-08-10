@@ -18,6 +18,9 @@ class PostMediaTabViewController: UITabBarController, UITabBarControllerDelegate
         super.viewDidLoad()
         self.delegate = self
         
+        self.tabBar.tintColor = ColorPalette.primary
+        
+        self.tabBar.barTintColor = UIColor.white
         // Do any additional setup after loading the view.
     }
 

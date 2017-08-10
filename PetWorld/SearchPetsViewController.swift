@@ -28,12 +28,15 @@ class SearchPetsViewController: UIViewController, UITableViewDataSource, UITable
 
     override func viewDidLoad() {
         super.viewDidLoad()
+          self.searchView.searchBar.becomeFirstResponder()
         self.searchBar = self.searchView.searchBar
         
         self.searchBar.delegate = self
-       
+        self.searchBar.barTintColor = UIColor.white
+       self.searchBar.tintColor = ColorPalette.primary
         
-        
+var textField = self.searchBar.value(forKey: "searchField") as? UITextField
+        textField?.textColor = ColorPalette.primary
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -43,6 +46,13 @@ class SearchPetsViewController: UIViewController, UITableViewDataSource, UITable
         self.tableView.reloadData()
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+      
     }
     
     

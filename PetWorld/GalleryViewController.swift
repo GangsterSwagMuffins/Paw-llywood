@@ -31,6 +31,9 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.topBar.titleText.textColor = UIColor.white
+        self.topBar.leftButton.tintColor = UIColor.white
+        
         
         collectionView.dataSource = self
         collectionView.delegate = self

@@ -48,6 +48,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
          initTableView()
         initLikedPosts()
+        self.headerView.backgroundView.backgroundColor = ColorPalette.primary
+        self.headerView.backgroundColor = ColorPalette.primary
+        self.headerView.titleText.textColor = UIColor.white
+        self.emptyView.titleTextLabel.textColor = ColorPalette.primary
+        self.emptyView.informationTextLabel.textColor = ColorPalette.primary
+        self.emptyView.suggestionButton.tintColor = ColorPalette.primary
+        self.emptyView.imageDisplayImageView.tintColor = ColorPalette.primary
+        
         
         
         
@@ -105,9 +113,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidAppear(animated)
         
         
-        self.headerView.color = UIColor.blue
-        self.headerView.tintColor = UIColor.black
-        self.headerView.backgroundView.tintColor = UIColor.red
+        
         
         self.headerView.tintColorDidChange()
         
@@ -228,6 +234,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             print("error occurred loading comments!")
         }
     }
+    
     
     
     func initTableView(){

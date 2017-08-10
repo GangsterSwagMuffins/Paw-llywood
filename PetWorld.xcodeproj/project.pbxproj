@@ -52,6 +52,7 @@
 		1F9CF70C1F0A952D00F0F072 /* DesignableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9CF70B1F0A952C00F0F072 /* DesignableTableView.swift */; };
 		1F9CF70E1F0ACEAE00F0F072 /* ViewDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9CF70D1F0ACEAB00F0F072 /* ViewDesignable.swift */; };
 		1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FEF9F1ECA02D80009CC06 /* Pet.swift */; };
+		1FA451BF1F3BA9D100981FC0 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA451BE1F3BA9D100981FC0 /* ColorPalette.swift */; };
 		1FAD6F341F042E5F006783F7 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD6F331F042E5F006783F7 /* DesignableTextField.swift */; };
 		1FAD6F361F045448006783F7 /* danger.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAD6F351F045448006783F7 /* danger.png */; };
 		1FAD6F381F04B280006783F7 /* BGVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FAD6F371F04B166006783F7 /* BGVideo.mp4 */; };
@@ -143,6 +144,7 @@
 		1F9CF70B1F0A952C00F0F072 /* DesignableTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTableView.swift; sourceTree = "<group>"; };
 		1F9CF70D1F0ACEAB00F0F072 /* ViewDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDesignable.swift; sourceTree = "<group>"; };
 		1F9FEF9F1ECA02D80009CC06 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		1FA451BE1F3BA9D100981FC0 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		1FAD6F331F042E5F006783F7 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		1FAD6F351F045448006783F7 /* danger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = danger.png; sourceTree = "<group>"; };
 		1FAD6F371F04B166006783F7 /* BGVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = BGVideo.mp4; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 		1F73AAAE1E9C937C00A5C1AD /* PetWorld */ = {
 			isa = PBXGroup;
 			children = (
+				1FA451BD1F3BA9B700981FC0 /* Color */,
 				1F59EBED1F1EF19100A2CBE2 /* Network */,
 				1F73AAAF1E9C937C00A5C1AD /* AppDelegate.swift */,
 				1FAD6F3E1F057777006783F7 /* Storyboards */,
@@ -359,6 +362,14 @@
 				1F9CF7091F09E19800F0F072 /* TextManipulation.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		1FA451BD1F3BA9B700981FC0 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				1FA451BE1F3BA9D100981FC0 /* ColorPalette.swift */,
+			);
+			name = Color;
 			sourceTree = "<group>";
 		};
 		1FAD6F3D1F057757006783F7 /* Fonts */ = {
@@ -665,6 +676,7 @@
 				1F43B13E1F102A26001D9CC1 /* TransitionToNormalViewController.swift in Sources */,
 				1F232B9B1F15BEE9002367AD /* ProfileViewController.swift in Sources */,
 				1F5B02111F2FCEF000BFC632 /* HomeTabViewController.swift in Sources */,
+				1FA451BF1F3BA9D100981FC0 /* ColorPalette.swift in Sources */,
 				1F9CF70C1F0A952D00F0F072 /* DesignableTableView.swift in Sources */,
 				1F59EBE71F1D2FBE00A2CBE2 /* EditProfileViewController.swift in Sources */,
 				1F73F9611F33B93E002AA24B /* ProfileViewInfoTabBarController.swift in Sources */,

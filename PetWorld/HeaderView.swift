@@ -19,10 +19,15 @@ class HeaderView: UIView {
     
     @IBOutlet var backgroundView: UIView!
     
+    @IBOutlet weak var rightButton: UIButton!
     
     
     
     var onClickCallBack: ((Void)->Void)?
+    
+    var onRightClickCallBack: ((Void)->Void)?
+    
+    
     
     @IBInspectable
     var color: UIColor?{
@@ -73,6 +78,11 @@ class HeaderView: UIView {
         
     }
     
+    @IBAction func onTappedRightButton(_ sender: Any) {
+        
+        onRightClickCallBack?()
+        
+    }
     
     func setupView(){
         let nib = UINib(nibName: "HeaderView", bundle: nil)
@@ -80,7 +90,8 @@ class HeaderView: UIView {
         nib.instantiate(withOwner: self, options: nil)
     
         self.backgroundView.frame = bounds
-        
+        self.backgroundColor = ColorPalette.primary
+        self.titleText.tintColor = UIColor.white
         addSubview(self.backgroundView)
     }
     

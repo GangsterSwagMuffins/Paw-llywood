@@ -16,6 +16,9 @@ class HomeTabViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        self.tabBar.unselectedItemTintColor = UIColor.gray
+        self.tabBar.tintColor = ColorPalette.primary
+        self.tabBar.barTintColor = UIColor.white
         
 //        if let viewControllers = self.viewControllers{
 //            for viewController in viewControllers{

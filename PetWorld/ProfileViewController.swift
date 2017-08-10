@@ -47,6 +47,17 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         //Depends on whether or not came from choosing the profile tab or clicking on someone else's profile
         self.profileView.showEdit = shouldShowEditButton
+        self.profileView.editButton.backgroundColor = ColorPalette.primary
+        self.headerView.color = ColorPalette.primary
+        
+        self.headerView.titleText.textColor = UIColor.white
+        self.headerView.onRightClickCallBack = {
+            self.onFollowTapped()
+        }
+        
+      //  self.profileView.followButton.tintColor = UIColor.white
+        
+        self.headerView.leftButton.tintColor = UIColor.white
         
         
 //        if let gestures = self.profileView.containerView.gestureRecognizers{
@@ -124,6 +135,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     override func viewWillAppear(_ animatee3d: Bool) {
         //Have an instance of delegate from app del
         let currentUser = User.current()!
+        self.initFollowButton()
+
         
         
         if (shouldShowEditButton){
@@ -143,12 +156,18 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 
                 
             }
+        }else{
+            
+        
         }
        
        
         
         if let pet = self.pet{
             self.profileView.pet = pet
+            if let name = pet.name{
+                self.headerView.titleText.text = name
+            }
           //  print(pet)
            
         }
@@ -215,6 +234,85 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             dVc.pet = self.pet
         }
     }
+    
+    func onFollowTapped() {
+        let isFollowing = self.headerView.rightButton.isSelected
+        
+        let currentPet = Pet.currentPet()!
+        
+        
+        
+        if isFollowing == true{
+            if let pet = self.pet{
+                self.headerView.rightButton.isSelected = false
+                
+                NetworkAPI.unfollow(follower: currentPet, followee: pet, completionHandler: {
+                    print("Successful unfollow!")
+                }, errorHandler: { (error: Error) in
+                    print("Problem unfollowing!!!")
+                })
+            }
+          
+            
+        }else{
+            
+            if let pet = self.pet{
+                self.headerView.rightButton.isSelected = true
+                
+                NetworkAPI.follow(follower: currentPet, followee: pet, completionHandler: {
+                    print("Successful follow.")
+                }, errorHandler: { (error: Error) in
+                    print("Unsuccessful follow.")
+                })
+            }
+           
+            
+        }
+        
+        
+        
+        
+    }
+    
+    func initFollowButton(){
+        self.headerView.rightButton.tintColor = UIColor.white
+        if (!shouldShowEditButton){
+            self.headerView.rightButton.isHidden = false
+            
+        }else{
+            self.headerView.rightButton.isHidden = true
+        }
+        self.headerView.rightButton.setTitle("Follow", for: UIControlState.normal)
+        self.headerView.rightButton.setTitle("Unfollow", for: UIControlState.selected)
+        
+        let currentPet = Pet.currentPet()
+        
+        if let pet = self.pet{
+            let petId = pet.objectId
+            
+            
+            //You can't follow yourself
+            if pet == currentPet{
+                self.headerView.rightButton.isHidden = true
+                return
+            }
+            
+            
+            if let petId = petId{
+                if (currentPet?.isFollowing(pet: pet))!{
+                    self.headerView.rightButton.isSelected = true
+                }
+                
+            }
+        }
+        
+        
+        
+        
+        
+        
+    }
+
  
 
 }

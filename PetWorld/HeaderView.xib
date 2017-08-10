@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="backgroundView" destination="iN0-l3-epB" id="UwO-E6-DVA"/>
                 <outlet property="leftButton" destination="Ghe-VE-13X" id="x82-Vs-TGj"/>
+                <outlet property="rightButton" destination="iFR-vA-SC1" id="Qh7-AM-4ei"/>
                 <outlet property="titleText" destination="ZBA-eg-pgM" id="Bgg-MM-GbB"/>
             </connections>
         </placeholder>
@@ -37,13 +38,21 @@
                         <action selector="onTappedLeftButton:" destination="-1" eventType="touchUpInside" id="sl6-hg-zOm"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFR-vA-SC1">
+                    <rect key="frame" x="329" y="12" width="30" height="30"/>
+                    <connections>
+                        <action selector="onTappedRightButton:" destination="-1" eventType="touchUpInside" id="suV-dR-wPB"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Ghe-VE-13X" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="7X1-Cp-NYd"/>
+                <constraint firstItem="iFR-vA-SC1" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="LCZ-7J-mEs"/>
                 <constraint firstItem="Ghe-VE-13X" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="VDA-aB-hfc"/>
                 <constraint firstItem="ZBA-eg-pgM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ZgL-rG-mNf"/>
                 <constraint firstItem="ZBA-eg-pgM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ayR-LS-8Ya"/>
+                <constraint firstAttribute="trailing" secondItem="iFR-vA-SC1" secondAttribute="trailing" constant="16" id="rwT-IV-Y1D"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

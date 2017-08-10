@@ -100,7 +100,7 @@ class ProfileView: UIView {
     
     
     func updateUI(pet: Pet){
-        initFollowButton()
+      //  initFollowButton()
         updatePetUI(pet: pet)
         updateUserUI()
         
@@ -251,33 +251,7 @@ class ProfileView: UIView {
     }
     //Normal = "Follow" string
     //Selected = "Unfollow" string
-    func initFollowButton(){
-         self.followButton.setTitle("Follow", for: UIControlState.normal)
-        self.followButton.setTitle("Unfollow", for: UIControlState.selected)
-        
-        let currentPet = Pet.currentPet()
-        let petId = pet.objectId
-        
-        
-        //You can't follow yourself
-        if pet == currentPet{
-            self.followButton.isHidden = true
-            return
-        }
-        
-        
-        if let petId = petId{
-            if (currentPet?.isFollowing(pet: pet))!{
-                self.followButton.isSelected = true
-            }
-        
-        }
-        
-        
-        
-        
     
-    }
     
 
 }

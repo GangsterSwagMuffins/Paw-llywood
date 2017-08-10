@@ -33,6 +33,7 @@ class VerifyPhotoViewController: UIViewController, UITextFieldDelegate {
         self.tabBar.onClickCallBack = {
             self.dismiss(animated: true, completion: nil)
         }
+        self.tabBar.titleText.textColor = UIColor.white
         // Do any additional setup after loading the view.
     }
 
