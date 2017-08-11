@@ -30,9 +30,15 @@ class SearchPetsViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
           self.searchView.searchBar.becomeFirstResponder()
         self.searchBar = self.searchView.searchBar
+        self.searchBar.showsCancelButton = true
         
         self.searchBar.delegate = self
         self.searchBar.barTintColor = UIColor.white
+        let attributes = [
+            NSForegroundColorAttributeName : ColorPalette.primary
+        ]
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes(attributes, for: .normal)
+        self.searchBar.tintColor = ColorPalette.primary
        self.searchBar.tintColor = ColorPalette.primary
         
 var textField = self.searchBar.value(forKey: "searchField") as? UITextField
@@ -75,6 +81,12 @@ var textField = self.searchBar.value(forKey: "searchField") as? UITextField
         
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+       print("dismiss")
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
+    }
+    
     
     
     
@@ -92,7 +104,7 @@ var textField = self.searchBar.value(forKey: "searchField") as? UITextField
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
         print("searching.... \(searchText)")
-        
+        self.searchBar.showsCancelButton = true
         NetworkAPI.searchPets(withName: searchText, successHandler: { (pets: [Pet]) -> (Void) in
             self.pets = pets
             self.tableView.reloadData()
