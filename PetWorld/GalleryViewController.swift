@@ -9,7 +9,7 @@
 import UIKit
 import Photos
 
-class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
+class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var topBar: HeaderView!
     
@@ -81,6 +81,8 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         // Do any additional setup after loading the view.
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if (photosAsset != nil){
@@ -88,6 +90,16 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         }
         
         return 0
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+        print("Size called!")
+        let screen = UIScreen.main.bounds
+        let screenWidth = screen.size.width
+        let screenHeight = screen.size.height
+        
+        return CGSize(width: collectionView.frame.size.width/3 - 1, height: screenHeight / 6)
         
     }
     

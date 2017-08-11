@@ -29,7 +29,7 @@ class TextManipulation: NSObject {
     }
     
     class func themeColor() -> UIColor{
-        return  UIColor(red: 15/255.0, green: 15/255.0, blue: 163/255.0, alpha: 1.0); //Theme blue
+        return  ColorPalette.primary; //Theme blue
     }
     
     class func secondaryColor() -> UIColor{
