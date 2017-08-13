@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class EditProfileViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProfileViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var profileImageView: DesignableImageView!
     
@@ -25,6 +25,8 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     
     @IBOutlet weak var bioTextView: DesignableTextField!
     
+   
+    
     var newBreed: String?
     var newSpecies: String?
     var newAge: NSNumber?
@@ -39,9 +41,25 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         initPetInfo()
+        self.breedTextView.delegate = self
+        self.speciesTextView.delegate = self
+        self.ageTextView.delegate = self
+        self.weightTextView.delegate = self
+        self.heightTextView.delegate  = self
+        self.bioTextView.delegate = self
+        
         self.tableView.allowsSelection = false
+        let tap = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
         
         
+        
+        
+    }
+    
+    func dismissKeyboard(){
+        print("dismiss keyboard")
+        self.view.endEditing(true)
     }
     
     
@@ -75,6 +93,8 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         
         
     }
+    
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
         let originalImage = info[UIImagePickerControllerOriginalImage]
         as! UIImage
@@ -87,6 +107,8 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         
     
     }
+    
+   
     
     
     //
@@ -188,6 +210,11 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         
     
     
+    }
+    
+     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     func saveData(){
