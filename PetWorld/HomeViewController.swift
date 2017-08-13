@@ -56,6 +56,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.emptyView.suggestionButton.tintColor = ColorPalette.primary
         self.emptyView.imageDisplayImageView.tintColor = ColorPalette.primary
         let style = UIStatusBarStyle.lightContent
+        self.headerView.titleText.font = UIFont(name: "Pacifico", size: 24)
         
         
         

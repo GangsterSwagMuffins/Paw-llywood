@@ -31,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         Comment.registerSubclass()
         
         
-        
         // Override point for customization after application launch.
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in

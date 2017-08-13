@@ -28,6 +28,7 @@
 		1F5B02111F2FCEF000BFC632 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5B02101F2FCEF000BFC632 /* HomeTabViewController.swift */; };
 		1F5B02131F311F7B00BFC632 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B02121F311F7A00BFC632 /* EmptyView.xib */; };
 		1F5B02151F3121E800BFC632 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5B02141F3121E800BFC632 /* EmptyView.swift */; };
+		1F63A3C61F40DDCD00887BC1 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F63A3C51F40DD9400887BC1 /* Pacifico.ttf */; };
 		1F73AAB01E9C937C00A5C1AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73AAAF1E9C937C00A5C1AD /* AppDelegate.swift */; };
 		1F73AAB51E9C937C00A5C1AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F73AAB31E9C937C00A5C1AD /* Main.storyboard */; };
 		1F73AAB71E9C937C00A5C1AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F73AAB61E9C937C00A5C1AD /* Assets.xcassets */; };
@@ -114,6 +115,7 @@
 		1F5B02101F2FCEF000BFC632 /* HomeTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		1F5B02121F311F7A00BFC632 /* EmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		1F5B02141F3121E800BFC632 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		1F63A3C51F40DD9400887BC1 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pacifico.ttf; path = ../../Downloads/pacifico/Pacifico.ttf; sourceTree = "<group>"; };
 		1F73AAAC1E9C937C00A5C1AD /* PetWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F73AAAF1E9C937C00A5C1AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F73AAB41E9C937C00A5C1AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 		1FAD6F3D1F057757006783F7 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				1F63A3C51F40DD9400887BC1 /* Pacifico.ttf */,
 				1FAD6F3B1F05773A006783F7 /* HollywoodHills.ttf */,
 				1FAD6F391F0571B7006783F7 /* WildernessTypeface-Regular.ttf */,
 			);
@@ -557,6 +560,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F63A3C61F40DDCD00887BC1 /* Pacifico.ttf in Resources */,
 				1F5B02131F311F7B00BFC632 /* EmptyView.xib in Resources */,
 				1FAD6F3C1F05773A006783F7 /* HollywoodHills.ttf in Resources */,
 				1F5B020F1F2EAB6800BFC632 /* HeaderView.xib in Resources */,
