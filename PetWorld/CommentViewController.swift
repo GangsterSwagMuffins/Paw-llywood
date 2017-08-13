@@ -175,10 +175,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
         
     }
-    
-    
-    
-    
+      
     func updateComment(comment: Comment){
         
         NetworkAPI.postComment(comment: comment) { (success: Bool, error: Error?) in
@@ -194,7 +191,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
-    
 }
 
 private extension Selector{

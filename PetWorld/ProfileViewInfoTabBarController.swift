@@ -17,6 +17,8 @@ class ProfileViewInfoTabBarController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     
+   static let TAG : String = "ProfileViewInfoTabBarController"
+    
     var cellTappedCallBack: ((Post)->())?
     
     var pet: Pet?
@@ -64,21 +66,12 @@ class ProfileViewInfoTabBarController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("\(ProfileViewInfoTabBarController.TAG) ViewDidLoad()")
+
         
         self.myImagesButton.tintColor = ColorPalette.primary
         self.myInfoButton.tintColor = UIColor.gray
         
-//        self.containerView.isUserInteractionEnabled = false
-//        
-//        if let gestures = self  .containerView.gestureRecognizers{
-//            for gesture in gestures{
-//                if gesture is UITapGestureRecognizer{
-//                    let gesture = gesture as! UITapGestureRecognizer
-//                    gesture.cancelsTouchesInView = false
-//                }
-//                
-//            }
-//        }
         
          petInformationViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AboutMeTableViewController") as! AboutMeTableViewController
         petInformationViewController?.pet = pet
@@ -91,15 +84,21 @@ class ProfileViewInfoTabBarController: UIViewController {
 
         
         activeViewController = myPostsViewController
-
-        
-        
         
         //We should already have the images view controller showing user's posts
         myImagesButton.isSelected = true
         myInfoButton.isSelected = false
       
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("\(ProfileViewInfoTabBarController.TAG) ViewWillAppear()")
+        
+    }
+    
+    
+    
     
     
     
@@ -118,6 +117,7 @@ class ProfileViewInfoTabBarController: UIViewController {
         
         self.myImagesButton.tintColor = UIColor.gray
         self.myInfoButton.tintColor = ColorPalette.primary
+        
     }
     
     

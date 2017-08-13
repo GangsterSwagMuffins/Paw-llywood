@@ -12,6 +12,8 @@ import Parse
 class AboutMeTableViewController: UITableViewController {
     
     
+  static  let TAG: String = "AboutMeTableViewController"
+    
     var pet: Pet?
     
     @IBOutlet weak var breedLabel: UILabel!
@@ -45,6 +47,15 @@ class AboutMeTableViewController: UITableViewController {
         
         self.tableView.allowsSelection = false
         
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        print("\(AboutMeTableViewController.TAG) viewWillAppear()")
+        if let pet = self.pet{
+            updateUI(pet: pet)
+        }
     }
     
         

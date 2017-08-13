@@ -44,100 +44,24 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Depends on whether or not came from choosing the profile tab or clicking on someone else's profile
-        self.profileView.showEdit = shouldShowEditButton
-        self.profileView.editButton.backgroundColor = ColorPalette.primary
-        self.headerView.color = ColorPalette.primary
-        
-        self.headerView.titleText.textColor = UIColor.white
-        self.headerView.onRightClickCallBack = {
-            self.onFollowTapped()
-        }
-        
-      //  self.profileView.followButton.tintColor = UIColor.white
-        
-        self.headerView.leftButton.tintColor = UIColor.white
-        
-        
-//        if let gestures = self.profileView.containerView.gestureRecognizers{
-//            for gesture in gestures{
-//                if gesture is UITapGestureRecognizer{
-//                    let gesture = gesture as! UITapGestureRecognizer
-//                    gesture.cancelsTouchesInView = false
-//                }
-//                
-//            }
-//        }
-        self.headerView.onClickCallBack = {
-            self.dismiss(animated: true, completion: {
-                print("Profile dismissed!")
-            })
-        }
-      //  updateOwnerField()
-        //Have an instance of delegate from app del
-        
-        if (shouldShowEditButton){
-            
-            if (Pet.getPets().count > 0){
-                print("number of pets > 0")
-                //Get the current pet
-                self.pet = Pet.currentPet()
-                //Automatically updates the UI after finished loading...
-                
-                self.profileView.pet = self.pet!
-                if let pet = self.pet{
-                    self.profileView.loadProfileImage(pet: pet)
-                    self.profileView.updateUI(pet: pet)
-                }
-                
-                self.headerView.leftButton.isHidden = true
-                
-                
-                
-            }else{ // If no pets were loaded....
-                print("getPets() has <= 0")
-
-            }
-        }
-       
-        
-        
-        if let pet = self.pet{
-            self.profileView.updatePetUI(pet: pet)
-        }
-        
-        
+        initColorTheme()
+        initBackButton()
+        initFromNav()
+        updateTopHalf()
+        initFollowButton()
          let storyBoard = UIStoryboard(name: "Main", bundle: nil)
          self.presentViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileViewInfoTabBarController") as! ProfileViewInfoTabBarController
         
-        
-        
         self.presentViewController?.cellTappedCallBack = {
             (post: Post) in
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-            homeViewController.posts =  [post]
-            homeViewController.isDetailView = true
-            
-            self.present(homeViewController, animated: true, completion: { 
-                print("Presented view controller")
-            })
-        
+            self.toPostDetailViewController(post: post)
         }
-       self.presentViewController?.pet = self.pet
-        self.presentViewController?.view.frame = self.profileView.containerView.bounds
-        self.profileView.containerView.addSubview((self.presentViewController?.view)!)
-    
         
+        initContainerView()
+   
     }
     
     override func viewWillAppear(_ animatee3d: Bool) {
-        //Have an instance of delegate from app del
-        let currentUser = User.current()!
-        self.initFollowButton()
-
-        
         
         if (shouldShowEditButton){
             if (self.pet == nil){
@@ -161,8 +85,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         }
        
-       
-        
         if let pet = self.pet{
             self.profileView.pet = pet
             if let name = pet.name{
@@ -178,8 +100,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             self.tableViewController?.tableView.reloadData()
             
         }
-       
-        
     }
     
     
@@ -219,11 +139,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
@@ -234,6 +149,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             dVc.pet = self.pet
         }
     }
+    
     
     func onFollowTapped() {
         let isFollowing = self.headerView.rightButton.isSelected
@@ -306,13 +222,91 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             }
         }
         
-        
-        
-        
-        
-        
     }
+    
+    func initColorTheme(){
+        self.profileView.editButton.backgroundColor = ColorPalette.primary
+        self.headerView.color = ColorPalette.primary
+        
+        self.headerView.titleText.textColor = UIColor.white
+        self.headerView.onRightClickCallBack = {
+            self.onFollowTapped()
+        }
+        self.headerView.leftButton.tintColor = UIColor.white
+        
+    
+    }
+    
+    func toPostDetailViewController(post: Post){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        homeViewController.posts =  [post]
+        homeViewController.isDetailView = true
+        
+        self.present(homeViewController, animated: true, completion: {
+            print("Presented view controller")
+        })
+    }
+    
+    
 
+    //Init the bottom half of the screen
+    func initContainerView(){
+        self.presentViewController?.pet = self.pet
+        self.presentViewController?.view.frame = self.profileView.containerView.bounds
+        self.profileView.containerView.addSubview((self.presentViewController?.view)!)
+    }
+    
+    //Show certain stuff on the screen based on whether or not the user was searched
+    //of the user navigated onto their own profiel
+    func initFromNav(){
+        //Depends on whether or not came from choosing the profile tab or clicking on someone else's profile
+        self.profileView.showEdit = shouldShowEditButton
+        //If the user navigated from the tab bar
+        if (shouldShowEditButton){
+            
+            if (Pet.getPets().count > 0){
+                print("number of pets > 0")
+                //Get the current pet
+                self.pet = Pet.currentPet()
+                //Automatically updates the UI after finished loading...
+                
+                self.profileView.pet = self.pet!
+                if let pet = self.pet{
+                    self.profileView.loadProfileImage(pet: pet)
+                    self.profileView.updateUI(pet: pet)
+                }
+                
+                self.headerView.leftButton.isHidden = true
+                
+                
+                
+            }else{ // If no pets were loaded....
+                print("getPets() has <= 0")
+                
+            }
+        }
+    
+    }
+    
+    
+    func initBackButton(){
+        //Dismiss view controller when the user presses back button.
+        self.headerView.onClickCallBack = {
+            self.dismiss(animated: true, completion: {
+                print("Profile dismissed!")
+            })
+        }
+    
+    }
+    
+    func updateTopHalf(){
+        //Update the Top half of screen
+        if let pet = self.pet{
+            self.profileView.updatePetUI(pet: pet)
+        }
+    
+    }
  
 
 }

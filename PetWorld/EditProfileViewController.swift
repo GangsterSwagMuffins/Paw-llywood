@@ -89,7 +89,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     }
     
     
-    //This code assumes that user is a nice person and doesnt type letters where number belong.
+    //
     func extractData(){
         
         
@@ -210,6 +210,8 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
                     print("finished saving!!!!")
                 }
             }
+            
+            
         
         
         }
