@@ -55,6 +55,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.emptyView.informationTextLabel.textColor = ColorPalette.primary
         self.emptyView.suggestionButton.tintColor = ColorPalette.primary
         self.emptyView.imageDisplayImageView.tintColor = ColorPalette.primary
+        self.headerView.leftButton.tintColor = UIColor.white
+          
         let style = UIStatusBarStyle.lightContent
         self.headerView.titleText.font = UIFont(name: "Pacifico", size: 24)
         
@@ -147,6 +149,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
    
         cell.post = posts[indexPath.row]
+        let fontSize = cell.usernameButton.titleLabel?.font.pointSize
+        
+        cell.usernameButton.titleLabel?.font = UIFont(name: "Pacifico", size: fontSize!)
 
         return cell
     }
@@ -156,6 +161,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     //TODO: See comments nested in the function.
     @IBAction func onCommentButtonTapped(_ sender: UIButton){

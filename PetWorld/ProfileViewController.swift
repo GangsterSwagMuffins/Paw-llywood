@@ -49,6 +49,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         initFromNav()
         updateTopHalf()
         initFollowButton()
+        let fontSize = self.profileView.petNameLabel.font.pointSize
+        
+        self.profileView.petNameLabel.font = UIFont(name: "Pacifico", size: fontSize)
+        
+        
          let storyBoard = UIStoryboard(name: "Main", bundle: nil)
          self.presentViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileViewInfoTabBarController") as! ProfileViewInfoTabBarController
         
