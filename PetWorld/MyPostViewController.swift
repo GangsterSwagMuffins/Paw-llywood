@@ -15,6 +15,7 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     var posts: [Post] = []
     var isLoading: Bool = false
+    var isLoadingComments: Bool = false
     var pet: Pet?
     var cellTappedCallback: ((Post)->())?
     
@@ -50,6 +51,7 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
             print("loadPosts")
 
             loadPosts()
+           
         }
     }
     
@@ -69,6 +71,7 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PublicPostCell", for: indexPath)as! PublicPostCollectionViewCell
         
         cell.post = posts[indexPath.item]
+        cell.post.author = self.pet
         
         return cell
     
@@ -122,6 +125,9 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
             self.posts = posts
             self.isLoading  = false
             self.collectionView.reloadData()
+            for post in posts{
+                self.loadComments(forPost: post)
+            }
         }) { (error: Error) in
             self.isLoading = false
             print(error)
@@ -129,5 +135,18 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         
     }
+    
+    func loadComments(forPost: Post){
+        self.isLoadingComments = true
+        NetworkAPI.getComments(withPost: forPost, populateFields: true, successHandler: { (comments: [Comment]) in
+            
+            forPost.comments = comments
+            self.isLoadingComments = false
+            
+        }) { (error: Error) in
+            print("error occurred loading comments!")
+        }
+    }
+    
 
 }

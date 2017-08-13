@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         Comment.registerSubclass()
         
         
+        
         // Override point for customization after application launch.
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
@@ -90,6 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
             window?.rootViewController = loginViewController
             
         }
+        
         
         
         // */ // UNCOMMENT TO DIRECTLY ACCESS LOGIN/SIGNUP

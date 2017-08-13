@@ -50,6 +50,8 @@ class PostsViewController: UIViewController {
             let galleryVC = viewControllers[0] as! GalleryViewController
             
             galleryVC.finishedCallback = exitedCallback
+            
+            
             }
         }
         

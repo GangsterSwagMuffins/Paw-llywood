@@ -1,4 +1,4 @@
- //
+  //
 //  HomeViewController.swift
 //  PetWorld
 //
@@ -55,6 +55,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.emptyView.informationTextLabel.textColor = ColorPalette.primary
         self.emptyView.suggestionButton.tintColor = ColorPalette.primary
         self.emptyView.imageDisplayImageView.tintColor = ColorPalette.primary
+        let style = UIStatusBarStyle.lightContent
+        
         
         
         
@@ -291,6 +293,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         return nil
     }
+    
+    
     
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ProfileSegue"){

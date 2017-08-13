@@ -159,7 +159,18 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentTableViewCell
-        cell.comment = comments[indexPath.row]
+        
+        
+        
+        let comment = comments[indexPath.row]
+        
+        if let author = self.post?.author{
+            comment.author = author
+        }
+        
+        cell.comment =  comment
+       
+        
         
         return cell
         
