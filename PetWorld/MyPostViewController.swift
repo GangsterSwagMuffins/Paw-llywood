@@ -106,7 +106,7 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
         let screenWidth = screen.size.width
         let screenHeight = screen.size.height
         
-        return CGSize(width: collectionView.bounds.size.width/3 - 1, height: screenHeight / 6)
+        return CGSize(width: collectionView.bounds.size.width/4 - 1, height: screenHeight / 7)
     
     }
     

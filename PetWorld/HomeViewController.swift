@@ -92,6 +92,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         if (!isDetailView){
+            
             self.headerView.leftButton.isHidden = true
             if (!isLoadingPosts){
                 isLoadingPosts = true
@@ -146,6 +147,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //So we don't have to look at old pictures since we are reusing cells.
         if (cell.imageView?.image != nil){
             cell.imageView?.image = nil
+        }
+        
+        if (!isDetailView){
+            cell.followButton.isHidden = true
+        }else{
+            cell.followButton.isHidden = false
         }
    
         cell.post = posts[indexPath.row]
