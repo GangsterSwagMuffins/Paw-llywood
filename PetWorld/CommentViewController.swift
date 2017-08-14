@@ -63,6 +63,11 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         //Create new comment an init member fields
         let newComment = Comment()
         newComment.text = self.commentTextField.text
+        
+        
+        let currentPet = Pet.currentPet()
+        print(currentPet)
+        
         newComment.author = Pet.currentPet()
         
         //Create link (relationship) Comment -> Post
@@ -166,11 +171,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         let comment = comments[indexPath.row]
-        
-        if let author = self.post?.author{
-            comment.author = author
-        }
-        
+       
         cell.comment =  comment
        
         

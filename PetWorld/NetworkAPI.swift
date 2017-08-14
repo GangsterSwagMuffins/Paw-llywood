@@ -262,6 +262,7 @@ class NetworkAPI: NSObject {
         
         let query = PFQuery(className: "Comment")
         query.whereKey("post", equalTo: withPost)
+        query.includeKey("author")
         
         query.order(byDescending: "_created_at")
         query.limit = 20
@@ -277,10 +278,12 @@ class NetworkAPI: NSObject {
                     
                     for comment in comments{
                         print(comment.allKeys)
-                        comment.author = withPost.author
+                        //Not true author can come from many posts
+                    //    comment.author = withPost.author
+                        
                         comment.post = withPost
                        
-                        if let pet = withPost.author{
+                        if let pet = comment.author{
                             if pet.image == nil{
                                 let imageFile: PFFile? = pet["image"] as? PFFile
                                 
