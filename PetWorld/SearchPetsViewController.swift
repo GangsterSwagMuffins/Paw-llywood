@@ -109,14 +109,18 @@ var textField = self.searchBar.value(forKey: "searchField") as? UITextField
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
         print("searching.... \(searchText)")
         self.searchBar.showsCancelButton = true
-        NetworkAPI.searchPets(withName: searchText, successHandler: { (pets: [Pet]) -> (Void) in
-            self.pets = pets
-            self.tableView.reloadData()
-            print("Pets loaded:\n\(pets)")
-            
-        }) { (error: Error) in
-            print("Could not search for the pets!\n\(error)")
+        
+        if (!searchText.isEmpty){
+            NetworkAPI.searchPets(withName: searchText, successHandler: { (pets: [Pet]) -> (Void) in
+                self.pets = pets
+                self.tableView.reloadData()
+                print("Pets loaded:\n\(pets)")
+                
+            }) { (error: Error) in
+                print("Could not search for the pets!\n\(error)")
+            }
         }
+       
         
     }
     
