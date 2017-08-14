@@ -310,6 +310,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     
+    
+    
+    
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ProfileSegue"){
             let profileViewController = segue.destination as! ProfileViewController

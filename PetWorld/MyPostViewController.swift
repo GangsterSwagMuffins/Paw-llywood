@@ -126,6 +126,7 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
             self.isLoading  = false
             self.collectionView.reloadData()
             for post in posts{
+                self.checkIfPostIsLiked(post: post)
                 self.loadComments(forPost: post)
             }
         }) { (error: Error) in
@@ -134,6 +135,37 @@ class MyPostViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
         
         
+    }
+    
+    func checkIfPostIsLiked(post: Post){
+        let objectId = post.objectId
+        // print(self.likedPosts)
+        
+        if let pet = Pet.currentPet(){
+            if let objectId = objectId{
+                if  let queryResult = pet.likedPosts?[objectId]{
+                    post.liked = true
+                }
+                
+            }
+        }
+        
+    }
+    
+    
+    
+    func initLikedPosts(){
+        let pet = Pet.currentPet()
+        //  print(pet)
+        
+        if let pet = Pet.currentPet(){
+            if (pet.likedPosts == nil){
+                pet.likedPosts  = [:]//Duck tape
+            }
+            
+            
+        }
+        // for post in pe
     }
     
     func loadComments(forPost: Post){
