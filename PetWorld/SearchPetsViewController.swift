@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchPetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,  UISearchBarDelegate {
+class SearchPetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,  UISearchBarDelegate, UIScrollViewDelegate {
     
     
     
@@ -21,6 +21,8 @@ class SearchPetsViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var tableView: UITableView!
     
     var pets: [Pet] = []
+    
+    var lastContentOffset: CGPoint = CGPoint(x: 0, y: 0)
     
     var onDismiss: (()->())!
     
@@ -102,6 +104,8 @@ var textField = self.searchBar.value(forKey: "searchField") as? UITextField
     }
     
     
+    
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
         print("searching.... \(searchText)")
         self.searchBar.showsCancelButton = true
@@ -114,6 +118,19 @@ var textField = self.searchBar.value(forKey: "searchField") as? UITextField
             print("Could not search for the pets!\n\(error)")
         }
         
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("scrolling....")
+       let currentOffset: CGPoint = scrollView.contentOffset
+        if (currentOffset.y > self.lastContentOffset.y)
+        {
+            self.searchBar.resignFirstResponder()
+        }else{
+            print("")
+        }
+        
+        self.lastContentOffset = currentOffset;
     }
     
     

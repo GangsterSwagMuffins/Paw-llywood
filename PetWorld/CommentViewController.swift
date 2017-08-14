@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -115,6 +115,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         
+        
 
         // Do any additional setup after loading the view.
     }
@@ -149,6 +150,8 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
+    
+    
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return comments.count
     }
@@ -175,6 +178,8 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
         
     }
+    
+    
       
     func updateComment(comment: Comment){
         
