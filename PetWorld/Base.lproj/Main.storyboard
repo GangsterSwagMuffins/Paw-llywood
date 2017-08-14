@@ -1114,7 +1114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyZ-Sa-iN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1097" y="3468"/>
+            <point key="canvasLocation" x="1020" y="3654"/>
         </scene>
         <!--Pet Name View Controller-->
         <scene sceneID="W1l-fX-DCk">
@@ -1442,7 +1442,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="Qi4-wc-NgI"/>
                                                     </constraints>
                                                     <color key="tintColor" red="1" green="0.15686274509803921" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" image="03832B44-D4A6-45E7-AECF-15DA713008B1"/>
+                                                    <state key="normal" image="5C4016D9-EC8F-4AF9-AB20-B35C7C9F6F35"/>
                                                     <connections>
                                                         <action selector="onLikeButtonTapped:" destination="LaN-Ks-siV" eventType="touchUpInside" id="2k1-dy-X1C"/>
                                                     </connections>
@@ -1532,7 +1532,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="3A05C49D-0AE4-4C00-A352-C3244237973F"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="C80D629A-B097-4C8F-8D36-74E751B08B7B"/>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSB-aI-6GO" customClass="EmptyView" customModule="PetWorld" customModuleProvider="target">
@@ -2096,15 +2096,6 @@
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNK-70-g8G" customClass="HeaderView" customModule="PetWorld" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="46"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwX-P2-gv1">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <segue destination="CXy-Ck-19v" kind="showDetail" identifier="PictureChosenSegue" id="4k2-W2-gtJ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.039215686274509803" green="0.086274509803921567" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2116,6 +2107,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                         <color key="value" red="1" green="0.15686274509803921" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="rightPicture" value="checkmark"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MQA-gm-YFX">
@@ -2145,11 +2137,12 @@
                         <outlet property="chosenPicture" destination="MQA-gm-YFX" id="mkU-6G-zym"/>
                         <outlet property="collectionView" destination="Zr5-Ar-ZYr" id="XYb-JC-Lph"/>
                         <outlet property="topBar" destination="fNK-70-g8G" id="4Ds-Zs-pt9"/>
+                        <segue destination="CXy-Ck-19v" kind="show" identifier="VerifySegue" id="CdK-Nh-HgI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OH7-qx-Clt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-423.19999999999999" y="3769.5652173913045"/>
+            <point key="canvasLocation" x="-58" y="3750"/>
         </scene>
         <!--Search-->
         <scene sceneID="RFi-hQ-wVa">
@@ -2421,7 +2414,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="03832B44-D4A6-45E7-AECF-15DA713008B1" width="256" height="256">
+        <image name="3by3" width="25" height="25"/>
+        <image name="5C4016D9-EC8F-4AF9-AB20-B35C7C9F6F35" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -6862,7 +6856,7 @@ WAAEDl8ABA5nAAQOdAAEDnkABA57AAQOfQAEDoIABA6KAAQOjQAEDpIABA6aAAQOnQAEDq8ABA6yAAQO
 twAAAAAAAAQBAAAAAAAAAD4AAAAAAAAAAAAAAAAABA65A
 </mutableData>
         </image>
-        <image name="3A05C49D-0AE4-4C00-A352-C3244237973F" width="540" height="960">
+        <image name="C80D629A-B097-4C8F-8D36-74E751B08B7B" width="540" height="960">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -41478,13 +41472,13 @@ AB+upAAfrqkAH66xAB+utAAfrsYAH67JAB+uzgAAAAAAAAQBAAAAAAAAAEEAAAAAAAAAAAAAAAAAH67Q
 A
 </mutableData>
         </image>
-        <image name="3by3" width="25" height="25"/>
         <image name="Loading Petworld" width="1242" height="2208"/>
         <image name="Login Background" width="540" height="960"/>
         <image name="Login Pet" width="1242" height="2208"/>
         <image name="Pet Profile Pic Chooser" width="150" height="150"/>
         <image name="bone gray" width="32" height="32"/>
         <image name="cancel" width="512" height="512"/>
+        <image name="checkmark" width="24" height="24"/>
         <image name="circle_plus" width="1600" height="1600"/>
         <image name="comment_icon" width="256" height="256"/>
         <image name="danger.png" width="24" height="24"/>
@@ -41506,9 +41500,9 @@ A
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rcQ-pS-sUj"/>
-        <segue reference="Jto-do-SuL"/>
-        <segue reference="h1A-o7-o6e"/>
+        <segue reference="uMF-ZG-7Sy"/>
+        <segue reference="CdK-Nh-HgI"/>
         <segue reference="4ew-3a-QG0"/>
-        <segue reference="4k2-W2-gtJ"/>
+        <segue reference="h1A-o7-o6e"/>
     </inferredMetricsTieBreakers>
 </document>

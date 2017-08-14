@@ -54,8 +54,22 @@ class HeaderView: UIView {
     @IBInspectable
     var leftPicture: UIImage?{
         didSet{
-            leftButton.setImage(leftPicture, for: UIControlState.normal)
+            
+            if let picture = leftPicture{
+                leftButton.setImage(picture, for: UIControlState.normal)
+            }
+            
           //  leftButton.imageView.image = leftPicture
+        }
+    }
+    
+    @IBInspectable
+    var rightPicture: UIImage?{
+        didSet{
+            if let picture = rightPicture{
+                rightButton.setImage(picture, for: UIControlState.normal)
+            }
+            
         }
     }
     

@@ -34,6 +34,12 @@ class GalleryViewController: UIViewController,UICollectionViewDelegate, UICollec
         self.topBar.titleText.textColor = UIColor.white
         self.topBar.leftButton.tintColor = UIColor.white
         
+        self.topBar.rightButton.tintColor = UIColor.white
+        
+        self.topBar.onRightClickCallBack = {
+            self.performSegue(withIdentifier: "VerifySegue", sender: nil)
+        }
+        
         
         collectionView.dataSource = self
         collectionView.delegate = self
