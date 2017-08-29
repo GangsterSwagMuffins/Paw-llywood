@@ -20,14 +20,19 @@ class EmptyView: UIView {
     @IBInspectable
     var displayImage: UIImage?{
         didSet{
-            imageDisplayImageView.image = displayImage
+            if let imageView = imageDisplayImageView{
+                imageView.image = displayImage
+
+            }
         }
     }
     
     @IBInspectable
     var titleText: String?{
         didSet{
-            titleTextLabel.text = titleText
+            if let label = titleTextLabel{
+                label.text = titleText
+            }
         }
     }
     
@@ -35,7 +40,9 @@ class EmptyView: UIView {
     @IBInspectable
     var informationText: String?{
         didSet{
-            informationTextLabel.text = informationText
+            if let label = informationTextLabel{
+                label.text = informationText
+            }
         }
     
     }
@@ -44,7 +51,9 @@ class EmptyView: UIView {
     @IBInspectable
     var suggestionText: String?{
         didSet{
-            suggestionButton.setTitle(suggestionText, for: UIControlState.normal)
+            if let button = suggestionButton{
+                button.setTitle(suggestionText, for: UIControlState.normal)
+            }
         }
     }
     
@@ -58,6 +67,19 @@ class EmptyView: UIView {
     
     
     @IBOutlet weak var suggestionButton: UIButton!
+    
+    override init(frame: CGRect){
+        super.init(frame: frame)
+        
+        setupView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupView()
+        
+    }
+    
     
     
     

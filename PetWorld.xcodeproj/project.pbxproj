@@ -28,12 +28,20 @@
 		1F5B02111F2FCEF000BFC632 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5B02101F2FCEF000BFC632 /* HomeTabViewController.swift */; };
 		1F5B02131F311F7B00BFC632 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B02121F311F7A00BFC632 /* EmptyView.xib */; };
 		1F5B02151F3121E800BFC632 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5B02141F3121E800BFC632 /* EmptyView.swift */; };
+		1F63A3C61F40DDCD00887BC1 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F63A3C51F40DD9400887BC1 /* Pacifico.ttf */; };
 		1F73AAB01E9C937C00A5C1AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73AAAF1E9C937C00A5C1AD /* AppDelegate.swift */; };
 		1F73AAB51E9C937C00A5C1AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F73AAB31E9C937C00A5C1AD /* Main.storyboard */; };
 		1F73AAB71E9C937C00A5C1AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F73AAB61E9C937C00A5C1AD /* Assets.xcassets */; };
 		1F73AABA1E9C937C00A5C1AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F73AAB81E9C937C00A5C1AD /* LaunchScreen.storyboard */; };
 		1F73AAC51E9C937D00A5C1AD /* PetWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73AAC41E9C937D00A5C1AD /* PetWorldTests.swift */; };
 		1F73AAD01E9C937D00A5C1AD /* PetWorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73AACF1E9C937D00A5C1AD /* PetWorldUITests.swift */; };
+		1F73F9551F324FA5002AA24B /* SearchPetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F9541F324FA5002AA24B /* SearchPetsViewController.swift */; };
+		1F73F9571F3251A2002AA24B /* PetDescriptionCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F9561F3251A2002AA24B /* PetDescriptionCellTableViewCell.swift */; };
+		1F73F9591F327985002AA24B /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F73F9581F327985002AA24B /* SearchView.xib */; };
+		1F73F95B1F327AE7002AA24B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F95A1F327AE7002AA24B /* SearchView.swift */; };
+		1F73F95D1F3373AD002AA24B /* PublicPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F95C1F3373AD002AA24B /* PublicPostCollectionViewCell.swift */; };
+		1F73F95F1F337999002AA24B /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F95E1F337999002AA24B /* MyPostViewController.swift */; };
+		1F73F9611F33B93E002AA24B /* ProfileViewInfoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F9601F33B93E002AA24B /* ProfileViewInfoTabBarController.swift */; };
 		1F7D42551ED93B9E00E4B278 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */; };
 		1F7D42571ED93C3400E4B278 /* PhotoCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */; };
 		1F7D42591ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */; };
@@ -45,6 +53,7 @@
 		1F9CF70C1F0A952D00F0F072 /* DesignableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9CF70B1F0A952C00F0F072 /* DesignableTableView.swift */; };
 		1F9CF70E1F0ACEAE00F0F072 /* ViewDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9CF70D1F0ACEAB00F0F072 /* ViewDesignable.swift */; };
 		1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FEF9F1ECA02D80009CC06 /* Pet.swift */; };
+		1FA451BF1F3BA9D100981FC0 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA451BE1F3BA9D100981FC0 /* ColorPalette.swift */; };
 		1FAD6F341F042E5F006783F7 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD6F331F042E5F006783F7 /* DesignableTextField.swift */; };
 		1FAD6F361F045448006783F7 /* danger.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAD6F351F045448006783F7 /* danger.png */; };
 		1FAD6F381F04B280006783F7 /* BGVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FAD6F371F04B166006783F7 /* BGVideo.mp4 */; };
@@ -106,6 +115,7 @@
 		1F5B02101F2FCEF000BFC632 /* HomeTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		1F5B02121F311F7A00BFC632 /* EmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		1F5B02141F3121E800BFC632 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		1F63A3C51F40DD9400887BC1 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pacifico.ttf; path = ../../Downloads/pacifico/Pacifico.ttf; sourceTree = "<group>"; };
 		1F73AAAC1E9C937C00A5C1AD /* PetWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F73AAAF1E9C937C00A5C1AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F73AAB41E9C937C00A5C1AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -118,6 +128,13 @@
 		1F73AACB1E9C937D00A5C1AD /* PetWorldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetWorldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F73AACF1E9C937D00A5C1AD /* PetWorldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetWorldUITests.swift; sourceTree = "<group>"; };
 		1F73AAD11E9C937D00A5C1AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F73F9541F324FA5002AA24B /* SearchPetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPetsViewController.swift; sourceTree = "<group>"; };
+		1F73F9561F3251A2002AA24B /* PetDescriptionCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetDescriptionCellTableViewCell.swift; sourceTree = "<group>"; };
+		1F73F9581F327985002AA24B /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
+		1F73F95A1F327AE7002AA24B /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		1F73F95C1F3373AD002AA24B /* PublicPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicPostCollectionViewCell.swift; sourceTree = "<group>"; };
+		1F73F95E1F337999002AA24B /* MyPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
+		1F73F9601F33B93E002AA24B /* ProfileViewInfoTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewInfoTabBarController.swift; sourceTree = "<group>"; };
 		1F7D42541ED93B9E00E4B278 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		1F7D42561ED93C3400E4B278 /* PhotoCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureViewController.swift; sourceTree = "<group>"; };
 		1F7D42581ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryItemCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -129,6 +146,7 @@
 		1F9CF70B1F0A952C00F0F072 /* DesignableTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTableView.swift; sourceTree = "<group>"; };
 		1F9CF70D1F0ACEAB00F0F072 /* ViewDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDesignable.swift; sourceTree = "<group>"; };
 		1F9FEF9F1ECA02D80009CC06 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		1FA451BE1F3BA9D100981FC0 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		1FAD6F331F042E5F006783F7 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		1FAD6F351F045448006783F7 /* danger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = danger.png; sourceTree = "<group>"; };
 		1FAD6F371F04B166006783F7 /* BGVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = BGVideo.mp4; sourceTree = "<group>"; };
@@ -238,6 +256,8 @@
 				1F5B020E1F2EAB6800BFC632 /* HeaderView.xib */,
 				1F5B02121F311F7A00BFC632 /* EmptyView.xib */,
 				1F5B02141F3121E800BFC632 /* EmptyView.swift */,
+				1F73F9581F327985002AA24B /* SearchView.xib */,
+				1F73F95A1F327AE7002AA24B /* SearchView.swift */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -269,6 +289,7 @@
 		1F73AAAE1E9C937C00A5C1AD /* PetWorld */ = {
 			isa = PBXGroup;
 			children = (
+				1FA451BD1F3BA9B700981FC0 /* Color */,
 				1F59EBED1F1EF19100A2CBE2 /* Network */,
 				1F73AAAF1E9C937C00A5C1AD /* AppDelegate.swift */,
 				1FAD6F3E1F057777006783F7 /* Storyboards */,
@@ -327,6 +348,8 @@
 				5EC637401ED413B7003D67F3 /* PetsTableViewCell.swift */,
 				1F59EBE81F1D300400A2CBE2 /* EditProfileView.swift */,
 				1F83D4601F254DE4000CF412 /* CommentTableViewCell.swift */,
+				1F73F9561F3251A2002AA24B /* PetDescriptionCellTableViewCell.swift */,
+				1F73F95C1F3373AD002AA24B /* PublicPostCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -343,9 +366,18 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		1FA451BD1F3BA9B700981FC0 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				1FA451BE1F3BA9D100981FC0 /* ColorPalette.swift */,
+			);
+			name = Color;
+			sourceTree = "<group>";
+		};
 		1FAD6F3D1F057757006783F7 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				1F63A3C51F40DD9400887BC1 /* Pacifico.ttf */,
 				1FAD6F3B1F05773A006783F7 /* HollywoodHills.ttf */,
 				1FAD6F391F0571B7006783F7 /* WildernessTypeface-Regular.ttf */,
 			);
@@ -368,6 +400,7 @@
 				33751ECD1ED95BAB00E60E34 /* MyFriendsViewController.swift */,
 				33751ECF1ED95BB800E60E34 /* AddFriendViewController.swift */,
 				33751ED31ED96B3A00E60E34 /* FriendTableViewCell.swift */,
+				1F73F9541F324FA5002AA24B /* SearchPetsViewController.swift */,
 			);
 			name = "Friends View Controllers";
 			sourceTree = "<group>";
@@ -375,10 +408,12 @@
 		33751ED51EDA07E000E60E34 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				1F73F95E1F337999002AA24B /* MyPostViewController.swift */,
 				5E1D58431ED91B970055C09D /* ProfilePictureEditorViewController.swift */,
 				1F232B9A1F15BEE9002367AD /* ProfileViewController.swift */,
 				1F34C1081F1AEDFA00EEF564 /* AboutMeTableViewController.swift */,
 				1F59EBE61F1D2FBE00A2CBE2 /* EditProfileViewController.swift */,
+				1F73F9601F33B93E002AA24B /* ProfileViewInfoTabBarController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -525,10 +560,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F63A3C61F40DDCD00887BC1 /* Pacifico.ttf in Resources */,
 				1F5B02131F311F7B00BFC632 /* EmptyView.xib in Resources */,
 				1FAD6F3C1F05773A006783F7 /* HollywoodHills.ttf in Resources */,
 				1F5B020F1F2EAB6800BFC632 /* HeaderView.xib in Resources */,
 				1FAD6F3A1F0571B7006783F7 /* WildernessTypeface-Regular.ttf in Resources */,
+				1F73F9591F327985002AA24B /* SearchView.xib in Resources */,
 				1F73AABA1E9C937C00A5C1AD /* LaunchScreen.storyboard in Resources */,
 				5E81BC0A1EDA333A002F8915 /* dog.jpg in Resources */,
 				1F73AAB71E9C937C00A5C1AD /* Assets.xcassets in Resources */,
@@ -629,6 +666,7 @@
 				33751ED01ED95BB800E60E34 /* AddFriendViewController.swift in Sources */,
 				1F9CF70E1F0ACEAE00F0F072 /* ViewDesignable.swift in Sources */,
 				1F15C53A1E9EFFC3005B828B /* ProfileView.swift in Sources */,
+				1F73F95D1F3373AD002AA24B /* PublicPostCollectionViewCell.swift in Sources */,
 				1F7D42591ED93CAD00E4B278 /* GalleryItemCellCollectionViewCell.swift in Sources */,
 				1FAD6F401F057A9A006783F7 /* DesignableImageView.swift in Sources */,
 				1F5B020D1F2EAB2500BFC632 /* HeaderView.swift in Sources */,
@@ -636,11 +674,16 @@
 				1F9FEFA01ECA02D80009CC06 /* Pet.swift in Sources */,
 				1FAD6F341F042E5F006783F7 /* DesignableTextField.swift in Sources */,
 				1F83D4611F254DE4000CF412 /* CommentTableViewCell.swift in Sources */,
+				1F73F95B1F327AE7002AA24B /* SearchView.swift in Sources */,
+				1F73F9571F3251A2002AA24B /* PetDescriptionCellTableViewCell.swift in Sources */,
+				1F73F9551F324FA5002AA24B /* SearchPetsViewController.swift in Sources */,
 				1F43B13E1F102A26001D9CC1 /* TransitionToNormalViewController.swift in Sources */,
 				1F232B9B1F15BEE9002367AD /* ProfileViewController.swift in Sources */,
 				1F5B02111F2FCEF000BFC632 /* HomeTabViewController.swift in Sources */,
+				1FA451BF1F3BA9D100981FC0 /* ColorPalette.swift in Sources */,
 				1F9CF70C1F0A952D00F0F072 /* DesignableTableView.swift in Sources */,
 				1F59EBE71F1D2FBE00A2CBE2 /* EditProfileViewController.swift in Sources */,
+				1F73F9611F33B93E002AA24B /* ProfileViewInfoTabBarController.swift in Sources */,
 				33AB426E1ECBB015007B7BB4 /* PostTableViewCell.swift in Sources */,
 				1F15C5361E9C9813005B828B /* HomeViewController.swift in Sources */,
 				1F9CF7081F08233D00F0F072 /* DesignableButton.swift in Sources */,
@@ -653,6 +696,7 @@
 				5E1D58441ED91B970055C09D /* ProfilePictureEditorViewController.swift in Sources */,
 				1F15C5381E9C98F0005B828B /* SettingsViewController.swift in Sources */,
 				1F59EBEC1F1EF14C00A2CBE2 /* NetworkAPI.swift in Sources */,
+				1F73F95F1F337999002AA24B /* MyPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,9 @@ class HomeTabViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        self.tabBar.unselectedItemTintColor = UIColor.gray
+        self.tabBar.tintColor = ColorPalette.primary
+        self.tabBar.barTintColor = UIColor.white
         
 //        if let viewControllers = self.viewControllers{
 //            for viewController in viewControllers{
@@ -43,6 +46,14 @@ class HomeTabViewController: UITabBarController, UITabBarControllerDelegate {
             self.performSegue(withIdentifier: "PostMediaTabSegue", sender: nil)
             
             return false
+        }
+        
+        if viewController is SearchPetsViewController{
+            let viewController = viewController as! SearchPetsViewController
+            viewController.onDismiss = {
+                print("dismiss called!")
+                self.selectedViewController = self.viewControllers?[0]
+            }
         }
         
         return true

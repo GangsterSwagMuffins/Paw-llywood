@@ -19,10 +19,27 @@ class HeaderView: UIView {
     
     @IBOutlet var backgroundView: UIView!
     
+    @IBOutlet weak var rightButton: UIButton!
+    
+    
     
     var onClickCallBack: ((Void)->Void)?
     
+    var onRightClickCallBack: ((Void)->Void)?
     
+    
+    
+    @IBInspectable
+    var color: UIColor?{
+        didSet{
+            if let color = color{
+                 self.backgroundView.backgroundColor = color
+            }
+            
+            
+           
+        }
+    }
     
     @IBInspectable
     var title: String?{
@@ -37,8 +54,22 @@ class HeaderView: UIView {
     @IBInspectable
     var leftPicture: UIImage?{
         didSet{
-            leftButton.setImage(leftPicture, for: UIControlState.normal)
+            
+            if let picture = leftPicture{
+                leftButton.setImage(picture, for: UIControlState.normal)
+            }
+            
           //  leftButton.imageView.image = leftPicture
+        }
+    }
+    
+    @IBInspectable
+    var rightPicture: UIImage?{
+        didSet{
+            if let picture = rightPicture{
+                rightButton.setImage(picture, for: UIControlState.normal)
+            }
+            
         }
     }
     
@@ -61,12 +92,25 @@ class HeaderView: UIView {
         
     }
     
+    @IBAction func onTappedRightButton(_ sender: Any) {
+        
+        onRightClickCallBack?()
+        
+    }
     
     func setupView(){
-        UINib(nibName: "HeaderView", bundle: Bundle(for: type(of: self))).instantiate(withOwner: self, options: nil)
-        addSubview(backgroundView)
-        backgroundView.frame = self.bounds
+        let nib = UINib(nibName: "HeaderView", bundle: nil)
+        
+        nib.instantiate(withOwner: self, options: nil)
+    
+        self.backgroundView.frame = bounds
+        self.backgroundColor = ColorPalette.primary
+        self.titleText.tintColor = UIColor.white
+        addSubview(self.backgroundView)
     }
+    
+    
+    
     
 
 }

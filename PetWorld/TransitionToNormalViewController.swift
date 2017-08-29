@@ -52,21 +52,31 @@ class TransitionToNormalViewController: UIViewController {
     }
     
     @IBAction func onTappedStart(_ sender: Any) {
-        performSegue(withIdentifier: "HomeSegue", sender: nil)
         //Now update the user since we have made the pet object.
         let currentUser = User.current()!
       
-        pet?["name"] = pet?.name
-        pet?["image"] = NetworkAPI.getPhotoFile(photo: pet?.image)
-        pet?["owner"] = currentUser
+        
+        NetworkAPI.createNewPet(withPet: pet!) { (success: Bool, error: Error?) in
+            if (success){
+               print("Create a new pet succesfully")
+            }else{
+                if let error = error{
+                   print("Something went wrong...\n\n \(error))")
+                }
+            }
+            
+            self.performSegue(withIdentifier: "HomeSegue", sender: nil)
+            
+        }
+        
+        
+        
+    
+        
         
 
         Pet.add(newPet: pet!)
         
-       pet?.saveInBackground()
-        
-        currentUser.saveInBackground()
-     
 
     }
 

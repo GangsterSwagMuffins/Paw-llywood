@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,6 +31,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         print("comment start")
        // self.resignFirstResponder()
        // print(self.keyboardHeight)
+        
        
         
     }
@@ -62,6 +63,11 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         //Create new comment an init member fields
         let newComment = Comment()
         newComment.text = self.commentTextField.text
+        
+        
+        let currentPet = Pet.currentPet()
+        print(currentPet)
+        
         newComment.author = Pet.currentPet()
         
         //Create link (relationship) Comment -> Post
@@ -114,6 +120,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         
+        
 
         // Do any additional setup after loading the view.
     }
@@ -148,6 +155,8 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
+    
+    
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return comments.count
     }
@@ -158,15 +167,21 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentTableViewCell
-        cell.comment = comments[indexPath.row]
+        
+        
+        
+        let comment = comments[indexPath.row]
+       
+        cell.comment =  comment
+       
+        
         
         return cell
         
     }
     
     
-    
-    
+      
     func updateComment(comment: Comment){
         
         NetworkAPI.postComment(comment: comment) { (success: Bool, error: Error?) in
@@ -182,7 +197,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
-    
 }
 
 private extension Selector{

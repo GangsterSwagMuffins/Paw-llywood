@@ -1,4 +1,4 @@
-//
+  //
 //  HomeViewController.swift
 //  PetWorld
 //
@@ -8,12 +8,13 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
 import AVFoundation
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-  
+
     var posts: [Post] = []
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
@@ -22,7 +23,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var isLoadingPosts: Bool = false
     var commentViewController: CommentViewController?
     var likedPosts: [String: Post] = [:]
+    var isDetailView: Bool = false
     
+    @IBOutlet weak var headerView: HeaderView!
+    @IBOutlet weak var emptyView: EmptyView!
     
     
     
@@ -44,14 +48,39 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
          initTableView()
         initLikedPosts()
+        self.headerView.backgroundView.backgroundColor = ColorPalette.primary
+        self.headerView.backgroundColor = ColorPalette.primary
+        self.headerView.titleText.textColor = UIColor.white
+        self.emptyView.titleTextLabel.textColor = ColorPalette.primary
+        self.emptyView.informationTextLabel.textColor = ColorPalette.primary
+        self.emptyView.suggestionButton.tintColor = ColorPalette.primary
+        self.emptyView.imageDisplayImageView.tintColor = ColorPalette.primary
+        self.headerView.leftButton.tintColor = UIColor.white
+          
+        let style = UIStatusBarStyle.lightContent
+        self.headerView.titleText.font = UIFont(name: "Pacifico", size: 24)
+        
+        
+        
+        
+        
+        
+        self.headerView.onClickCallBack = {
+            self.dismiss(animated: true, completion: { 
+                print("dismissed home view controller")
+            })
+        }
 
         
+        if (!isDetailView){
+            if (!isLoadingPosts){
+                isLoadingPosts = true
+                loadPosts()
+            }
         
-        
-        if (!isLoadingPosts){
-            isLoadingPosts = true
-            loadPosts()
         }
+        
+        
         
         
  
@@ -62,16 +91,41 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewWillAppear(true)
         
         
-        if (!isLoadingPosts){
-            isLoadingPosts = true
-            loadPosts()
+        if (!isDetailView){
+            
+            self.headerView.leftButton.isHidden = true
+            if (!isLoadingPosts){
+                isLoadingPosts = true
+                loadPosts()
+            }
+        
+        }else{
+            self.tableView.isHidden = false
+            self.headerView.leftButton.isHidden = false
+            self.emptyView.isHidden = true
+        
         }
-       
-        self.tableView.reloadData()
+        
+            
+        
+        if (!self.tableView.isHidden){
+            
+            
+            self.tableView.reloadData()
+
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewDidAppear(animated)
+        
+        
+        
+        
+        self.headerView.tintColorDidChange()
+        
+        
+        print("\n\n\n\n\n\n\n______________\nHeaderView color: \n\n\n\n\n\n\n\n\(headerView.tintColor.cgColor.colorSpace)\n\n\n\n\n\n\n\n_________________")
         
     }
     
@@ -94,8 +148,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if (cell.imageView?.image != nil){
             cell.imageView?.image = nil
         }
+        
+        if (!isDetailView){
+            cell.followButton.isHidden = true
+        }else{
+            cell.followButton.isHidden = false
+        }
    
         cell.post = posts[indexPath.row]
+        let fontSize = cell.usernameButton.titleLabel?.font.pointSize
+        
+        cell.usernameButton.titleLabel?.font = UIFont(name: "Pacifico", size: fontSize!)
 
         return cell
     }
@@ -106,6 +169,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
+    
     //TODO: See comments nested in the function.
     @IBAction func onCommentButtonTapped(_ sender: UIButton){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -114,7 +178,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = sender.superview?.superview as! PostTableViewCell
         commentViewController.post = cell.post
         print(cell.post)
-        commentViewController.comments = cell.post.comments!
+        if let comments = cell.post.comments{
+            commentViewController.comments = comments
+        }else{
+        print("Could not find comments!")
+        }
+       // commentViewController.comments = cell.post.comments!
         print(cell.post.comments)
         
         
@@ -126,31 +195,53 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
    
     func loadPosts(){
         
-        NetworkAPI.getPosts(numPosts: 20, successHandler: { (posts: [Post]) in
-            //Finished loading pets
-            self.isLoadingPosts = false
-            //Update the GUI
-            self.posts = posts
+       
+       
+        if let pet = Pet.currentPet(){
+            //Start loading
+            MBProgressHUD.showAdded(to: self.view, animated: true)
             
-            for post in posts{
-                self.checkIfPostIsLiked(post: post)
-            }
-            
-            self.tableView.reloadData()
-            
-            if (!self.isLoadingComments){
-                self.isLoadingComments = true
+            NetworkAPI.getHomeFeed(numPosts: 20, forPet: pet,   successHandler: { (posts: [Post]) in
+                //Finished loading pets
+                self.isLoadingPosts = false
+                MBProgressHUD.hide(for: self.view, animated: true)
+                //Update the GUI
+                self.posts = posts
+                print("_____\n\n\nfinished loading!!!\n\n\n________")
                 for post in posts{
-                    self.loadComments(forPost: post)
+                self.checkIfPostIsLiked(post: post)
                 }
+                
+                if posts.count <= 0 {
+                self.tableView.isHidden = true
+                    self.emptyView.isHidden = false
+                }else{
+                self.tableView.isHidden = false
+                    self.emptyView.isHidden = true
+                }
+                
+                self.tableView.reloadData()
+                
+                if (!self.isLoadingComments){
+                for post in posts{
+                self.loadComments(forPost: post)
+                }
+                }
+                
+            }) { (error: Error) in
+                MBProgressHUD.hide(for: self.view, animated: true)
+                print(error)
             }
-            
-            
-        }, errorHandler: nil)
         
+        }
+        
+       
     }
     
+      
+    
     func loadComments(forPost: Post){
+        self.isLoadingComments = true
         NetworkAPI.getComments(withPost: forPost, populateFields: true, successHandler: { (comments: [Comment]) in
             
             forPost.comments = comments
@@ -160,6 +251,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             print("error occurred loading comments!")
         }
     }
+    
+    
     
     func initTableView(){
         //Set up autolayout
@@ -175,14 +268,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func checkIfPostIsLiked(post: Post){
         let objectId = post.objectId
-        let pet = Pet.currentPet()
        // print(self.likedPosts)
-        if let objectId = objectId{
-            if  let queryResult = pet.likedPosts?[objectId]{
-                post.liked = true
+        
+        if let pet = Pet.currentPet(){
+            if let objectId = objectId{
+                if  let queryResult = pet.likedPosts?[objectId]{
+                    post.liked = true
+                }
+                
             }
-            
-            }
+        }
+        
         }
         
     
@@ -190,12 +286,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func initLikedPosts(){
         let pet = Pet.currentPet()
       //  print(pet)
-        if (pet.likedPosts == nil){
-            pet.likedPosts  = [:]//Duck tape
+        
+        if let pet = Pet.currentPet(){
+            if (pet.likedPosts == nil){
+                pet.likedPosts  = [:]//Duck tape
+            }
+            
+        
         }
-        
-       
-        
        // for post in pe
     }
     
@@ -209,6 +307,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         return nil
     }
+    
+    
+    
+    
+    
     
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ProfileSegue"){

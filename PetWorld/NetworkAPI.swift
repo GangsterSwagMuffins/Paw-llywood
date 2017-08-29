@@ -10,15 +10,7 @@ import UIKit
 import Parse
 
 
-
-
-
-
-
 class NetworkAPI: NSObject {
-    
-    
-    
     
     
     class func loadPicture(imageFile: PFFile, successBlock: ((UIImage)->Void)? ) ->UIImage?{
@@ -27,9 +19,18 @@ class NetworkAPI: NSObject {
             if let error = error{
                 print("error: \(error)")
             }else{
+                
+                let queue = OperationQueue()
+               
                 if let imageData = imageData{
-                    picture = UIImage(data: imageData)
-                    successBlock!(picture!)
+                    queue.addOperation {
+                        picture = UIImage(data: imageData)
+                        OperationQueue.main.addOperation {
+                           successBlock!(picture!)
+                        }
+                        
+                    }
+                    
                 }
             }
             
@@ -96,7 +97,8 @@ class NetworkAPI: NSObject {
             })
         }
     }
-
+    
+    
     
     class func getPhotoFile(photo: UIImage?) -> PFFile? {
         if let photo = photo {
@@ -109,11 +111,13 @@ class NetworkAPI: NSObject {
         return nil
     }
     
+    
     class func postUserImage(photo: UIImage, caption: String?, success: PFBooleanResultBlock?) {
         let post = Post()
         
         post.media = getPhotoFile(photo: photo)
-        post.author = Pet.currentPet() // Pointer column type that points to PFUser
+       // post.author = Pet.currentPet() // Pointer column type that points to PFUser
+        post["author"] = Pet.currentPet()
         post.caption = caption
         post.likes = 0
         post.likedBy = [:]
@@ -127,13 +131,19 @@ class NetworkAPI: NSObject {
     }
     
     
-    class func getPosts(numPosts: Int, forPet: Pet,  successHandler: @escaping ([Post])->(),  errorHandler: ((Error)->())?){
+    class func getHomeFeed(numPosts: Int, forPet: Pet,  successHandler: @escaping ([Post])->(),  errorHandler: ((Error)->())?){
         // Query
         let query = PFQuery(className: "Post")
-        query.whereKey("following", containedIn: Array(forPet.following!))
-        query.includeKey(forPet.name!)
+     print(forPet)
+        let following = Array(forPet.following!.values)
+        let array = Array(forPet.following!.values)
+        
+        print(array)
+        query.whereKey("author", containedIn: following)
+        query.includeKey("author")
         query.order(byDescending: "_created_at")
         //Populate the pet data field.
+        
     
         
         query.limit = numPosts
@@ -148,12 +158,17 @@ class NetworkAPI: NSObject {
             }else{
                 if let postObjects = postObjects { //Successfully grabbed posts objects
                     let posts: [Post] = postObjects as! [Post]
+                    if (postObjects.count <= 0){
+                        successHandler(posts)
+                        return
+                    }
                     
                     for post in posts{
                         let pet = post["author"] as! Pet
                         print("post__________\n\(post)\n_____________________")
-                        //print(pet)
+                        print(pet)
                         post.author = pet
+                        
                         let petImage = pet["image"]
                         
                         
@@ -180,10 +195,7 @@ class NetworkAPI: NSObject {
     }
     
     
-    class func getHomeFeed(numPosts: Int, successHandler: @escaping(([Post]) -> ()), errorHandler:  ((Error) -> ())?){
-        getPosts(numPosts: numPosts, forPet: Pet.currentPet(), successHandler: successHandler, errorHandler: errorHandler)
-     
-    }
+   
     
     class func loadOwner(userObject: PFObject, completionHandler: @escaping ()->(), errorHandler: (()->())?){
         var user = userObject as! User
@@ -249,8 +261,8 @@ class NetworkAPI: NSObject {
     class func getComments(withPost: Post, populateFields: Bool, successHandler: @escaping([Comment])->(),  errorHandler: @escaping(Error)->() ){
         
         let query = PFQuery(className: "Comment")
-            query.includeKeys(["author"])
         query.whereKey("post", equalTo: withPost)
+        query.includeKey("author")
         
         query.order(byDescending: "_created_at")
         query.limit = 20
@@ -266,9 +278,10 @@ class NetworkAPI: NSObject {
                     
                     for comment in comments{
                         print(comment.allKeys)
-                        //Every time a comment is loaded update screen
-                        let post = comment.post
+                        //Not true author can come from many posts
+                    //    comment.author = withPost.author
                         
+                        comment.post = withPost
                        
                         if let pet = comment.author{
                             if pet.image == nil{
@@ -435,7 +448,156 @@ class NetworkAPI: NSObject {
     }
     
     
+    class func createNewPet(withPet: Pet, completionHandler: @escaping PFBooleanResultBlock){
+        //TODO: Need to fix this really stupid.
+        withPet["image"] = NetworkAPI.getPhotoFile(photo: withPet.image)
+        //Mini constructor code
+        withPet.following = [:]
+        withPet.followers = [:]
+        withPet.likedPosts = [:]
+        withPet.followingCount = 0
+        withPet.followersCount = 0
+        withPet.owner = User.current()
+        
+        withPet.saveInBackground(block: completionHandler)
+        
     }
+
+    
+    
+    
+    
+    
+    class func searchPets(withName: String, successHandler: @escaping ([Pet]) -> (Void),  errorHandler: @escaping ((Error)->Void)){
+        let query = PFQuery(className: "Pet")
+        query.whereKey("name", contains: withName)
+        query.includeKey("owner")
+        
+        query.findObjectsInBackground { (petObjects: [PFObject]?, error: Error?) in
+            if let error = error{
+                errorHandler(error)
+            }else{
+                if let petObjects = petObjects{
+                    let pets = petObjects as! [Pet]
+                    
+                    for pet in pets{
+                        loadPicture(imageFile: pet["image"] as! PFFile, successBlock: { (image: UIImage) in
+                            pet.image = image
+                            successHandler(pets)
+                        })
+                    
+                    }
+                    successHandler(pets)
+                }
+            
+            }
+        }
+    }
+    
+    class func getPublicPosts(numPosts: Int, successHandler: @escaping(([Post]) -> Void), errorHandler:((Error) -> Void)?){
+        // Query
+        let query = PFQuery(className: "Post")
+        query.includeKey("author")
+        query.order(byDescending: "_created_at")
+        //Populate the pet data field.
+       
+        query.limit = numPosts
+        
+        query.findObjectsInBackground { (postObjects: [PFObject]?, error: Error?) in
+            if let error = error{
+                print(error)
+                if let errorHandler = errorHandler{
+                    errorHandler(error)
+                }
+            }else{
+                if let postObjects = postObjects { //Successfully grabbed posts objects
+                    let posts: [Post] = postObjects as! [Post]
+                    if (postObjects.count <= 0){
+                        successHandler(posts)
+                        return
+                    }
+                    
+                    for post in posts{
+                        
+                        print(post)
+                        print(post.author)
+                        
+                        print(post["author"])
+                        
+                        let pet = post["author"] as! Pet
+                        print("post__________\n\(post)\n_____________________")
+                        print(pet)
+                        post.author = pet
+                        
+                        let petImage = pet["image"]
+                        
+                        
+                        if let petImage = petImage{
+                            NetworkAPI.loadPicture(imageFile: petImage as! PFFile, successBlock: { (image: UIImage) in
+                                pet.image = image
+                                successHandler(posts)
+                            })
+                        }
+                        
+                        
+                        if let owner = pet.owner{
+                            loadOwner(userObject: owner, completionHandler: {
+                                pet.owner = owner
+                            }, errorHandler: nil)
+                        }
+                    }
+                    
+                    
+                }
+            }
+            
+        }
+    
+    }
+    
+    
+    class func getMyPosts(numPosts: Int, successHandler: @escaping([Post]) -> Void, errorHandler: @escaping(Error) -> Void ){
+        getPosts(numPosts: numPosts, forPet: Pet.currentPet()!, successHandler: successHandler, errorHandler: errorHandler)
+    
+    }
+    
+    class func getPosts(numPosts: Int, forPet: Pet, successHandler: @escaping([Post]) -> Void, errorHandler: @escaping(Error) -> Void){
+        
+        let query = PFQuery(className: "Post")
+        query.includeKey("author")
+        query.whereKey("author", equalTo: forPet)
+        
+        query.limit = numPosts
+        
+        query.findObjectsInBackground { (postObjects: [PFObject]?, error: Error?) in
+            if let postObjects = postObjects{
+                let posts = postObjects as! [Post]
+                for post in posts{
+                    loadPicture(imageFile: post.author!["image"] as! PFFile, successBlock: { (image :UIImage) in
+                        post.author?.image = image
+                        
+                        loadPicture(imageFile: post.media!, successBlock: { (image: UIImage) in
+                            post.image = image
+                            
+                            successHandler(posts)
+
+                        })
+                        
+                        
+                    })
+                    
+                    
+                }
+                
+                successHandler(posts)
+                
+            }
+        }
+        
+    }
+    
+  
+}
     
 
     

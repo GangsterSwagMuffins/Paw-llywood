@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class EditProfileViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProfileViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var profileImageView: DesignableImageView!
     
@@ -25,6 +25,8 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     
     @IBOutlet weak var bioTextView: DesignableTextField!
     
+   
+    
     var newBreed: String?
     var newSpecies: String?
     var newAge: NSNumber?
@@ -39,9 +41,25 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         initPetInfo()
+        self.breedTextView.delegate = self
+        self.speciesTextView.delegate = self
+        self.ageTextView.delegate = self
+        self.weightTextView.delegate = self
+        self.heightTextView.delegate  = self
+        self.bioTextView.delegate = self
+        
         self.tableView.allowsSelection = false
+        let tap = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
         
         
+        
+        
+    }
+    
+    func dismissKeyboard(){
+        print("dismiss keyboard")
+        self.view.endEditing(true)
     }
     
     
@@ -75,6 +93,8 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         
         
     }
+    
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
         let originalImage = info[UIImagePickerControllerOriginalImage]
         as! UIImage
@@ -88,8 +108,10 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     
     }
     
+   
     
-    //This code assumes that user is a nice person and doesnt type letters where number belong.
+    
+    //
     func extractData(){
         
         
@@ -154,33 +176,35 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     
     
    private func initPetInfo(){
-        let pet = Pet.currentPet()
-    
-    if let image = pet.image{
-        profileImageView.image = pet.image
-    }
-    
-
+    if let pet = Pet.currentPet(){
+        if let image = pet.image{
+            profileImageView.image = pet.image
+        }
+        
+        
         breedTextView.text = pet.breed
         
         speciesTextView.text = pet.species
+        
+        if let age = pet.age{
+            ageTextView.text = "\(age)"
+        }
+        
+        if let weight = pet.weight{
+            weightTextView.text = "\(weight)"
+        }
+        
+        if let height = pet.height{
+            heightTextView.text = "\(height)"
+        }
+        
+        if let longBio = pet.longBio{
+            bioTextView.text = "\(longBio)"
+        }
+        
+        
     
-    if let age = pet.age{
-        ageTextView.text = "\(age)"
     }
-    
-    if let weight = pet.weight{
-        weightTextView.text = "\(weight)"
-    }
-    
-    if let height = pet.height{
-        heightTextView.text = "\(height)"
-    }
-    
-    if let longBio = pet.longBio{
-        bioTextView.text = "\(longBio)"
-    }
-    
     
 
         
@@ -188,26 +212,37 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     
     }
     
+     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     func saveData(){
-        let pet = Pet.currentPet()
-        
-        pet.breed = newBreed
-        pet.species = newSpecies
-        pet.age = newAge
-        pet.weight = newWeight
-        pet.height = newHeight
-        pet.longBio = newBio
-        pet.image = newImage
-        pet["image"] = NetworkAPI.getPhotoFile(photo: newImage)
-        
-       // print(pet)
-        pet.saveInBackground { (bool: Bool, error: Error?) in
-            if let error = error{
-                print("error: \(error.localizedDescription)")
-            }else{
-                print("finished saving!!!!")
+        if let pet = Pet.currentPet(){
+            
+            pet.breed = newBreed
+            pet.species = newSpecies
+            pet.age = newAge
+            pet.weight = newWeight
+            pet.height = newHeight
+            pet.longBio = newBio
+            pet.image = newImage
+            pet["image"] = NetworkAPI.getPhotoFile(photo: newImage)
+            
+            // print(pet)
+            pet.saveInBackground { (bool: Bool, error: Error?) in
+                if let error = error{
+                    print("error: \(error.localizedDescription)")
+                }else{
+                    print("finished saving!!!!")
+                }
             }
+            
+            
+        
+        
         }
+    
     
     }
     

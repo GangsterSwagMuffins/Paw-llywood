@@ -1,3 +1,4 @@
+
 //
 //  ProfileView.swift
 //  PetWorld
@@ -23,12 +24,14 @@ class ProfileView: UIView {
         }
     }
     
+    @IBOutlet weak var followButton: UIButton!
     
     
     
     
     @IBOutlet weak var containerView: UIView!
     
+   
     
     @IBOutlet weak var profilePictureImageView: UIImageView!
     
@@ -54,8 +57,50 @@ class ProfileView: UIView {
     */
     
     
+   
+    
+    
+    
+    
+    @IBAction func onFollowTapped(_ sender: Any) {
+        let isFollowing = self.followButton.isSelected
+        
+        let currentPet = Pet.currentPet()!
+        
+        
+        
+        if isFollowing == true{
+            
+            self.followButton.isSelected = false
+
+            NetworkAPI.unfollow(follower: currentPet, followee: pet, completionHandler: {
+                print("Successful unfollow!")
+            }, errorHandler: { (error: Error) in
+                print("Problem unfollowing!!!")
+            })
+        
+        }else{
+            self.followButton.isSelected = true
+            
+            NetworkAPI.follow(follower: currentPet, followee: pet, completionHandler: {
+                print("Successful follow.")
+            }, errorHandler: { (error: Error) in
+                print("Unsuccessful follow.")
+            })
+            
+        }
+       
+        
+        
+        
+    }
+    
+    
+    
+    
     
     func updateUI(pet: Pet){
+      //  initFollowButton()
         updatePetUI(pet: pet)
         updateUserUI()
         
@@ -204,6 +249,9 @@ class ProfileView: UIView {
             ownerLabel.text = "\(ownerText) \(username)"
         }
     }
+    //Normal = "Follow" string
+    //Selected = "Unfollow" string
+    
     
 
 }

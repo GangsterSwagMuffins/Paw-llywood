@@ -12,6 +12,8 @@ import Parse
 class AboutMeTableViewController: UITableViewController {
     
     
+  static  let TAG: String = "AboutMeTableViewController"
+    
     var pet: Pet?
     
     @IBOutlet weak var breedLabel: UILabel!
@@ -45,6 +47,15 @@ class AboutMeTableViewController: UITableViewController {
         
         self.tableView.allowsSelection = false
         
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        print("\(AboutMeTableViewController.TAG) viewWillAppear()")
+        if let pet = self.pet{
+            updateUI(pet: pet)
+        }
     }
     
         
@@ -96,12 +107,15 @@ class AboutMeTableViewController: UITableViewController {
         if let breed = pet.breed{
             self.breedLabel.text = breed
         }
+        
+        self.breedLabel.textColor = ColorPalette.primary
     }
     
     func updateAgeLabel(pet: Pet){
         if let age = pet.age{
             self.ageLabel.text  = "\(age)"
         }
+        self.ageLabel.textColor = ColorPalette.primary
     }
     
     
@@ -109,6 +123,7 @@ class AboutMeTableViewController: UITableViewController {
         if let bio = pet.longBio{
             self.bioLabel.text = bio
         }
+        self.bioLabel.textColor = ColorPalette.primary
     }
     
     func updateWeightLabel(pet: Pet){
@@ -119,6 +134,7 @@ class AboutMeTableViewController: UITableViewController {
                 self.weightLabel.text =  "\(weightDecimal) lbs"
             }
         }
+        self.weightLabel.textColor = ColorPalette.primary
     }
     
     func updateHeightLabel(pet: Pet){
@@ -128,6 +144,8 @@ class AboutMeTableViewController: UITableViewController {
                     self.heightLabel.text = "\(heightDecimal) inches"
                 }
             }
+        
+        self.heightLabel.textColor = ColorPalette.primary
         }
     
 
@@ -135,12 +153,14 @@ class AboutMeTableViewController: UITableViewController {
         if let species = pet.species{
             self.speciesLabel.text = species
         }
+        self.speciesLabel.textColor = ColorPalette.primary
     }
     
     func updateHobbyLabel(pet: Pet){
         if let hobby = pet.hobby{
            self.hobbyLabel.text = hobby
         }
+        self.hobbyLabel.textColor = ColorPalette.primary
     }
 
     

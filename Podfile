@@ -7,5 +7,6 @@ target 'PetWorld' do
 
   # Pods for PetApp
   pod 'Parse'
+  pod 'MBProgressHUD'
 
 end

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11761" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchView" customModule="PetWorld" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundView" destination="iN0-l3-epB" id="uLB-pJ-ndb"/>
+                <outlet property="searchBar" destination="Tvf-rA-kB9" id="AXN-hh-9ux"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Tvf-rA-kB9">
+                    <rect key="frame" x="16" y="16" width="343" height="44"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Tvf-rA-kB9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="qDP-xE-QAw"/>
+                <constraint firstAttribute="trailing" secondItem="Tvf-rA-kB9" secondAttribute="trailing" constant="16" id="qyh-Go-Rxj"/>
+                <constraint firstItem="Tvf-rA-kB9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="ykV-v5-gja"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="69.5" y="-224.5"/>
+        </view>
+    </objects>
+</document>
