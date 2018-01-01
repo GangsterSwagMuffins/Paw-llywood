@@ -18,9 +18,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    var player: AVPlayer!
-    var playerLayer: AVPlayerLayer!
-    
+   weak var player: AVPlayer!
+   weak var playerLayer: AVPlayerLayer!
     
     @IBAction func onLoginTap(_ sender: UIButton) {
         
@@ -71,8 +70,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onSignUp(_ sender: Any) {
         //If user presses the sign up button then go to the sign up screen
         //Probably uncessesary
-      self.performSegue(withIdentifier: "SignUpSegue", sender: nil)
+        removeVideo()
+    //when
         
+        self.navigationController?.popViewController(animated: true)
+        
+        self.performSegue(withIdentifier: "SignUpSegue", sender: nil)
+        
+        
+        
+    }
+    
+    
+    func removeVideo(){
+        
+        if (self.player != nil){ // Just in case user presses button too fast
+            self.player.pause()
+            self.playerLayer.removeFromSuperlayer()
+            self.playerLayer = nil
+            self.player = nil
+        }
+       
     }
     
     
@@ -88,6 +106,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
         /*The following is code to set up the background video*/
+        initVideo()
+        
+        
+        
+        
+    }
+    
+    func initVideo(){
         
         //Find the video in the project folder
         let URL = Bundle.main.url(forResource: "BGVideo", withExtension: "mp4")
@@ -115,10 +141,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         //Create a callback for the event that the video stops so it replays again
         NotificationCenter.default.addObserver(self, selector: #selector(playerItemReachEnd(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentItem)
-        
-        
-        
-        
     }
     
     func playerItemReachEnd(notification: NSNotification){

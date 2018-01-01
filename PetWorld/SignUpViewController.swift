@@ -35,6 +35,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         errorDisplay.isHidden = true
         
+        initVideo()
+    }
+    
+    func initVideo(){
         /*The following is code to set up the background video*/
         
         //Find the video in the project folder
@@ -85,9 +89,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onCancel(_ sender: Any) {
+        
+        removeVideo()
+        self.navigationController?.popViewController(animated: true)
         self.performSegue(withIdentifier: "cancelSignUp", sender: nil)
 
     }
+    
+    
+    
+    
     @IBAction func onCreateAccTap(_ sender: UIButton) {
         errorDisplay.isHidden = true
         
@@ -136,12 +147,27 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             } else {
                 print("Successfully signed up!")
                 // Hooray! Let them use the app now.
+                
+                
                 self.performSegue(withIdentifier: "TutorialSegue", sender: nil)
                 
             }
         }
         
     }
+    
+    
+    func removeVideo(){
+        
+        if (self.player != nil){ // Just in case user presses button too fast
+            self.player.pause()
+            self.playerLayer.removeFromSuperlayer()
+            self.playerLayer = nil
+            self.player = nil
+        }
+        
+    }
+    
     
     
     
