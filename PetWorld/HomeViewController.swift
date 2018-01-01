@@ -24,6 +24,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var commentViewController: CommentViewController?
     var likedPosts: [String: Post] = [:]
     var isDetailView: Bool = false
+    var refreshControl: UIRefreshControl!
     
     @IBOutlet weak var headerView: HeaderView!
     @IBOutlet weak var emptyView: EmptyView!
@@ -46,6 +47,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshControl = UIRefreshControl()
+        
+        self.tableView.addSubview(refreshControl)
+        self.refreshControl.addTarget(self, action: #selector(refreshData), for: UIControlEvents.valueChanged)
          initTableView()
         initLikedPosts()
         self.headerView.backgroundView.backgroundColor = ColorPalette.primary
@@ -192,19 +197,27 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    
+    func refreshData(){
+        //Start the loading...
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        loadPosts()
+
+        
+    }
+    
    
     func loadPosts(){
         
        
        
         if let pet = Pet.currentPet(){
-            //Start loading
-            MBProgressHUD.showAdded(to: self.view, animated: true)
             
             NetworkAPI.getHomeFeed(numPosts: 20, forPet: pet,   successHandler: { (posts: [Post]) in
                 //Finished loading pets
                 self.isLoadingPosts = false
                 MBProgressHUD.hide(for: self.view, animated: true)
+                self.refreshControl.endRefreshing()
                 //Update the GUI
                 self.posts = posts
                 print("_____\n\n\nfinished loading!!!\n\n\n________")
@@ -230,6 +243,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
             }) { (error: Error) in
                 MBProgressHUD.hide(for: self.view, animated: true)
+                self.refreshControl.endRefreshing()
                 print(error)
             }
         
