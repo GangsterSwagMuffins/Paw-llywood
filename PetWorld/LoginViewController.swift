@@ -41,11 +41,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     if (pets.count > 0){
                         //Save all the pets here!
                         Pet.pets = pets
+                        //Perform segue
+                        print("You are logged in!!!")
+                        self.performSegue(withIdentifier: "HomeSegue", sender: nil)
+                    }else {
+                        //Send user to screen to create pets (User probably exited app during sign up.)
                     }
                 })
                 
-                print("You are logged in!!!")
-                self.performSegue(withIdentifier: "HomeSegue", sender: nil)
             }else if let error = error{
                 let pfError = error as! NSError
                 

@@ -80,7 +80,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if (!isDetailView){
             if (!isLoadingPosts){
                 isLoadingPosts = true
-                loadPosts()
+                refreshData()
             }
         
         }
